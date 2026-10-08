@@ -35,6 +35,21 @@ python -m backend.pipeline.run_all --retrain  # retrain and overwrite backend/mo
 
 If the saved models fail to load, your scikit-learn version differs from the pinned one; run with `--retrain`.
 
+## Sign-in for writes
+
+Reading, previews and questions are open. Saving a verdict, a kept answer or a source document needs a
+signed-in investigator; the server checks every write, so requests sent straight to the API are refused
+too, and the signed-in name is what gets recorded. Investigators live only in the git-ignored `.env`
+(a signing key and PBKDF2 passcode hashes), never in the frontend:
+
+```
+python -m backend.app.auth add "Investigator Name"   # prompts for a passcode (12+ characters); restart the API
+python -m backend.app.auth rotate-secret             # new signing key: signs out every session; restart the API
+```
+
+With no investigator configured every write is refused. Sessions last 8 hours; 5 wrong passcodes lock
+that name for 5 minutes.
+
 ## Connect a free LLM (optional, recommended for the demo)
 
 Copy `.env.example` to `.env`, fill in one option, and restart the API. Any OpenAI-compatible

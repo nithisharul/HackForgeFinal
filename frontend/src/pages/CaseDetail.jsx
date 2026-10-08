@@ -99,7 +99,8 @@ function CopilotPlaybook({ text }) {
 }
 
 import { useEffect, useState } from 'react'
-import { api } from '../api/client.js'
+import { api, getSession } from '../api/client.js'
+import SignIn from '../components/SignIn.jsx'
 import { Loading, Status, Tier, money, pct, words } from '../components/bits.jsx'
 import Network from './Network.jsx'
 
@@ -260,8 +261,12 @@ function Verdict({ c, onDone }) {
   const [error, setError] = useState(null)
   const [saved, setSaved] = useState(null)
   const [busy, setBusy] = useState(false)
-  const body = { verdict, reasoning, investigator }
-  const ready = reasoning.trim().length >= 10 && investigator.trim().length >= 2
+  const [, setAuthTick] = useState(0)
+  const session = getSession()
+  // Approval is recorded under the signed-in investigator, so the name follows the session once there is one.
+  const name = session ? session.investigator : investigator
+  const body = { verdict, reasoning, investigator: name }
+  const ready = reasoning.trim().length >= 10 && name.trim().length >= 2
 
   if (c.status !== 'open' && !saved) {
     return (
@@ -296,7 +301,7 @@ function Verdict({ c, onDone }) {
           placeholder="What did the records show?" />
       </label>
       <label className="field">Investigator name
-        <input value={investigator} onChange={(e) => setInvestigator(e.target.value)} />
+        <input value={name} readOnly={!!session} onChange={(e) => setInvestigator(e.target.value)} />
       </label>
       {error && <p className="notice error" role="alert">{error}</p>}
       {!preview && <button className="btn" disabled={!ready || busy} onClick={() => run(api.previewVerdict, setPreview)}>{busy ? 'Preparing preview…' : 'Preview Second Brain changes'}</button>}
@@ -316,7 +321,8 @@ function Verdict({ c, onDone }) {
               <pre>{ch.added.slice(0, 5).map((l) => '+ ' + l).join('\n')}</pre>
             </div>
           ))}
-          <button className="btn primary" disabled={busy} onClick={() => run((id, b) => api.submitVerdict(id, { ...b, lesson: preview.lesson || '' }), setSaved)}>{busy ? 'Saving…' : 'Approve and save'}</button>
+          <SignIn name={investigator} onChange={() => setAuthTick((n) => n + 1)} />
+          <button className="btn primary" disabled={busy || !session} onClick={() => run((id, b) => api.submitVerdict(id, { ...b, lesson: preview.lesson || '' }), setSaved)}>{busy ? 'Saving…' : 'Approve and save'}</button>
           <button className="btn" onClick={() => setPreview(null)}>Edit</button>
         </div>
       )}

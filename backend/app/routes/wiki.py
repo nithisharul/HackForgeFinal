@@ -1,11 +1,11 @@
 from typing import Optional
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
 from backend.brain import llm, wiki
 
-from .. import store
+from .. import auth, store
 
 router = APIRouter(tags=["second brain"])
 GROUPS = ("patterns", "networks", "sources", "notes", "providers", "cases")
@@ -18,13 +18,13 @@ class Question(BaseModel):
 class Note(BaseModel):
     question: str = Field(min_length=5, max_length=500)
     answer: str = Field(min_length=10)
-    approved_by: str = Field(min_length=2)
+    approved_by: str = Field("", description="Ignored: the signed-in investigator is recorded")
 
 
 class Source(BaseModel):
     title: str = Field(min_length=3, max_length=120)
     text: str = Field(min_length=40, max_length=40000)
-    approved_by: str = Field("", description="Required when saving")
+    approved_by: str = Field("", description="Ignored when saving: the signed-in investigator is recorded")
     proposal: Optional[dict] = Field(None, description="The proposal returned by the preview, sent back unchanged or edited")
 
 
@@ -60,9 +60,9 @@ def ask(q: Question):
 
 
 @router.post("/wiki/notes")
-def file_note(n: Note):
-    """Keep an answer as a page so later questions can build on it."""
-    return wiki.file_note(n.question.strip(), n.answer, n.approved_by.strip(), store.PROV_INFO)
+def file_note(n: Note, who: str = Depends(auth.require_investigator)):
+    """Keep an answer as a page so later questions can build on it. Needs a signed-in investigator."""
+    return wiki.file_note(n.question.strip(), n.answer, who, store.PROV_INFO)
 
 
 @router.post("/wiki/sources/preview")
@@ -72,10 +72,8 @@ def preview_source(s: Source):
 
 
 @router.post("/wiki/sources")
-def add_source(s: Source):
-    """Ingest, step 2: a named human approves; the raw file, summary page and linked pages are saved."""
-    if len(s.approved_by.strip()) < 2:
-        raise HTTPException(422, "approved_by is required to save")
+def add_source(s: Source, who: str = Depends(auth.require_investigator)):
+    """Ingest, step 2: a signed-in investigator approves; the raw file, summary page and linked pages are saved."""
     proposal = s.proposal
     if proposal is not None:
         ok = isinstance(proposal.get("summary"), str) and isinstance(proposal.get("key_points"), list) \
@@ -85,4 +83,4 @@ def add_source(s: Source):
         proposal.setdefault("pattern_notes", [])
         if proposal.get("new_pattern") is not None and not isinstance(proposal["new_pattern"], dict):
             raise HTTPException(422, "new_pattern must be an object or null")
-    return wiki.ingest_source(s.title.strip(), s.text, s.approved_by.strip(), store.PROV_INFO, proposal=proposal)
+    return wiki.ingest_source(s.title.strip(), s.text, who, store.PROV_INFO, proposal=proposal)

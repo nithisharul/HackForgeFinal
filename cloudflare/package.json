@@ -1,0 +1,13 @@
+{
+  "name": "claimshield-nexus-cloudflare",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "npm --prefix ../frontend run build && wrangler deploy",
+    "dev": "wrangler dev",
+    "go-live": "node go-live.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.148.0"
+  }
+}

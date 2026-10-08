@@ -36,6 +36,14 @@ python -m backend.pipeline.run_all --region in [--retrain]   # the India region 
 
 If the saved models fail to load, your scikit-learn version differs from the pinned one; run with `--retrain`.
 
+## Deploy (Cloudflare, free plan)
+
+`cloudflare/` holds a Worker that serves the React build and forwards `/api/*` to the API on the host
+machine through a Cloudflare quick tunnel. `cd cloudflare && npm install && npm run deploy` publishes the
+site; with the API running on port 8000, `npm run go-live` opens the tunnel (keep it running). Some
+campus and office networks block Cloudflare tunnels. `cloudflare/Dockerfile` builds the API image for
+Cloudflare Containers (Workers Paid plan) or any Docker host.
+
 ## Connect a free LLM (optional, recommended for the demo)
 
 Copy `.env.example` to `.env`, fill in one option, and restart the API. Any OpenAI-compatible

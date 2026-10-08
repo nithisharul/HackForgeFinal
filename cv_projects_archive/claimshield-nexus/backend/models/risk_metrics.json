@@ -1,0 +1,27 @@
+{
+  "training_snapshots": [
+    "2026-01-01",
+    "2026-02-01",
+    "2026-03-01",
+    "2026-04-01",
+    "2026-05-01",
+    "2026-06-01",
+    "2026-07-01"
+  ],
+  "training_rows": 2100,
+  "30d": {
+    "positives": 76,
+    "auc_cv": 0.893,
+    "avg_precision_cv": 0.66
+  },
+  "60d": {
+    "positives": 103,
+    "auc_cv": 0.883,
+    "avg_precision_cv": 0.705
+  },
+  "90d": {
+    "positives": 119,
+    "auc_cv": 0.876,
+    "avg_precision_cv": 0.708
+  }
+}

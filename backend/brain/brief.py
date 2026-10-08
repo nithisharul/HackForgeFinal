@@ -20,6 +20,77 @@ PATTERN_WORDS = {
     "impossible_timing": "impossible timing between facilities", "unbundling": "unbundling of component codes",
     "collusive_ring": "a coordinated referral network", "excessive_utilization": "utilization far above peers",
 }
+# US investigation playbooks (ported from Nithi_Base "action recommendation"). Fixed text per pattern: no model writes
+# or checks it, and the references are pointers for the investigator to verify, not legal advice.
+PLAYBOOK_SOURCE = "Rule-based template: fixed steps for this pattern, not generated from this case's records"
+PLAYBOOKS = {
+    "impossible_timing": {
+        "directive": "Verify physical presence: the provider billed in-person care at facilities too far apart for the time between claims.",
+        "steps": [
+            ("Facility access logs", "Request badge-access logs and EHR workstation login times at both facilities for the flagged dates."),
+            ("Place of service", "Check whether one of the claims was telehealth (POS 02/10) billed as an office visit (POS 11)."),
+            ("Records request", "Send an Additional Documentation Request for the flagged claims covering {members} members and {exposure}."),
+        ],
+        "references": "CMS Program Integrity Manual (Pub. 100-08), Ch. 3",
+    },
+    "unbundling": {
+        "directive": "Component codes were billed with the comprehensive code that already includes them (NCCI procedure-to-procedure edit).",
+        "steps": [
+            ("Edit pairs", "Check each flagged column-1/column-2 code pair against the NCCI PTP edit table for the date of service."),
+            ("Modifiers", "Where modifier 59 or XE/XP/XS/XU was used, confirm the record documents a separate service."),
+            ("Recovery", "If unsupported, quantify the overpayment on the flagged lines ({exposure}) and consider a prepayment edit."),
+        ],
+        "references": "CMS NCCI Policy Manual, Ch. 1; Social Security Act §1862(a)(1)(A)",
+    },
+    "upcoding": {
+        "directive": "Level-5 office visits make up 35% or more of this provider's visits in flagged months, well above peers.",
+        "steps": [
+            ("Chart sample", "Request a sample of level-5 encounter notes and score medical decision making against the billed level."),
+            ("Time documentation", "Where the level rests on time, confirm at least 40 minutes of total time on the date of service (99215, 2021+ E/M guidelines)."),
+            ("Peer comparison", "Compare the visit-level mix with same-specialty peers across the {members} affected members."),
+        ],
+        "references": "AMA CPT office E/M guidelines (2021 revision); CMS Program Integrity Manual (Pub. 100-08), Ch. 3",
+    },
+    "duplicate_billing": {
+        "directive": "The same member, code and amount were billed again within 3 days without a correction indicator.",
+        "steps": [
+            ("Resubmission or new visit", "Check whether each repeat is an uncorrected resubmission or a separately documented encounter."),
+            ("Payment check", "Reconcile remittance (835) records to confirm whether both claims were paid."),
+            ("Recovery", "Where no separate encounter is documented, recover the duplicate payments (up to {exposure})."),
+        ],
+        "references": "CMS Medicare Claims Processing Manual (Pub. 100-04), Ch. 1 §120",
+    },
+    "collusive_ring": {
+        "directive": "Providers sharing owners, members and referrals form a closed network; check that referrals are independent and necessary.",
+        "steps": [
+            ("Ownership", "Obtain ownership and operating agreements linking the providers, labs and clinics in the network."),
+            ("Referral necessity", "Review orders for the shared members to confirm each referral had its own clinical reason."),
+            ("Self-referral and kickbacks", "Assess the referral loop across {members} shared members for self-referral or kickback exposure."),
+        ],
+        "references": "42 U.S.C. §1395nn (physician self-referral); 42 U.S.C. §1320a-7b(b) (anti-kickback)",
+    },
+    "excessive_utilization": {
+        "directive": "Services per member are far above same-specialty peers; check whether the patient mix explains it.",
+        "steps": [
+            ("Case mix", "Check whether the panel is a documented high-acuity or tertiary-referral population."),
+            ("Plans of care", "Review orders and plans of care for the frequency and duration of billed services."),
+            ("Precedent", "Compare with closed Second Brain cases to see whether similar volume was cleared as legitimate specialisation."),
+        ],
+        "references": "CMS Program Integrity Manual (Pub. 100-08), Ch. 3",
+    },
+}
+
+
+def playbook(case):
+    """The fixed US playbook for the case's pattern, or None (India uses the field audit checklist)."""
+    p = PLAYBOOKS.get(case["pattern"]) if region.current().code == "us" else None
+    if not p:
+        return None
+    fill = {"members": case["member_impact"], "exposure": money(case["potential_dollars"])}
+    return {"source": PLAYBOOK_SOURCE, "directive": p["directive"], "references": p["references"],
+            "steps": [{"title": t, "detail": d.format(**fill)} for t, d in p["steps"]]}
+
+
 ACTIONS = {
     "high": "Fast-track to the SIU. Open a case, request records for the flagged claims, and have an investigator confirm before any action is taken against the provider.",
     "medium": "Assign to an investigator. Review the sample claims and the precedents below, then confirm, correct or clear.",
@@ -202,10 +273,13 @@ def build(case, ctx, conf, horizon=90):
         "prediction": {"horizon_days": horizon, "probability": case["prediction"][f"p{horizon}"], **case["prediction"]},
         "confidence": conf,
         "precedents": ctx["precedents"],
+        "revoked_precedents": ctx.get("revoked_precedents", []),
         "policy": ctx["policy"],
         "pages_read": ctx["pages_read"],
         "limitations": limitations,
         "recommended_action": (ACTIONS_IN if india else ACTIONS)[conf["tier"]],
+        "recommended_action_source": "Rule-based: fixed text for the confidence tier",
+        "investigation_playbook": playbook(case),
         "grounding": ground(text_for_check, case, ctx) | ({"llm_rejected": True, "llm_unverified": llm_check["unverified"]}
                                                            if llm_check and not llm_check["passed"] else {}),
     }

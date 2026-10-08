@@ -3,7 +3,22 @@
 No vector search. Retrieval follows the wiki's own links, so every item returned
 is a page a human can open and read.
 """
+import contextvars
+from contextlib import contextmanager
+
 from . import wiki
+
+# Precedents left out of retrieval for a what-if ("rank the queue as if this verdict were revoked").
+_EXCLUDED = contextvars.ContextVar("excluded_precedents", default=frozenset())
+
+
+@contextmanager
+def excluding(ids):
+    token = _EXCLUDED.set(frozenset(ids) | _EXCLUDED.get())
+    try:
+        yield
+    finally:
+        _EXCLUDED.reset(token)
 
 
 def similarity(case, prec):
@@ -25,20 +40,34 @@ def similarity(case, prec):
     return min(score, 1.0), why
 
 
-def precedents(case, k=3):
+def _matching(case, metas):
+    """Closed cases that can serve as precedent for this one: same pattern or same provider."""
+    for p in metas:
+        if p["id"] != case["case_id"] and (p["pattern"] == case["pattern"] or p["provider"] == case["provider_id"]):
+            yield p
+
+
+def precedents(case, k=3, exclude=(), metas=None):
     out = []
-    for p in wiki.case_metas():
-        if p["id"] == case["case_id"]:
+    skip = set(exclude) | _EXCLUDED.get()
+    for p in _matching(case, wiki.case_metas() if metas is None else metas):
+        if p.get("revoked") or p["id"] in skip:
             continue
         s, why = similarity(case, p)
-        if p["pattern"] != case["pattern"] and p["provider"] != case["provider_id"]:
-            continue
         out.append({"case_id": p["id"], "provider_id": p["provider"], "specialty": p.get("specialty", ""),
                     "pattern": p["pattern"], "verdict": p["verdict"], "closed": p.get("closed", ""),
                     "source": p.get("source", ""), "network": p.get("network", ""),
+                    "evidence": [e for e in p["evidence"].split("|") if e] if "evidence" in p else None,
                     "similarity": round(s, 2), "why": why, "reasoning": wiki.reasoning_of(p)})
     out.sort(key=lambda p: (p["similarity"], p["source"] == "live", p["closed"]), reverse=True)
     return out[:k]
+
+
+def revoked(case, metas=None):
+    """Matching verdicts an investigator withdrew as precedent. Listed for the audit trail; they carry no weight."""
+    return [{"case_id": p["id"], "verdict": p["verdict"], "closed": p.get("closed", ""), "revoked": p["revoked"],
+             "revoked_by": p.get("revoked_by", ""), "reason": p.get("revoke_reason", "")}
+            for p in _matching(case, wiki.case_metas() if metas is None else metas) if p.get("revoked")]
 
 
 def query(case):
@@ -46,7 +75,8 @@ def query(case):
     meta, body = wiki.read(case["pattern"])
     trail.append(case["pattern"])
     pat = wiki.patterns()[case["pattern"]]
-    precs = precedents(case)
+    metas = wiki.case_metas()
+    precs = precedents(case, metas=metas)
     trail += [p["case_id"] for p in precs]
     net = (case.get("network") or {}).get("cluster_id")
     if net and wiki.read(net)[0]:
@@ -61,6 +91,7 @@ def query(case):
                    "path": wiki.policy_path(pat["policy"]), "public_basis": pat["public_basis"],
                    "note": "Synthetic policy written for this prototype"},
         "precedents": precs,
+        "revoked_precedents": revoked(case, metas),
         "provider_has_history": bool(pmeta),
         "pages_read": trail,
     }

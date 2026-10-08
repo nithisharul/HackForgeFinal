@@ -104,6 +104,26 @@ def queue(horizon=90, investigators=3):
     return {"summary": summary, "cases": rows}
 
 
+def influence(prec_id, horizon=90):
+    """Reversible influence: every open case whose score this precedent moves, and what it would be without it."""
+    out = []
+    for c in data().CASES.values():
+        precs = retrieve.precedents(c)
+        if c["case_id"] == prec_id or status_of(c["case_id"]) != "open" or prec_id not in {p["case_id"] for p in precs}:
+            continue
+        now, without = confidence.score(c, precs), confidence.score(c, retrieve.precedents(c, exclude={prec_id}))
+        out.append({"case_id": c["case_id"], "provider_id": c["provider_id"], "score": now["score"], "tier": now["tier"],
+                    "score_without": without["score"], "tier_without": without["tier"],
+                    "tier_changed": now["tier"] != without["tier"]})
+    if out:  # queue positions with and without the precedent (scores are live, so this is the revocation's effect)
+        rank = {r["case_id"]: r["rank"] for r in queue(horizon)["cases"]}
+        with retrieve.excluding({prec_id}):
+            rank_without = {r["case_id"]: r["rank"] for r in queue(horizon)["cases"]}
+        for r in out:
+            r |= {"rank": rank[r["case_id"]], "rank_without": rank_without[r["case_id"]]}
+    return sorted(out, key=lambda r: (not r["tier_changed"], -abs(r["score"] - r["score_without"])))
+
+
 def detail(case_id, horizon=90):
     case = data().CASES[case_id]
     ctx, conf, extra = enrich(case, horizon)

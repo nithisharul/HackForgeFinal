@@ -21,7 +21,7 @@ import re
 
 from backend import region
 
-from . import llm
+from . import confidence, llm
 
 LINK = re.compile(r"\[\[([^\]|#]+)")
 TOKEN = re.compile(r"\bC\d{6}\b|\bP\d{3}\b|\bINV\d{3}\b|\$[\d,]+(?:\.\d+)?|₹[\d,]+(?:\.\d+)?")
@@ -309,7 +309,8 @@ def grounded(text, allowed_text):
 # -------------------------------------------------------- page generators ---
 def _case_line(c, link_provider=True):
     who = f"[[{c['provider']}]] ({c.get('specialty', '')})" if link_provider else f"[[{c['pattern']}]]"
-    return f"- [[{c['id']}]] | {who} | **{c['verdict']}** | closed {c['closed']}"
+    revoked = f" | revoked as precedent {c['revoked']}" if c.get("revoked") else ""
+    return f"- [[{c['id']}]] | {who} | **{c['verdict']}** | closed {c['closed']}{revoked}"
 
 
 def _auto(name, lines):
@@ -320,9 +321,11 @@ def pattern_page(pid, cases, sources):
     p = patterns()[pid]
     mine = [c for c in cases if c["pattern"] == pid]
     n = {v: sum(c["verdict"] == v for c in mine) for v in ("confirmed", "cleared", "inconclusive")}
+    # a revoked verdict stays listed under Cases but no longer teaches anything
     learned = [f"- {reasoning_of(c)} (learned from [[{c['id']}]])" for c in mine
-               if c["verdict"] == "cleared" and c.get("source") == "live" and reasoning_of(c)]
-    lessons = [f"- {section(c['_body'], 'Lesson')} (from [[{c['id']}]], {c['verdict']})" for c in mine if section(c["_body"], "Lesson")]
+               if c["verdict"] == "cleared" and c.get("source") == "live" and reasoning_of(c) and not c.get("revoked")]
+    lessons = [f"- {section(c['_body'], 'Lesson')} (from [[{c['id']}]], {c['verdict']})" for c in mine
+               if section(c["_body"], "Lesson") and not c.get("revoked")]
     notes = []
     for s in sources:
         for line in section(s["_body"], "What this changes").splitlines():
@@ -342,7 +345,8 @@ def pattern_page(pid, cases, sources):
     body += "\n## Lessons from closed cases\n" + _auto("lessons", lessons)
     body += "\n## Notes from sources\n" + _auto("notes", notes)
     body += ("\n## Precedent summary\n" + _auto("summary", [
-        f"{len(mine)} closed cases: {n['confirmed']} confirmed, {n['cleared']} cleared, {n['inconclusive']} inconclusive."]))
+        f"{len(mine)} closed cases: {n['confirmed']} confirmed, {n['cleared']} cleared, {n['inconclusive']} inconclusive."
+        + (f" {sum(bool(c.get('revoked')) for c in mine)} revoked as precedent." if any(c.get("revoked") for c in mine) else "")]))
     body += "\n## Cases\n" + _auto("cases", [_case_line(c) for c in mine])
     meta = {"type": "pattern", "id": pid, "title": p["title"], "policy": p.get("policy") or "none"}
     if p.get("learned"):
@@ -409,7 +413,8 @@ def index_page(cases, sources, notes, nets):
     lines += ["", "## Notes"] + [f"- [[{n['id']}]] | {n.get('title', '')}" for n in notes]
     prov = sorted({c["provider"] for c in cases} | {p for c in nets.values() for p in c["providers"]})
     lines += ["", "## Hospitals" if region.current().code == "in" else "## Providers"] + [f"- [[{p}]]" for p in prov]
-    lines += ["", "## Cases"] + [f"- [[{c['id']}]] | {c['pattern']} | {c['verdict']} | {c['closed']}" for c in cases]
+    lines += ["", "## Cases"] + [f"- [[{c['id']}]] | {c['pattern']} | {c['verdict']} | {c['closed']}"
+                                 + (f" | revoked {c['revoked']}" if c.get("revoked") else "") for c in cases]
     return "\n".join(lines) + "\n"
 
 
@@ -519,12 +524,23 @@ def ingest(case, verdict, reasoning, investigator, info, pattern=None, lesson=No
     meta = {"type": "case", "id": case["case_id"], "provider": case["provider_id"], "specialty": case["specialty"],
             "pattern": pattern, "verdict": verdict, "closed": str(dt.date.today()),
             "exposure": case["potential_dollars"], "source": "live", "investigator": investigator,
-            "network": (case.get("network") or {}).get("cluster_id", "")}
+            "network": (case.get("network") or {}).get("cluster_id", ""),
+            "evidence": "|".join(sorted(confidence.evidence_keys(case)))}
     text = case_page(meta, reasoning, [e["text"] for e in case["evidence"]], lesson)
     changes = _apply({_wiki() / "cases" / f"{meta['id']}.md": text}, info, dry_run,
                      ("ingest", f"{meta['id']} {verdict}",
                       f"Approved by {investigator}. Pattern [[{pattern}]], provider [[{meta['provider']}]]."))
     return {"changes": changes, "lesson": lesson, "lesson_by": "llm" if lesson else "none"}
+
+
+def revoke(case_id, reason, investigator, info):
+    """Withdraw a verdict as precedent. The page stays for the audit trail; retrieval skips it from now on."""
+    meta, body = read(case_id)
+    meta |= {"revoked": str(dt.date.today()), "revoked_by": investigator, "revoke_reason": " ".join(reason.split())}
+    body = body.rstrip("\n") + (f"\n\n## Revoked as precedent\n{meta['revoked']} by {investigator}: {meta['revoke_reason']}\n"
+                                "The verdict stands for this case; it no longer moves the score of any other case.\n")
+    return _apply({_wiki() / "cases" / f"{case_id}.md": render(meta, body)}, info, False,
+                  ("revoke", f"{case_id} revoked", f"By {investigator}: {meta['revoke_reason']}"))
 
 
 # ------------------------------------------------------ ingest: documents ---

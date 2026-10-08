@@ -17,6 +17,8 @@ models and Second Brain; a case or page from one region is a 404 in the other.
 | GET | `/cases/{case_id}/brief` | The investigation brief only |
 | POST | `/cases/{case_id}/verdict/preview` | Show which Second Brain pages would change; writes nothing |
 | POST | `/cases/{case_id}/verdict` | Save the investigator's verdict to the Second Brain |
+| GET | `/precedents/{case_id}/influence` | PrecedentGuard: open cases this closed verdict moves, with score, tier and rank with and without it |
+| POST | `/precedents/{case_id}/revoke` | `{reason}` -> withdraw a verdict as precedent; the page and log keep the record |
 | GET | `/graph/{provider_id}` | Nodes and links around one provider |
 | GET | `/graph/{provider_id}/ringshield` | Read-only robustness analysis for the provider's detected network |
 | GET | `/wiki` | List of Second Brain pages by type |
@@ -27,7 +29,7 @@ models and Second Brain; a case or page from one region is a 404 in the other.
 | POST | `/wiki/sources/preview` | `{title, text}` -> proposed summary, pattern notes and page changes; writes nothing |
 | POST | `/wiki/sources` | `{title, text, approved_by, proposal}` -> save the document and update pages |
 
-The three writes (`POST /cases/{id}/verdict`, `/wiki/notes`, `/wiki/sources`) need
+The four writes (`POST /cases/{id}/verdict`, `/precedents/{id}/revoke`, `/wiki/notes`, `/wiki/sources`) need
 `Authorization: Bearer <token>` and record the signed-in investigator; without it they answer 401
 (503 when no investigator is configured). Previews, `/wiki/ask` and every GET stay open.
 
@@ -51,5 +53,9 @@ p_horizon, expected_dollars, status (open|confirmed|cleared|inconclusive), rank,
 
 - `risk_score` = 0.35 rules + 0.20 anomaly + 0.20 network + 0.05 BiRank + 0.20 predicted risk at the chosen horizon
 - `confidence` = evidence strength + precedent adjustment; high >= 0.70, medium >= 0.35, otherwise low
+- PrecedentGuard: contradicting confirmed/cleared verdicts (same pattern, same provider or network) are set aside;
+  the +0.25 network bonus needs shared evidence; a precedent's pull halves every 730 days; revoked verdicts are
+  never retrieved. `confidence.precedent_effects` explains each one as accepted, reduced or rejected, and
+  `brief.revoked_precedents` lists matching revoked verdicts.
 - `priority` = 0.30 risk + 0.20 dollars + 0.10 members + 0.15 severity + 0.25 confidence
 - `in_capacity` = open, not low tier, and within investigators x 5 cases

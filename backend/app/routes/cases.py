@@ -56,6 +56,36 @@ def post_verdict(case_id: str, v: Verdict, region: Code = "us", who: str = Depen
     with use(region):
         return {"case_id": case_id, "written": True, **_write(case_id, v, dry_run=False), "status": store.status_of(case_id)}
 
+class Revoke(BaseModel):
+    reason: str = Field(min_length=10, max_length=1000, description="Why this verdict should no longer guide other cases")
+
+
+def _closed(case_id):
+    meta, _ = wiki.read(case_id)
+    if not meta or meta.get("type") != "case":
+        raise HTTPException(404, f"No closed case {case_id} in the Second Brain")
+    return meta
+
+
+@router.get("/precedents/{case_id}/influence")
+def precedent_influence(case_id: str, region: Code = "us"):
+    """Which open cases this verdict is currently moving, and where they would sit without it."""
+    with use(region):
+        meta = _closed(case_id)
+        return {"case_id": case_id, "revoked": meta.get("revoked", ""), "affected": store.influence(case_id)}
+
+
+@router.post("/precedents/{case_id}/revoke")
+def revoke_precedent(case_id: str, r: Revoke, region: Code = "us", who: str = Depends(auth.require_investigator)):
+    """Withdraw a verdict as precedent. Scores are computed live, so every downstream effect is undone at once."""
+    with use(region):
+        if _closed(case_id).get("revoked"):
+            raise HTTPException(409, f"{case_id} is already revoked")
+        affected = store.influence(case_id)
+        changes = wiki.revoke(case_id, r.reason, who, store.data().PROV_INFO)
+        return {"case_id": case_id, "revoked_by": who, "changes": changes, "restored": affected}
+
+
 @router.get("/cases/{case_id}/fhir")
 def export_fhir(case_id: str, region: Code = "us"):
     with use(region):

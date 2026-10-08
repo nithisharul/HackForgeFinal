@@ -13,8 +13,9 @@ const ROUTE_TEXT = { ...TIER_TEXT, confirmed: 'Confirmed', cleared: 'Cleared', i
 
 // The demo walks through the referral ring first; fall back to any open network case once it closes.
 const DEMO_CASE = { us: 'CASE-P081' }
-// Full hero on the first queue view of a page load (per region); returning from a case shows the compact strip.
-const heroSeen = {}
+// Full hero on the first queue view after a page load or a region switch; returning from a case shows the compact strip.
+let heroSeen = false
+export const showOverviewNext = () => { heroSeen = false }
 
 function diffRoutes(cases) {
   let seen = {}
@@ -32,10 +33,10 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
   const [tier, setTier] = useState('all')
   const [retry, setRetry] = useState(0)
   const [metrics, setMetrics] = useState(null)
-  const [fullHero, setFullHero] = useState(!heroSeen[getRegion()])
+  const [fullHero, setFullHero] = useState(!heroSeen)
   const t = terms()
 
-  useEffect(() => { heroSeen[getRegion()] = true; api.metrics().then(setMetrics).catch(() => {}) }, [])
+  useEffect(() => { heroSeen = true; api.metrics().then(setMetrics).catch(() => {}) }, [])
 
   useEffect(() => {
     setError(null)

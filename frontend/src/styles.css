@@ -154,6 +154,9 @@ tr:last-child td { border-bottom: 0; }
 .num { text-align: right; font-variant-numeric: tabular-nums; }
 .cap { text-transform: capitalize; }
 .queue td { white-space: nowrap; font-variant-numeric: tabular-nums; }
+/* Long names (Indian hospitals), patterns and headers wrap, so the table never outgrows the page */
+.queue th, .queue td.provider, .queue td.cap { white-space: normal; }
+.queue td.provider { min-width: 220px; }
 .queue td small { display: block; }
 .queue .net { margin-left: 6px; padding: 0 6px; border-radius: var(--r-sm); background: #f1e8fa; color: var(--link-owner); font-weight: 600; }
 .queue .rank { color: var(--faint); width: 40px; }

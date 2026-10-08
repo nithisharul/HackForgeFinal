@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Queue from './pages/Queue.jsx'
+import Queue, { showOverviewNext } from './pages/Queue.jsx'
 import CaseDetail from './pages/CaseDetail.jsx'
 import Wiki from './pages/Wiki.jsx'
 import { getRegion, setRegion } from './region.js'
@@ -23,13 +23,14 @@ export default function App() {
   const [investigators, setInvestigators] = useState(3)
   const [region, setRegionState] = useState(getRegion())
 
-  // Case IDs and wiki pages belong to one region, so a switch returns to that region's queue or index.
+  // Case IDs and wiki pages belong to one region, so every switch opens the new region's full queue overview at the top.
   const switchRegion = (r) => {
     if (r === region) return
     setRegion(r)
+    showOverviewNext()
     setRegionState(r)
-    if (section === 'case') window.location.hash = '#/'
-    else if (section === 'brain') window.location.hash = '#/brain/index'
+    if (section === 'case' || section === 'brain') window.location.hash = '#/'
+    window.scrollTo(0, 0)
   }
 
   useEffect(() => {

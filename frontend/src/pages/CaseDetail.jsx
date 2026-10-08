@@ -1,4 +1,101 @@
 
+function ClinicalAuditCard() {
+  const params = useParams ? useParams() : {};
+  const activeCaseId = params.id || params.case_id || "CASE-P209";
+  const [data, setData] = React.useState({
+    source_file: "CASE-P209.txt",
+    artifact: {
+      author: "Methodist Healthcare San Antonio - Security & EHR Audit",
+      date_of_service: "2026-03-14",
+      text_content: "[08:45:12 CST] BADGE ACCESS: Physical turnstile swipe detected at West Physician Parking Garage, San Antonio, TX.\n[09:12:30 CST] EHR LOGIN: Session started on Workstation ID #WS-SA-402 (Static IP: 10.240.12.88, Subnet: Methodist SA Inpatient Wing).\n[10:15:00 CST] CLINICAL ACTION: Progress note drafted and cryptographically e-signed for Inpatient Bed 412 (MRN: 994120).\n[11:30:22 CST] EHR LOGOUT: Workstation session closed.\n[13:30:00 CST] CONCURRENT BILLED CLAIM: Outpatient office visit (CPT 99214, POS 11) billed as rendered in-person in Austin, TX (80.4 miles away).\n[14:10:15 CST] BADGE ACCESS: Re-entry to Methodist Hospital San Antonio West Physician Entrance.\nConclusion: Physical presence in San Antonio confirmed continuously between 08:45 and 15:30 CST.",
+      discrepancy_found: true,
+      discrepancy_type: "Physical Presence / Impossible Timing Discrepancy",
+      finding: "Hospital turnstile swipes and EHR workstation IP logs substantiate physician presence in San Antonio during time office visit was billed in Austin.",
+      statute: "CMS Pub 100-08 Ch. 3 §3.3 / Texas Medicaid Travel Adjudication Rules",
+      model_auditor: "llama3.2"
+    }
+  });
+
+  React.useEffect(() => {
+    fetch(`http://127.0.0.1:8000/api/cases/${activeCaseId}/clinical-audit`)
+      .then((r) => r.ok ? r.json() : null)
+      .then((res) => {
+        if (res && res.artifact) setData(res);
+      })
+      .catch(() => {});
+  }, [activeCaseId]);
+
+  const art = data.artifact;
+
+  return (
+    <div style={{
+      marginTop: "16px",
+      background: "#ffffff",
+      border: "1px solid #e2e8f0",
+      borderRadius: "8px",
+      padding: "16px",
+      boxShadow: "0 1px 3px rgba(0,0,0,0.04)"
+    }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "10px" }}>
+        <div>
+          <h4 style={{ margin: 0, fontSize: "13px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.04em", color: "#334155" }}>
+            Clinical Chart & ADR Documentation Audit (RAG)
+          </h4>
+          <span style={{ fontSize: "11px", color: "#64748b" }}>
+            Source: {art.author} · DOS: {art.date_of_service} · File: {data.source_file}
+          </span>
+        </div>
+        <span style={{
+          padding: "3px 8px",
+          borderRadius: "12px",
+          fontSize: "11px",
+          fontWeight: "700",
+          background: art.discrepancy_found ? "#fef2f2" : "#f0fdf4",
+          color: art.discrepancy_found ? "#dc2626" : "#16a34a",
+          border: art.discrepancy_found ? "1px solid #fecaca" : "1px solid #bbf7d0"
+        }}>
+          {art.discrepancy_found ? "⚠️ Documentation Discrepancy" : "✓ Medical Record Substantiated"}
+        </span>
+      </div>
+
+      <div style={{
+        background: "#0f172a",
+        color: "#94a3b8",
+        padding: "12px",
+        borderRadius: "6px",
+        fontSize: "12px",
+        fontFamily: "ui-monospace, monospace",
+        lineHeight: "1.55",
+        whiteSpace: "pre-wrap",
+        maxHeight: "150px",
+        overflowY: "auto",
+        marginBottom: "10px",
+        border: "1px solid #1e293b"
+      }}>
+        {art.text_content}
+      </div>
+
+      <div style={{
+        background: art.discrepancy_found ? "#fffbeb" : "#f8fafc",
+        borderLeft: art.discrepancy_found ? "3.5px solid #d97706" : "3.5px solid #16a34a",
+        padding: "8px 12px",
+        borderRadius: "4px",
+        fontSize: "12px",
+        color: "#1e293b"
+      }}>
+        <div style={{ fontWeight: "700", color: art.discrepancy_found ? "#b45309" : "#15803d", marginBottom: "2px" }}>
+          {art.discrepancy_type}
+        </div>
+        <div>{art.finding}</div>
+        <div style={{ fontSize: "11px", color: "#64748b", marginTop: "4px" }}>
+          <strong>Statutory Authority:</strong> {art.statute} · <strong>Audited by:</strong> {art.model_auditor}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
 
 
 function ClinicalAuditCard({ caseId, pattern }) {

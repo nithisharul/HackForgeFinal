@@ -86,12 +86,50 @@ export default function Network({ providerId }) {
 }
 
 // Hero version: only the ring itself. Members sit on a circle in referral order, so the
-// closed loop reads at a glance; the shared owner sits in the middle.
-const RW = 480
+// closed loop reads at a glance; the shared owner sits in the middle. The drawing is wider
+// than the ring so each member's name fits beside it.
+const RW = 600
 const RH = 440
 const R = 158
 const NODE = 22
 const polar = (a, r) => [RW / 2 + r * Math.cos(a), RH / 2 + r * Math.sin(a)]
+
+// Name labels: the member's own name without the shared city, on at most two short lines.
+const LINE = 18 // characters per line
+const CHAR = 6.2 // average width of an 11px label character
+const LH = 13 // line height
+const PAD = 6 // keep labels this far inside the drawing
+const SHORTER = [[/\bHospital\b/, 'Hosp.'], [/\bGovernment\b/, 'Govt'], [/\bMedical College\b/, 'Med. College'],
+  [/\bMultispecialty\b/, 'Multispec.'], [/\bCommunity Health Centre\b/, 'Health Centre']]
+const longest = (lines) => Math.max(...lines.map((l) => l.length))
+
+function wrap(s) {
+  if (s.length <= LINE) return [s]
+  const words = s.split(' ')
+  let best = null
+  for (let i = 1; i < words.length; i++) {
+    const pair = [words.slice(0, i).join(' '), words.slice(i).join(' ')]
+    if (!best || longest(pair) < longest(best)) best = pair
+  }
+  return best || [s]
+}
+
+export function nameLines(name) {
+  let s = String(name || '').split(',')[0].trim()
+  let lines = wrap(s)
+  for (const [re, short] of SHORTER) {
+    if (longest(lines) <= LINE) break
+    s = s.replace(re, short)
+    lines = wrap(s)
+  }
+  return lines.map((l) => (l.length > LINE ? `${l.slice(0, LINE - 1)}…` : l))
+}
+
+// Shift a label sideways if it would run past either edge of the drawing.
+function insideX(x, anchor, width) {
+  const left = anchor === 'start' ? x : anchor === 'end' ? x - width : x - width / 2
+  return x + Math.max(0, PAD - left) - Math.max(0, left + width - (RW - PAD))
+}
 
 export function RingHero({ c }) {
   const [g, setG] = useState(null)
@@ -184,18 +222,26 @@ export function RingHero({ c }) {
         {order.map((id) => {
           const n = byId[id]
           const [x, y] = polar(ang[id], R)
-          const [lx, ly] = polar(ang[id], R + NODE + 16)
+          const [lx, ly] = polar(ang[id], R + NODE + 14)
           const cos = Math.cos(ang[id])
+          const sin = Math.sin(ang[id])
+          const lines = nameLines(n.name)
+          const anchor = Math.abs(cos) < 0.3 ? 'middle' : cos > 0 ? 'start' : 'end'
+          const tx = insideX(lx, anchor, longest(lines) * CHAR)
+          // two-line labels grow away from the ring: upwards at the top, downwards at the bottom, centred on the sides
+          const ty = ly + 4 - (sin < -0.3 ? 1 : sin > 0.3 ? 0 : 0.5) * (lines.length - 1) * LH + (sin > 0.3 ? 6 : 0)
           return (
             <g key={id} className={`r-node${id === c.provider_id ? ' r-focus' : ''}`} tabIndex={0} role="link"
-              aria-label={`Open case for ${id}, ${n.name}`}
+              aria-label={`Open case for ${id}, ${n.name}, ${n.specialty}`}
               onMouseEnter={() => setHover(id)} onMouseLeave={() => setHover(null)}
               onFocus={() => setHover(id)} onBlur={() => setHover(null)}
               onClick={go(id)} onKeyDown={(e) => e.key === 'Enter' && go(id)()}>
               <circle cx={x} cy={y} r={NODE} />
               <text x={x} y={y + 4} textAnchor="middle">{n.label}</text>
-              <text className="r-sub" x={lx} y={ly + 4} textAnchor={Math.abs(cos) < 0.3 ? 'middle' : cos > 0 ? 'start' : 'end'}>{n.specialty}</text>
-              <title>{id} {n.name}, {n.specialty}</title>
+              <text className="r-sub" x={tx} y={ty} textAnchor={anchor}>
+                {lines.map((l, i) => <tspan key={i} x={tx} dy={i ? LH : 0}>{l}</tspan>)}
+              </text>
+              <title>{id} {n.name} ({n.specialty})</title>
             </g>
           )
         })}
@@ -204,6 +250,11 @@ export function RingHero({ c }) {
         <p>
           Network analysis found <b>{order.length} {terms().providers}</b>{owner ? <> under one owner, <b>{owner.label}</b>,</> : ''} sending{' '}
           <b>{totalRefs.toLocaleString('en-US')} referrals</b> around a {closed ? 'closed loop' : 'chain'}. Select a {terms().provider} to open its case.
+        </p>
+        <p className="r-detail" aria-live="polite">
+          {byId[hover] ? <><b>{hover}</b> {byId[hover].name} · {byId[hover].specialty}</>
+            : owner && hover === owner.id ? <><b>{owner.label}</b> {owner.name} · owns every {terms().provider} in the ring</>
+              : `Hover over or focus a ${terms().provider} to see its full name and type.`}
         </p>
         <span className="r-key"><i className="sw sw-referral" /> referrals</span>
         <span className="r-key"><i className="sw sw-shared" /> shared {terms().member === 'member' ? 'members' : 'beneficiaries'}</span>

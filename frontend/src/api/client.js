@@ -18,6 +18,7 @@ export const api = {
   queue: (horizon, investigators) => request(`/queue?horizon=${horizon}&investigators=${investigators}`),
   metrics: () => request('/metrics'),
   getCase: (id, horizon) => request(`/cases/${id}?horizon=${horizon}`),
+  fhirUrl: (id) => `${BASE}/cases/${id}/fhir`,
   graph: (providerId) => request(`/graph/${providerId}`),
   previewVerdict: (id, body) => post(`/cases/${id}/verdict/preview`, body),
   submitVerdict: (id, body) => post(`/cases/${id}/verdict`, body),

@@ -64,9 +64,49 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 64px; }
 .f-split .f-bar { animation-delay: 0.36s; gap: 2px; background: none; }
 .f-split .f-bar i, .key { display: block; }
 .seg-high { background: var(--high); } .seg-medium { background: var(--medium-bar); } .seg-low { background: #a3aebd; }
-.f-split ul { grid-column: 1 / -1; list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 13px; color: var(--muted); }
-.f-split li { display: flex; align-items: center; gap: 6px; }
-.f-split b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.f-tiers { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 4px; margin-left: -8px; }
+.f-tiers button { font: inherit; font-size: 13px; display: flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 8px; border: 0; border-radius: var(--r-sm); background: none; color: var(--muted); cursor: pointer; transition: background 0.12s, color 0.12s; }
+.f-tiers button:hover { background: var(--surface-2); color: var(--ink); }
+.f-tiers button.on { background: var(--accent-soft); color: var(--ink); box-shadow: inset 0 0 0 1px var(--accent); }
+.f-tiers b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.f-proof { margin-top: 4px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.5; color: var(--muted); }
+.f-proof b { color: var(--ink); }
+.f-rows { display: flex; flex-direction: column; gap: 14px; }
+.funnel.strip { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 32px; align-items: center; margin-bottom: 32px; }
+.funnel.strip .f-proof { margin: 0; padding: 0 0 0 32px; border-top: 0; border-left: 1px solid var(--line); font-size: 14px; }
+
+/* Hero ring: the N01 referral loop, drawn in referral order with pulses travelling round it */
+.ring { margin: 0; padding: 12px 20px 20px; background: var(--surface); border-radius: var(--r-lg); box-shadow: var(--shadow); }
+.ring svg { display: block; width: 100%; max-width: 480px; height: auto; margin: 0 auto; overflow: visible; }
+.ring-sk { aspect-ratio: 480 / 520; border-radius: var(--r-lg); }
+.r-own { stroke: var(--link-owner); stroke-width: 1.2; stroke-dasharray: 4 4; transition: opacity 0.15s; }
+.r-shared { stroke: var(--link-shared); transition: opacity 0.15s; }
+.r-ref { fill: none; stroke: var(--link-referral); stroke-width: 2.4; stroke-dasharray: 1; animation: draw 0.7s cubic-bezier(0.3, 0.6, 0.2, 1) both; transition: opacity 0.15s; }
+@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.r-pulse { fill: var(--hl); stroke: var(--ink); stroke-width: 1.5; }
+.r-owner rect { fill: #efe5f9; stroke: var(--link-owner); stroke-width: 1.2; }
+.r-owner text { font-size: 12px; font-weight: 700; fill: var(--link-owner); }
+.r-node { cursor: pointer; }
+.r-node circle { fill: var(--surface); stroke: var(--ink); stroke-width: 2; transition: fill 0.12s; }
+.r-node text { font-size: 12px; font-weight: 700; fill: var(--ink); pointer-events: none; }
+.r-node .r-sub { font-size: 11px; font-weight: 500; fill: var(--muted); }
+.r-node:hover circle { fill: var(--accent-soft); }
+.r-node:focus { outline: none; }
+.r-node:focus-visible circle { stroke: var(--accent); stroke-width: 3.5; }
+.r-focus circle { fill: var(--ink); stroke: var(--hl); stroke-width: 4; }
+.r-focus:hover circle { fill: var(--accent); }
+.r-focus text:not(.r-sub) { fill: #fff; }
+.ring figcaption { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 4px; font-size: 12px; color: var(--muted); }
+.ring figcaption p { flex-basis: 100%; font-size: 14px; line-height: 1.5; color: var(--muted); margin-bottom: 4px; }
+.ring figcaption b { color: var(--ink); }
+
+.loop { list-style: none; counter-reset: step; margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 600px; }
+.loop li { counter-increment: step; padding-top: 12px; border-top: 2px solid var(--ink); font-size: 13px; line-height: 1.45; color: var(--muted); }
+.loop li:last-child { border-top-color: var(--hl); }
+.loop b { display: block; font-family: var(--display); font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+.loop b::before { content: counter(step) ' '; color: var(--faint); font-weight: 600; }
+.hero-mini { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 20px; color: var(--muted); }
+.hero-mini b { font-family: var(--display); font-size: 20px; color: var(--ink); }
 .key { width: 10px; height: 10px; border-radius: 2px; }
 @keyframes grow { from { transform: scaleX(0); } }
 
@@ -271,6 +311,8 @@ tr:last-child td { border-bottom: 0; }
   .top { padding: 0 24px; gap: 24px; }
   .hero { grid-template-columns: 1fr; gap: 28px; padding-bottom: 32px; }
   .hero h1 { max-width: 22ch; }
+  .funnel.strip { grid-template-columns: 1fr; gap: 16px; }
+  .funnel.strip .f-proof { padding: 14px 0 0; border-left: 0; border-top: 1px solid var(--line); }
   .stats { grid-template-columns: repeat(3, 1fr); }
   .stat:nth-child(4) { border-left: 0; }
   .stat:nth-child(n+4) { border-top: 1px solid var(--line); }
@@ -290,6 +332,10 @@ tr:last-child td { border-bottom: 0; }
   .hero { padding-top: 0; }
   .hero-copy > p { font-size: 15px; }
   .hero-cta .btn { flex: 1 1 100%; white-space: normal; text-align: center; }
+  .loop { grid-template-columns: 1fr; gap: 10px; }
+  .ring { padding: 8px 12px 16px; }
+  .r-node .r-sub { display: none; }
+  .r-node text { font-size: 14px; }
   .funnel { padding: 18px 16px; }
   .f-row strong { font-size: 22px; }
   .case-head h1 { font-size: 26px; }

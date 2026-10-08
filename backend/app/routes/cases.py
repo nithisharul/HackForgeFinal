@@ -1,9 +1,12 @@
 from typing import Literal, Optional
 
+from datetime import datetime
+
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
 
 from backend.brain import wiki
+from backend.security.log_integrity import hash_log_entry, append_log_entry
 
 from .. import store
 
@@ -47,7 +50,22 @@ def preview_verdict(case_id: str, v: Verdict):
 @router.post("/cases/{case_id}/verdict")
 def post_verdict(case_id: str, v: Verdict):
     """Human-approved writeback: the verdict becomes a case page and updates the linked pages."""
-    return {"case_id": case_id, "written": True, **_write(case_id, v, dry_run=False), "status": store.status_of(case_id)}
+
+    result = _write(case_id, v, dry_run=False)
+
+    append_log_entry(
+        datetime.utcnow().isoformat(),
+        case_id,
+        v.investigator.strip(),
+        f"Verdict: {v.verdict}"
+    )
+
+    return {
+        "case_id": case_id,
+        "written": True,
+        **result,
+        "status": store.status_of(case_id)
+    }
 
 @router.get("/cases/{case_id}/fhir")
 def export_fhir(case_id: str):

@@ -60,3 +60,42 @@ def verify_log_chain(entries):
         "broken_entry": None,
         "reason": "Log chain is valid"
     }
+
+
+import json
+from pathlib import Path
+
+
+LOG_FILE = Path(__file__).parent / "investigation_log.jsonl"
+
+
+def append_log_entry(timestamp, case_id, user, action):
+    if LOG_FILE.exists() and LOG_FILE.stat().st_size > 0:
+        with LOG_FILE.open("r", encoding="utf-8") as file:
+            last_line = file.readlines()[-1]
+            last_entry = json.loads(last_line)
+            previous_hash = last_entry["current_hash"]
+    else:
+        previous_hash = ""
+
+    current_hash = hash_log_entry(
+        timestamp,
+        case_id,
+        user,
+        action,
+        previous_hash
+    )
+
+    entry = {
+        "timestamp": timestamp,
+        "case_id": case_id,
+        "user": user,
+        "action": action,
+        "previous_hash": previous_hash,
+        "current_hash": current_hash
+    }
+
+    with LOG_FILE.open("a", encoding="utf-8") as file:
+        file.write(json.dumps(entry) + "\n")
+
+    return entry

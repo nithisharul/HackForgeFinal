@@ -1,4 +1,8 @@
-from backend.security.log_integrity import hash_log_entry, verify_entry
+from backend.security.log_integrity import (
+    hash_log_entry,
+    verify_entry,
+    verify_log_chain
+)
 
 
 # -----------------------------
@@ -97,3 +101,40 @@ entry2["action"] = "Cleared"
 print("Entry 1:", verify_entry(entry1))
 print("Entry 2:", verify_entry(entry2))
 print("Entry 3:", verify_entry(entry3))
+
+
+
+print("\n--- WHOLE CHAIN VERIFICATION ---")
+
+result = verify_log_chain([
+    entry1,
+    entry2,
+    entry3
+])
+
+print(result)
+
+
+
+from backend.security.log_integrity import append_log_entry
+
+print("\n--- REAL LOG TEST ---")
+
+new_entry = append_log_entry(
+    "11:00",
+    "P274",
+    "investigator_01",
+    "Verdict: confirmed"
+)
+
+print(new_entry)
+
+
+second_entry = append_log_entry(
+    "11:05",
+    "P274",
+    "investigator_01",
+    "Case reviewed"
+)
+
+print(second_entry)

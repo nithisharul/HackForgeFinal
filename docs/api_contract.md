@@ -3,6 +3,9 @@
 Base URL in development: `http://127.0.0.1:8000/api` (the Vite dev server proxies `/api` to it).
 Interactive docs: `http://127.0.0.1:8000/docs`.
 
+Every route takes `region=us|in` (default `us`). Each region reads and writes only its own data,
+models and Second Brain; a case or page from one region is a 404 in the other.
+
 | Method | Path | Purpose |
 |---|---|---|
 | GET | `/queue?horizon=90&investigators=3` | Ranked SIU queue plus the alert funnel summary (horizon is 30, 60 or 90) |

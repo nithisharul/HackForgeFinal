@@ -10,7 +10,7 @@
   --focus: 0 0 0 3px rgba(36, 70, 194, 0.35);
   --high: #b42318; --high-soft: #fdeceb; --medium: #8a5a00; --medium-soft: #fdf1d6; --medium-bar: #d6961a;
   --low: #4f5d72; --low-soft: #eceff3; --ok: #146c3a; --ok-soft: #e2f3e8;
-  --link-shared: #2446c2; --link-referral: #c2570c; --link-owner: #7a3fb0;
+  --link-shared: #2446c2; --link-referral: #c2570c; --link-owner: #7a3fb0; --link-agent: #0f766e;
   --r-sm: 4px; --r: 8px; --r-lg: 14px;
   --shadow: 0 1px 0 rgba(14, 28, 51, 0.06), 0 1px 3px rgba(14, 28, 51, 0.05);
   --display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
@@ -43,6 +43,11 @@ main:focus { outline: none; }
 .top nav a:hover { color: #fff; text-decoration: none; }
 .top nav a.on { color: #fff; border-bottom-color: var(--hl); }
 .top :focus-visible { box-shadow: 0 0 0 3px rgba(255, 225, 77, 0.7); }
+/* Region switch: a compact segmented control on the dark bar */
+.region { display: inline-flex; gap: 2px; padding: 3px; border-radius: 6px; background: rgba(255, 255, 255, 0.1); }
+.region button { font: inherit; font-size: 13px; font-weight: 600; padding: 3px 12px; border: 0; border-radius: var(--r-sm); background: none; color: #a9b4c6; cursor: pointer; transition: background 0.12s, color 0.12s; }
+.region button:hover { color: #fff; }
+.region button.on { background: #fff; color: var(--ink); }
 .synthetic { font-size: 12px; color: var(--ink); background: var(--hl-soft); padding: 3px 10px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
 main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 64px; }
 
@@ -229,6 +234,9 @@ tr:last-child td { border-bottom: 0; }
 .plain { gap: 8px; }
 .plain li { padding-left: 14px; position: relative; } .plain li::before { content: ''; position: absolute; left: 2px; top: 0.65em; width: 4px; height: 4px; border-radius: 50%; background: var(--faint); }
 .claims td { font-size: 13px; }
+.claims td small { display: block; }
+.checklist { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+.checklist li::marker { color: var(--accent); font-weight: 700; }
 .bars { display: flex; align-items: flex-end; gap: 6px; height: 120px; margin-bottom: 14px; }
 .bar { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 4px; }
 .bar span { font-size: 11px; color: var(--faint); font-variant-numeric: tabular-nums; }
@@ -265,7 +273,7 @@ tr:last-child td { border-bottom: 0; }
 .network path { transition: opacity 0.15s; }
 .network figcaption { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted); margin-top: 8px; }
 .sw { display: inline-block; width: 18px; height: 0; border-top: 3px solid; vertical-align: middle; margin-right: 4px; }
-.sw-shared { border-color: var(--link-shared); } .sw-referral { border-color: var(--link-referral); } .sw-owner { border-color: var(--link-owner); border-top-style: dashed; }
+.sw-shared { border-color: var(--link-shared); } .sw-referral { border-color: var(--link-referral); } .sw-owner { border-color: var(--link-owner); border-top-style: dashed; } .sw-agent { border-color: var(--link-agent); border-top-style: dashed; }
 .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; vertical-align: middle; margin-right: 4px; }
 .dot-flagged { background: #f2aaa3; } .dot-plain { background: #d5dbe3; }
 
@@ -326,6 +334,7 @@ tr:last-child td { border-bottom: 0; }
 @media (max-width: 640px) {
   main { padding: 20px 16px 48px; }
   .top { gap: 16px; padding: 0 16px; height: 56px; }
+  .region button { padding: 3px 8px; }
   .brand small, .synthetic { display: none; }
   .brand > span:last-child { display: none; }
   .top nav { gap: 18px; }

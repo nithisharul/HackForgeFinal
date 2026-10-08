@@ -1,8 +1,11 @@
-// Every backend call lives here.
+// Every backend call lives here. Each one carries the active region (see region.js).
+import { getRegion } from '../region.js'
+
 const BASE = import.meta.env.VITE_API_URL || '/api'
+const withRegion = (path) => `${path}${path.includes('?') ? '&' : '?'}region=${getRegion()}`
 
 async function request(path, options) {
-  const res = await fetch(BASE + path, options)
+  const res = await fetch(BASE + withRegion(path), options)
   if (!res.ok) {
     const body = await res.json().catch(() => ({}))
     const detail = Array.isArray(body.detail) ? body.detail.map((d) => d.msg).join('; ') : body.detail
@@ -18,7 +21,7 @@ export const api = {
   queue: (horizon, investigators) => request(`/queue?horizon=${horizon}&investigators=${investigators}`),
   metrics: () => request('/metrics'),
   getCase: (id, horizon) => request(`/cases/${id}?horizon=${horizon}`),
-  fhirUrl: (id) => `${BASE}/cases/${id}/fhir`,
+  fhirUrl: (id) => BASE + withRegion(`/cases/${id}/fhir`),
   graph: (providerId) => request(`/graph/${providerId}`),
   previewVerdict: (id, body) => post(`/cases/${id}/verdict/preview`, body),
   submitVerdict: (id, body) => post(`/cases/${id}/verdict`, body),

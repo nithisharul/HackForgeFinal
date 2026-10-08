@@ -2,24 +2,26 @@ import { Fragment, useEffect, useState } from 'react'
 import { api } from '../api/client.js'
 import { RingHero } from './Network.jsx'
 import { Loading, Meter, Status, Tier, TIER_TEXT, money, pct, words } from '../components/bits.jsx'
+import { getRegion, terms } from '../region.js'
 
 // The queue remembers each case's route from the last visit, so a verdict that
 // re-routes similar cases shows up as a visible change rather than a silent re-rank.
-const SEEN_KEY = 'csn-routes'
+// Case IDs repeat across regions, so each region keeps its own memory.
+const seenKey = () => (getRegion() === 'in' ? 'csn-routes-in' : 'csn-routes')
 const routeOf = (r) => (r.status === 'open' ? r.tier : r.status)
 const ROUTE_TEXT = { ...TIER_TEXT, confirmed: 'Confirmed', cleared: 'Cleared', inconclusive: 'Inconclusive' }
 
 // The demo walks through the referral ring first; fall back to any open network case once it closes.
-const DEMO_CASE = 'CASE-P081'
-// Full hero on the first queue view of a page load; returning from a case shows the compact strip.
-let heroSeen = false
+const DEMO_CASE = { us: 'CASE-P081' }
+// Full hero on the first queue view of a page load (per region); returning from a case shows the compact strip.
+const heroSeen = {}
 
 function diffRoutes(cases) {
   let seen = {}
-  try { seen = JSON.parse(sessionStorage.getItem(SEEN_KEY)) || {} } catch { /* storage blocked: no history */ }
+  try { seen = JSON.parse(sessionStorage.getItem(seenKey())) || {} } catch { /* storage blocked: no history */ }
   const moved = {}
   for (const r of cases) if (seen[r.case_id] && seen[r.case_id] !== routeOf(r)) moved[r.case_id] = seen[r.case_id]
-  try { sessionStorage.setItem(SEEN_KEY, JSON.stringify(Object.fromEntries(cases.map((r) => [r.case_id, routeOf(r)])))) } catch { /* ignore */ }
+  try { sessionStorage.setItem(seenKey(), JSON.stringify(Object.fromEntries(cases.map((r) => [r.case_id, routeOf(r)])))) } catch { /* ignore */ }
   return moved
 }
 
@@ -30,9 +32,10 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
   const [tier, setTier] = useState('all')
   const [retry, setRetry] = useState(0)
   const [metrics, setMetrics] = useState(null)
-  const [fullHero, setFullHero] = useState(!heroSeen)
+  const [fullHero, setFullHero] = useState(!heroSeen[getRegion()])
+  const t = terms()
 
-  useEffect(() => { heroSeen = true; api.metrics().then(setMetrics).catch(() => {}) }, [])
+  useEffect(() => { heroSeen[getRegion()] = true; api.metrics().then(setMetrics).catch(() => {}) }, [])
 
   useEffect(() => {
     setError(null)
@@ -46,7 +49,7 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
   const rows = data.cases.filter((r) => tier === 'all' || r.tier === tier)
   const lastIn = Math.max(...rows.map((r, i) => (r.in_capacity ? i : -1)))
   const open = data.cases.filter((r) => r.status === 'open')
-  const demo = open.find((r) => r.case_id === DEMO_CASE) || open.find((r) => r.network) || open[0]
+  const demo = open.find((r) => r.case_id === DEMO_CASE[getRegion()]) || open.find((r) => r.network) || open[0]
   const pickTier = (t) => {
     setTier((cur) => (cur === t ? 'all' : t))
     document.getElementById('queue-table')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
@@ -63,11 +66,11 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
               {s.claims.toLocaleString('en-US')} claims, narrowed to the {s.open_cases} worth an investigator’s time.
             </h1>
             <p>
-              ClaimShield ranks providers by fraud risk, writes a fact-checked brief for each case, and gets
+              ClaimShield ranks {t.providers} by fraud risk, writes a fact-checked brief for each case, and gets
               sharper with every verdict your team records. It finds leads for human review; it never decides fraud.
             </p>
             <ol className="loop" aria-label="How it works">
-              <li><b>Detect</b>Rules, an anomaly model and network analysis flag providers.</li>
+              <li><b>Detect</b>Rules, an anomaly model and network analysis flag {t.providers}.</li>
               <li><b>Decide</b>An investigator confirms or clears the case, with a reason.</li>
               <li><b>Learn</b>The verdict becomes precedent and re-routes similar cases.</li>
             </ol>
@@ -139,8 +142,8 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
         <table className="queue">
           <thead>
             <tr>
-              <th className="num">#</th><th>Provider</th><th>Pattern</th><th>Risk</th><th>{horizon}-day repeat</th>
-              <th className="num">Potential $</th><th className="num opt">Members</th><th className="opt">Severity</th>
+              <th className="num">#</th><th>{t.Provider}</th><th>Pattern</th><th>Risk</th><th>{horizon}-day repeat</th>
+              <th className="num">Potential {t.currency}</th><th className="num opt">{t.Members}</th><th className="opt">Severity</th>
               <th>Confidence</th><th>Route</th>
             </tr>
           </thead>
@@ -187,7 +190,7 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
         </table>
       </div>
       <p className="foot">
-        Ranking blends risk, potential dollars, member impact, severity and confidence. Select a row to open its brief.
+        Ranking blends risk, potential {t.currency === '₹' ? 'rupees' : 'dollars'}, {t.member} impact, severity and confidence. Select a row to open its brief.
       </p>
     </>
   )
@@ -235,8 +238,8 @@ function Funnel({ s, tier, onPick, metrics, strip }) {
       </div>
       {pl && (
         <figcaption className="f-proof">
-          On injected test scenarios, <b>{pl.fwa_in_queue} of {pl.fwa_providers}</b> planted fraud providers made the queue,
-          and {pct(pl.queue_precision)} of queued providers were planted ones. Synthetic data, not real claims.
+          On injected test scenarios, <b>{pl.fwa_in_queue} of {pl.fwa_providers}</b> planted fraud {terms().providers} made the queue,
+          and {pct(pl.queue_precision)} of queued {terms().providers} were planted ones. Synthetic data, not real claims.
         </figcaption>
       )}
     </figure>

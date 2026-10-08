@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { api } from '../api/client.js'
 import { Loading, Status, Tier, money, pct, words } from '../components/bits.jsx'
 import Network from './Network.jsx'
+import { terms } from '../region.js'
 
 export default function CaseDetail({ caseId, horizon }) {
   const [c, setC] = useState(null)
@@ -13,6 +14,8 @@ export default function CaseDetail({ caseId, horizon }) {
   const b = c.brief
   const conf = b.confidence
   const maxClaims = Math.max(...b.timeline.monthly.map((m) => m.claims))
+  const t = terms()
+  const h = c.hospital
 
   return (
     <div className="case">
@@ -20,7 +23,11 @@ export default function CaseDetail({ caseId, horizon }) {
       <header className="case-head">
         <div>
           <h1><span className="id">{c.provider_id}</span> {c.provider_name}</h1>
-          <p>{c.specialty}, {c.city}. Owned by {c.owner_id} {c.owner_name}. Case {c.case_id}.</p>
+          {h ? (
+            <p>{c.specialty}, {c.city}, {h.state}. {h.beds} beds, tier {h.city_tier} city, NABH {h.nabh_status}, {h.sector}{h.teaching ? ', teaching' : ''}. Owned by {c.owner_id} {c.owner_name}. Case {c.case_id}.</p>
+          ) : (
+            <p>{c.specialty}, {c.city}. Owned by {c.owner_id} {c.owner_name}. Case {c.case_id}.</p>
+          )}
         </div>
         <div className="case-actions">
           <a className="btn" href={api.fhirUrl(c.case_id)} target="_blank" rel="noreferrer">Export FHIR JSON</a>
@@ -37,7 +44,7 @@ export default function CaseDetail({ caseId, horizon }) {
       <section className="stats">
         <Stat label="Pattern" value={words(c.pattern)} />
         <Stat label="Potential exposure" value={money(c.potential_dollars)} />
-        <Stat label="Members affected" value={c.member_impact} />
+        <Stat label={`${t.Members} affected`} value={c.member_impact} />
         <Stat label={`${horizon}-day repeat risk`} value={pct(b.prediction.probability)} />
         <Stat label="Confidence" value={pct(conf.score)} />
       </section>
@@ -48,7 +55,7 @@ export default function CaseDetail({ caseId, horizon }) {
             <p className="lead">{b.summary}</p>
             <p className={`ground ${b.grounding.passed ? 'ok' : 'bad'}`}>
               <b>{b.grounding.passed ? 'Fact-checked' : 'Fact check failed'}</b>
-              {b.grounding.verified} of {b.grounding.tokens_checked} IDs, codes and dollar figures match the claims data.
+              {b.grounding.verified} of {b.grounding.tokens_checked} IDs, codes and {t.amounts} match the claims data.
             </p>
             <h4>Recommended action</h4>
             <p>{b.recommended_action}</p>
@@ -68,15 +75,21 @@ export default function CaseDetail({ caseId, horizon }) {
             </ul>
           </Card>
 
+          {b.field_audit_checklist && (
+            <Card title="Field audit checklist" tag="for the State Anti-Fraud Unit">
+              <ol className="checklist">{b.field_audit_checklist.map((step, i) => <li key={i}>{step}</li>)}</ol>
+            </Card>
+          )}
+
           {c.sample_claims.length > 0 && (
             <Card title="Sample claims">
               <div className="table-wrap">
                 <table className="claims">
-                  <thead><tr><th>Claim</th><th>Date</th><th>Member</th><th>Code</th><th className="num">Paid</th><th>Why flagged</th></tr></thead>
+                  <thead><tr><th>Claim</th><th>Date</th><th>{t.Member}</th><th>{h ? 'Package' : 'Code'}</th><th className="num">Paid</th><th>Why flagged</th></tr></thead>
                   <tbody>
                     {c.sample_claims.map((s) => (
                       <tr key={s.claim_id}>
-                        <td>{s.claim_id}</td><td>{s.date}</td><td>{s.member_id}</td><td>{s.procedure_code}</td>
+                        <td>{s.claim_id}</td><td>{s.date}</td><td>{s.member_id}</td><td>{s.procedure_code}{s.package && <small>{s.package}</small>}</td>
                         <td className="num">{money(s.paid_amount)}</td><td>{s.detail}</td>
                       </tr>
                     ))}
@@ -108,7 +121,7 @@ export default function CaseDetail({ caseId, horizon }) {
         </div>
 
         <div className="col">
-          <Card title="Network context" tag="hover a provider to trace links">
+          <Card title="Network context" tag={`hover a ${t.provider} to trace links`}>
             <p>{b.network_context}</p>
             <Network providerId={c.provider_id} />
           </Card>

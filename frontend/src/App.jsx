@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import Queue from './pages/Queue.jsx'
 import CaseDetail from './pages/CaseDetail.jsx'
 import Wiki from './pages/Wiki.jsx'
+import { getRegion, setRegion } from './region.js'
+
+const REGIONS = [['us', 'US'], ['in', 'India']]
 
 function useHash() {
   const [hash, setHash] = useState(window.location.hash || '#/')
@@ -18,6 +21,16 @@ export default function App() {
   const [, section, arg] = hash.split('/')
   const [horizon, setHorizon] = useState(90)
   const [investigators, setInvestigators] = useState(3)
+  const [region, setRegionState] = useState(getRegion())
+
+  // Case IDs and wiki pages belong to one region, so a switch returns to that region's queue or index.
+  const switchRegion = (r) => {
+    if (r === region) return
+    setRegion(r)
+    setRegionState(r)
+    if (section === 'case') window.location.hash = '#/'
+    else if (section === 'brain') window.location.hash = '#/brain/index'
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -40,16 +53,21 @@ export default function App() {
           </svg>
           <span>
             <strong>ClaimShield Nexus</strong>
-            <small>The SIU's second brain</small>
+            <small>{region === 'in' ? 'PM-JAY anti-fraud second brain' : "The SIU's second brain"}</small>
           </span>
         </a>
         <nav aria-label="Main">
           <a className={section !== 'brain' ? 'on' : ''} aria-current={section !== 'brain' ? 'page' : undefined} href="#/">Queue</a>
           <a className={section === 'brain' ? 'on' : ''} aria-current={section === 'brain' ? 'page' : undefined} href="#/brain/index">Second Brain</a>
         </nav>
+        <div className="region" role="group" aria-label="Region">
+          {REGIONS.map(([r, label]) => (
+            <button type="button" key={r} className={r === region ? 'on' : ''} aria-pressed={r === region} onClick={() => switchRegion(r)}>{label}</button>
+          ))}
+        </div>
         <span className="synthetic">Synthetic data only</span>
       </header>
-      <main id="main" tabIndex="-1">{page}</main>
+      <main id="main" tabIndex="-1" key={region}>{page}</main>
     </div>
   )
 }

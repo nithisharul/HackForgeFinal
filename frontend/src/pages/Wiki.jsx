@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { api } from '../api/client.js'
 import { Loading, Markdown } from '../components/bits.jsx'
+import { terms } from '../region.js'
 
 export default function Wiki({ name }) {
   const [pages, setPages] = useState(null)
@@ -101,7 +102,7 @@ function Ask({ onFiled }) {
     <section className="card">
       <h3>Ask the Second Brain<small>answers come only from wiki pages, with citations</small></h3>
       <form className="ask" onSubmit={submit}>
-        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="e.g. What have we learned about referral rings?" />
+        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={`e.g. ${terms().ask}`} />
         <button className="btn primary" disabled={busy || q.trim().length < 5}>{busy ? 'Reading…' : 'Ask'}</button>
       </form>
       {error && <p className="notice error" role="alert">{error}</p>}

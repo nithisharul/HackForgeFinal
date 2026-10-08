@@ -31,6 +31,7 @@ To rebuild from scratch:
 python data/generate_data.py                  # regenerate the synthetic CSVs
 python -m backend.pipeline.run_all            # re-score with the saved models
 python -m backend.pipeline.run_all --retrain  # retrain and overwrite backend/models/
+python -m backend.pipeline.run_all --region in [--retrain]   # the India region (see below)
 ```
 
 If the saved models fail to load, your scikit-learn version differs from the pinned one; run with `--retrain`.
@@ -90,6 +91,32 @@ Reset the demo by deleting `knowledge/wiki/cases/CASE-*.md`, `knowledge/wiki/sou
 See `data/processed/metrics.json`. All 25 injected FWA providers are in the 34-case queue, and the
 6-provider ring is recovered exactly as one network. These numbers measure recovery of scenarios we
 injected ourselves; they are not evidence of performance on real claims.
+
+## India (PM-JAY) region
+
+A US / India switch in the header changes every page; the API takes `region=us|in` on every route
+and defaults to `us`, so the US system is unchanged. India uses the synthetic PM-JAY-style dataset in
+`data/india/` (75,721 admissions at 300 hospitals; see its README) and follows the India vs US
+methodology note: the US polices the procedure-code line, India polices the hospital admission.
+
+| Layer | India version | File |
+|---|---|---|
+| Claim rules | Overlapping admissions, duplicate packages, claims after death, package mismatch (diagnosis, sex, entitled rate) and the hysterectomy-under-35 audit trigger, ICU-rate drift, stay above package norm, OPD-to-IPD short stays, suspicious identity (new cards, shared mobiles), reused documents, admissions above bed strength, empanelment, camp clusters | `backend/pipeline/rules_in.py`, `reference_in.py` |
+| Anomaly | Same Isolation Forest + calibration; features include admissions per bed, ICU share, short stays, new cards, agents, mortality; peers by hospital type | `backend/pipeline/anomaly.py` |
+| Network | Same Leiden, referral cycles and BiRank, plus agent links; ring evidence names the agent, villages and card operator | `backend/pipeline/graph.py` |
+| Prediction | Same 30/60/90-day gradient boosting with ICU and short-stay drift features | `backend/pipeline/predict.py` |
+| Second Brain | India patterns, synthetic policies citing NHA, CAG and HBP sources, SAFU routing, a field-audit checklist, rupee-aware fact checks | `backend/brain/`, `knowledge/india/` |
+
+India data, models (`backend/models/india/`), outputs (`data/india/processed/`), policies, cases and
+investigation history (`knowledge/india/`) are kept apart from the US ones. Identifiers are tokens;
+no name, Aadhaar or mobile number is written to the wiki.
+
+On the injected India scenarios all 28 planted hospitals reach the 62-case queue and the 5-hospital
+ring is recovered as one network; 90% of flagged claims are injected ones. Queue precision is 0.45:
+32 normal hospitals are queued, most on weak evidence (the hysterectomy audit trigger or the anomaly
+model alone) and routed to "not enough evidence". As with the US, these numbers measure recovery of
+scenarios the dataset injected itself. Rules for diagnosis-package mismatch and empanelment fire 0
+times on this data; typical stays per package are assumed, not published.
 
 ## Honest limits
 

@@ -1,4 +1,14 @@
-export const money = (x) => '$' + Math.round(x).toLocaleString('en-US')
+import { getRegion } from '../region.js'
+
+const INR = new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 })
+// Dollars as before; rupees in lakh and crore (1 lakh = 1,00,000; 1 crore = 100 lakh).
+export const money = (x) => {
+  if (getRegion() !== 'in') return '$' + Math.round(x).toLocaleString('en-US')
+  const a = Math.abs(x)
+  if (a >= 1e7) return `₹${(x / 1e7).toFixed(2)} crore`
+  if (a >= 1e5) return `₹${(x / 1e5).toFixed(2)} lakh`
+  return '₹' + INR.format(Math.round(x))
+}
 export const pct = (x) => Math.round(x * 100) + '%'
 export const words = (s) => (s || '').replace(/_/g, ' ')
 

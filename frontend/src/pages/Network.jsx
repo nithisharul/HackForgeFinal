@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api } from '../api/client.js'
+import { getRegion, terms } from '../region.js'
 
 const W = 520
 const H = 380
@@ -7,6 +8,7 @@ const STYLE = {
   shared_members: { stroke: 'var(--link-shared)', dash: '' },
   referral: { stroke: 'var(--link-referral)', dash: '' },
   ownership: { stroke: 'var(--link-owner)', dash: '5 4' },
+  agent: { stroke: 'var(--link-agent)', dash: '8 3' },
   facility: { stroke: 'var(--line)', dash: '2 3' },
 }
 
@@ -72,11 +74,12 @@ export default function Network({ providerId }) {
         })}
       </svg>
       <figcaption>
-        <span><i className="sw sw-shared" /> shared members</span>
+        <span><i className="sw sw-shared" /> shared {terms().member === 'member' ? 'members' : 'beneficiaries'}</span>
         <span><i className="sw sw-referral" /> referrals</span>
         <span><i className="sw sw-owner" /> same owner</span>
-        <span><i className="dot dot-flagged" /> flagged provider</span>
-        <span><i className="dot dot-plain" /> other provider</span>
+        {getRegion() === 'in' && <span><i className="sw sw-agent" /> same agents</span>}
+        <span><i className="dot dot-flagged" /> flagged {terms().provider}</span>
+        <span><i className="dot dot-plain" /> other {terms().provider}</span>
       </figcaption>
     </figure>
   )
@@ -139,7 +142,7 @@ export function RingHero({ c }) {
 
   return (
     <figure className="ring">
-      <svg viewBox={`0 0 ${RW} ${RH}`} role="img" aria-label={`Network ${c.network}: ${order.length} providers referring patients in a ${closed ? 'closed loop' : 'chain'}`}>
+      <svg viewBox={`0 0 ${RW} ${RH}`} role="img" aria-label={`Network ${c.network}: ${order.length} ${terms().providers} referring patients in a ${closed ? 'closed loop' : 'chain'}`}>
         <defs>
           <marker id="ring-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
             <path d="M0 0 L10 5 L0 10 z" fill="var(--link-referral)" />
@@ -175,7 +178,7 @@ export function RingHero({ c }) {
           <g className="r-owner" onMouseEnter={() => setHover(owner.id)} onMouseLeave={() => setHover(null)}>
             <rect x={RW / 2 - 26} y={RH / 2 - 13} width="52" height="26" rx="4" />
             <text x={RW / 2} y={RH / 2 + 4} textAnchor="middle">{owner.label}</text>
-            <title>{owner.id} {owner.name}: owns every provider in the ring</title>
+            <title>{owner.id} {owner.name}: owns every {terms().provider} in the ring</title>
           </g>
         )}
         {order.map((id) => {
@@ -199,11 +202,11 @@ export function RingHero({ c }) {
       </svg>
       <figcaption>
         <p>
-          Network analysis found <b>{order.length} providers</b>{owner ? <> under one owner, <b>{owner.label}</b>,</> : ''} sending{' '}
-          <b>{totalRefs.toLocaleString('en-US')} referrals</b> around a {closed ? 'closed loop' : 'chain'}. Select a provider to open its case.
+          Network analysis found <b>{order.length} {terms().providers}</b>{owner ? <> under one owner, <b>{owner.label}</b>,</> : ''} sending{' '}
+          <b>{totalRefs.toLocaleString('en-US')} referrals</b> around a {closed ? 'closed loop' : 'chain'}. Select a {terms().provider} to open its case.
         </p>
         <span className="r-key"><i className="sw sw-referral" /> referrals</span>
-        <span className="r-key"><i className="sw sw-shared" /> shared members</span>
+        <span className="r-key"><i className="sw sw-shared" /> shared {terms().member === 'member' ? 'members' : 'beneficiaries'}</span>
         {owner && <span className="r-key"><i className="sw sw-owner" /> same owner</span>}
       </figcaption>
     </figure>

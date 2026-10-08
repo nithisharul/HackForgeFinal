@@ -11,6 +11,10 @@ Add an investigator or change a passcode (prompts for it; restart the API afterw
 
     python -m backend.app.auth add "Investigator Name"
 
+Rotate the signing key (signs out every current session; restart the API afterwards):
+
+    python -m backend.app.auth rotate-secret
+
 Without both variables every write is refused (fail closed).
 """
 import base64
@@ -150,14 +154,28 @@ def add_investigator(name, passcode, env_path=ROOT / ".env"):
     updates = {"INVESTIGATORS": ";".join(entries)}
     if len(values.get("AUTH_SECRET", "")) < 32:
         updates["AUTH_SECRET"] = secrets.token_urlsafe(48)
+    _write_env(env_path, lines, updates)
+
+
+def rotate_secret(env_path=ROOT / ".env"):
+    """Replace AUTH_SECRET. Every session token signed with the old key stops working."""
+    lines = env_path.read_text(encoding="utf-8-sig").splitlines() if env_path.exists() else []
+    _write_env(env_path, lines, {"AUTH_SECRET": secrets.token_urlsafe(48)})
+
+
+def _write_env(env_path, lines, updates):
     out = [l for l in lines if l.split("=", 1)[0].strip() not in updates]
     out += [f"{k}={v}" for k, v in updates.items()]
     env_path.write_text("\n".join(out) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
+    if sys.argv[1:] == ["rotate-secret"]:
+        rotate_secret()
+        sys.exit("AUTH_SECRET rotated in .env: every current session is signed out. Restart the API to apply.")
     if len(sys.argv) != 3 or sys.argv[1] != "add":
-        sys.exit('usage: python -m backend.app.auth add "Investigator Name"   (passcode is prompted, or read from stdin)')
+        sys.exit('usage: python -m backend.app.auth add "Investigator Name"   (passcode is prompted, or read from stdin)\n'
+                 '       python -m backend.app.auth rotate-secret')
     if sys.stdin.isatty():
         import getpass
         first, second = getpass.getpass("Passcode: "), getpass.getpass("Repeat passcode: ")

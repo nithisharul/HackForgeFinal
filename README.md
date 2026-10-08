@@ -106,7 +106,12 @@ an ID or dollar figure not found in its input is discarded.
 5. Second Brain tab: the new case page, the updated pattern and network pages, and the change log.
 6. Ask "What have we learned about referral rings?" and show the cited answer. Then add a source document and approve the proposed updates.
 
-Reset the demo by deleting `knowledge/wiki/cases/CASE-*.md`, `knowledge/wiki/sources/*`, `knowledge/wiki/notes/*` and `knowledge/sources/documents/*`, then running `python -m backend.pipeline.run_all`.
+Reset the demo for both regions by restoring the committed Second Brain, which removes demo verdicts,
+notes, sources and learned patterns and keeps the seeded investigation history, then restart the API:
+
+```
+git restore knowledge && git clean -fd knowledge
+```
 
 ## Results on the injected scenarios
 

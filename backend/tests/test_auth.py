@@ -129,6 +129,22 @@ class EnvFile(unittest.TestCase):
             self.assertTrue(auth.check_passcode("second passcode 456", users["asha rao"]))
             self.assertNotIn("passcode", env.read_text(encoding="utf-8"))
 
+    def test_rotating_the_secret_keeps_investigators_and_signs_everyone_out(self):
+        with tempfile.TemporaryDirectory() as d:
+            env = Path(d) / ".env"
+            auth.add_investigator("Asha Rao", "first passcode 123", env)
+            read = lambda: dict(l.split("=", 1) for l in env.read_text(encoding="utf-8").splitlines())  # noqa: E731
+            before = read()
+            with mock.patch.dict(os.environ, before):
+                auth._failures.clear()
+                token = auth.login("Asha Rao", "first passcode 123")["token"]
+            auth.rotate_secret(env)
+            after = read()
+            self.assertNotEqual(before["AUTH_SECRET"], after["AUTH_SECRET"])
+            self.assertEqual(before["INVESTIGATORS"], after["INVESTIGATORS"])
+            with mock.patch.dict(os.environ, after):
+                self.assertIsNone(auth.verify(token))
+
     def test_short_passcodes_are_rejected(self):
         with tempfile.TemporaryDirectory() as d:
             with self.assertRaises(ValueError):

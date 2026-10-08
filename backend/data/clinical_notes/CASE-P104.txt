@@ -1,0 +1,31 @@
+﻿=== LONE STAR MEDICAL ASSOCIATES - OUTPATIENT ENCOUNTER ===
+CLINICAL PROGRESS NOTE
+
+PATIENT: Johnson, Robert (MRN: 48201)
+DATE OF SERVICE: 2026-02-18
+TIME IN: 10:14 AM CST | TIME OUT: 10:21 AM CST (Total Face-to-Face Time: 7 minutes)
+ATTENDING PHYSICIAN: Dr. Hannah Hayes, MD
+
+CHIEF COMPLAINT:
+Routine 3-month follow-up for stable benign essential hypertension.
+
+HISTORY OF PRESENT ILLNESS:
+Patient presents for scheduled medication renewal. Reports taking Lisinopril 20mg daily without side effects. Denies headache, visual changes, chest pain, palpitations, shortness of breath, or lower extremity edema. Compliance is confirmed.
+
+PHYSICAL EXAMINATION:
+Vitals: BP 124/80 mmHg, Pulse 72 bpm regular, Temp 98.4 F, SpO2 99% on room air.
+Constitutional: Alert, oriented x3, in no acute distress.
+Cardiovascular: Regular rate and rhythm, normal S1/S2, no murmurs, rubs, or gallops.
+Respiratory: Lungs clear to auscultation bilaterally, no wheezes or rales.
+
+ASSESSMENT & PLAN:
+1. Essential hypertension (I10) - Stable, well-controlled on current monotherapy.
+   - Refill Lisinopril 20mg PO daily x 90 days with 3 refills.
+   - Routine lab work deferred.
+   - Return to clinic in 6 months or PRN.
+
+MEDICAL DECISION MAKING (MDM):
+Straightforward. Single stable chronic condition with no medication changes.
+
+BILLED CODE ON CLAIM:
+CPT 99215 (Office or other outpatient visit, established patient, requiring high level of MDM or minimum 40-54 minutes).

@@ -1,0 +1,17 @@
+﻿=== QUEST DIAGNOSTICS REFERENCE LABORATORY ===
+SPECIMEN PROCESSING & ACCESSION AUDIT REPORT
+
+SPECIMEN BARCODE: LAB-2026-90812
+ACCESSION DATE: 2026-01-22 08:30 CST
+PATIENT: Davis, Arthur (MRN: 33190)
+
+REQUISITION & COLLECTION LOG:
+- Phlebotomy: Single standard venipuncture draw (1x SST Tiger-top tube, 5 mL serum).
+- Ordered Diagnostic Panel: Comprehensive Metabolic Panel (CMP).
+
+REQUISITION CODES & CHARGES SUBMITTED:
+1. CPT 80053: Comprehensive Metabolic Panel (Albumin, Total Bilirubin, Calcium, Carbon Dioxide, Chloride, Creatinine, Glucose, Phosphatase Alkaline, Potassium, Total Protein, Sodium, AST, ALT, Urea Nitrogen).
+2. CPT 80048: Basic Metabolic Panel (Calcium, Carbon Dioxide, Chloride, Creatinine, Glucose, Potassium, Sodium, Urea Nitrogen).
+
+ACCESSIONING AUDIT NOTE:
+Only one single blood draw specimen was received. All constituents of CPT 80048 (Basic Metabolic Panel) are wholly contained within CPT 80053 (Comprehensive Metabolic Panel). Separate venipuncture or independent clinical necessity for CPT 80048 is absent from the order sheet.

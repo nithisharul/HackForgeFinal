@@ -68,3 +68,15 @@ def export_fhir(case_id: str):
             {"url": "http://acentra.com/fhir/StructureDefinition/nist-governance", "valueString": "Aligned with NIST AI RMF: Probabilistic score for human review only."}
         ]
     }
+
+
+@router.get("/cases/{case_id}/clinical-audit")
+def get_case_clinical_audit(case_id: str):
+    c = store.get_case(case_id)
+    if not c:
+        raise HTTPException(status_code=404, detail="Case not found")
+    try:
+        from brain.clinical_audit import audit_case_clinical_chart
+    except ImportError:
+        from backend.brain.clinical_audit import audit_case_clinical_chart
+    return audit_case_clinical_chart(c.get("pattern", "upcoding"), c.get("provider_id", ""))

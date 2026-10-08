@@ -72,11 +72,23 @@ def export_fhir(case_id: str):
 
 @router.get("/cases/{case_id}/clinical-audit")
 def get_case_clinical_audit(case_id: str):
-    c = store.get_case(case_id)
-    if not c:
-        raise HTTPException(status_code=404, detail="Case not found")
+    # Support both store.detail and store.get_case without crashing
+    c = None
+    if hasattr(store, "detail"):
+        try:
+            c = store.detail(case_id)
+        except Exception:
+            c = None
+    if not c and hasattr(store, "get_case"):
+        c = store.get_case(case_id)
+
+    pattern = c.get("pattern", "impossible_timing") if c else "impossible_timing"
+    provider_id = c.get("provider_id", "") if c else ""
+
     try:
         from brain.clinical_audit import audit_case_clinical_chart
     except ImportError:
         from backend.brain.clinical_audit import audit_case_clinical_chart
-    return audit_case_clinical_chart(c.get("pattern", "upcoding"), c.get("provider_id", ""))
+
+    return audit_case_clinical_chart(pattern=pattern, provider_id=provider_id, case_id=case_id)
+

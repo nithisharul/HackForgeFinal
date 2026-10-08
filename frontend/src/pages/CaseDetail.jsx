@@ -1,5 +1,6 @@
 
 
+
 function ClinicalAuditCard({ caseId, pattern }) {
   const [data, setData] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
@@ -102,6 +103,7 @@ function ClinicalAuditCard({ caseId, pattern }) {
     </div>
   );
 }
+
 
 
 

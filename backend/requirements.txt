@@ -1,0 +1,11 @@
+# Versions are pinned because the saved models in backend/models/ were written with them.
+fastapi==0.142.4
+uvicorn==0.53.0
+pandas==3.0.5
+numpy==2.5.3
+scipy==1.18.1
+scikit-learn==1.9.1
+joblib==1.6.0
+networkx==3.6.1
+python-igraph==1.0.0
+leidenalg==0.12.0

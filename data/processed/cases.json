@@ -1,0 +1,7470 @@
+[
+ {
+  "case_id": "CASE-P001",
+  "provider_id": "P001",
+  "provider_name": "Dr. Maria Ellis",
+  "specialty": "Family Medicine",
+  "city": "Houston",
+  "facility_id": "F001",
+  "owner_id": "O022",
+  "owner_name": "Pecos Care Holdings",
+  "pattern": "impossible_timing",
+  "signals": {
+   "rules": 1.0,
+   "ml": 1.0,
+   "graph": 0.0,
+   "birank": 0.5514,
+   "families_agreeing": 2
+  },
+  "evidence_strength": 0.85,
+  "severity": 0.9,
+  "prediction": {
+   "p30": 0.9883,
+   "p60": 0.9886,
+   "p90": 0.9886,
+   "volume_velocity": 1.12,
+   "flag_velocity": 1.26
+  },
+  "potential_dollars": 5170.19,
+  "member_impact": 49,
+  "n_claims": 289,
+  "n_flagged": 51,
+  "total_paid": 24526.42,
+  "rule_counts": {
+   "R2 impossible travel": 51
+  },
+  "anomaly_drivers": "90-day volume growth +1.4 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R2 impossible travel",
+    "text": "51 claims flagged by R2 impossible travel, $5,170 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C023505",
+     "C023534",
+     "C024877",
+     "C025065",
+     "C029706"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 100%; drivers: 90-day volume growth +1.4 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.55 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   },
+   {
+    "type": "history",
+    "rule": "Prior investigation",
+    "text": "Prior case INV006 (impossible timing) closed 2025-03-30: inconclusive",
+    "source": "investigations.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C067918",
+    "date": "2026-08-07 14:38",
+    "member_id": "M00246",
+    "procedure_code": "99215",
+    "facility_id": "F001",
+    "paid_amount": 172.37,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F001 and F021, 234 km apart, within 9 min"
+   },
+   {
+    "claim_id": "C067952",
+    "date": "2026-08-07 15:27",
+    "member_id": "M00767",
+    "procedure_code": "99215",
+    "facility_id": "F001",
+    "paid_amount": 166.59,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F021 and F001, 234 km apart, within 40 min"
+   },
+   {
+    "claim_id": "C077961",
+    "date": "2026-09-21 12:45",
+    "member_id": "M02159",
+    "procedure_code": "99215",
+    "facility_id": "F001",
+    "paid_amount": 162.11,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F001 and F021, 234 km apart, within 8 min"
+   },
+   {
+    "claim_id": "C029692",
+    "date": "2026-02-18 08:33",
+    "member_id": "M00868",
+    "procedure_code": "99215",
+    "facility_id": "F001",
+    "paid_amount": 149.47,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F001 and F021, 234 km apart, within 20 min"
+   },
+   {
+    "claim_id": "C024870",
+    "date": "2026-01-26 13:43",
+    "member_id": "M03996",
+    "procedure_code": "99215",
+    "facility_id": "F001",
+    "paid_amount": 147.8,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F001 and F021, 234 km apart, within 18 min"
+   },
+   {
+    "claim_id": "C067926",
+    "date": "2026-08-07 14:47",
+    "member_id": "M00996",
+    "procedure_code": "99214",
+    "facility_id": "F021",
+    "paid_amount": 129.22,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F001 and F021, 234 km apart, within 9 min"
+   },
+   {
+    "claim_id": "C025042",
+    "date": "2026-01-27 09:28",
+    "member_id": "M03731",
+    "procedure_code": "99214",
+    "facility_id": "F001",
+    "paid_amount": 128.65,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F001 and F021, 234 km apart, within 25 min"
+   },
+   {
+    "claim_id": "C061526",
+    "date": "2026-07-10 12:34",
+    "member_id": "M00144",
+    "procedure_code": "99214",
+    "facility_id": "F001",
+    "paid_amount": 127.61,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F001 and F021, 234 km apart, within 19 min"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 18,
+    "paid": 1402.41,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 12,
+    "paid": 1039.5,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 18,
+    "paid": 1744.93,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 30,
+    "paid": 2903.74,
+    "flagged": 8
+   },
+   {
+    "month": "2026-02",
+    "claims": 30,
+    "paid": 2362.92,
+    "flagged": 8
+   },
+   {
+    "month": "2026-03",
+    "claims": 25,
+    "paid": 2024.61,
+    "flagged": 5
+   },
+   {
+    "month": "2026-04",
+    "claims": 31,
+    "paid": 2437.91,
+    "flagged": 2
+   },
+   {
+    "month": "2026-05",
+    "claims": 19,
+    "paid": 1381.18,
+    "flagged": 2
+   },
+   {
+    "month": "2026-06",
+    "claims": 14,
+    "paid": 1118.06,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 28,
+    "paid": 2390.26,
+    "flagged": 4
+   },
+   {
+    "month": "2026-08",
+    "claims": 29,
+    "paid": 2634.65,
+    "flagged": 11
+   },
+   {
+    "month": "2026-09",
+    "claims": 35,
+    "paid": 3086.25,
+    "flagged": 11
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-03-30",
+    "event": "Prior case INV006 closed: inconclusive"
+   },
+   {
+    "date": "2026-01-19",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-30",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P040",
+  "provider_id": "P040",
+  "provider_name": "Dr. Carlos Ibarra",
+  "specialty": "Internal Medicine",
+  "city": "Fort Worth",
+  "facility_id": "F009",
+  "owner_id": "O056",
+  "owner_name": "Mesquite Care Holdings",
+  "pattern": "upcoding",
+  "signals": {
+   "rules": 0.242,
+   "ml": 0.021,
+   "graph": 0.0,
+   "birank": 0.481,
+   "families_agreeing": 0
+  },
+  "evidence_strength": 0.129,
+  "severity": 0.7,
+  "prediction": {
+   "p30": 0.9897,
+   "p60": 0.9897,
+   "p90": 0.9897,
+   "volume_velocity": 0.98,
+   "flag_velocity": 2.71
+  },
+  "potential_dollars": 1005.22,
+  "member_impact": 6,
+  "n_claims": 246,
+  "n_flagged": 6,
+  "total_paid": 21186.0,
+  "rule_counts": {
+   "R5 visit-level drift": 6
+  },
+  "anomaly_drivers": "",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R5 visit-level drift",
+    "text": "6 claims flagged by R5 visit-level drift, $1,005 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C074262",
+     "C075355",
+     "C075685",
+     "C075871",
+     "C076737"
+    ]
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.48 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   },
+   {
+    "type": "history",
+    "rule": "Prior investigation",
+    "text": "Prior case INV040 (upcoding) closed 2025-02-22: confirmed",
+    "source": "investigations.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C074262",
+    "date": "2026-09-04 11:08",
+    "member_id": "M03496",
+    "procedure_code": "99215",
+    "facility_id": "F009",
+    "paid_amount": 179.93,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 35% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C075355",
+    "date": "2026-09-09 14:45",
+    "member_id": "M02686",
+    "procedure_code": "99215",
+    "facility_id": "F009",
+    "paid_amount": 179.23,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 35% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C075871",
+    "date": "2026-09-11 11:07",
+    "member_id": "M02096",
+    "procedure_code": "99215",
+    "facility_id": "F009",
+    "paid_amount": 176.86,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 35% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C076737",
+    "date": "2026-09-15 16:40",
+    "member_id": "M02352",
+    "procedure_code": "99215",
+    "facility_id": "F009",
+    "paid_amount": 162.48,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 35% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C075685",
+    "date": "2026-09-10 14:32",
+    "member_id": "M00588",
+    "procedure_code": "99215",
+    "facility_id": "F009",
+    "paid_amount": 158.64,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 35% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C077703",
+    "date": "2026-09-18 14:44",
+    "member_id": "M01949",
+    "procedure_code": "99215",
+    "facility_id": "F009",
+    "paid_amount": 148.08,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 35% of office visits in 2026-09 vs 9% for all providers"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 22,
+    "paid": 1772.42,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 14,
+    "paid": 1252.55,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 18,
+    "paid": 1613.0,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 20,
+    "paid": 1834.67,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 20,
+    "paid": 1768.53,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 24,
+    "paid": 1860.22,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 16,
+    "paid": 1395.42,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 25,
+    "paid": 2161.72,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 25,
+    "paid": 1942.09,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 27,
+    "paid": 2005.09,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 16,
+    "paid": 1428.49,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 19,
+    "paid": 2151.8,
+    "flagged": 6
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-02-22",
+    "event": "Prior case INV040 closed: confirmed"
+   },
+   {
+    "date": "2026-09-04",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-18",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P055",
+  "provider_id": "P055",
+  "provider_name": "Dr. Carlos Patel",
+  "specialty": "Cardiology",
+  "city": "Houston",
+  "facility_id": "F017",
+  "owner_id": "O061",
+  "owner_name": "Gulfline Health Holdings LLC",
+  "pattern": "collusive_ring",
+  "signals": {
+   "rules": 0.0,
+   "ml": 0.333,
+   "graph": 1.0,
+   "birank": 0.6703,
+   "families_agreeing": 2
+  },
+  "evidence_strength": 0.683,
+  "severity": 1.0,
+  "prediction": {
+   "p30": 0.1219,
+   "p60": 0.1863,
+   "p90": 0.4016,
+   "volume_velocity": 1.06,
+   "flag_velocity": 1.0
+  },
+  "potential_dollars": 46525.18,
+  "member_impact": 72,
+  "n_claims": 753,
+  "n_flagged": 0,
+  "total_paid": 72311.04,
+  "rule_counts": {},
+  "anomaly_drivers": "average paid per claim +2.7 SD vs specialty peers; 90-day volume growth +2.5 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 33%; drivers: average paid per claim +2.7 SD vs specialty peers; 90-day volume growth +2.5 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "Leiden community + referral cycles",
+    "text": "Member of network N01: 6 providers sharing 72 members; 100% share owner O061; referrals form a closed loop",
+    "source": "claims.csv member overlap, referrals.csv, ownership.csv",
+    "claim_ids": []
+   },
+   {
+    "type": "history",
+    "rule": "Prior investigation",
+    "text": "Prior case INV004 (collusive ring) closed 2025-10-05: confirmed",
+    "source": "investigations.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C043648",
+    "date": "2026-04-22 13:48",
+    "member_id": "M04632",
+    "procedure_code": "99215",
+    "facility_id": "F017",
+    "paid_amount": 182.95,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   },
+   {
+    "claim_id": "C068382",
+    "date": "2026-08-11 09:24",
+    "member_id": "M03041",
+    "procedure_code": "99215",
+    "facility_id": "F017",
+    "paid_amount": 182.86,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   },
+   {
+    "claim_id": "C037062",
+    "date": "2026-03-24 12:04",
+    "member_id": "M00057",
+    "procedure_code": "99215",
+    "facility_id": "F017",
+    "paid_amount": 182.0,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   },
+   {
+    "claim_id": "C047804",
+    "date": "2026-05-11 15:30",
+    "member_id": "M02991",
+    "procedure_code": "99215",
+    "facility_id": "F017",
+    "paid_amount": 181.7,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   },
+   {
+    "claim_id": "C048458",
+    "date": "2026-05-13 15:49",
+    "member_id": "M04632",
+    "procedure_code": "99215",
+    "facility_id": "F017",
+    "paid_amount": 181.45,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   },
+   {
+    "claim_id": "C046122",
+    "date": "2026-05-04 13:06",
+    "member_id": "M02885",
+    "procedure_code": "99215",
+    "facility_id": "F017",
+    "paid_amount": 180.04,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   },
+   {
+    "claim_id": "C064017",
+    "date": "2026-07-22 10:56",
+    "member_id": "M04632",
+    "procedure_code": "99215",
+    "facility_id": "F017",
+    "paid_amount": 179.22,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   },
+   {
+    "claim_id": "C070949",
+    "date": "2026-08-21 08:26",
+    "member_id": "M00810",
+    "procedure_code": "99215",
+    "facility_id": "F017",
+    "paid_amount": 178.34,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 23,
+    "paid": 2340.34,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 35,
+    "paid": 2686.01,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 27,
+    "paid": 2757.88,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 30,
+    "paid": 2582.17,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 34,
+    "paid": 2500.83,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 48,
+    "paid": 4906.53,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 62,
+    "paid": 6028.57,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 74,
+    "paid": 7205.83,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 90,
+    "paid": 8916.3,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 102,
+    "paid": 10156.57,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 109,
+    "paid": 10607.62,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 119,
+    "paid": 11622.39,
+    "flagged": 0
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-10-05",
+    "event": "Prior case INV004 closed: confirmed"
+   }
+  ],
+  "network": {
+   "cluster_id": "N01",
+   "providers": [
+    "P055",
+    "P062",
+    "P081",
+    "P250",
+    "P263",
+    "P274"
+   ],
+   "size": 6,
+   "method": "leiden",
+   "top_owner": "O061",
+   "owner_share": 1.0,
+   "referral_cycle": true,
+   "shared_members": 72,
+   "paid_on_shared_members": 189511.82,
+   "score": 1.0
+  },
+  "codes": [
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P062",
+  "provider_id": "P062",
+  "provider_name": "Dr. Kevin Nguyen",
+  "specialty": "Family Medicine",
+  "city": "Houston",
+  "facility_id": "F034",
+  "owner_id": "O061",
+  "owner_name": "Gulfline Health Holdings LLC",
+  "pattern": "collusive_ring",
+  "signals": {
+   "rules": 0.031,
+   "ml": 0.5,
+   "graph": 1.0,
+   "birank": 0.3534,
+   "families_agreeing": 2
+  },
+  "evidence_strength": 0.765,
+  "severity": 1.0,
+  "prediction": {
+   "p30": 0.0065,
+   "p60": 0.0065,
+   "p90": 0.0157,
+   "volume_velocity": 1.09,
+   "flag_velocity": 2.0
+  },
+  "potential_dollars": 44804.26,
+  "member_impact": 70,
+  "n_claims": 593,
+  "n_flagged": 1,
+  "total_paid": 58326.81,
+  "rule_counts": {
+   "R4 unit limit (MUE)": 1
+  },
+  "anomaly_drivers": "average paid per claim +3.3 SD vs specialty peers; 90-day volume growth +2.1 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "1 claims flagged by R4 unit limit (MUE), $154 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C080084"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 50%; drivers: average paid per claim +3.3 SD vs specialty peers; 90-day volume growth +2.1 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "Leiden community + referral cycles",
+    "text": "Member of network N01: 6 providers sharing 72 members; 100% share owner O061; referrals form a closed loop",
+    "source": "claims.csv member overlap, referrals.csv, ownership.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C080084",
+    "date": "2026-09-29 15:36",
+    "member_id": "M04729",
+    "procedure_code": "99215",
+    "facility_id": "F034",
+    "paid_amount": 153.67,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "2 units of 99215 for one member on one date; limit is 1"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 18,
+    "paid": 1408.28,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 10,
+    "paid": 869.19,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 9,
+    "paid": 902.07,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 22,
+    "paid": 1980.3,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 11,
+    "paid": 869.75,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 44,
+    "paid": 4344.19,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 43,
+    "paid": 4492.25,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 57,
+    "paid": 6112.74,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 87,
+    "paid": 8351.88,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 88,
+    "paid": 8655.08,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 97,
+    "paid": 9458.0,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 107,
+    "paid": 10883.08,
+    "flagged": 1
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-09-29",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-29",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": {
+   "cluster_id": "N01",
+   "providers": [
+    "P055",
+    "P062",
+    "P081",
+    "P250",
+    "P263",
+    "P274"
+   ],
+   "size": 6,
+   "method": "leiden",
+   "top_owner": "O061",
+   "owner_share": 1.0,
+   "referral_cycle": true,
+   "shared_members": 72,
+   "paid_on_shared_members": 189511.82,
+   "score": 1.0
+  },
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P081",
+  "provider_id": "P081",
+  "provider_name": "Dr. David Hayes",
+  "specialty": "Physical Therapy",
+  "city": "Houston",
+  "facility_id": "F026",
+  "owner_id": "O061",
+  "owner_name": "Gulfline Health Holdings LLC",
+  "pattern": "collusive_ring",
+  "signals": {
+   "rules": 0.031,
+   "ml": 0.2,
+   "graph": 1.0,
+   "birank": 0.3484,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.496,
+  "severity": 1.0,
+  "prediction": {
+   "p30": 0.005,
+   "p60": 0.0055,
+   "p90": 0.0087,
+   "volume_velocity": 1.12,
+   "flag_velocity": 2.0
+  },
+  "potential_dollars": 30069.6,
+  "member_impact": 71,
+  "n_claims": 569,
+  "n_flagged": 1,
+  "total_paid": 38433.37,
+  "rule_counts": {
+   "R4 unit limit (MUE)": 1
+  },
+  "anomaly_drivers": "90-day volume growth +2.9 SD vs specialty peers; total paid +1.8 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "1 claims flagged by R4 unit limit (MUE), $95 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C079732"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 20%; drivers: 90-day volume growth +2.9 SD vs specialty peers; total paid +1.8 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "Leiden community + referral cycles",
+    "text": "Member of network N01: 6 providers sharing 72 members; 100% share owner O061; referrals form a closed loop",
+    "source": "claims.csv member overlap, referrals.csv, ownership.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C079732",
+    "date": "2026-09-28 15:04",
+    "member_id": "M02896",
+    "procedure_code": "97110",
+    "facility_id": "F026",
+    "paid_amount": 94.6,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "8 units of 97110 for one member on one date; limit is 6"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 15,
+    "paid": 1221.93,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 5,
+    "paid": 222.85,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 15,
+    "paid": 1041.77,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 8,
+    "paid": 523.22,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 8,
+    "paid": 703.62,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 37,
+    "paid": 2398.59,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 56,
+    "paid": 3709.79,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 56,
+    "paid": 3872.77,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 76,
+    "paid": 5335.3,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 86,
+    "paid": 5782.18,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 98,
+    "paid": 6295.59,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 109,
+    "paid": 7325.76,
+    "flagged": 1
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-09-28",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-28",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": {
+   "cluster_id": "N01",
+   "providers": [
+    "P055",
+    "P062",
+    "P081",
+    "P250",
+    "P263",
+    "P274"
+   ],
+   "size": 6,
+   "method": "leiden",
+   "top_owner": "O061",
+   "owner_share": 1.0,
+   "referral_cycle": true,
+   "shared_members": 72,
+   "paid_on_shared_members": 189511.82,
+   "score": 1.0
+  },
+  "codes": [
+   "97110"
+  ]
+ },
+ {
+  "case_id": "CASE-P084",
+  "provider_id": "P084",
+  "provider_name": "Dr. Linh Patel",
+  "specialty": "Family Medicine",
+  "city": "San Antonio",
+  "facility_id": "F035",
+  "owner_id": "O001",
+  "owner_name": "Gulf Coast Physicians LLC",
+  "pattern": "upcoding",
+  "signals": {
+   "rules": 0.0,
+   "ml": 1.0,
+   "graph": 0.0,
+   "birank": 0.0292,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.2,
+  "severity": 0.7,
+  "prediction": {
+   "p30": 0.1479,
+   "p60": 0.1479,
+   "p90": 0.1479,
+   "volume_velocity": 0.86,
+   "flag_velocity": 1.0
+  },
+  "potential_dollars": 0.0,
+  "member_impact": 23,
+  "n_claims": 75,
+  "n_flagged": 0,
+  "total_paid": 7069.4,
+  "rule_counts": {},
+  "anomaly_drivers": "share of level-5 visits +3.8 SD vs specialty peers; average paid per claim +2.3 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 100%; drivers: share of level-5 visits +3.8 SD vs specialty peers; average paid per claim +2.3 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 16,
+    "paid": 1358.98,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 1,
+    "paid": 107.7,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 1,
+    "paid": 111.33,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 9,
+    "paid": 586.36,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 7,
+    "paid": 589.6,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 7,
+    "paid": 765.78,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 1,
+    "paid": 118.7,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 9,
+    "paid": 888.02,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 11,
+    "paid": 820.5,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 9,
+    "paid": 1178.64,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 1,
+    "paid": 120.76,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 3,
+    "paid": 423.03,
+    "flagged": 0
+   }
+  ],
+  "events": [],
+  "network": null,
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P098",
+  "provider_id": "P098",
+  "provider_name": "Dr. Daniel Ortiz",
+  "specialty": "Orthopedics",
+  "city": "El Paso",
+  "facility_id": "F011",
+  "owner_id": "O050",
+  "owner_name": "Pecos Health Partners",
+  "pattern": "duplicate_billing",
+  "signals": {
+   "rules": 1.0,
+   "ml": 0.037,
+   "graph": 0.0,
+   "birank": 0.5088,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.515,
+  "severity": 0.6,
+  "prediction": {
+   "p30": 0.4208,
+   "p60": 0.9853,
+   "p90": 0.9853,
+   "volume_velocity": 0.79,
+   "flag_velocity": 0.81
+  },
+  "potential_dollars": 2834.91,
+  "member_impact": 25,
+  "n_claims": 271,
+  "n_flagged": 33,
+  "total_paid": 23414.94,
+  "rule_counts": {
+   "R1 duplicate claim": 33,
+   "R4 unit limit (MUE)": 2
+  },
+  "anomaly_drivers": "total paid +1.4 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R1 duplicate claim",
+    "text": "33 claims flagged by R1 duplicate claim, $2,835 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C033482",
+     "C035205",
+     "C036033",
+     "C036036",
+     "C036312"
+    ]
+   },
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "2 claims flagged by R4 unit limit (MUE), $185 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C037392",
+     "C040092"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 4%; drivers: total paid +1.4 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.51 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C040092",
+    "date": "2026-04-07 10:47",
+    "member_id": "M01750",
+    "procedure_code": "99215",
+    "facility_id": "F011",
+    "paid_amount": 161.4,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 5 min earlier"
+   },
+   {
+    "claim_id": "C048135",
+    "date": "2026-05-12 15:24",
+    "member_id": "M00911",
+    "procedure_code": "99214",
+    "facility_id": "F011",
+    "paid_amount": 127.19,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 9 min earlier"
+   },
+   {
+    "claim_id": "C061690",
+    "date": "2026-07-11 08:04",
+    "member_id": "M00827",
+    "procedure_code": "99214",
+    "facility_id": "F011",
+    "paid_amount": 125.93,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 1 day(s) earlier"
+   },
+   {
+    "claim_id": "C063910",
+    "date": "2026-07-22 08:06",
+    "member_id": "M04967",
+    "procedure_code": "99214",
+    "facility_id": "F011",
+    "paid_amount": 124.25,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 1 day(s) earlier"
+   },
+   {
+    "claim_id": "C071219",
+    "date": "2026-08-22 15:01",
+    "member_id": "M03430",
+    "procedure_code": "99214",
+    "facility_id": "F011",
+    "paid_amount": 123.8,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 2 day(s) earlier"
+   },
+   {
+    "claim_id": "C035205",
+    "date": "2026-03-16 08:45",
+    "member_id": "M00514",
+    "procedure_code": "99214",
+    "facility_id": "F011",
+    "paid_amount": 123.79,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 16 min earlier"
+   },
+   {
+    "claim_id": "C063807",
+    "date": "2026-07-21 13:58",
+    "member_id": "M01706",
+    "procedure_code": "99214",
+    "facility_id": "F011",
+    "paid_amount": 118.86,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 14 min earlier"
+   },
+   {
+    "claim_id": "C072783",
+    "date": "2026-08-28 16:01",
+    "member_id": "M00069",
+    "procedure_code": "99214",
+    "facility_id": "F011",
+    "paid_amount": 118.57,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 3 day(s) earlier"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 18,
+    "paid": 1617.63,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 16,
+    "paid": 1180.21,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 19,
+    "paid": 1708.7,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 22,
+    "paid": 2065.05,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 17,
+    "paid": 1487.12,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 36,
+    "paid": 2691.17,
+    "flagged": 7
+   },
+   {
+    "month": "2026-04",
+    "claims": 31,
+    "paid": 2555.1,
+    "flagged": 5
+   },
+   {
+    "month": "2026-05",
+    "claims": 17,
+    "paid": 1422.1,
+    "flagged": 4
+   },
+   {
+    "month": "2026-06",
+    "claims": 18,
+    "paid": 1591.2,
+    "flagged": 2
+   },
+   {
+    "month": "2026-07",
+    "claims": 33,
+    "paid": 3070.17,
+    "flagged": 7
+   },
+   {
+    "month": "2026-08",
+    "claims": 24,
+    "paid": 2306.73,
+    "flagged": 4
+   },
+   {
+    "month": "2026-09",
+    "claims": 20,
+    "paid": 1719.76,
+    "flagged": 4
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-03-06",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-30",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "73560",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P105",
+  "provider_id": "P105",
+  "provider_name": "Dr. Grace Jensen",
+  "specialty": "Internal Medicine",
+  "city": "Houston",
+  "facility_id": "F037",
+  "owner_id": "O054",
+  "owner_name": "Hill Country Physicians LLC",
+  "pattern": "excessive_utilization",
+  "signals": {
+   "rules": 0.0,
+   "ml": 0.333,
+   "graph": 0.0,
+   "birank": 0.1316,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.133,
+  "severity": 0.5,
+  "prediction": {
+   "p30": 0.004,
+   "p60": 0.0057,
+   "p90": 0.0057,
+   "volume_velocity": 1.57,
+   "flag_velocity": 1.0
+  },
+  "potential_dollars": 0.0,
+  "member_impact": 43,
+  "n_claims": 126,
+  "n_flagged": 0,
+  "total_paid": 11493.31,
+  "rule_counts": {},
+  "anomaly_drivers": "90-day volume growth +3.0 SD vs specialty peers; average paid per claim +1.7 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 33%; drivers: 90-day volume growth +3.0 SD vs specialty peers; average paid per claim +1.7 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 10,
+    "paid": 888.5,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 10,
+    "paid": 886.22,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 12,
+    "paid": 1286.88,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 12,
+    "paid": 1151.56,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 10,
+    "paid": 749.63,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 8,
+    "paid": 774.42,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 7,
+    "paid": 614.24,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 8,
+    "paid": 735.11,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 7,
+    "paid": 605.89,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 14,
+    "paid": 1177.66,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 7,
+    "paid": 654.35,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 21,
+    "paid": 1968.85,
+    "flagged": 0
+   }
+  ],
+  "events": [],
+  "network": null,
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P106",
+  "provider_id": "P106",
+  "provider_name": "Dr. Carlos Nguyen",
+  "specialty": "Orthopedics",
+  "city": "Houston",
+  "facility_id": "F024",
+  "owner_id": "O016",
+  "owner_name": "Brazos Care Holdings",
+  "pattern": "upcoding",
+  "signals": {
+   "rules": 0.259,
+   "ml": 0.036,
+   "graph": 0.0,
+   "birank": 0.2339,
+   "families_agreeing": 0
+  },
+  "evidence_strength": 0.144,
+  "severity": 0.7,
+  "prediction": {
+   "p30": 0.004,
+   "p60": 0.0043,
+   "p90": 0.0043,
+   "volume_velocity": 1.33,
+   "flag_velocity": 1.0
+  },
+  "potential_dollars": 829.09,
+  "member_impact": 5,
+  "n_claims": 144,
+  "n_flagged": 5,
+  "total_paid": 13010.02,
+  "rule_counts": {
+   "R5 visit-level drift": 5
+  },
+  "anomaly_drivers": "",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R5 visit-level drift",
+    "text": "5 claims flagged by R5 visit-level drift, $829 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C027662",
+     "C028089",
+     "C028288",
+     "C030062",
+     "C031966"
+    ]
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C030062",
+    "date": "2026-02-19 10:33",
+    "member_id": "M03444",
+    "procedure_code": "99215",
+    "facility_id": "F024",
+    "paid_amount": 181.72,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 38% of office visits in 2026-02 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C028288",
+    "date": "2026-02-11 10:20",
+    "member_id": "M04190",
+    "procedure_code": "99215",
+    "facility_id": "F024",
+    "paid_amount": 173.27,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 38% of office visits in 2026-02 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C027662",
+    "date": "2026-02-09 09:10",
+    "member_id": "M03610",
+    "procedure_code": "99215",
+    "facility_id": "F024",
+    "paid_amount": 162.84,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 38% of office visits in 2026-02 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C028089",
+    "date": "2026-02-10 13:36",
+    "member_id": "M01190",
+    "procedure_code": "99215",
+    "facility_id": "F024",
+    "paid_amount": 156.02,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 38% of office visits in 2026-02 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C031966",
+    "date": "2026-02-27 12:53",
+    "member_id": "M03123",
+    "procedure_code": "99215",
+    "facility_id": "F024",
+    "paid_amount": 155.24,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 38% of office visits in 2026-02 vs 9% for all providers"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 12,
+    "paid": 1088.49,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 11,
+    "paid": 990.4,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 17,
+    "paid": 1641.19,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 12,
+    "paid": 1062.33,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 16,
+    "paid": 1665.18,
+    "flagged": 5
+   },
+   {
+    "month": "2026-03",
+    "claims": 8,
+    "paid": 719.05,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 9,
+    "paid": 814.4,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 11,
+    "paid": 955.61,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 13,
+    "paid": 1325.48,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 12,
+    "paid": 914.14,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 7,
+    "paid": 461.91,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 16,
+    "paid": 1371.84,
+    "flagged": 0
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-02-09",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-02-27",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "73560",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P116",
+  "provider_id": "P116",
+  "provider_name": "Dr. Carlos Ibarra",
+  "specialty": "Physical Therapy",
+  "city": "Corpus Christi",
+  "facility_id": "F020",
+  "owner_id": "O052",
+  "owner_name": "Rio Medical Group",
+  "pattern": "excessive_utilization",
+  "signals": {
+   "rules": 0.14,
+   "ml": 0.5,
+   "graph": 0.0,
+   "birank": 0.1865,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.27,
+  "severity": 0.5,
+  "prediction": {
+   "p30": 0.004,
+   "p60": 0.0054,
+   "p90": 0.0063,
+   "volume_velocity": 1.17,
+   "flag_velocity": 1.0
+  },
+  "potential_dollars": 498.97,
+  "member_impact": 5,
+  "n_claims": 978,
+  "n_flagged": 5,
+  "total_paid": 65176.73,
+  "rule_counts": {
+   "R4 unit limit (MUE)": 5
+  },
+  "anomaly_drivers": "claims per member +3.1 SD vs specialty peers; total paid +2.6 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "5 claims flagged by R4 unit limit (MUE), $499 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C001489",
+     "C008625",
+     "C035754",
+     "C038728",
+     "C057589"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 50%; drivers: claims per member +3.1 SD vs specialty peers; total paid +2.6 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "history",
+    "rule": "Prior investigation",
+    "text": "Prior case INV012 (excessive utilization) closed 2025-07-24: cleared",
+    "source": "investigations.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C001489",
+    "date": "2025-10-07 15:35",
+    "member_id": "M01672",
+    "procedure_code": "97110",
+    "facility_id": "F020",
+    "paid_amount": 114.39,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "8 units of 97110 for one member on one date; limit is 6"
+   },
+   {
+    "claim_id": "C035754",
+    "date": "2026-03-17 16:40",
+    "member_id": "M03059",
+    "procedure_code": "97110",
+    "facility_id": "F020",
+    "paid_amount": 110.6,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "8 units of 97110 for one member on one date; limit is 6"
+   },
+   {
+    "claim_id": "C008625",
+    "date": "2025-11-10 15:17",
+    "member_id": "M04234",
+    "procedure_code": "97110",
+    "facility_id": "F020",
+    "paid_amount": 107.47,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "7 units of 97110 for one member on one date; limit is 6"
+   },
+   {
+    "claim_id": "C038728",
+    "date": "2026-03-31 16:25",
+    "member_id": "M00888",
+    "procedure_code": "97110",
+    "facility_id": "F020",
+    "paid_amount": 88.02,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "7 units of 97110 for one member on one date; limit is 6"
+   },
+   {
+    "claim_id": "C057589",
+    "date": "2026-06-23 16:00",
+    "member_id": "M01739",
+    "procedure_code": "97110",
+    "facility_id": "F020",
+    "paid_amount": 78.49,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "7 units of 97110 for one member on one date; limit is 6"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 94,
+    "paid": 6661.56,
+    "flagged": 1
+   },
+   {
+    "month": "2025-11",
+    "claims": 80,
+    "paid": 5480.76,
+    "flagged": 1
+   },
+   {
+    "month": "2025-12",
+    "claims": 85,
+    "paid": 5292.46,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 72,
+    "paid": 4713.15,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 66,
+    "paid": 3941.4,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 77,
+    "paid": 5110.04,
+    "flagged": 2
+   },
+   {
+    "month": "2026-04",
+    "claims": 87,
+    "paid": 5483.39,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 78,
+    "paid": 5091.51,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 88,
+    "paid": 6347.24,
+    "flagged": 1
+   },
+   {
+    "month": "2026-07",
+    "claims": 86,
+    "paid": 5783.47,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 69,
+    "paid": 4881.38,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 96,
+    "paid": 6390.37,
+    "flagged": 0
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-07-24",
+    "event": "Prior case INV012 closed: cleared"
+   },
+   {
+    "date": "2025-10-07",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-06-23",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "97110"
+  ]
+ },
+ {
+  "case_id": "CASE-P121",
+  "provider_id": "P121",
+  "provider_name": "Prairie Home Care",
+  "specialty": "Home Health",
+  "city": "Fort Worth",
+  "facility_id": "F027",
+  "owner_id": "O041",
+  "owner_name": "Red River Physicians LLC",
+  "pattern": "excessive_utilization",
+  "signals": {
+   "rules": 0.107,
+   "ml": 0.0,
+   "graph": 0.0,
+   "birank": 0.1858,
+   "families_agreeing": 0
+  },
+  "evidence_strength": 0.054,
+  "severity": 0.5,
+  "prediction": {
+   "p30": 0.0156,
+   "p60": 0.1446,
+   "p90": 0.1446,
+   "volume_velocity": 0.88,
+   "flag_velocity": 2.33
+  },
+  "potential_dollars": 336.03,
+  "member_impact": 3,
+  "n_claims": 341,
+  "n_flagged": 3,
+  "total_paid": 43635.88,
+  "rule_counts": {
+   "R4 unit limit (MUE)": 3
+  },
+  "anomaly_drivers": "",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "3 claims flagged by R4 unit limit (MUE), $336 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C043400",
+     "C074193",
+     "C080303"
+    ]
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C080303",
+    "date": "2026-09-30 13:08",
+    "member_id": "M00334",
+    "procedure_code": "99349",
+    "facility_id": "F027",
+    "paid_amount": 121.77,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "2 units of 99349 for one member on one date; limit is 1"
+   },
+   {
+    "claim_id": "C043400",
+    "date": "2026-04-21 16:23",
+    "member_id": "M04073",
+    "procedure_code": "99349",
+    "facility_id": "F027",
+    "paid_amount": 113.18,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "2 units of 99349 for one member on one date; limit is 1"
+   },
+   {
+    "claim_id": "C074193",
+    "date": "2026-09-04 09:21",
+    "member_id": "M04612",
+    "procedure_code": "99349",
+    "facility_id": "F027",
+    "paid_amount": 101.08,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "2 units of 99349 for one member on one date; limit is 1"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 46,
+    "paid": 5851.28,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 30,
+    "paid": 3806.12,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 32,
+    "paid": 4024.89,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 32,
+    "paid": 4252.56,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 24,
+    "paid": 3124.76,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 28,
+    "paid": 3518.28,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 25,
+    "paid": 3026.93,
+    "flagged": 1
+   },
+   {
+    "month": "2026-05",
+    "claims": 17,
+    "paid": 2055.9,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 29,
+    "paid": 3802.06,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 33,
+    "paid": 4314.56,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 22,
+    "paid": 2946.0,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 23,
+    "paid": 2912.54,
+    "flagged": 2
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-04-21",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-30",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "99349",
+   "99350"
+  ]
+ },
+ {
+  "case_id": "CASE-P140",
+  "provider_id": "P140",
+  "provider_name": "Dr. David Delgado",
+  "specialty": "Family Medicine",
+  "city": "Fort Worth",
+  "facility_id": "F033",
+  "owner_id": "O057",
+  "owner_name": "Bluebonnet Health Partners",
+  "pattern": "duplicate_billing",
+  "signals": {
+   "rules": 0.942,
+   "ml": 0.036,
+   "graph": 0.0,
+   "birank": 0.4164,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.485,
+  "severity": 0.6,
+  "prediction": {
+   "p30": 0.5368,
+   "p60": 0.9662,
+   "p90": 0.9855,
+   "volume_velocity": 1.0,
+   "flag_velocity": 0.83
+  },
+  "potential_dollars": 1929.53,
+  "member_impact": 19,
+  "n_claims": 262,
+  "n_flagged": 24,
+  "total_paid": 21547.14,
+  "rule_counts": {
+   "R1 duplicate claim": 24,
+   "R4 unit limit (MUE)": 1
+  },
+  "anomaly_drivers": "",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R1 duplicate claim",
+    "text": "24 claims flagged by R1 duplicate claim, $1,930 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C041480",
+     "C041766",
+     "C044245",
+     "C047379",
+     "C048119"
+    ]
+   },
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "1 claims flagged by R4 unit limit (MUE), $23 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C054409"
+    ]
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.42 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C071830",
+    "date": "2026-08-25 16:29",
+    "member_id": "M04241",
+    "procedure_code": "99214",
+    "facility_id": "F033",
+    "paid_amount": 127.04,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 16 min earlier"
+   },
+   {
+    "claim_id": "C041480",
+    "date": "2026-04-13 16:17",
+    "member_id": "M01433",
+    "procedure_code": "99214",
+    "facility_id": "F033",
+    "paid_amount": 122.45,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 6 min earlier"
+   },
+   {
+    "claim_id": "C048119",
+    "date": "2026-05-12 14:56",
+    "member_id": "M01072",
+    "procedure_code": "99214",
+    "facility_id": "F033",
+    "paid_amount": 120.94,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 2 min earlier"
+   },
+   {
+    "claim_id": "C053639",
+    "date": "2026-06-05 12:37",
+    "member_id": "M00030",
+    "procedure_code": "99214",
+    "facility_id": "F033",
+    "paid_amount": 120.19,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 1 day(s) earlier"
+   },
+   {
+    "claim_id": "C077789",
+    "date": "2026-09-19 11:12",
+    "member_id": "M00599",
+    "procedure_code": "99214",
+    "facility_id": "F033",
+    "paid_amount": 119.76,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 3 day(s) earlier"
+   },
+   {
+    "claim_id": "C073112",
+    "date": "2026-08-31 15:24",
+    "member_id": "M03127",
+    "procedure_code": "99214",
+    "facility_id": "F033",
+    "paid_amount": 117.82,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 2 min earlier"
+   },
+   {
+    "claim_id": "C057051",
+    "date": "2026-06-22 08:53",
+    "member_id": "M00916",
+    "procedure_code": "99214",
+    "facility_id": "F033",
+    "paid_amount": 114.31,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 12 min earlier"
+   },
+   {
+    "claim_id": "C072360",
+    "date": "2026-08-27 12:35",
+    "member_id": "M03127",
+    "procedure_code": "99214",
+    "facility_id": "F033",
+    "paid_amount": 110.22,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 1 day(s) earlier"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 15,
+    "paid": 1336.81,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 17,
+    "paid": 1506.97,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 27,
+    "paid": 2542.15,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 16,
+    "paid": 1185.12,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 23,
+    "paid": 1935.49,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 19,
+    "paid": 1623.04,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 22,
+    "paid": 1899.82,
+    "flagged": 3
+   },
+   {
+    "month": "2026-05",
+    "claims": 18,
+    "paid": 1567.44,
+    "flagged": 2
+   },
+   {
+    "month": "2026-06",
+    "claims": 30,
+    "paid": 2235.93,
+    "flagged": 6
+   },
+   {
+    "month": "2026-07",
+    "claims": 24,
+    "paid": 1774.0,
+    "flagged": 5
+   },
+   {
+    "month": "2026-08",
+    "claims": 28,
+    "paid": 2066.27,
+    "flagged": 5
+   },
+   {
+    "month": "2026-09",
+    "claims": 23,
+    "paid": 1874.1,
+    "flagged": 3
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-04-13",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-19",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P141",
+  "provider_id": "P141",
+  "provider_name": "Dr. Daniel Lopez",
+  "specialty": "Cardiology",
+  "city": "Houston",
+  "facility_id": "F013",
+  "owner_id": "O043",
+  "owner_name": "Alamo Physicians LLC",
+  "pattern": "impossible_timing",
+  "signals": {
+   "rules": 1.0,
+   "ml": 1.0,
+   "graph": 0.0,
+   "birank": 0.457,
+   "families_agreeing": 2
+  },
+  "evidence_strength": 0.85,
+  "severity": 0.9,
+  "prediction": {
+   "p30": 0.2902,
+   "p60": 0.3514,
+   "p90": 0.9827,
+   "volume_velocity": 1.3,
+   "flag_velocity": 0.47
+  },
+  "potential_dollars": 6053.71,
+  "member_impact": 58,
+  "n_claims": 145,
+  "n_flagged": 58,
+  "total_paid": 13856.38,
+  "rule_counts": {
+   "R2 impossible travel": 58
+  },
+  "anomaly_drivers": "average paid per claim +2.6 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R2 impossible travel",
+    "text": "58 claims flagged by R2 impossible travel, $6,054 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C013400",
+     "C013807",
+     "C014262",
+     "C022690",
+     "C023317"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 100%; drivers: average paid per claim +2.6 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.46 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C023627",
+    "date": "2026-01-20 12:03",
+    "member_id": "M00593",
+    "procedure_code": "99215",
+    "facility_id": "F013",
+    "paid_amount": 173.19,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F013 and F004, 229 km apart, within 30 min"
+   },
+   {
+    "claim_id": "C049577",
+    "date": "2026-05-19 12:46",
+    "member_id": "M04579",
+    "procedure_code": "99215",
+    "facility_id": "F004",
+    "paid_amount": 170.29,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F013 and F004, 229 km apart, within 18 min"
+   },
+   {
+    "claim_id": "C067322",
+    "date": "2026-08-05 16:31",
+    "member_id": "M00919",
+    "procedure_code": "99215",
+    "facility_id": "F004",
+    "paid_amount": 158.25,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F013 and F004, 229 km apart, within 23 min"
+   },
+   {
+    "claim_id": "C077601",
+    "date": "2026-09-18 12:33",
+    "member_id": "M00155",
+    "procedure_code": "99215",
+    "facility_id": "F004",
+    "paid_amount": 153.13,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F013 and F004, 229 km apart, within 9 min"
+   },
+   {
+    "claim_id": "C045410",
+    "date": "2026-04-30 10:53",
+    "member_id": "M03597",
+    "procedure_code": "99214",
+    "facility_id": "F004",
+    "paid_amount": 128.25,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F013 and F004, 229 km apart, within 14 min"
+   },
+   {
+    "claim_id": "C068773",
+    "date": "2026-08-12 10:40",
+    "member_id": "M04381",
+    "procedure_code": "99214",
+    "facility_id": "F013",
+    "paid_amount": 127.36,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F013 and F004, 229 km apart, within 28 min"
+   },
+   {
+    "claim_id": "C023368",
+    "date": "2026-01-19 13:06",
+    "member_id": "M01398",
+    "procedure_code": "99214",
+    "facility_id": "F004",
+    "paid_amount": 127.26,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F013 and F004, 229 km apart, within 23 min"
+   },
+   {
+    "claim_id": "C030535",
+    "date": "2026-02-20 16:08",
+    "member_id": "M02091",
+    "procedure_code": "99214",
+    "facility_id": "F004",
+    "paid_amount": 127.0,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F013 and F004, 229 km apart, within 10 min"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 6,
+    "paid": 474.54,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 6,
+    "paid": 744.13,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 13,
+    "paid": 1103.04,
+    "flagged": 6
+   },
+   {
+    "month": "2026-01",
+    "claims": 20,
+    "paid": 1831.82,
+    "flagged": 12
+   },
+   {
+    "month": "2026-02",
+    "claims": 20,
+    "paid": 2146.18,
+    "flagged": 12
+   },
+   {
+    "month": "2026-03",
+    "claims": 13,
+    "paid": 1407.8,
+    "flagged": 6
+   },
+   {
+    "month": "2026-04",
+    "claims": 10,
+    "paid": 920.25,
+    "flagged": 4
+   },
+   {
+    "month": "2026-05",
+    "claims": 11,
+    "paid": 1257.26,
+    "flagged": 4
+   },
+   {
+    "month": "2026-06",
+    "claims": 12,
+    "paid": 817.29,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 8,
+    "paid": 728.55,
+    "flagged": 6
+   },
+   {
+    "month": "2026-08",
+    "claims": 11,
+    "paid": 1132.41,
+    "flagged": 6
+   },
+   {
+    "month": "2026-09",
+    "claims": 15,
+    "paid": 1293.11,
+    "flagged": 2
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-12-02",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-18",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P144",
+  "provider_id": "P144",
+  "provider_name": "Pecos Home Care",
+  "specialty": "Home Health",
+  "city": "Lubbock",
+  "facility_id": "F014",
+  "owner_id": "O028",
+  "owner_name": "Prairie Health Partners",
+  "pattern": "duplicate_billing",
+  "signals": {
+   "rules": 1.0,
+   "ml": 0.037,
+   "graph": 0.0,
+   "birank": 0.4506,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.515,
+  "severity": 0.6,
+  "prediction": {
+   "p30": 0.9994,
+   "p60": 0.9994,
+   "p90": 0.9994,
+   "volume_velocity": 1.09,
+   "flag_velocity": 1.29
+  },
+  "potential_dollars": 5880.18,
+  "member_impact": 35,
+  "n_claims": 366,
+  "n_flagged": 47,
+  "total_paid": 46380.11,
+  "rule_counts": {
+   "R1 duplicate claim": 47,
+   "R4 unit limit (MUE)": 23
+  },
+  "anomaly_drivers": "",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R1 duplicate claim",
+    "text": "47 claims flagged by R1 duplicate claim, $5,880 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C021723",
+     "C021724",
+     "C023467",
+     "C025203",
+     "C025498"
+    ]
+   },
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "23 claims flagged by R4 unit limit (MUE), $2,800 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C023467",
+     "C025498",
+     "C030338",
+     "C031081",
+     "C033580"
+    ]
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.45 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C030338",
+    "date": "2026-02-20 10:02",
+    "member_id": "M03606",
+    "procedure_code": "99350",
+    "facility_id": "F014",
+    "paid_amount": 178.55,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "2 units of 99350 for one member on one date; limit is 1"
+   },
+   {
+    "claim_id": "C058583",
+    "date": "2026-06-29 09:49",
+    "member_id": "M03419",
+    "procedure_code": "99350",
+    "facility_id": "F014",
+    "paid_amount": 178.46,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 3 day(s) earlier"
+   },
+   {
+    "claim_id": "C055282",
+    "date": "2026-06-12 13:41",
+    "member_id": "M00706",
+    "procedure_code": "99350",
+    "facility_id": "F014",
+    "paid_amount": 172.37,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 9 min earlier"
+   },
+   {
+    "claim_id": "C076082",
+    "date": "2026-09-12 08:09",
+    "member_id": "M01107",
+    "procedure_code": "99350",
+    "facility_id": "F014",
+    "paid_amount": 171.82,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 1 day(s) earlier"
+   },
+   {
+    "claim_id": "C021723",
+    "date": "2026-01-10 15:29",
+    "member_id": "M00585",
+    "procedure_code": "99350",
+    "facility_id": "F014",
+    "paid_amount": 166.82,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 3 day(s) earlier"
+   },
+   {
+    "claim_id": "C051426",
+    "date": "2026-05-27 10:41",
+    "member_id": "M01691",
+    "procedure_code": "99350",
+    "facility_id": "F014",
+    "paid_amount": 164.35,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 1 day(s) earlier"
+   },
+   {
+    "claim_id": "C055461",
+    "date": "2026-06-15 09:28",
+    "member_id": "M04804",
+    "procedure_code": "99350",
+    "facility_id": "F014",
+    "paid_amount": 162.99,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 3 day(s) earlier"
+   },
+   {
+    "claim_id": "C060066",
+    "date": "2026-07-03 15:03",
+    "member_id": "M04205",
+    "procedure_code": "99350",
+    "facility_id": "F014",
+    "paid_amount": 162.68,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 2 day(s) earlier"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 29,
+    "paid": 3501.11,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 26,
+    "paid": 3168.06,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 27,
+    "paid": 3304.4,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 31,
+    "paid": 3916.66,
+    "flagged": 6
+   },
+   {
+    "month": "2026-02",
+    "claims": 24,
+    "paid": 3225.57,
+    "flagged": 3
+   },
+   {
+    "month": "2026-03",
+    "claims": 32,
+    "paid": 3906.39,
+    "flagged": 3
+   },
+   {
+    "month": "2026-04",
+    "claims": 27,
+    "paid": 3388.65,
+    "flagged": 5
+   },
+   {
+    "month": "2026-05",
+    "claims": 23,
+    "paid": 3097.27,
+    "flagged": 3
+   },
+   {
+    "month": "2026-06",
+    "claims": 48,
+    "paid": 6212.13,
+    "flagged": 10
+   },
+   {
+    "month": "2026-07",
+    "claims": 29,
+    "paid": 3758.72,
+    "flagged": 6
+   },
+   {
+    "month": "2026-08",
+    "claims": 36,
+    "paid": 4545.61,
+    "flagged": 4
+   },
+   {
+    "month": "2026-09",
+    "claims": 34,
+    "paid": 4355.54,
+    "flagged": 7
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-01-10",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-27",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "99349",
+   "99350"
+  ]
+ },
+ {
+  "case_id": "CASE-P162",
+  "provider_id": "P162",
+  "provider_name": "Dr. Elena Quinn",
+  "specialty": "Behavioral Health",
+  "city": "Lubbock",
+  "facility_id": "F014",
+  "owner_id": "O013",
+  "owner_name": "Pecos Physicians LLC",
+  "pattern": "excessive_utilization",
+  "signals": {
+   "rules": 0.0,
+   "ml": 0.333,
+   "graph": 0.0,
+   "birank": 0.0633,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.133,
+  "severity": 0.5,
+  "prediction": {
+   "p30": 0.0054,
+   "p60": 0.0059,
+   "p90": 0.0133,
+   "volume_velocity": 0.69,
+   "flag_velocity": 1.0
+  },
+  "potential_dollars": 0.0,
+  "member_impact": 15,
+  "n_claims": 61,
+  "n_flagged": 0,
+  "total_paid": 7266.73,
+  "rule_counts": {},
+  "anomaly_drivers": "average paid per claim +2.6 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 33%; drivers: average paid per claim +2.6 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 7,
+    "paid": 948.37,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 6,
+    "paid": 617.27,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 5,
+    "paid": 673.14,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 2,
+    "paid": 251.96,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 8,
+    "paid": 899.81,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 7,
+    "paid": 770.45,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 8,
+    "paid": 986.06,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 4,
+    "paid": 562.01,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 4,
+    "paid": 432.0,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 4,
+    "paid": 437.27,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 4,
+    "paid": 454.37,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 2,
+    "paid": 234.02,
+    "flagged": 0
+   }
+  ],
+  "events": [],
+  "network": null,
+  "codes": [
+   "90834",
+   "90837"
+  ]
+ },
+ {
+  "case_id": "CASE-P168",
+  "provider_id": "P168",
+  "provider_name": "Dr. Omar Shah",
+  "specialty": "Internal Medicine",
+  "city": "Austin",
+  "facility_id": "F038",
+  "owner_id": "O022",
+  "owner_name": "Pecos Care Holdings",
+  "pattern": "upcoding",
+  "signals": {
+   "rules": 1.0,
+   "ml": 1.0,
+   "graph": 0.0,
+   "birank": 0.3673,
+   "families_agreeing": 2
+  },
+  "evidence_strength": 0.85,
+  "severity": 0.7,
+  "prediction": {
+   "p30": 0.9905,
+   "p60": 0.9905,
+   "p90": 0.9952,
+   "volume_velocity": 1.09,
+   "flag_velocity": 1.08
+  },
+  "potential_dollars": 7175.53,
+  "member_impact": 36,
+  "n_claims": 173,
+  "n_flagged": 44,
+  "total_paid": 17951.3,
+  "rule_counts": {
+   "R5 visit-level drift": 44
+  },
+  "anomaly_drivers": "share of level-5 visits +6.4 SD vs specialty peers; average paid per claim +4.8 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R5 visit-level drift",
+    "text": "44 claims flagged by R5 visit-level drift, $7,176 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C020795",
+     "C021569",
+     "C022362",
+     "C023567",
+     "C027240"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 100%; drivers: share of level-5 visits +6.4 SD vs specialty peers; average paid per claim +4.8 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.37 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C078176",
+    "date": "2026-09-22 09:19",
+    "member_id": "M04699",
+    "procedure_code": "99215",
+    "facility_id": "F038",
+    "paid_amount": 182.25,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 64% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C031176",
+    "date": "2026-02-24 16:20",
+    "member_id": "M02031",
+    "procedure_code": "99215",
+    "facility_id": "F038",
+    "paid_amount": 180.65,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 38% of office visits in 2026-02 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C069115",
+    "date": "2026-08-13 11:04",
+    "member_id": "M00032",
+    "procedure_code": "99215",
+    "facility_id": "F038",
+    "paid_amount": 180.51,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 77% of office visits in 2026-08 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C022362",
+    "date": "2026-01-14 10:05",
+    "member_id": "M04742",
+    "procedure_code": "99215",
+    "facility_id": "F038",
+    "paid_amount": 180.47,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 40% of office visits in 2026-01 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C070135",
+    "date": "2026-08-18 13:14",
+    "member_id": "M00918",
+    "procedure_code": "99215",
+    "facility_id": "F038",
+    "paid_amount": 180.39,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 77% of office visits in 2026-08 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C020795",
+    "date": "2026-01-06 16:24",
+    "member_id": "M00912",
+    "procedure_code": "99215",
+    "facility_id": "F038",
+    "paid_amount": 179.56,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 40% of office visits in 2026-01 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C029472",
+    "date": "2026-02-17 11:21",
+    "member_id": "M02037",
+    "procedure_code": "99215",
+    "facility_id": "F038",
+    "paid_amount": 178.48,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 38% of office visits in 2026-02 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C064035",
+    "date": "2026-07-22 11:24",
+    "member_id": "M03873",
+    "procedure_code": "99215",
+    "facility_id": "F038",
+    "paid_amount": 177.47,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 41% of office visits in 2026-07 vs 9% for all providers"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 18,
+    "paid": 1440.28,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 14,
+    "paid": 1201.5,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 6,
+    "paid": 530.37,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 11,
+    "paid": 1288.59,
+    "flagged": 4
+   },
+   {
+    "month": "2026-02",
+    "claims": 16,
+    "paid": 1688.89,
+    "flagged": 5
+   },
+   {
+    "month": "2026-03",
+    "claims": 19,
+    "paid": 1847.21,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 8,
+    "paid": 875.23,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 12,
+    "paid": 1450.1,
+    "flagged": 5
+   },
+   {
+    "month": "2026-06",
+    "claims": 13,
+    "paid": 1316.38,
+    "flagged": 4
+   },
+   {
+    "month": "2026-07",
+    "claims": 20,
+    "paid": 2226.27,
+    "flagged": 7
+   },
+   {
+    "month": "2026-08",
+    "claims": 17,
+    "paid": 1998.19,
+    "flagged": 10
+   },
+   {
+    "month": "2026-09",
+    "claims": 19,
+    "paid": 2088.29,
+    "flagged": 9
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-01-06",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-29",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P170",
+  "provider_id": "P170",
+  "provider_name": "Dr. James Alvarez",
+  "specialty": "Family Medicine",
+  "city": "Corpus Christi",
+  "facility_id": "F020",
+  "owner_id": "O039",
+  "owner_name": "Trinity Medical Group",
+  "pattern": "upcoding",
+  "signals": {
+   "rules": 1.0,
+   "ml": 1.0,
+   "graph": 0.0,
+   "birank": 0.3981,
+   "families_agreeing": 2
+  },
+  "evidence_strength": 0.85,
+  "severity": 0.7,
+  "prediction": {
+   "p30": 0.7805,
+   "p60": 0.9724,
+   "p90": 0.9922,
+   "volume_velocity": 0.9,
+   "flag_velocity": 0.81
+  },
+  "potential_dollars": 4996.14,
+  "member_impact": 21,
+  "n_claims": 189,
+  "n_flagged": 31,
+  "total_paid": 18899.23,
+  "rule_counts": {
+   "R5 visit-level drift": 30,
+   "R4 unit limit (MUE)": 1
+  },
+  "anomaly_drivers": "share of level-5 visits +5.0 SD vs specialty peers; average paid per claim +3.8 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R5 visit-level drift",
+    "text": "30 claims flagged by R5 visit-level drift, $4,844 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C045808",
+     "C046367",
+     "C048587",
+     "C048769",
+     "C050325"
+    ]
+   },
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "1 claims flagged by R4 unit limit (MUE), $152 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C035134"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 100%; drivers: share of level-5 visits +5.0 SD vs specialty peers; average paid per claim +3.8 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.40 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C050930",
+    "date": "2026-05-25 15:35",
+    "member_id": "M00075",
+    "procedure_code": "99215",
+    "facility_id": "F020",
+    "paid_amount": 182.99,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 46% of office visits in 2026-05 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C060632",
+    "date": "2026-07-07 14:04",
+    "member_id": "M02529",
+    "procedure_code": "99215",
+    "facility_id": "F020",
+    "paid_amount": 182.37,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 43% of office visits in 2026-07 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C050325",
+    "date": "2026-05-21 15:56",
+    "member_id": "M03459",
+    "procedure_code": "99215",
+    "facility_id": "F020",
+    "paid_amount": 181.22,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 46% of office visits in 2026-05 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C075877",
+    "date": "2026-09-11 11:20",
+    "member_id": "M00778",
+    "procedure_code": "99215",
+    "facility_id": "F020",
+    "paid_amount": 180.51,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 45% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C075022",
+    "date": "2026-09-08 15:17",
+    "member_id": "M04316",
+    "procedure_code": "99215",
+    "facility_id": "F020",
+    "paid_amount": 179.97,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 45% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C073176",
+    "date": "2026-09-01 08:07",
+    "member_id": "M04127",
+    "procedure_code": "99215",
+    "facility_id": "F020",
+    "paid_amount": 177.07,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 45% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C057258",
+    "date": "2026-06-22 15:08",
+    "member_id": "M01646",
+    "procedure_code": "99215",
+    "facility_id": "F020",
+    "paid_amount": 175.01,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 50% of office visits in 2026-06 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C048587",
+    "date": "2026-05-14 10:12",
+    "member_id": "M02279",
+    "procedure_code": "99215",
+    "facility_id": "F020",
+    "paid_amount": 174.67,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 46% of office visits in 2026-05 vs 9% for all providers"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 16,
+    "paid": 1691.74,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 23,
+    "paid": 1913.06,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 10,
+    "paid": 1095.84,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 21,
+    "paid": 1719.66,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 14,
+    "paid": 1398.79,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 13,
+    "paid": 1351.9,
+    "flagged": 1
+   },
+   {
+    "month": "2026-04",
+    "claims": 9,
+    "paid": 997.58,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 15,
+    "paid": 1758.86,
+    "flagged": 6
+   },
+   {
+    "month": "2026-06",
+    "claims": 18,
+    "paid": 1847.02,
+    "flagged": 7
+   },
+   {
+    "month": "2026-07",
+    "claims": 18,
+    "paid": 1806.88,
+    "flagged": 6
+   },
+   {
+    "month": "2026-08",
+    "claims": 17,
+    "paid": 1787.75,
+    "flagged": 6
+   },
+   {
+    "month": "2026-09",
+    "claims": 15,
+    "paid": 1530.15,
+    "flagged": 5
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-03-13",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-11",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P177",
+  "provider_id": "P177",
+  "provider_name": "Dr. Daniel Quinn",
+  "specialty": "Cardiology",
+  "city": "Houston",
+  "facility_id": "F036",
+  "owner_id": "O034",
+  "owner_name": "Cypress Health Partners",
+  "pattern": "upcoding",
+  "signals": {
+   "rules": 1.0,
+   "ml": 0.5,
+   "graph": 0.0,
+   "birank": 0.5543,
+   "families_agreeing": 2
+  },
+  "evidence_strength": 0.85,
+  "severity": 0.7,
+  "prediction": {
+   "p30": 0.9857,
+   "p60": 0.9858,
+   "p90": 0.9948,
+   "volume_velocity": 1.21,
+   "flag_velocity": 1.16
+  },
+  "potential_dollars": 6016.33,
+  "member_impact": 24,
+  "n_claims": 256,
+  "n_flagged": 37,
+  "total_paid": 24521.93,
+  "rule_counts": {
+   "R5 visit-level drift": 37,
+   "R4 unit limit (MUE)": 1
+  },
+  "anomaly_drivers": "share of level-5 visits +4.6 SD vs specialty peers; average paid per claim +2.6 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R5 visit-level drift",
+    "text": "37 claims flagged by R5 visit-level drift, $6,016 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C039575",
+     "C040190",
+     "C040517",
+     "C042343",
+     "C052639"
+    ]
+   },
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "1 claims flagged by R4 unit limit (MUE), $159 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C052723"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 50%; drivers: share of level-5 visits +4.6 SD vs specialty peers; average paid per claim +2.6 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.55 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C055396",
+    "date": "2026-06-12 16:45",
+    "member_id": "M04130",
+    "procedure_code": "99215",
+    "facility_id": "F036",
+    "paid_amount": 181.95,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 48% of office visits in 2026-06 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C062842",
+    "date": "2026-07-16 13:06",
+    "member_id": "M01482",
+    "procedure_code": "99215",
+    "facility_id": "F036",
+    "paid_amount": 181.36,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 50% of office visits in 2026-07 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C059069",
+    "date": "2026-06-30 14:59",
+    "member_id": "M03399",
+    "procedure_code": "99215",
+    "facility_id": "F036",
+    "paid_amount": 180.47,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 48% of office visits in 2026-06 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C042343",
+    "date": "2026-04-16 15:36",
+    "member_id": "M03399",
+    "procedure_code": "99215",
+    "facility_id": "F036",
+    "paid_amount": 178.41,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 36% of office visits in 2026-04 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C078661",
+    "date": "2026-09-23 13:29",
+    "member_id": "M03827",
+    "procedure_code": "99215",
+    "facility_id": "F036",
+    "paid_amount": 177.93,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 37% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C055485",
+    "date": "2026-06-15 10:04",
+    "member_id": "M03558",
+    "procedure_code": "99215",
+    "facility_id": "F036",
+    "paid_amount": 177.89,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 48% of office visits in 2026-06 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C073130",
+    "date": "2026-08-31 15:46",
+    "member_id": "M01778",
+    "procedure_code": "99215",
+    "facility_id": "F036",
+    "paid_amount": 175.46,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 43% of office visits in 2026-08 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C059191",
+    "date": "2026-07-01 09:31",
+    "member_id": "M00460",
+    "procedure_code": "99215",
+    "facility_id": "F036",
+    "paid_amount": 172.86,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 50% of office visits in 2026-07 vs 9% for all providers"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 30,
+    "paid": 2416.06,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 14,
+    "paid": 1382.94,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 26,
+    "paid": 2231.4,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 27,
+    "paid": 2183.78,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 20,
+    "paid": 1972.85,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 26,
+    "paid": 2071.71,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 13,
+    "paid": 1349.92,
+    "flagged": 4
+   },
+   {
+    "month": "2026-05",
+    "claims": 10,
+    "paid": 1190.62,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 31,
+    "paid": 3265.38,
+    "flagged": 12
+   },
+   {
+    "month": "2026-07",
+    "claims": 18,
+    "paid": 2230.87,
+    "flagged": 8
+   },
+   {
+    "month": "2026-08",
+    "claims": 18,
+    "paid": 1804.81,
+    "flagged": 6
+   },
+   {
+    "month": "2026-09",
+    "claims": 23,
+    "paid": 2421.59,
+    "flagged": 7
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-04-03",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-24",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P185",
+  "provider_id": "P185",
+  "provider_name": "Rio Diagnostics Lab",
+  "specialty": "Laboratory",
+  "city": "El Paso",
+  "facility_id": "F011",
+  "owner_id": "O011",
+  "owner_name": "Gulf Coast Health Partners",
+  "pattern": "unbundling",
+  "signals": {
+   "rules": 0.827,
+   "ml": 0.021,
+   "graph": 0.0,
+   "birank": 0.4222,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.422,
+  "severity": 0.5,
+  "prediction": {
+   "p30": 0.4,
+   "p60": 0.9579,
+   "p90": 0.9913,
+   "volume_velocity": 1.29,
+   "flag_velocity": 1.11
+  },
+  "potential_dollars": 149.48,
+  "member_impact": 16,
+  "n_claims": 205,
+  "n_flagged": 19,
+  "total_paid": 1654.21,
+  "rule_counts": {
+   "R3 bundling edit pair (PTP)": 18,
+   "R4 unit limit (MUE)": 1
+  },
+  "anomaly_drivers": "",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R3 bundling edit pair (PTP)",
+    "text": "18 claims flagged by R3 bundling edit pair (PTP), $139 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C026511",
+     "C032009",
+     "C036826",
+     "C040854",
+     "C046784"
+    ]
+   },
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "1 claims flagged by R4 unit limit (MUE), $10 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C008233"
+    ]
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.42 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C008233",
+    "date": "2025-11-07 12:40",
+    "member_id": "M01806",
+    "procedure_code": "80053",
+    "facility_id": "F011",
+    "paid_amount": 10.09,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "2 units of 80053 for one member on one date; limit is 1"
+   },
+   {
+    "claim_id": "C058877",
+    "date": "2026-06-30 09:58",
+    "member_id": "M03752",
+    "procedure_code": "80048",
+    "facility_id": "F011",
+    "paid_amount": 8.38,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C063872",
+    "date": "2026-07-21 16:05",
+    "member_id": "M04717",
+    "procedure_code": "80048",
+    "facility_id": "F011",
+    "paid_amount": 8.36,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C050474",
+    "date": "2026-05-22 11:55",
+    "member_id": "M03843",
+    "procedure_code": "80048",
+    "facility_id": "F011",
+    "paid_amount": 8.31,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C026511",
+    "date": "2026-02-03 10:03",
+    "member_id": "M00366",
+    "procedure_code": "80048",
+    "facility_id": "F011",
+    "paid_amount": 8.29,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C061717",
+    "date": "2026-07-13 08:40",
+    "member_id": "M01968",
+    "procedure_code": "80048",
+    "facility_id": "F011",
+    "paid_amount": 8.18,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C040854",
+    "date": "2026-04-09 15:58",
+    "member_id": "M02471",
+    "procedure_code": "80048",
+    "facility_id": "F011",
+    "paid_amount": 8.15,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C061513",
+    "date": "2026-07-10 12:07",
+    "member_id": "M01806",
+    "procedure_code": "80048",
+    "facility_id": "F011",
+    "paid_amount": 8.07,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 17,
+    "paid": 135.74,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 20,
+    "paid": 170.06,
+    "flagged": 1
+   },
+   {
+    "month": "2025-12",
+    "claims": 16,
+    "paid": 125.64,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 13,
+    "paid": 101.13,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 18,
+    "paid": 141.52,
+    "flagged": 2
+   },
+   {
+    "month": "2026-03",
+    "claims": 14,
+    "paid": 110.5,
+    "flagged": 1
+   },
+   {
+    "month": "2026-04",
+    "claims": 13,
+    "paid": 106.03,
+    "flagged": 1
+   },
+   {
+    "month": "2026-05",
+    "claims": 20,
+    "paid": 163.29,
+    "flagged": 4
+   },
+   {
+    "month": "2026-06",
+    "claims": 18,
+    "paid": 142.75,
+    "flagged": 2
+   },
+   {
+    "month": "2026-07",
+    "claims": 19,
+    "paid": 159.22,
+    "flagged": 4
+   },
+   {
+    "month": "2026-08",
+    "claims": 13,
+    "paid": 105.8,
+    "flagged": 1
+   },
+   {
+    "month": "2026-09",
+    "claims": 24,
+    "paid": 192.53,
+    "flagged": 3
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-11-07",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-15",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "36415",
+   "80048",
+   "80053",
+   "83036",
+   "85025"
+  ]
+ },
+ {
+  "case_id": "CASE-P205",
+  "provider_id": "P205",
+  "provider_name": "Dr. Samuel Gupta",
+  "specialty": "Orthopedics",
+  "city": "El Paso",
+  "facility_id": "F011",
+  "owner_id": "O053",
+  "owner_name": "Prairie Medical Group",
+  "pattern": "excessive_utilization",
+  "signals": {
+   "rules": 0.0,
+   "ml": 0.5,
+   "graph": 0.0,
+   "birank": 0.1392,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.2,
+  "severity": 0.5,
+  "prediction": {
+   "p30": 0.0054,
+   "p60": 0.0065,
+   "p90": 0.0097,
+   "volume_velocity": 1.0,
+   "flag_velocity": 1.0
+  },
+  "potential_dollars": 0.0,
+  "member_impact": 28,
+  "n_claims": 141,
+  "n_flagged": 0,
+  "total_paid": 11531.5,
+  "rule_counts": {},
+  "anomaly_drivers": "90-day volume growth +2.1 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 50%; drivers: 90-day volume growth +2.1 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 20,
+    "paid": 1828.74,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 11,
+    "paid": 914.51,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 8,
+    "paid": 608.51,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 10,
+    "paid": 844.08,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 10,
+    "paid": 726.92,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 14,
+    "paid": 1144.25,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 10,
+    "paid": 755.44,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 7,
+    "paid": 565.19,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 8,
+    "paid": 574.88,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 16,
+    "paid": 1347.44,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 13,
+    "paid": 1106.92,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 14,
+    "paid": 1114.62,
+    "flagged": 0
+   }
+  ],
+  "events": [],
+  "network": null,
+  "codes": [
+   "73560",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P209",
+  "provider_id": "P209",
+  "provider_name": "Dr. Hannah Hayes",
+  "specialty": "Behavioral Health",
+  "city": "San Antonio",
+  "facility_id": "F023",
+  "owner_id": "O019",
+  "owner_name": "Lone Star Physicians LLC",
+  "pattern": "impossible_timing",
+  "signals": {
+   "rules": 1.0,
+   "ml": 1.0,
+   "graph": 0.0,
+   "birank": 0.4208,
+   "families_agreeing": 2
+  },
+  "evidence_strength": 0.85,
+  "severity": 0.9,
+  "prediction": {
+   "p30": 0.2393,
+   "p60": 0.9106,
+   "p90": 0.9784,
+   "volume_velocity": 0.93,
+   "flag_velocity": 0.37
+  },
+  "potential_dollars": 7266.07,
+  "member_impact": 63,
+  "n_claims": 503,
+  "n_flagged": 64,
+  "total_paid": 55678.34,
+  "rule_counts": {
+   "R2 impossible travel": 64
+  },
+  "anomaly_drivers": "total paid +1.9 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R2 impossible travel",
+    "text": "64 claims flagged by R2 impossible travel, $7,266 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C020779",
+     "C021297",
+     "C022170",
+     "C023139",
+     "C023418"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 100%; drivers: total paid +1.9 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.42 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C029874",
+    "date": "2026-02-18 13:16",
+    "member_id": "M04023",
+    "procedure_code": "90837",
+    "facility_id": "F023",
+    "paid_amount": 153.16,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F030 and F023, 408 km apart, within 28 min"
+   },
+   {
+    "claim_id": "C020779",
+    "date": "2026-01-06 15:48",
+    "member_id": "M03383",
+    "procedure_code": "90837",
+    "facility_id": "F030",
+    "paid_amount": 151.76,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F023 and F030, 408 km apart, within 28 min"
+   },
+   {
+    "claim_id": "C035763",
+    "date": "2026-03-18 08:01",
+    "member_id": "M02042",
+    "procedure_code": "90837",
+    "facility_id": "F023",
+    "paid_amount": 151.63,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F023 and F030, 408 km apart, within 28 min"
+   },
+   {
+    "claim_id": "C067524",
+    "date": "2026-08-06 12:51",
+    "member_id": "M02280",
+    "procedure_code": "90837",
+    "facility_id": "F023",
+    "paid_amount": 149.95,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F023 and F030, 408 km apart, within 11 min"
+   },
+   {
+    "claim_id": "C024205",
+    "date": "2026-01-22 12:20",
+    "member_id": "M03768",
+    "procedure_code": "90837",
+    "facility_id": "F030",
+    "paid_amount": 148.17,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F023 and F030, 408 km apart, within 11 min"
+   },
+   {
+    "claim_id": "C068556",
+    "date": "2026-08-11 14:05",
+    "member_id": "M02929",
+    "procedure_code": "90837",
+    "facility_id": "F023",
+    "paid_amount": 146.93,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F023 and F030, 408 km apart, within 6 min"
+   },
+   {
+    "claim_id": "C049081",
+    "date": "2026-05-15 16:11",
+    "member_id": "M01945",
+    "procedure_code": "90837",
+    "facility_id": "F030",
+    "paid_amount": 144.44,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F023 and F030, 408 km apart, within 10 min"
+   },
+   {
+    "claim_id": "C066052",
+    "date": "2026-07-30 16:23",
+    "member_id": "M00602",
+    "procedure_code": "90837",
+    "facility_id": "F023",
+    "paid_amount": 144.33,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F023 and F030, 408 km apart, within 14 min"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 47,
+    "paid": 5226.99,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 31,
+    "paid": 3488.23,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 41,
+    "paid": 4546.46,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 43,
+    "paid": 4716.11,
+    "flagged": 14
+   },
+   {
+    "month": "2026-02",
+    "claims": 36,
+    "paid": 4041.18,
+    "flagged": 5
+   },
+   {
+    "month": "2026-03",
+    "claims": 40,
+    "paid": 4314.71,
+    "flagged": 4
+   },
+   {
+    "month": "2026-04",
+    "claims": 54,
+    "paid": 5931.49,
+    "flagged": 14
+   },
+   {
+    "month": "2026-05",
+    "claims": 56,
+    "paid": 6326.49,
+    "flagged": 5
+   },
+   {
+    "month": "2026-06",
+    "claims": 34,
+    "paid": 3731.94,
+    "flagged": 2
+   },
+   {
+    "month": "2026-07",
+    "claims": 38,
+    "paid": 4214.85,
+    "flagged": 6
+   },
+   {
+    "month": "2026-08",
+    "claims": 46,
+    "paid": 5130.94,
+    "flagged": 12
+   },
+   {
+    "month": "2026-09",
+    "claims": 37,
+    "paid": 4008.95,
+    "flagged": 2
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-01-06",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-25",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "90834",
+   "90837"
+  ]
+ },
+ {
+  "case_id": "CASE-P210",
+  "provider_id": "P210",
+  "provider_name": "Rio Diagnostics Lab",
+  "specialty": "Laboratory",
+  "city": "Dallas",
+  "facility_id": "F030",
+  "owner_id": "O014",
+  "owner_name": "Bluebonnet Physicians LLC",
+  "pattern": "unbundling",
+  "signals": {
+   "rules": 1.0,
+   "ml": 0.037,
+   "graph": 0.0,
+   "birank": 1.0,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.515,
+  "severity": 0.5,
+  "prediction": {
+   "p30": 0.9828,
+   "p60": 0.9923,
+   "p90": 0.9923,
+   "volume_velocity": 1.3,
+   "flag_velocity": 1.19
+  },
+  "potential_dollars": 450.67,
+  "member_impact": 51,
+  "n_claims": 501,
+  "n_flagged": 60,
+  "total_paid": 4084.47,
+  "rule_counts": {
+   "R3 bundling edit pair (PTP)": 60
+  },
+  "anomaly_drivers": "total paid +1.9 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R3 bundling edit pair (PTP)",
+    "text": "60 claims flagged by R3 bundling edit pair (PTP), $451 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C021102",
+     "C021512",
+     "C022589",
+     "C026315",
+     "C026404"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 4%; drivers: total paid +1.9 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 1.00 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   },
+   {
+    "type": "history",
+    "rule": "Prior investigation",
+    "text": "Prior case INV001 (unbundling) closed 2025-08-05: confirmed",
+    "source": "investigations.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C040193",
+    "date": "2026-04-07 14:10",
+    "member_id": "M02414",
+    "procedure_code": "80048",
+    "facility_id": "F030",
+    "paid_amount": 8.46,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C045853",
+    "date": "2026-05-01 14:08",
+    "member_id": "M04160",
+    "procedure_code": "80048",
+    "facility_id": "F030",
+    "paid_amount": 8.43,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C070772",
+    "date": "2026-08-20 13:08",
+    "member_id": "M03656",
+    "procedure_code": "80048",
+    "facility_id": "F030",
+    "paid_amount": 8.38,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C059570",
+    "date": "2026-07-02 10:45",
+    "member_id": "M01389",
+    "procedure_code": "80048",
+    "facility_id": "F030",
+    "paid_amount": 8.33,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C048782",
+    "date": "2026-05-14 16:21",
+    "member_id": "M00380",
+    "procedure_code": "80048",
+    "facility_id": "F030",
+    "paid_amount": 8.27,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C037865",
+    "date": "2026-03-27 08:32",
+    "member_id": "M02960",
+    "procedure_code": "80048",
+    "facility_id": "F030",
+    "paid_amount": 8.26,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C021512",
+    "date": "2026-01-09 10:02",
+    "member_id": "M04908",
+    "procedure_code": "80048",
+    "facility_id": "F030",
+    "paid_amount": 8.23,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C040686",
+    "date": "2026-04-09 10:02",
+    "member_id": "M02668",
+    "procedure_code": "80048",
+    "facility_id": "F030",
+    "paid_amount": 8.21,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 45,
+    "paid": 366.62,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 26,
+    "paid": 212.39,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 36,
+    "paid": 291.58,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 40,
+    "paid": 324.51,
+    "flagged": 3
+   },
+   {
+    "month": "2026-02",
+    "claims": 38,
+    "paid": 310.84,
+    "flagged": 7
+   },
+   {
+    "month": "2026-03",
+    "claims": 43,
+    "paid": 346.29,
+    "flagged": 7
+   },
+   {
+    "month": "2026-04",
+    "claims": 48,
+    "paid": 393.37,
+    "flagged": 8
+   },
+   {
+    "month": "2026-05",
+    "claims": 44,
+    "paid": 350.86,
+    "flagged": 5
+   },
+   {
+    "month": "2026-06",
+    "claims": 49,
+    "paid": 402.31,
+    "flagged": 8
+   },
+   {
+    "month": "2026-07",
+    "claims": 34,
+    "paid": 281.61,
+    "flagged": 5
+   },
+   {
+    "month": "2026-08",
+    "claims": 43,
+    "paid": 358.15,
+    "flagged": 9
+   },
+   {
+    "month": "2026-09",
+    "claims": 55,
+    "paid": 445.94,
+    "flagged": 8
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-08-05",
+    "event": "Prior case INV001 closed: confirmed"
+   },
+   {
+    "date": "2026-01-07",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-29",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "36415",
+   "80048",
+   "80053",
+   "83036",
+   "85025"
+  ]
+ },
+ {
+  "case_id": "CASE-P213",
+  "provider_id": "P213",
+  "provider_name": "Dr. Thomas Patel",
+  "specialty": "Internal Medicine",
+  "city": "Houston",
+  "facility_id": "F001",
+  "owner_id": "O027",
+  "owner_name": "Red River Health Partners",
+  "pattern": "upcoding",
+  "signals": {
+   "rules": 0.424,
+   "ml": 1.0,
+   "graph": 0.0,
+   "birank": 0.3085,
+   "families_agreeing": 2
+  },
+  "evidence_strength": 0.562,
+  "severity": 0.7,
+  "prediction": {
+   "p30": 0.4535,
+   "p60": 0.8219,
+   "p90": 0.9903,
+   "volume_velocity": 1.37,
+   "flag_velocity": 1.78
+  },
+  "potential_dollars": 1509.49,
+  "member_impact": 8,
+  "n_claims": 173,
+  "n_flagged": 9,
+  "total_paid": 16712.98,
+  "rule_counts": {
+   "R5 visit-level drift": 9
+  },
+  "anomaly_drivers": "average paid per claim +3.0 SD vs specialty peers; share of level-5 visits +2.6 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R5 visit-level drift",
+    "text": "9 claims flagged by R5 visit-level drift, $1,509 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C059883",
+     "C061181",
+     "C061504",
+     "C064300",
+     "C075574"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 100%; drivers: average paid per claim +3.0 SD vs specialty peers; share of level-5 visits +2.6 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.31 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C059883",
+    "date": "2026-07-03 10:06",
+    "member_id": "M00783",
+    "procedure_code": "99215",
+    "facility_id": "F001",
+    "paid_amount": 180.11,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 40% of office visits in 2026-07 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C079275",
+    "date": "2026-09-25 11:50",
+    "member_id": "M04229",
+    "procedure_code": "99215",
+    "facility_id": "F001",
+    "paid_amount": 178.61,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 38% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C078474",
+    "date": "2026-09-23 08:13",
+    "member_id": "M01662",
+    "procedure_code": "99215",
+    "facility_id": "F001",
+    "paid_amount": 175.07,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 38% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C077205",
+    "date": "2026-09-17 09:58",
+    "member_id": "M02393",
+    "procedure_code": "99215",
+    "facility_id": "F001",
+    "paid_amount": 169.25,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 38% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C061181",
+    "date": "2026-07-09 12:08",
+    "member_id": "M03026",
+    "procedure_code": "99215",
+    "facility_id": "F001",
+    "paid_amount": 165.44,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 40% of office visits in 2026-07 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C061504",
+    "date": "2026-07-10 11:55",
+    "member_id": "M02581",
+    "procedure_code": "99215",
+    "facility_id": "F001",
+    "paid_amount": 162.38,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 40% of office visits in 2026-07 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C078168",
+    "date": "2026-09-22 09:03",
+    "member_id": "M00191",
+    "procedure_code": "99215",
+    "facility_id": "F001",
+    "paid_amount": 160.92,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 38% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C064300",
+    "date": "2026-07-23 10:09",
+    "member_id": "M04566",
+    "procedure_code": "99215",
+    "facility_id": "F001",
+    "paid_amount": 159.18,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 40% of office visits in 2026-07 vs 9% for all providers"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 17,
+    "paid": 1389.67,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 13,
+    "paid": 1255.14,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 7,
+    "paid": 509.22,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 9,
+    "paid": 742.63,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 14,
+    "paid": 1150.21,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 16,
+    "paid": 1480.71,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 28,
+    "paid": 2834.08,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 15,
+    "paid": 1490.34,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 21,
+    "paid": 1853.63,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 10,
+    "paid": 1274.64,
+    "flagged": 4
+   },
+   {
+    "month": "2026-08",
+    "claims": 8,
+    "paid": 952.41,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 15,
+    "paid": 1780.3,
+    "flagged": 5
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-07-03",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-25",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P219",
+  "provider_id": "P219",
+  "provider_name": "Dr. Victor Hayes",
+  "specialty": "Internal Medicine",
+  "city": "Houston",
+  "facility_id": "F036",
+  "owner_id": "O018",
+  "owner_name": "Mesquite Physicians LLC",
+  "pattern": "impossible_timing",
+  "signals": {
+   "rules": 0.852,
+   "ml": 1.0,
+   "graph": 0.0,
+   "birank": 0.984,
+   "families_agreeing": 2
+  },
+  "evidence_strength": 0.776,
+  "severity": 0.9,
+  "prediction": {
+   "p30": 0.994,
+   "p60": 0.9949,
+   "p90": 0.9949,
+   "volume_velocity": 0.68,
+   "flag_velocity": 0.7
+  },
+  "potential_dollars": 4857.86,
+  "member_impact": 43,
+  "n_claims": 729,
+  "n_flagged": 46,
+  "total_paid": 64870.14,
+  "rule_counts": {
+   "R2 impossible travel": 46
+  },
+  "anomaly_drivers": "total paid +2.4 SD vs specialty peers; average paid per claim +1.1 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R2 impossible travel",
+    "text": "46 claims flagged by R2 impossible travel, $4,858 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C041986",
+     "C043868",
+     "C045633",
+     "C048478",
+     "C048491"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 100%; drivers: total paid +2.4 SD vs specialty peers; average paid per claim +1.1 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.98 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   },
+   {
+    "type": "history",
+    "rule": "Prior investigation",
+    "text": "Prior case INV002 (impossible timing) closed 2025-04-01: confirmed",
+    "source": "investigations.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C065205",
+    "date": "2026-07-28 09:19",
+    "member_id": "M00920",
+    "procedure_code": "99215",
+    "facility_id": "F011",
+    "paid_amount": 179.82,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F036 and F011, 1079 km apart, within 27 min"
+   },
+   {
+    "claim_id": "C064987",
+    "date": "2026-07-27 11:48",
+    "member_id": "M01455",
+    "procedure_code": "99215",
+    "facility_id": "F036",
+    "paid_amount": 179.21,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F036 and F011, 1079 km apart, within 21 min"
+   },
+   {
+    "claim_id": "C064809",
+    "date": "2026-07-24 15:14",
+    "member_id": "M04165",
+    "procedure_code": "99215",
+    "facility_id": "F036",
+    "paid_amount": 159.16,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F036 and F011, 1079 km apart, within 17 min"
+   },
+   {
+    "claim_id": "C058418",
+    "date": "2026-06-26 13:36",
+    "member_id": "M01787",
+    "procedure_code": "99215",
+    "facility_id": "F011",
+    "paid_amount": 157.01,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F036 and F011, 1079 km apart, within 23 min"
+   },
+   {
+    "claim_id": "C061941",
+    "date": "2026-07-13 14:40",
+    "member_id": "M00419",
+    "procedure_code": "99215",
+    "facility_id": "F036",
+    "paid_amount": 155.8,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F036 and F011, 1079 km apart, within 29 min"
+   },
+   {
+    "claim_id": "C058402",
+    "date": "2026-06-26 13:13",
+    "member_id": "M03271",
+    "procedure_code": "99215",
+    "facility_id": "F036",
+    "paid_amount": 152.37,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F036 and F011, 1079 km apart, within 23 min"
+   },
+   {
+    "claim_id": "C051371",
+    "date": "2026-05-27 09:03",
+    "member_id": "M01713",
+    "procedure_code": "99215",
+    "facility_id": "F036",
+    "paid_amount": 144.27,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F036 and F011, 1079 km apart, within 27 min"
+   },
+   {
+    "claim_id": "C041984",
+    "date": "2026-04-15 12:29",
+    "member_id": "M00959",
+    "procedure_code": "99214",
+    "facility_id": "F036",
+    "paid_amount": 128.27,
+    "rule": "R2 impossible travel",
+    "detail": "Billed at F036 and F011, 1079 km apart, within 2 min"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 68,
+    "paid": 5819.77,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 42,
+    "paid": 3974.08,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 60,
+    "paid": 5768.27,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 59,
+    "paid": 4999.98,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 53,
+    "paid": 4993.78,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 59,
+    "paid": 5396.42,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 68,
+    "paid": 6133.58,
+    "flagged": 6
+   },
+   {
+    "month": "2026-05",
+    "claims": 61,
+    "paid": 5746.56,
+    "flagged": 7
+   },
+   {
+    "month": "2026-06",
+    "claims": 73,
+    "paid": 6060.38,
+    "flagged": 7
+   },
+   {
+    "month": "2026-07",
+    "claims": 80,
+    "paid": 6919.04,
+    "flagged": 12
+   },
+   {
+    "month": "2026-08",
+    "claims": 66,
+    "paid": 5634.27,
+    "flagged": 8
+   },
+   {
+    "month": "2026-09",
+    "claims": 40,
+    "paid": 3424.01,
+    "flagged": 6
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-04-01",
+    "event": "Prior case INV002 closed: confirmed"
+   },
+   {
+    "date": "2026-04-15",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-11",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P220",
+  "provider_id": "P220",
+  "provider_name": "Dr. Omar Ortiz",
+  "specialty": "Physical Therapy",
+  "city": "Lubbock",
+  "facility_id": "F031",
+  "owner_id": "O020",
+  "owner_name": "Lone Star Health Partners",
+  "pattern": "duplicate_billing",
+  "signals": {
+   "rules": 0.736,
+   "ml": 0.036,
+   "graph": 0.0,
+   "birank": 0.3261,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.382,
+  "severity": 0.6,
+  "prediction": {
+   "p30": 0.3635,
+   "p60": 0.9046,
+   "p90": 0.9831,
+   "volume_velocity": 1.09,
+   "flag_velocity": 1.25
+  },
+  "potential_dollars": 951.85,
+  "member_impact": 11,
+  "n_claims": 121,
+  "n_flagged": 14,
+  "total_paid": 8028.38,
+  "rule_counts": {
+   "R1 duplicate claim": 14,
+   "R4 unit limit (MUE)": 1
+  },
+  "anomaly_drivers": "",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R1 duplicate claim",
+    "text": "14 claims flagged by R1 duplicate claim, $952 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C041660",
+     "C044866",
+     "C046003",
+     "C048602",
+     "C052150"
+    ]
+   },
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "1 claims flagged by R4 unit limit (MUE), $110 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C074469"
+    ]
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.33 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   },
+   {
+    "type": "history",
+    "rule": "Prior investigation",
+    "text": "Prior case INV008 (duplicate billing) closed 2025-06-10: inconclusive",
+    "source": "investigations.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C074469",
+    "date": "2026-09-04 17:08",
+    "member_id": "M02997",
+    "procedure_code": "97110",
+    "facility_id": "F031",
+    "paid_amount": 110.1,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "8 units of 97110 for one member on one date; limit is 6"
+   },
+   {
+    "claim_id": "C067058",
+    "date": "2026-08-05 09:16",
+    "member_id": "M03465",
+    "procedure_code": "97110",
+    "facility_id": "F031",
+    "paid_amount": 103.75,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 2 day(s) earlier"
+   },
+   {
+    "claim_id": "C052236",
+    "date": "2026-05-31 14:40",
+    "member_id": "M03833",
+    "procedure_code": "97110",
+    "facility_id": "F031",
+    "paid_amount": 89.78,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 3 day(s) earlier"
+   },
+   {
+    "claim_id": "C071659",
+    "date": "2026-08-25 11:07",
+    "member_id": "M00041",
+    "procedure_code": "97110",
+    "facility_id": "F031",
+    "paid_amount": 87.38,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 14 min earlier"
+   },
+   {
+    "claim_id": "C072819",
+    "date": "2026-08-31 08:00",
+    "member_id": "M00041",
+    "procedure_code": "97110",
+    "facility_id": "F031",
+    "paid_amount": 86.31,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 3 day(s) earlier"
+   },
+   {
+    "claim_id": "C044866",
+    "date": "2026-04-28 13:00",
+    "member_id": "M01537",
+    "procedure_code": "97110",
+    "facility_id": "F031",
+    "paid_amount": 86.3,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 16 min earlier"
+   },
+   {
+    "claim_id": "C046003",
+    "date": "2026-05-04 09:34",
+    "member_id": "M01537",
+    "procedure_code": "97110",
+    "facility_id": "F031",
+    "paid_amount": 70.81,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 15 min earlier"
+   },
+   {
+    "claim_id": "C048602",
+    "date": "2026-05-14 10:38",
+    "member_id": "M04864",
+    "procedure_code": "97110",
+    "facility_id": "F031",
+    "paid_amount": 70.8,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 2 day(s) earlier"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 14,
+    "paid": 956.49,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 7,
+    "paid": 395.19,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 8,
+    "paid": 521.22,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 7,
+    "paid": 459.37,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 4,
+    "paid": 230.48,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 7,
+    "paid": 471.34,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 19,
+    "paid": 1291.71,
+    "flagged": 2
+   },
+   {
+    "month": "2026-05",
+    "claims": 16,
+    "paid": 1146.53,
+    "flagged": 4
+   },
+   {
+    "month": "2026-06",
+    "claims": 6,
+    "paid": 266.07,
+    "flagged": 1
+   },
+   {
+    "month": "2026-07",
+    "claims": 11,
+    "paid": 685.93,
+    "flagged": 1
+   },
+   {
+    "month": "2026-08",
+    "claims": 10,
+    "paid": 806.77,
+    "flagged": 3
+   },
+   {
+    "month": "2026-09",
+    "claims": 12,
+    "paid": 797.28,
+    "flagged": 3
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-06-10",
+    "event": "Prior case INV008 closed: inconclusive"
+   },
+   {
+    "date": "2026-04-14",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-10",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "97110"
+  ]
+ },
+ {
+  "case_id": "CASE-P221",
+  "provider_id": "P221",
+  "provider_name": "Dr. Robert Turner",
+  "specialty": "Family Medicine",
+  "city": "Fort Worth",
+  "facility_id": "F005",
+  "owner_id": "O010",
+  "owner_name": "Bluebonnet Care Holdings",
+  "pattern": "duplicate_billing",
+  "signals": {
+   "rules": 1.0,
+   "ml": 0.037,
+   "graph": 0.0,
+   "birank": 0.4537,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.515,
+  "severity": 0.6,
+  "prediction": {
+   "p30": 0.845,
+   "p60": 0.9999,
+   "p90": 0.9999,
+   "volume_velocity": 1.15,
+   "flag_velocity": 1.14
+  },
+  "potential_dollars": 5020.93,
+  "member_impact": 36,
+  "n_claims": 351,
+  "n_flagged": 48,
+  "total_paid": 29515.12,
+  "rule_counts": {
+   "R1 duplicate claim": 42,
+   "R5 visit-level drift": 9,
+   "R4 unit limit (MUE)": 3
+  },
+  "anomaly_drivers": "",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R1 duplicate claim",
+    "text": "42 claims flagged by R1 duplicate claim, $3,976 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C027386",
+     "C027753",
+     "C028916",
+     "C030445",
+     "C030495"
+    ]
+   },
+   {
+    "type": "rule",
+    "rule": "R5 visit-level drift",
+    "text": "9 claims flagged by R5 visit-level drift, $1,554 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C039643",
+     "C039648",
+     "C040078",
+     "C040707",
+     "C042582"
+    ]
+   },
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "3 claims flagged by R4 unit limit (MUE), $491 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C037957",
+     "C045580",
+     "C072972"
+    ]
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.45 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   },
+   {
+    "type": "history",
+    "rule": "Prior investigation",
+    "text": "Prior case INV007 (duplicate billing) closed 2025-06-19: inconclusive",
+    "source": "investigations.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C044299",
+    "date": "2026-04-24 14:54",
+    "member_id": "M01754",
+    "procedure_code": "99215",
+    "facility_id": "F005",
+    "paid_amount": 182.93,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 39% of office visits in 2026-04 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C042827",
+    "date": "2026-04-20 10:11",
+    "member_id": "M03670",
+    "procedure_code": "99215",
+    "facility_id": "F005",
+    "paid_amount": 182.62,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 39% of office visits in 2026-04 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C045580",
+    "date": "2026-04-30 15:21",
+    "member_id": "M03778",
+    "procedure_code": "99215",
+    "facility_id": "F005",
+    "paid_amount": 175.36,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "2 units of 99215 for one member on one date; limit is 1"
+   },
+   {
+    "claim_id": "C045568",
+    "date": "2026-04-30 15:03",
+    "member_id": "M03778",
+    "procedure_code": "99215",
+    "facility_id": "F005",
+    "paid_amount": 175.36,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 39% of office visits in 2026-04 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C039643",
+    "date": "2026-04-03 16:49",
+    "member_id": "M00391",
+    "procedure_code": "99215",
+    "facility_id": "F005",
+    "paid_amount": 170.23,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 39% of office visits in 2026-04 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C039648",
+    "date": "2026-04-05 16:49",
+    "member_id": "M00391",
+    "procedure_code": "99215",
+    "facility_id": "F005",
+    "paid_amount": 170.23,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 39% of office visits in 2026-04 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C042582",
+    "date": "2026-04-17 13:16",
+    "member_id": "M01612",
+    "procedure_code": "99215",
+    "facility_id": "F005",
+    "paid_amount": 170.17,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 39% of office visits in 2026-04 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C040707",
+    "date": "2026-04-09 10:31",
+    "member_id": "M04236",
+    "procedure_code": "99215",
+    "facility_id": "F005",
+    "paid_amount": 163.37,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 2 day(s) earlier"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 19,
+    "paid": 1421.26,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 23,
+    "paid": 1721.43,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 26,
+    "paid": 2418.07,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 33,
+    "paid": 2485.22,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 35,
+    "paid": 3182.61,
+    "flagged": 7
+   },
+   {
+    "month": "2026-03",
+    "claims": 33,
+    "paid": 3031.87,
+    "flagged": 6
+   },
+   {
+    "month": "2026-04",
+    "claims": 30,
+    "paid": 3190.36,
+    "flagged": 9
+   },
+   {
+    "month": "2026-05",
+    "claims": 29,
+    "paid": 2403.09,
+    "flagged": 7
+   },
+   {
+    "month": "2026-06",
+    "claims": 32,
+    "paid": 2669.06,
+    "flagged": 4
+   },
+   {
+    "month": "2026-07",
+    "claims": 33,
+    "paid": 2401.16,
+    "flagged": 5
+   },
+   {
+    "month": "2026-08",
+    "claims": 23,
+    "paid": 2102.3,
+    "flagged": 5
+   },
+   {
+    "month": "2026-09",
+    "claims": 33,
+    "paid": 2393.3,
+    "flagged": 3
+   },
+   {
+    "month": "2026-10",
+    "claims": 2,
+    "paid": 95.39,
+    "flagged": 2
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-06-19",
+    "event": "Prior case INV007 closed: inconclusive"
+   },
+   {
+    "date": "2026-02-06",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-10-01",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P231",
+  "provider_id": "P231",
+  "provider_name": "Rio Diagnostics Lab",
+  "specialty": "Laboratory",
+  "city": "Houston",
+  "facility_id": "F017",
+  "owner_id": "O060",
+  "owner_name": "Trinity Care Holdings",
+  "pattern": "unbundling",
+  "signals": {
+   "rules": 0.707,
+   "ml": 0.037,
+   "graph": 0.0,
+   "birank": 0.4058,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.368,
+  "severity": 0.5,
+  "prediction": {
+   "p30": 0.006,
+   "p60": 0.0074,
+   "p90": 0.0159,
+   "volume_velocity": 1.05,
+   "flag_velocity": 1.0
+  },
+  "potential_dollars": 118.73,
+  "member_impact": 13,
+  "n_claims": 198,
+  "n_flagged": 16,
+  "total_paid": 1591.81,
+  "rule_counts": {
+   "R3 bundling edit pair (PTP)": 16
+  },
+  "anomaly_drivers": "",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R3 bundling edit pair (PTP)",
+    "text": "16 claims flagged by R3 bundling edit pair (PTP), $119 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C027565",
+     "C028115",
+     "C029996",
+     "C036539",
+     "C036661"
+    ]
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.41 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C036539",
+    "date": "2026-03-20 14:28",
+    "member_id": "M01717",
+    "procedure_code": "80048",
+    "facility_id": "F017",
+    "paid_amount": 8.38,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C036661",
+    "date": "2026-03-23 08:53",
+    "member_id": "M01297",
+    "procedure_code": "80048",
+    "facility_id": "F017",
+    "paid_amount": 7.8,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C027565",
+    "date": "2026-02-06 15:30",
+    "member_id": "M01491",
+    "procedure_code": "80048",
+    "facility_id": "F017",
+    "paid_amount": 7.76,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C049049",
+    "date": "2026-05-15 15:22",
+    "member_id": "M02597",
+    "procedure_code": "80048",
+    "facility_id": "F017",
+    "paid_amount": 7.76,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C059615",
+    "date": "2026-07-02 12:03",
+    "member_id": "M00896",
+    "procedure_code": "80048",
+    "facility_id": "F017",
+    "paid_amount": 7.5,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C028115",
+    "date": "2026-02-10 14:24",
+    "member_id": "M02011",
+    "procedure_code": "80048",
+    "facility_id": "F017",
+    "paid_amount": 7.48,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C045221",
+    "date": "2026-04-29 14:45",
+    "member_id": "M04900",
+    "procedure_code": "80048",
+    "facility_id": "F017",
+    "paid_amount": 7.45,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   },
+   {
+    "claim_id": "C059314",
+    "date": "2026-07-01 12:36",
+    "member_id": "M01717",
+    "procedure_code": "80048",
+    "facility_id": "F017",
+    "paid_amount": 7.42,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 18,
+    "paid": 145.74,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 13,
+    "paid": 105.37,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 18,
+    "paid": 150.68,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 14,
+    "paid": 121.35,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 19,
+    "paid": 158.34,
+    "flagged": 3
+   },
+   {
+    "month": "2026-03",
+    "claims": 20,
+    "paid": 160.22,
+    "flagged": 3
+   },
+   {
+    "month": "2026-04",
+    "claims": 17,
+    "paid": 131.98,
+    "flagged": 4
+   },
+   {
+    "month": "2026-05",
+    "claims": 18,
+    "paid": 137.64,
+    "flagged": 2
+   },
+   {
+    "month": "2026-06",
+    "claims": 16,
+    "paid": 124.52,
+    "flagged": 2
+   },
+   {
+    "month": "2026-07",
+    "claims": 16,
+    "paid": 126.75,
+    "flagged": 2
+   },
+   {
+    "month": "2026-08",
+    "claims": 14,
+    "paid": 110.02,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 15,
+    "paid": 119.2,
+    "flagged": 0
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-02-06",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-07-02",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "36415",
+   "80048",
+   "80053",
+   "83036",
+   "85025"
+  ]
+ },
+ {
+  "case_id": "CASE-P250",
+  "provider_id": "P250",
+  "provider_name": "Dr. Linh Alvarez",
+  "specialty": "Family Medicine",
+  "city": "Houston",
+  "facility_id": "F026",
+  "owner_id": "O061",
+  "owner_name": "Gulfline Health Holdings LLC",
+  "pattern": "collusive_ring",
+  "signals": {
+   "rules": 0.0,
+   "ml": 0.2,
+   "graph": 1.0,
+   "birank": 0.3376,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.48,
+  "severity": 1.0,
+  "prediction": {
+   "p30": 0.005,
+   "p60": 0.0056,
+   "p90": 0.0085,
+   "volume_velocity": 1.13,
+   "flag_velocity": 1.0
+  },
+  "potential_dollars": 42936.36,
+  "member_impact": 70,
+  "n_claims": 563,
+  "n_flagged": 0,
+  "total_paid": 54399.13,
+  "rule_counts": {},
+  "anomaly_drivers": "average paid per claim +2.9 SD vs specialty peers; 90-day volume growth +2.1 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 20%; drivers: average paid per claim +2.9 SD vs specialty peers; 90-day volume growth +2.1 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "Leiden community + referral cycles",
+    "text": "Member of network N01: 6 providers sharing 72 members; 100% share owner O061; referrals form a closed loop",
+    "source": "claims.csv member overlap, referrals.csv, ownership.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C045051",
+    "date": "2026-04-29 09:34",
+    "member_id": "M00163",
+    "procedure_code": "99215",
+    "facility_id": "F026",
+    "paid_amount": 181.5,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   },
+   {
+    "claim_id": "C076953",
+    "date": "2026-09-16 13:03",
+    "member_id": "M04330",
+    "procedure_code": "99215",
+    "facility_id": "F026",
+    "paid_amount": 179.84,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   },
+   {
+    "claim_id": "C052291",
+    "date": "2026-06-01 09:34",
+    "member_id": "M02371",
+    "procedure_code": "99215",
+    "facility_id": "F026",
+    "paid_amount": 178.69,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   },
+   {
+    "claim_id": "C066723",
+    "date": "2026-08-04 08:14",
+    "member_id": "M01710",
+    "procedure_code": "99215",
+    "facility_id": "F026",
+    "paid_amount": 178.1,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   },
+   {
+    "claim_id": "C042472",
+    "date": "2026-04-17 09:57",
+    "member_id": "M04051",
+    "procedure_code": "99215",
+    "facility_id": "F026",
+    "paid_amount": 176.32,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   },
+   {
+    "claim_id": "C080259",
+    "date": "2026-09-30 11:52",
+    "member_id": "M01099",
+    "procedure_code": "99215",
+    "facility_id": "F026",
+    "paid_amount": 175.52,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   },
+   {
+    "claim_id": "C068538",
+    "date": "2026-08-11 13:30",
+    "member_id": "M04898",
+    "procedure_code": "99215",
+    "facility_id": "F026",
+    "paid_amount": 172.72,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   },
+   {
+    "claim_id": "C075079",
+    "date": "2026-09-08 16:54",
+    "member_id": "M03319",
+    "procedure_code": "99215",
+    "facility_id": "F026",
+    "paid_amount": 172.07,
+    "rule": "Network",
+    "detail": "Member also billed by 3+ providers in the same network"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 8,
+    "paid": 782.71,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 11,
+    "paid": 1096.27,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 8,
+    "paid": 650.34,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 21,
+    "paid": 1772.35,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 15,
+    "paid": 1147.06,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 41,
+    "paid": 3899.79,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 51,
+    "paid": 4945.9,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 57,
+    "paid": 5293.7,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 72,
+    "paid": 6949.27,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 79,
+    "paid": 7999.91,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 96,
+    "paid": 9462.79,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 104,
+    "paid": 10399.04,
+    "flagged": 0
+   }
+  ],
+  "events": [],
+  "network": {
+   "cluster_id": "N01",
+   "providers": [
+    "P055",
+    "P062",
+    "P081",
+    "P250",
+    "P263",
+    "P274"
+   ],
+   "size": 6,
+   "method": "leiden",
+   "top_owner": "O061",
+   "owner_share": 1.0,
+   "referral_cycle": true,
+   "shared_members": 72,
+   "paid_on_shared_members": 189511.82,
+   "score": 1.0
+  },
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P258",
+  "provider_id": "P258",
+  "provider_name": "Dr. Maria Reyes",
+  "specialty": "Internal Medicine",
+  "city": "Fort Worth",
+  "facility_id": "F029",
+  "owner_id": "O023",
+  "owner_name": "Alamo Health Partners",
+  "pattern": "duplicate_billing",
+  "signals": {
+   "rules": 1.0,
+   "ml": 0.2,
+   "graph": 0.0,
+   "birank": 0.5058,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.58,
+  "severity": 0.6,
+  "prediction": {
+   "p30": 0.9828,
+   "p60": 0.9904,
+   "p90": 0.9904,
+   "volume_velocity": 0.83,
+   "flag_velocity": 0.88
+  },
+  "potential_dollars": 6827.57,
+  "member_impact": 57,
+  "n_claims": 588,
+  "n_flagged": 84,
+  "total_paid": 48603.18,
+  "rule_counts": {
+   "R1 duplicate claim": 84,
+   "R4 unit limit (MUE)": 6
+  },
+  "anomaly_drivers": "claims per member +2.1 SD vs specialty peers; total paid +1.8 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R1 duplicate claim",
+    "text": "84 claims flagged by R1 duplicate claim, $6,828 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C013361",
+     "C015837",
+     "C015838",
+     "C016720",
+     "C016828"
+    ]
+   },
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "6 claims flagged by R4 unit limit (MUE), $523 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C023667",
+     "C036061",
+     "C054718",
+     "C058474",
+     "C075734"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 20%; drivers: claims per member +2.1 SD vs specialty peers; total paid +1.8 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.51 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C058474",
+    "date": "2026-06-26 14:57",
+    "member_id": "M00916",
+    "procedure_code": "99215",
+    "facility_id": "F029",
+    "paid_amount": 159.9,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 11 min earlier"
+   },
+   {
+    "claim_id": "C079035",
+    "date": "2026-09-24 14:05",
+    "member_id": "M00916",
+    "procedure_code": "99215",
+    "facility_id": "F029",
+    "paid_amount": 157.22,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 15 min earlier"
+   },
+   {
+    "claim_id": "C029614",
+    "date": "2026-02-17 15:25",
+    "member_id": "M00458",
+    "procedure_code": "99215",
+    "facility_id": "F029",
+    "paid_amount": 150.58,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 1 day(s) earlier"
+   },
+   {
+    "claim_id": "C075734",
+    "date": "2026-09-10 16:05",
+    "member_id": "M02020",
+    "procedure_code": "99215",
+    "facility_id": "F029",
+    "paid_amount": 144.07,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "2 units of 99215 for one member on one date; limit is 1"
+   },
+   {
+    "claim_id": "C017653",
+    "date": "2025-12-23 10:14",
+    "member_id": "M01952",
+    "procedure_code": "99214",
+    "facility_id": "F029",
+    "paid_amount": 129.96,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 16 min earlier"
+   },
+   {
+    "claim_id": "C022693",
+    "date": "2026-01-15 12:06",
+    "member_id": "M02093",
+    "procedure_code": "99214",
+    "facility_id": "F029",
+    "paid_amount": 129.9,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 15 min earlier"
+   },
+   {
+    "claim_id": "C042865",
+    "date": "2026-04-20 11:07",
+    "member_id": "M01205",
+    "procedure_code": "99214",
+    "facility_id": "F029",
+    "paid_amount": 129.63,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 14 min earlier"
+   },
+   {
+    "claim_id": "C040801",
+    "date": "2026-04-09 14:16",
+    "member_id": "M04437",
+    "procedure_code": "99214",
+    "facility_id": "F029",
+    "paid_amount": 129.32,
+    "rule": "R1 duplicate claim",
+    "detail": "Same member, code and amount billed 1 day(s) earlier"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 49,
+    "paid": 4126.24,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 33,
+    "paid": 2585.28,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 49,
+    "paid": 4491.09,
+    "flagged": 7
+   },
+   {
+    "month": "2026-01",
+    "claims": 52,
+    "paid": 4142.3,
+    "flagged": 5
+   },
+   {
+    "month": "2026-02",
+    "claims": 42,
+    "paid": 3584.35,
+    "flagged": 10
+   },
+   {
+    "month": "2026-03",
+    "claims": 58,
+    "paid": 3895.54,
+    "flagged": 11
+   },
+   {
+    "month": "2026-04",
+    "claims": 67,
+    "paid": 5168.63,
+    "flagged": 14
+   },
+   {
+    "month": "2026-05",
+    "claims": 55,
+    "paid": 4319.56,
+    "flagged": 7
+   },
+   {
+    "month": "2026-06",
+    "claims": 44,
+    "paid": 3772.41,
+    "flagged": 6
+   },
+   {
+    "month": "2026-07",
+    "claims": 49,
+    "paid": 4176.55,
+    "flagged": 8
+   },
+   {
+    "month": "2026-08",
+    "claims": 49,
+    "paid": 4443.45,
+    "flagged": 9
+   },
+   {
+    "month": "2026-09",
+    "claims": 41,
+    "paid": 3897.78,
+    "flagged": 7
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-12-02",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-25",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P263",
+  "provider_id": "P263",
+  "provider_name": "Gulf Coast Medical Supply",
+  "specialty": "DME Supplier",
+  "city": "Houston",
+  "facility_id": "F013",
+  "owner_id": "O061",
+  "owner_name": "Gulfline Health Holdings LLC",
+  "pattern": "collusive_ring",
+  "signals": {
+   "rules": 0.146,
+   "ml": 0.143,
+   "graph": 1.0,
+   "birank": 0.711,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.53,
+  "severity": 1.0,
+  "prediction": {
+   "p30": 0.077,
+   "p60": 0.2196,
+   "p90": 0.2196,
+   "volume_velocity": 1.14,
+   "flag_velocity": 2.0
+  },
+  "potential_dollars": 21570.45,
+  "member_impact": 70,
+  "n_claims": 765,
+  "n_flagged": 5,
+  "total_paid": 35671.78,
+  "rule_counts": {
+   "R4 unit limit (MUE)": 5
+  },
+  "anomaly_drivers": "total paid +2.1 SD vs specialty peers; 90-day volume growth +2.0 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "5 claims flagged by R4 unit limit (MUE), $268 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C040507",
+     "C042918",
+     "C043884",
+     "C059062",
+     "C077909"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 14%; drivers: total paid +2.1 SD vs specialty peers; 90-day volume growth +2.0 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "Leiden community + referral cycles",
+    "text": "Member of network N01: 6 providers sharing 72 members; 100% share owner O061; referrals form a closed loop",
+    "source": "claims.csv member overlap, referrals.csv, ownership.csv",
+    "claim_ids": []
+   },
+   {
+    "type": "history",
+    "rule": "Prior investigation",
+    "text": "Prior case INV005 (collusive ring) closed 2025-05-20: confirmed",
+    "source": "investigations.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C043884",
+    "date": "2026-04-23 11:48",
+    "member_id": "M02023",
+    "procedure_code": "E1390",
+    "facility_id": "F013",
+    "paid_amount": 73.91,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "2 units of E1390 for one member on one date; limit is 1"
+   },
+   {
+    "claim_id": "C040507",
+    "date": "2026-04-08 13:48",
+    "member_id": "M02692",
+    "procedure_code": "E0601",
+    "facility_id": "F013",
+    "paid_amount": 49.86,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "2 units of E0601 for one member on one date; limit is 1"
+   },
+   {
+    "claim_id": "C042918",
+    "date": "2026-04-20 12:42",
+    "member_id": "M02692",
+    "procedure_code": "E0601",
+    "facility_id": "F013",
+    "paid_amount": 49.53,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "2 units of E0601 for one member on one date; limit is 1"
+   },
+   {
+    "claim_id": "C059062",
+    "date": "2026-06-30 14:51",
+    "member_id": "M01099",
+    "procedure_code": "E0601",
+    "facility_id": "F013",
+    "paid_amount": 48.7,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "2 units of E0601 for one member on one date; limit is 1"
+   },
+   {
+    "claim_id": "C077909",
+    "date": "2026-09-21 11:28",
+    "member_id": "M03050",
+    "procedure_code": "E0601",
+    "facility_id": "F013",
+    "paid_amount": 46.35,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "2 units of E0601 for one member on one date; limit is 1"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 35,
+    "paid": 1596.5,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 33,
+    "paid": 1637.74,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 18,
+    "paid": 746.63,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 26,
+    "paid": 1105.95,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 25,
+    "paid": 1177.19,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 60,
+    "paid": 2669.02,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 65,
+    "paid": 2928.66,
+    "flagged": 3
+   },
+   {
+    "month": "2026-05",
+    "claims": 73,
+    "paid": 3275.2,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 83,
+    "paid": 3841.57,
+    "flagged": 1
+   },
+   {
+    "month": "2026-07",
+    "claims": 107,
+    "paid": 5081.81,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 113,
+    "paid": 5312.28,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 127,
+    "paid": 6299.23,
+    "flagged": 1
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-05-20",
+    "event": "Prior case INV005 closed: confirmed"
+   },
+   {
+    "date": "2026-04-08",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-21",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": {
+   "cluster_id": "N01",
+   "providers": [
+    "P055",
+    "P062",
+    "P081",
+    "P250",
+    "P263",
+    "P274"
+   ],
+   "size": 6,
+   "method": "leiden",
+   "top_owner": "O061",
+   "owner_share": 1.0,
+   "referral_cycle": true,
+   "shared_members": 72,
+   "paid_on_shared_members": 189511.82,
+   "score": 1.0
+  },
+  "codes": [
+   "A4253",
+   "E0601",
+   "E1390"
+  ]
+ },
+ {
+  "case_id": "CASE-P268",
+  "provider_id": "P268",
+  "provider_name": "Dr. James Lopez",
+  "specialty": "Cardiology",
+  "city": "Fort Worth",
+  "facility_id": "F009",
+  "owner_id": "O044",
+  "owner_name": "Alamo Care Holdings",
+  "pattern": "upcoding",
+  "signals": {
+   "rules": 0.199,
+   "ml": 0.021,
+   "graph": 0.0,
+   "birank": 0.1953,
+   "families_agreeing": 0
+  },
+  "evidence_strength": 0.108,
+  "severity": 0.7,
+  "prediction": {
+   "p30": 0.3749,
+   "p60": 0.8788,
+   "p90": 0.8788,
+   "volume_velocity": 1.05,
+   "flag_velocity": 2.67
+  },
+  "potential_dollars": 823.3,
+  "member_impact": 5,
+  "n_claims": 252,
+  "n_flagged": 5,
+  "total_paid": 21222.83,
+  "rule_counts": {
+   "R5 visit-level drift": 5
+  },
+  "anomaly_drivers": "",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R5 visit-level drift",
+    "text": "5 claims flagged by R5 visit-level drift, $823 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C073813",
+     "C074996",
+     "C075476",
+     "C075671",
+     "C078049"
+    ]
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C074996",
+    "date": "2026-09-08 14:11",
+    "member_id": "M04693",
+    "procedure_code": "99215",
+    "facility_id": "F009",
+    "paid_amount": 177.45,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 36% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C075476",
+    "date": "2026-09-10 09:08",
+    "member_id": "M04961",
+    "procedure_code": "99215",
+    "facility_id": "F009",
+    "paid_amount": 170.27,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 36% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C078049",
+    "date": "2026-09-21 14:56",
+    "member_id": "M00381",
+    "procedure_code": "99215",
+    "facility_id": "F009",
+    "paid_amount": 170.19,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 36% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C073813",
+    "date": "2026-09-02 16:36",
+    "member_id": "M00039",
+    "procedure_code": "99215",
+    "facility_id": "F009",
+    "paid_amount": 153.17,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 36% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C075671",
+    "date": "2026-09-10 14:16",
+    "member_id": "M03917",
+    "procedure_code": "99215",
+    "facility_id": "F009",
+    "paid_amount": 152.22,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 36% of office visits in 2026-09 vs 9% for all providers"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 19,
+    "paid": 1536.85,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 27,
+    "paid": 2460.17,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 17,
+    "paid": 1119.88,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 27,
+    "paid": 2276.98,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 18,
+    "paid": 1485.48,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 23,
+    "paid": 2082.68,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 22,
+    "paid": 1745.68,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 23,
+    "paid": 1979.54,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 20,
+    "paid": 1653.01,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 11,
+    "paid": 1038.96,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 26,
+    "paid": 2051.23,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 19,
+    "paid": 1792.37,
+    "flagged": 5
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-09-02",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-21",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P274",
+  "provider_id": "P274",
+  "provider_name": "Cypress Diagnostics Lab",
+  "specialty": "Laboratory",
+  "city": "Houston",
+  "facility_id": "F017",
+  "owner_id": "O061",
+  "owner_name": "Gulfline Health Holdings LLC",
+  "pattern": "collusive_ring",
+  "signals": {
+   "rules": 0.06,
+   "ml": 0.2,
+   "graph": 1.0,
+   "birank": 0.376,
+   "families_agreeing": 1
+  },
+  "evidence_strength": 0.51,
+  "severity": 1.0,
+  "prediction": {
+   "p30": 0.0065,
+   "p60": 0.0082,
+   "p90": 0.0276,
+   "volume_velocity": 1.09,
+   "flag_velocity": 0.5
+  },
+  "potential_dollars": 3614.88,
+  "member_impact": 73,
+  "n_claims": 644,
+  "n_flagged": 2,
+  "total_paid": 5254.59,
+  "rule_counts": {
+   "R3 bundling edit pair (PTP)": 1,
+   "R4 unit limit (MUE)": 1
+  },
+  "anomaly_drivers": "total paid +2.4 SD vs specialty peers; 90-day volume growth +2.1 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R3 bundling edit pair (PTP)",
+    "text": "1 claims flagged by R3 bundling edit pair (PTP), $8 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C065203"
+    ]
+   },
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "1 claims flagged by R4 unit limit (MUE), $9 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C001673"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 20%; drivers: total paid +2.4 SD vs specialty peers; 90-day volume growth +2.1 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "Leiden community + referral cycles",
+    "text": "Member of network N01: 6 providers sharing 72 members; 100% share owner O061; referrals form a closed loop",
+    "source": "claims.csv member overlap, referrals.csv, ownership.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C001673",
+    "date": "2025-10-08 11:09",
+    "member_id": "M01763",
+    "procedure_code": "80053",
+    "facility_id": "F017",
+    "paid_amount": 8.91,
+    "rule": "R4 unit limit (MUE)",
+    "detail": "2 units of 80053 for one member on one date; limit is 1"
+   },
+   {
+    "claim_id": "C065203",
+    "date": "2026-07-28 09:14",
+    "member_id": "M04051",
+    "procedure_code": "80048",
+    "facility_id": "F017",
+    "paid_amount": 7.6,
+    "rule": "R3 bundling edit pair (PTP)",
+    "detail": "80048 billed with 80053 on the same date; 80048 is included in 80053"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 21,
+    "paid": 176.23,
+    "flagged": 1
+   },
+   {
+    "month": "2025-11",
+    "claims": 17,
+    "paid": 140.74,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 16,
+    "paid": 133.26,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 13,
+    "paid": 104.77,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 11,
+    "paid": 87.37,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 38,
+    "paid": 309.84,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 64,
+    "paid": 515.3,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 65,
+    "paid": 528.95,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 86,
+    "paid": 710.28,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 97,
+    "paid": 783.31,
+    "flagged": 1
+   },
+   {
+    "month": "2026-08",
+    "claims": 100,
+    "paid": 806.07,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 116,
+    "paid": 958.47,
+    "flagged": 0
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-10-08",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-07-28",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": {
+   "cluster_id": "N01",
+   "providers": [
+    "P055",
+    "P062",
+    "P081",
+    "P250",
+    "P263",
+    "P274"
+   ],
+   "size": 6,
+   "method": "leiden",
+   "top_owner": "O061",
+   "owner_share": 1.0,
+   "referral_cycle": true,
+   "shared_members": 72,
+   "paid_on_shared_members": 189511.82,
+   "score": 1.0
+  },
+  "codes": [
+   "36415",
+   "80048",
+   "80053",
+   "83036",
+   "85025"
+  ]
+ },
+ {
+  "case_id": "CASE-P294",
+  "provider_id": "P294",
+  "provider_name": "Dr. James Ibarra",
+  "specialty": "Internal Medicine",
+  "city": "Houston",
+  "facility_id": "F013",
+  "owner_id": "O039",
+  "owner_name": "Trinity Medical Group",
+  "pattern": "upcoding",
+  "signals": {
+   "rules": 0.147,
+   "ml": 0.037,
+   "graph": 0.0,
+   "birank": 0.2683,
+   "families_agreeing": 0
+  },
+  "evidence_strength": 0.088,
+  "severity": 0.7,
+  "prediction": {
+   "p30": 0.004,
+   "p60": 0.0059,
+   "p90": 0.0076,
+   "volume_velocity": 1.15,
+   "flag_velocity": 1.0
+  },
+  "potential_dollars": 651.31,
+  "member_impact": 4,
+  "n_claims": 313,
+  "n_flagged": 4,
+  "total_paid": 26123.53,
+  "rule_counts": {
+   "R5 visit-level drift": 4
+  },
+  "anomaly_drivers": "",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R5 visit-level drift",
+    "text": "4 claims flagged by R5 visit-level drift, $651 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C007747",
+     "C007917",
+     "C008339",
+     "C008888"
+    ]
+   },
+   {
+    "type": "history",
+    "rule": "Prior investigation",
+    "text": "Prior case INV023 (duplicate billing) closed 2025-07-10: cleared",
+    "source": "investigations.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C008339",
+    "date": "2025-11-07 15:55",
+    "member_id": "M04624",
+    "procedure_code": "99215",
+    "facility_id": "F013",
+    "paid_amount": 176.79,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 40% of office visits in 2025-11 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C007917",
+    "date": "2025-11-06 13:11",
+    "member_id": "M03874",
+    "procedure_code": "99215",
+    "facility_id": "F013",
+    "paid_amount": 172.8,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 40% of office visits in 2025-11 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C008888",
+    "date": "2025-11-11 14:04",
+    "member_id": "M04589",
+    "procedure_code": "99215",
+    "facility_id": "F013",
+    "paid_amount": 154.52,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 40% of office visits in 2025-11 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C007747",
+    "date": "2025-11-06 08:04",
+    "member_id": "M03996",
+    "procedure_code": "99215",
+    "facility_id": "F013",
+    "paid_amount": 147.2,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 40% of office visits in 2025-11 vs 9% for all providers"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 33,
+    "paid": 2681.35,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 11,
+    "paid": 1175.26,
+    "flagged": 4
+   },
+   {
+    "month": "2025-12",
+    "claims": 25,
+    "paid": 1783.15,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 23,
+    "paid": 1885.16,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 27,
+    "paid": 2116.03,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 25,
+    "paid": 2166.25,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 23,
+    "paid": 1798.38,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 43,
+    "paid": 3597.5,
+    "flagged": 0
+   },
+   {
+    "month": "2026-06",
+    "claims": 22,
+    "paid": 2095.9,
+    "flagged": 0
+   },
+   {
+    "month": "2026-07",
+    "claims": 27,
+    "paid": 2417.2,
+    "flagged": 0
+   },
+   {
+    "month": "2026-08",
+    "claims": 23,
+    "paid": 2146.16,
+    "flagged": 0
+   },
+   {
+    "month": "2026-09",
+    "claims": 31,
+    "paid": 2261.19,
+    "flagged": 0
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-07-10",
+    "event": "Prior case INV023 closed: cleared"
+   },
+   {
+    "date": "2025-11-06",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2025-11-11",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ },
+ {
+  "case_id": "CASE-P298",
+  "provider_id": "P298",
+  "provider_name": "Dr. Grace Hayes",
+  "specialty": "Family Medicine",
+  "city": "El Paso",
+  "facility_id": "F032",
+  "owner_id": "O022",
+  "owner_name": "Pecos Care Holdings",
+  "pattern": "upcoding",
+  "signals": {
+   "rules": 1.0,
+   "ml": 1.0,
+   "graph": 0.0,
+   "birank": 0.83,
+   "families_agreeing": 2
+  },
+  "evidence_strength": 0.85,
+  "severity": 0.7,
+  "prediction": {
+   "p30": 0.9934,
+   "p60": 0.9934,
+   "p90": 0.9934,
+   "volume_velocity": 1.43,
+   "flag_velocity": 1.44
+  },
+  "potential_dollars": 8804.64,
+  "member_impact": 41,
+  "n_claims": 356,
+  "n_flagged": 55,
+  "total_paid": 34420.7,
+  "rule_counts": {
+   "R5 visit-level drift": 55,
+   "R4 unit limit (MUE)": 1
+  },
+  "anomaly_drivers": "share of level-5 visits +4.8 SD vs specialty peers; average paid per claim +2.9 SD vs specialty peers",
+  "evidence": [
+   {
+    "type": "rule",
+    "rule": "R5 visit-level drift",
+    "text": "55 claims flagged by R5 visit-level drift, $8,805 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C046213",
+     "C046563",
+     "C046683",
+     "C046834",
+     "C049541"
+    ]
+   },
+   {
+    "type": "rule",
+    "rule": "R4 unit limit (MUE)",
+    "text": "1 claims flagged by R4 unit limit (MUE), $146 paid",
+    "source": "claims.csv: member_id, provider_id, procedure_code, units, billed_amount, service_datetime, facility_id",
+    "claim_ids": [
+     "C057195"
+    ]
+   },
+   {
+    "type": "ml",
+    "rule": "Isolation Forest + isotonic calibration",
+    "text": "Anomaly probability 100%; drivers: share of level-5 visits +4.8 SD vs specialty peers; average paid per claim +2.9 SD vs specialty peers",
+    "source": "provider features from claims.csv, compared with same-specialty peers",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.83 of 1.00, propagated from flagged providers through shared members",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   },
+   {
+    "type": "history",
+    "rule": "Prior investigation",
+    "text": "Prior case INV003 (upcoding) closed 2025-03-08: confirmed",
+    "source": "investigations.csv",
+    "claim_ids": []
+   }
+  ],
+  "sample_claims": [
+   {
+    "claim_id": "C051034",
+    "date": "2026-05-26 09:33",
+    "member_id": "M04677",
+    "procedure_code": "99215",
+    "facility_id": "F032",
+    "paid_amount": 182.11,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 39% of office visits in 2026-05 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C077099",
+    "date": "2026-09-16 16:48",
+    "member_id": "M01075",
+    "procedure_code": "99215",
+    "facility_id": "F032",
+    "paid_amount": 180.5,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 55% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C058691",
+    "date": "2026-06-29 13:36",
+    "member_id": "M00807",
+    "procedure_code": "99215",
+    "facility_id": "F032",
+    "paid_amount": 180.41,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 52% of office visits in 2026-06 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C079700",
+    "date": "2026-09-28 14:09",
+    "member_id": "M03430",
+    "procedure_code": "99215",
+    "facility_id": "F032",
+    "paid_amount": 179.33,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 55% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C076187",
+    "date": "2026-09-14 10:40",
+    "member_id": "M03651",
+    "procedure_code": "99215",
+    "facility_id": "F032",
+    "paid_amount": 178.87,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 55% of office visits in 2026-09 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C071335",
+    "date": "2026-08-24 10:59",
+    "member_id": "M03687",
+    "procedure_code": "99215",
+    "facility_id": "F032",
+    "paid_amount": 177.54,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 44% of office visits in 2026-08 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C054008",
+    "date": "2026-06-08 13:44",
+    "member_id": "M00567",
+    "procedure_code": "99215",
+    "facility_id": "F032",
+    "paid_amount": 175.17,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 52% of office visits in 2026-06 vs 9% for all providers"
+   },
+   {
+    "claim_id": "C064315",
+    "date": "2026-07-23 10:32",
+    "member_id": "M04104",
+    "procedure_code": "99215",
+    "facility_id": "F032",
+    "paid_amount": 173.59,
+    "rule": "R5 visit-level drift",
+    "detail": "Level 5 was 41% of office visits in 2026-07 vs 9% for all providers"
+   }
+  ],
+  "timeline": [
+   {
+    "month": "2025-10",
+    "claims": 34,
+    "paid": 2678.79,
+    "flagged": 0
+   },
+   {
+    "month": "2025-11",
+    "claims": 20,
+    "paid": 1778.89,
+    "flagged": 0
+   },
+   {
+    "month": "2025-12",
+    "claims": 35,
+    "paid": 3253.43,
+    "flagged": 0
+   },
+   {
+    "month": "2026-01",
+    "claims": 37,
+    "paid": 3111.02,
+    "flagged": 0
+   },
+   {
+    "month": "2026-02",
+    "claims": 23,
+    "paid": 2312.94,
+    "flagged": 0
+   },
+   {
+    "month": "2026-03",
+    "claims": 28,
+    "paid": 2425.65,
+    "flagged": 0
+   },
+   {
+    "month": "2026-04",
+    "claims": 37,
+    "paid": 3369.02,
+    "flagged": 0
+   },
+   {
+    "month": "2026-05",
+    "claims": 24,
+    "paid": 2399.63,
+    "flagged": 7
+   },
+   {
+    "month": "2026-06",
+    "claims": 26,
+    "paid": 2939.89,
+    "flagged": 12
+   },
+   {
+    "month": "2026-07",
+    "claims": 32,
+    "paid": 3628.06,
+    "flagged": 12
+   },
+   {
+    "month": "2026-08",
+    "claims": 19,
+    "paid": 2166.66,
+    "flagged": 7
+   },
+   {
+    "month": "2026-09",
+    "claims": 41,
+    "paid": 4356.72,
+    "flagged": 17
+   }
+  ],
+  "events": [
+   {
+    "date": "2025-03-08",
+    "event": "Prior case INV003 closed: confirmed"
+   },
+   {
+    "date": "2026-05-04",
+    "event": "First rule flag"
+   },
+   {
+    "date": "2026-09-30",
+    "event": "Most recent rule flag"
+   }
+  ],
+  "network": null,
+  "codes": [
+   "36415",
+   "71046",
+   "93000",
+   "99211",
+   "99212",
+   "99213",
+   "99214",
+   "99215"
+  ]
+ }
+]

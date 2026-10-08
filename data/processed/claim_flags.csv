@@ -1,0 +1,847 @@
+claim_id,rule,detail,provider_id,member_id,facility_id,procedure_code,paid_amount,billed_amount,service_datetime
+C033482,duplicate_billing,"Same member, code and amount billed 15 min earlier",P098,M00625,F011,73560,27.31,68.5,2026-03-06 12:19:00
+C035205,duplicate_billing,"Same member, code and amount billed 16 min earlier",P098,M00514,F011,99214,123.79,268.85,2026-03-16 08:45:00
+C036033,duplicate_billing,"Same member, code and amount billed 13 min earlier",P098,M01996,F011,73560,30.93,67.59,2026-03-19 08:15:00
+C036036,duplicate_billing,"Same member, code and amount billed 17 min earlier",P098,M01996,F011,99214,106.02,265.8,2026-03-19 08:19:00
+C036312,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P098,M00920,F011,99213,79.02,185.65,2026-03-19 16:27:00
+C036628,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P098,M04832,F011,99213,84.83,195.05,2026-03-22 15:33:00
+C037392,duplicate_billing,"Same member, code and amount billed 12 min earlier",P098,M03272,F011,99211,23.68,47.45,2026-03-25 11:57:00
+C039726,duplicate_billing,"Same member, code and amount billed 11 min earlier",P098,M01676,F011,99213,80.41,191.4,2026-04-06 10:01:00
+C040092,duplicate_billing,"Same member, code and amount billed 5 min earlier",P098,M01750,F011,99215,161.4,378.42,2026-04-07 10:47:00
+C041846,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P098,M00920,F011,99213,78.53,189.39,2026-04-15 08:54:00
+C043709,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P098,M01022,F011,73560,29.51,67.24,2026-04-22 15:39:00
+C044621,duplicate_billing,"Same member, code and amount billed 14 min earlier",P098,M00188,F011,73560,31.33,67.36,2026-04-27 15:06:00
+C047019,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P098,M00827,F011,99213,85.88,183.92,2026-05-07 10:14:00
+C047538,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P098,M03430,F011,73560,30.24,71.19,2026-05-09 13:57:00
+C048135,duplicate_billing,"Same member, code and amount billed 9 min earlier",P098,M00911,F011,99214,127.19,268.05,2026-05-12 15:24:00
+C051699,duplicate_billing,"Same member, code and amount billed 10 min earlier",P098,M00195,F011,99214,102.94,273.75,2026-05-28 10:27:00
+C052972,duplicate_billing,"Same member, code and amount billed 14 min earlier",P098,M03893,F011,99214,118.35,265.99,2026-06-03 11:26:00
+C058205,duplicate_billing,"Same member, code and amount billed 17 min earlier",P098,M03929,F011,99214,112.54,265.22,2026-06-25 16:13:00
+C061240,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P098,M03708,F011,99213,84.02,188.34,2026-07-09 13:40:00
+C061690,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P098,M00827,F011,99214,125.93,268.9,2026-07-11 08:04:00
+C063807,duplicate_billing,"Same member, code and amount billed 14 min earlier",P098,M01706,F011,99214,118.86,267.88,2026-07-21 13:58:00
+C063910,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P098,M04967,F011,99214,124.25,270.01,2026-07-22 08:06:00
+C064114,duplicate_billing,"Same member, code and amount billed 7 min earlier",P098,M00514,F011,99214,113.62,277.66,2026-07-22 13:47:00
+C066237,duplicate_billing,"Same member, code and amount billed 13 min earlier",P098,M03430,F011,99214,112.88,273.24,2026-07-31 12:49:00
+C066298,duplicate_billing,"Same member, code and amount billed 18 min earlier",P098,M02507,F011,99213,72.6,191.16,2026-07-31 14:35:00
+C066386,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P098,M02507,F011,73560,25.78,70.63,2026-08-02 14:17:00
+C069387,duplicate_billing,"Same member, code and amount billed 12 min earlier",P098,M00807,F011,73560,30.01,66.79,2026-08-14 09:57:00
+C071219,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P098,M03430,F011,99214,123.8,270.69,2026-08-22 15:01:00
+C072783,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P098,M00069,F011,99214,118.57,267.62,2026-08-28 16:01:00
+C074470,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P098,M03045,F011,99214,109.31,268.62,2026-09-06 14:51:00
+C074471,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P098,M04074,F011,73560,27.1,68.12,2026-09-06 16:06:00
+C076744,duplicate_billing,"Same member, code and amount billed 8 min earlier",P098,M03106,F011,99214,108.81,260.04,2026-09-15 16:55:00
+C080420,duplicate_billing,"Same member, code and amount billed 6 min earlier",P098,M03045,F011,99214,105.47,273.06,2026-09-30 16:05:00
+C041480,duplicate_billing,"Same member, code and amount billed 6 min earlier",P140,M01433,F033,99214,122.45,264.52,2026-04-13 16:17:00
+C041766,duplicate_billing,"Same member, code and amount billed 3 min earlier",P140,M01399,F033,99214,109.17,274.09,2026-04-14 15:45:00
+C044245,duplicate_billing,"Same member, code and amount billed 2 min earlier",P140,M02985,F033,99213,86.11,186.91,2026-04-24 13:35:00
+C047379,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P140,M00734,F033,71046,31.25,73.02,2026-05-08 12:04:00
+C048119,duplicate_billing,"Same member, code and amount billed 2 min earlier",P140,M01072,F033,99214,120.94,267.22,2026-05-12 14:56:00
+C053639,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P140,M00030,F033,99214,120.19,279.13,2026-06-05 12:37:00
+C054409,duplicate_billing,"Same member, code and amount billed 18 min earlier",P140,M00628,F033,99211,23.47,51.04,2026-06-09 16:17:00
+C056853,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P140,M01433,F033,99214,106.63,279.79,2026-06-19 11:51:00
+C057051,duplicate_billing,"Same member, code and amount billed 12 min earlier",P140,M00916,F033,99214,114.31,274.65,2026-06-22 08:53:00
+C057665,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P140,M04749,F033,71046,30.75,73.77,2026-06-24 09:31:00
+C057981,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P140,M04749,F033,99213,76.48,190.0,2026-06-25 09:31:00
+C059188,duplicate_billing,"Same member, code and amount billed 5 min earlier",P140,M00999,F033,99213,77.88,201.78,2026-07-01 09:28:00
+C059543,duplicate_billing,"Same member, code and amount billed 19 min earlier",P140,M00599,F033,99212,50.09,115.67,2026-07-02 09:40:00
+C061620,duplicate_billing,"Same member, code and amount billed 17 min earlier",P140,M04134,F033,99213,86.93,192.47,2026-07-10 15:04:00
+C061691,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P140,M04271,F033,99213,83.21,193.8,2026-07-12 11:17:00
+C066281,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P140,M01356,F033,99213,85.7,185.68,2026-07-31 14:04:00
+C066785,duplicate_billing,"Same member, code and amount billed 17 min earlier",P140,M02797,F033,36415,7.85,19.07,2026-08-04 09:58:00
+C068011,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P140,M01265,F033,93000,12.67,31.05,2026-08-08 11:03:00
+C071830,duplicate_billing,"Same member, code and amount billed 16 min earlier",P140,M04241,F033,99214,127.04,273.49,2026-08-25 16:29:00
+C072360,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P140,M03127,F033,99214,110.22,266.84,2026-08-27 12:35:00
+C073112,duplicate_billing,"Same member, code and amount billed 2 min earlier",P140,M03127,F033,99214,117.82,278.59,2026-08-31 15:24:00
+C073644,duplicate_billing,"Same member, code and amount billed 14 min earlier",P140,M00999,F033,36415,7.03,19.44,2026-09-02 12:09:00
+C076968,duplicate_billing,"Same member, code and amount billed 9 min earlier",P140,M02210,F033,99214,101.58,270.85,2026-09-16 13:27:00
+C077789,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P140,M00599,F033,99214,119.76,267.22,2026-09-19 11:12:00
+C021723,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P144,M00585,F014,99350,166.82,425.1,2026-01-10 15:29:00
+C021724,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P144,M03465,F014,99349,107.79,294.05,2026-01-11 09:03:00
+C023467,duplicate_billing,"Same member, code and amount billed 10 min earlier",P144,M00931,F014,99350,153.21,404.87,2026-01-19 15:58:00
+C025203,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P144,M03570,F014,99349,109.61,296.48,2026-01-27 14:19:00
+C025498,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P144,M04429,F014,99349,116.79,288.4,2026-01-28 15:00:00
+C025546,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P144,M00055,F014,99349,116.51,298.16,2026-01-28 16:13:00
+C030132,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P144,M00356,F014,99349,100.3,299.16,2026-02-19 13:18:00
+C030338,duplicate_billing,"Same member, code and amount billed 9 min earlier",P144,M03606,F014,99350,178.55,400.08,2026-02-20 10:02:00
+C031081,duplicate_billing,"Same member, code and amount billed 16 min earlier",P144,M00924,F014,99349,120.14,291.71,2026-02-24 13:47:00
+C033139,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P144,M03110,F014,99349,112.57,290.85,2026-03-05 11:09:00
+C033580,duplicate_billing,"Same member, code and amount billed 15 min earlier",P144,M03819,F014,99349,116.18,296.95,2026-03-06 14:51:00
+C034115,duplicate_billing,"Same member, code and amount billed 3 min earlier",P144,M03016,F014,99349,104.68,302.89,2026-03-10 13:17:00
+C040988,duplicate_billing,"Same member, code and amount billed 12 min earlier",P144,M00362,F014,99349,104.13,293.85,2026-04-10 10:45:00
+C041004,duplicate_billing,"Same member, code and amount billed 15 min earlier",P144,M04205,F014,99349,105.45,297.18,2026-04-10 11:18:00
+C043162,duplicate_billing,"Same member, code and amount billed 17 min earlier",P144,M00227,F014,99349,117.44,282.91,2026-04-21 10:08:00
+C045431,duplicate_billing,"Same member, code and amount billed 18 min earlier",P144,M00320,F014,99349,112.88,294.65,2026-04-30 11:24:00
+C045625,duplicate_billing,"Same member, code and amount billed 2 min earlier",P144,M04539,F014,99349,126.98,290.92,2026-04-30 16:41:00
+C048830,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P144,M03465,F014,99349,123.41,305.52,2026-05-15 09:00:00
+C051125,duplicate_billing,"Same member, code and amount billed 4 min earlier",P144,M03016,F014,99349,108.97,302.14,2026-05-26 11:57:00
+C051426,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P144,M01691,F014,99350,164.35,411.91,2026-05-27 10:41:00
+C052273,duplicate_billing,"Same member, code and amount billed 9 min earlier",P144,M04374,F014,99350,156.09,421.71,2026-06-01 08:58:00
+C055282,duplicate_billing,"Same member, code and amount billed 9 min earlier",P144,M00706,F014,99350,172.37,426.18,2026-06-12 13:41:00
+C055461,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P144,M04804,F014,99350,162.99,399.46,2026-06-15 09:28:00
+C056018,duplicate_billing,"Same member, code and amount billed 3 min earlier",P144,M04804,F014,99349,124.11,295.78,2026-06-16 16:42:00
+C057235,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P144,M00529,F014,99349,99.99,300.23,2026-06-22 14:31:00
+C057703,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P144,M03466,F014,99349,123.78,287.87,2026-06-24 10:27:00
+C058363,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P144,M01652,F014,99349,119.14,288.09,2026-06-26 12:19:00
+C058532,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P144,M03196,F014,99349,103.15,288.82,2026-06-28 10:35:00
+C058583,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P144,M03419,F014,99350,178.46,425.85,2026-06-29 09:49:00
+C058792,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P144,M00585,F014,99349,100.25,294.88,2026-06-29 16:47:00
+C060066,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P144,M04205,F014,99350,162.68,424.16,2026-07-03 15:03:00
+C062459,duplicate_billing,"Same member, code and amount billed 2 min earlier",P144,M01085,F014,99349,121.01,296.44,2026-07-15 10:40:00
+C063298,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P144,M03570,F014,99350,142.83,418.63,2026-07-18 09:06:00
+C063485,duplicate_billing,"Same member, code and amount billed 5 min earlier",P144,M01549,F014,99349,100.63,287.58,2026-07-20 13:50:00
+C065361,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P144,M03451,F014,99350,142.54,420.45,2026-07-28 13:16:00
+C065399,duplicate_billing,"Same member, code and amount billed 10 min earlier",P144,M03197,F014,99349,104.03,290.45,2026-07-28 14:13:00
+C066385,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P144,M03465,F014,99349,112.69,297.53,2026-08-01 11:03:00
+C070457,duplicate_billing,"Same member, code and amount billed 6 min earlier",P144,M01216,F014,99349,119.39,296.36,2026-08-19 13:12:00
+C071818,duplicate_billing,"Same member, code and amount billed 10 min earlier",P144,M03909,F014,99349,99.94,288.08,2026-08-25 16:20:00
+C072160,duplicate_billing,"Same member, code and amount billed 12 min earlier",P144,M00924,F014,99349,99.89,290.07,2026-08-26 16:26:00
+C075242,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P144,M03465,F014,99349,109.12,300.49,2026-09-09 11:47:00
+C075643,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P144,M03110,F014,99349,124.6,302.27,2026-09-10 13:30:00
+C076082,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P144,M01107,F014,99350,171.82,424.79,2026-09-12 08:09:00
+C077324,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P144,M02351,F014,99349,110.59,290.93,2026-09-17 13:15:00
+C077807,duplicate_billing,"Same member, code and amount billed 15 min earlier",P144,M00356,F014,99349,115.33,290.46,2026-09-21 08:34:00
+C079322,duplicate_billing,"Same member, code and amount billed 19 min earlier",P144,M04374,F014,99349,121.6,289.14,2026-09-25 12:55:00
+C079473,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P144,M04545,F014,99349,114.4,298.78,2026-09-27 14:48:00
+C041660,duplicate_billing,"Same member, code and amount billed 10 min earlier",P220,M00794,F031,97110,46.93,133.97,2026-04-14 12:51:00
+C044866,duplicate_billing,"Same member, code and amount billed 16 min earlier",P220,M01537,F031,97110,86.3,201.43,2026-04-28 13:00:00
+C046003,duplicate_billing,"Same member, code and amount billed 15 min earlier",P220,M01537,F031,97110,70.81,201.91,2026-05-04 09:34:00
+C048602,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P220,M04864,F031,97110,70.8,203.39,2026-05-14 10:38:00
+C052150,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P220,M00529,F031,97110,28.16,65.91,2026-05-29 14:51:00
+C052236,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P220,M03833,F031,97110,89.78,200.23,2026-05-31 14:40:00
+C053316,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P220,M01278,F031,97110,53.91,133.05,2026-06-04 12:29:00
+C062951,duplicate_billing,"Same member, code and amount billed 19 min earlier",P220,M02997,F031,97110,29.78,65.95,2026-07-16 15:41:00
+C067058,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P220,M03465,F031,97110,103.75,266.54,2026-08-05 09:16:00
+C071659,duplicate_billing,"Same member, code and amount billed 14 min earlier",P220,M00041,F031,97110,87.38,206.96,2026-08-25 11:07:00
+C072819,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P220,M00041,F031,97110,86.31,195.54,2026-08-31 08:00:00
+C074469,duplicate_billing,"Same member, code and amount billed 9 min earlier",P220,M02997,F031,97110,110.1,268.89,2026-09-04 17:08:00
+C074553,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P220,M00320,F031,97110,29.49,69.61,2026-09-07 09:56:00
+C075681,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P220,M00026,F031,97110,58.35,133.94,2026-09-10 14:31:00
+C027386,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P221,M00495,F005,93000,12.48,23.33,2026-02-06 10:14:00
+C027753,duplicate_billing,"Same member, code and amount billed 16 min earlier",P221,M01079,F005,99213,78.09,136.26,2026-02-09 11:43:00
+C028916,duplicate_billing,"Same member, code and amount billed 4 min earlier",P221,M00495,F005,99214,106.84,190.84,2026-02-13 10:55:00
+C030445,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P221,M03659,F005,99213,81.01,139.89,2026-02-20 13:22:00
+C030495,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P221,M01319,F005,99213,76.62,141.4,2026-02-20 14:40:00
+C031416,duplicate_billing,"Same member, code and amount billed 19 min earlier",P221,M03963,F005,99214,109.76,193.3,2026-02-25 14:50:00
+C031703,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P221,M04860,F005,99214,114.85,191.82,2026-02-26 13:16:00
+C032097,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P221,M02443,F005,99214,107.73,193.4,2026-03-01 15:34:00
+C033812,duplicate_billing,"Same member, code and amount billed 8 min earlier",P221,M02985,F005,99213,91.58,139.62,2026-03-09 13:29:00
+C034180,duplicate_billing,"Same member, code and amount billed 19 min earlier",P221,M01487,F005,36415,7.29,13.24,2026-03-10 15:21:00
+C037957,duplicate_billing,"Same member, code and amount billed 6 min earlier",P221,M03963,F005,99215,158.33,276.19,2026-03-27 11:15:00
+C038148,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P221,M01231,F005,99213,79.63,134.56,2026-03-28 09:33:00
+C038149,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P221,M04225,F005,99214,109.54,195.37,2026-03-29 10:03:00
+C039648,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P221,M00391,F005,99215,170.23,275.26,2026-04-05 16:49:00
+C040707,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P221,M04236,F005,99215,163.37,259.97,2026-04-09 10:31:00
+C045580,duplicate_billing,"Same member, code and amount billed 18 min earlier",P221,M03778,F005,99215,175.36,267.22,2026-04-30 15:21:00
+C047288,duplicate_billing,"Same member, code and amount billed 7 min earlier",P221,M01435,F005,99213,83.15,132.22,2026-05-08 09:35:00
+C047537,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P221,M04577,F005,99214,112.45,196.93,2026-05-09 13:01:00
+C049469,duplicate_billing,"Same member, code and amount billed 13 min earlier",P221,M02443,F005,99214,112.13,197.16,2026-05-19 09:12:00
+C049812,duplicate_billing,"Same member, code and amount billed 2 min earlier",P221,M03679,F005,99214,119.92,192.03,2026-05-20 10:17:00
+C050884,duplicate_billing,"Same member, code and amount billed 19 min earlier",P221,M02105,F005,99213,84.64,134.8,2026-05-25 14:22:00
+C051081,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P221,M04495,F005,99214,105.19,194.57,2026-05-26 10:44:00
+C052160,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P221,M01612,F005,99213,91.49,134.94,2026-05-29 15:11:00
+C053564,duplicate_billing,"Same member, code and amount billed 4 min earlier",P221,M01760,F005,99214,112.05,198.17,2026-06-05 10:33:00
+C053992,duplicate_billing,"Same member, code and amount billed 16 min earlier",P221,M00304,F005,99214,118.14,187.76,2026-06-08 13:21:00
+C054074,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P221,M02893,F005,99213,78.78,134.34,2026-06-08 15:23:00
+C057017,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P221,M04492,F005,99215,145.93,274.7,2026-06-21 13:39:00
+C059626,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P221,M02985,F005,36415,7.11,13.61,2026-07-02 12:22:00
+C059753,duplicate_billing,"Same member, code and amount billed 9 min earlier",P221,M00382,F005,99213,76.41,131.45,2026-07-02 15:31:00
+C061858,duplicate_billing,"Same member, code and amount billed 11 min earlier",P221,M02832,F005,99213,84.03,137.22,2026-07-13 12:50:00
+C061860,duplicate_billing,"Same member, code and amount billed 11 min earlier",P221,M00382,F005,99213,77.88,134.76,2026-07-13 12:50:00
+C063624,duplicate_billing,"Same member, code and amount billed 16 min earlier",P221,M02833,F005,99212,52.22,85.23,2026-07-21 09:02:00
+C067076,duplicate_billing,"Same member, code and amount billed 8 min earlier",P221,M04134,F005,99214,110.91,195.41,2026-08-05 09:40:00
+C067455,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P221,M02115,F005,99214,120.41,195.51,2026-08-06 11:21:00
+C067685,duplicate_billing,"Same member, code and amount billed 3 min earlier",P221,M04716,F005,99213,79.15,142.24,2026-08-07 08:34:00
+C069613,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P221,M02893,F005,99213,82.2,138.64,2026-08-15 09:20:00
+C072972,duplicate_billing,"Same member, code and amount billed 13 min earlier",P221,M02141,F005,99215,156.87,279.24,2026-08-31 11:55:00
+C075976,duplicate_billing,"Same member, code and amount billed 18 min earlier",P221,M01841,F005,99214,109.92,198.28,2026-09-11 14:02:00
+C077114,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P221,M02893,F005,99214,108.74,195.58,2026-09-17 08:10:00
+C077450,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P221,M02893,F005,36415,8.43,13.61,2026-09-18 08:10:00
+C080451,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P221,M00943,F005,99213,83.51,137.42,2026-10-01 15:08:00
+C080452,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P221,M00080,F005,93000,11.88,22.42,2026-10-01 16:52:00
+C013361,duplicate_billing,"Same member, code and amount billed 10 min earlier",P258,M03679,F029,99212,47.75,127.75,2025-12-02 11:54:00
+C015837,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P258,M00013,F029,99214,124.69,285.57,2025-12-13 08:48:00
+C015838,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P258,M01063,F029,99211,21.44,51.68,2025-12-14 15:17:00
+C016720,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P258,M01410,F029,99214,117.18,287.59,2025-12-18 09:06:00
+C016828,duplicate_billing,"Same member, code and amount billed 3 min earlier",P258,M00916,F029,99213,81.51,204.57,2025-12-18 12:46:00
+C017653,duplicate_billing,"Same member, code and amount billed 16 min earlier",P258,M01952,F029,99214,129.96,282.23,2025-12-23 10:14:00
+C018353,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P258,M04676,F029,99212,48.86,124.37,2025-12-25 15:04:00
+C020274,duplicate_billing,"Same member, code and amount billed 12 min earlier",P258,M02062,F029,99214,111.62,287.64,2026-01-05 09:44:00
+C021133,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P258,M01438,F029,36415,7.78,18.88,2026-01-08 08:15:00
+C021137,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P258,M04206,F029,99214,108.21,285.81,2026-01-08 08:25:00
+C022693,duplicate_billing,"Same member, code and amount billed 15 min earlier",P258,M02093,F029,99214,129.9,284.04,2026-01-15 12:06:00
+C023667,duplicate_billing,"Same member, code and amount billed 5 min earlier",P258,M04050,F029,99211,19.77,52.05,2026-01-20 13:31:00
+C026367,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P258,M04387,F029,99214,121.46,275.78,2026-02-02 14:06:00
+C026687,duplicate_billing,"Same member, code and amount billed 12 min earlier",P258,M02249,F029,99214,109.74,285.79,2026-02-03 15:54:00
+C027599,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P258,M00674,F029,99213,81.91,203.36,2026-02-06 16:40:00
+C027729,duplicate_billing,"Same member, code and amount billed 8 min earlier",P258,M02062,F029,99214,116.33,281.49,2026-02-09 10:59:00
+C028198,duplicate_billing,"Same member, code and amount billed 6 min earlier",P258,M02020,F029,99213,73.05,203.35,2026-02-10 16:56:00
+C029322,duplicate_billing,"Same member, code and amount billed 14 min earlier",P258,M00013,F029,99213,90.99,196.72,2026-02-16 15:30:00
+C029389,duplicate_billing,"Same member, code and amount billed 17 min earlier",P258,M00916,F029,99214,116.16,279.66,2026-02-16 16:57:00
+C029614,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P258,M00458,F029,99215,150.58,391.62,2026-02-17 15:25:00
+C029712,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P258,M04149,F029,99213,84.52,199.44,2026-02-18 09:02:00
+C030447,duplicate_billing,"Same member, code and amount billed 3 min earlier",P258,M00681,F029,36415,7.56,19.86,2026-02-20 13:23:00
+C032366,duplicate_billing,"Same member, code and amount billed 15 min earlier",P258,M04149,F029,36415,7.27,19.75,2026-03-02 16:20:00
+C032965,duplicate_billing,"Same member, code and amount billed 8 min earlier",P258,M01302,F029,93000,14.32,32.22,2026-03-04 14:37:00
+C033065,duplicate_billing,"Same member, code and amount billed 11 min earlier",P258,M02228,F029,99212,45.44,122.94,2026-03-05 08:32:00
+C034225,duplicate_billing,"Same member, code and amount billed 14 min earlier",P258,M04161,F029,36415,8.58,19.28,2026-03-10 16:38:00
+C035121,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P258,M02505,F029,99214,128.77,284.27,2026-03-13 15:11:00
+C035726,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P258,M01357,F029,99214,112.1,282.64,2026-03-17 15:54:00
+C036061,duplicate_billing,"Same member, code and amount billed 10 min earlier",P258,M02727,F029,99211,21.54,53.68,2026-03-19 09:00:00
+C036245,duplicate_billing,"Same member, code and amount billed 6 min earlier",P258,M00685,F029,36415,8.81,18.74,2026-03-19 14:27:00
+C036563,duplicate_billing,"Same member, code and amount billed 15 min earlier",P258,M03539,F029,99214,117.96,277.16,2026-03-20 15:05:00
+C036626,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P258,M03539,F029,99211,18.96,51.3,2026-03-21 13:36:00
+C036627,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P258,M02727,F029,93000,14.8,33.34,2026-03-22 08:50:00
+C039077,duplicate_billing,"Same member, code and amount billed 13 min earlier",P258,M02734,F029,36415,7.62,19.43,2026-04-02 09:10:00
+C039452,duplicate_billing,"Same member, code and amount billed 9 min earlier",P258,M04790,F029,36415,8.32,19.22,2026-04-03 11:10:00
+C039763,duplicate_billing,"Same member, code and amount billed 15 min earlier",P258,M02724,F029,99214,128.25,285.05,2026-04-06 11:06:00
+C039863,duplicate_billing,"Same member, code and amount billed 15 min earlier",P258,M02352,F029,99213,89.83,206.68,2026-04-06 13:46:00
+C039866,duplicate_billing,"Same member, code and amount billed 16 min earlier",P258,M02352,F029,71046,33.95,75.86,2026-04-06 13:47:00
+C039957,duplicate_billing,"Same member, code and amount billed 14 min earlier",P258,M00458,F029,99213,84.66,199.43,2026-04-06 16:22:00
+C040407,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P258,M00821,F029,99213,88.5,194.13,2026-04-08 11:44:00
+C040801,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P258,M04437,F029,99214,129.32,295.24,2026-04-09 14:16:00
+C040830,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P258,M04405,F029,99214,107.35,286.83,2026-04-09 15:14:00
+C041561,duplicate_billing,"Same member, code and amount billed 2 min earlier",P258,M00628,F029,93000,12.82,32.7,2026-04-14 09:52:00
+C042181,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P258,M00628,F029,99211,22.67,53.41,2026-04-16 09:50:00
+C042865,duplicate_billing,"Same member, code and amount billed 14 min earlier",P258,M01205,F029,99214,129.63,285.39,2026-04-20 11:07:00
+C043161,duplicate_billing,"Same member, code and amount billed 18 min earlier",P258,M00861,F029,99214,122.61,275.45,2026-04-21 10:07:00
+C044390,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P258,M00633,F029,99212,47.74,126.32,2026-04-25 08:10:00
+C045946,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P258,M00685,F029,99213,73.44,193.4,2026-05-03 11:07:00
+C047539,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P258,M03539,F029,99213,86.82,198.2,2026-05-09 14:31:00
+C047810,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P258,M04863,F029,99212,53.05,123.2,2026-05-11 15:37:00
+C048224,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P258,M00391,F029,99213,76.33,194.87,2026-05-13 09:04:00
+C048578,duplicate_billing,"Same member, code and amount billed 18 min earlier",P258,M00391,F029,99214,110.24,277.06,2026-05-14 10:04:00
+C048689,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P258,M00029,F029,99214,118.45,284.01,2026-05-14 13:09:00
+C050655,duplicate_billing,"Same member, code and amount billed 3 min earlier",P258,M00202,F029,99213,84.52,201.12,2026-05-22 16:47:00
+C053759,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P258,M00861,F029,99214,115.51,286.23,2026-06-05 15:43:00
+C053995,duplicate_billing,"Same member, code and amount billed 16 min earlier",P258,M02724,F029,36415,8.12,19.64,2026-06-08 13:27:00
+C054718,duplicate_billing,"Same member, code and amount billed 2 min earlier",P258,M02686,F029,99211,20.82,52.13,2026-06-10 16:13:00
+C055554,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P258,M03287,F029,99213,74.9,202.94,2026-06-15 11:43:00
+C058474,duplicate_billing,"Same member, code and amount billed 11 min earlier",P258,M00916,F029,99215,159.9,397.86,2026-06-26 14:57:00
+C058935,duplicate_billing,"Same member, code and amount billed 2 min earlier",P258,M03287,F029,99213,73.45,193.02,2026-06-30 11:06:00
+C061418,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P258,M03592,F029,99214,114.48,286.2,2026-07-10 09:34:00
+C062156,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P258,M00916,F029,99214,111.7,282.56,2026-07-14 11:19:00
+C062661,duplicate_billing,"Same member, code and amount billed 17 min earlier",P258,M01428,F029,99213,74.99,197.47,2026-07-15 17:12:00
+C063022,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P258,M02105,F029,99214,107.38,276.87,2026-07-17 09:08:00
+C063569,duplicate_billing,"Same member, code and amount billed 6 min earlier",P258,M03679,F029,93000,14.05,32.01,2026-07-20 16:27:00
+C063576,duplicate_billing,"Same member, code and amount billed 15 min earlier",P258,M03679,F029,99214,106.91,282.37,2026-07-20 16:36:00
+C064919,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P258,M03679,F029,71046,33.74,75.46,2026-07-27 09:45:00
+C065260,duplicate_billing,"Same member, code and amount billed 16 min earlier",P258,M02658,F029,99214,126.16,289.0,2026-07-28 10:49:00
+C066918,duplicate_billing,"Same member, code and amount billed 4 min earlier",P258,M04033,F029,99214,118.65,284.17,2026-08-04 14:11:00
+C067154,duplicate_billing,"Same member, code and amount billed 10 min earlier",P258,M01438,F029,99214,105.23,277.89,2026-08-05 12:03:00
+C067632,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P258,M04534,F029,99211,23.63,51.72,2026-08-06 15:55:00
+C069299,duplicate_billing,"Same member, code and amount billed 8 min earlier",P258,M02138,F029,99213,86.42,203.18,2026-08-13 16:46:00
+C069548,duplicate_billing,"Same member, code and amount billed 2 day(s) earlier",P258,M02020,F029,99214,126.78,277.61,2026-08-14 14:50:00
+C071252,duplicate_billing,"Same member, code and amount billed 7 min earlier",P258,M03711,F029,99214,102.42,280.93,2026-08-24 08:48:00
+C072002,duplicate_billing,"Same member, code and amount billed 3 min earlier",P258,M04073,F029,99213,87.14,196.38,2026-08-26 12:02:00
+C072511,duplicate_billing,"Same member, code and amount billed 6 min earlier",P258,M01265,F029,99214,124.5,290.18,2026-08-28 08:25:00
+C072818,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P258,M01785,F029,99214,121.53,287.49,2026-08-29 10:41:00
+C074077,duplicate_billing,"Same member, code and amount billed 3 day(s) earlier",P258,M04676,F029,99214,120.79,277.66,2026-09-03 14:59:00
+C074877,duplicate_billing,"Same member, code and amount billed 4 min earlier",P258,M04206,F029,99213,75.07,192.9,2026-09-08 10:37:00
+C075734,duplicate_billing,"Same member, code and amount billed 6 min earlier",P258,M02020,F029,99215,144.07,392.79,2026-09-10 16:05:00
+C076816,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P258,M00834,F029,99213,76.2,193.2,2026-09-16 09:38:00
+C077192,duplicate_billing,"Same member, code and amount billed 1 day(s) earlier",P258,M02658,F029,99214,125.33,275.61,2026-09-17 09:41:00
+C079035,duplicate_billing,"Same member, code and amount billed 15 min earlier",P258,M00916,F029,99215,157.22,400.95,2026-09-24 14:05:00
+C079389,duplicate_billing,"Same member, code and amount billed 7 min earlier",P258,M03467,F029,99213,74.84,201.74,2026-09-25 14:45:00
+C023505,impossible_timing,"Billed at F001 and F021, 234 km apart, within 14 min",P001,M03889,F021,99214,108.22,194.16,2026-01-19 17:05:00
+C023534,impossible_timing,"Billed at F001 and F021, 234 km apart, within 16 min",P001,M02402,F021,99214,115.81,191.22,2026-01-20 08:48:00
+C024877,impossible_timing,"Billed at F001 and F021, 234 km apart, within 18 min",P001,M02165,F021,99214,120.89,190.48,2026-01-26 14:01:00
+C025065,impossible_timing,"Billed at F001 and F021, 234 km apart, within 25 min",P001,M02376,F021,99214,113.31,191.37,2026-01-27 09:53:00
+C029706,impossible_timing,"Billed at F001 and F021, 234 km apart, within 20 min",P001,M01904,F021,99213,81.68,133.76,2026-02-18 08:53:00
+C031142,impossible_timing,"Billed at F001 and F021, 234 km apart, within 25 min",P001,M01151,F021,99214,125.83,198.16,2026-02-24 15:19:00
+C031540,impossible_timing,"Billed at F001 and F021, 234 km apart, within 7 min",P001,M01796,F021,99213,85.09,133.26,2026-02-26 08:43:00
+C031914,impossible_timing,"Billed at F001 and F021, 234 km apart, within 14 min",P001,M00103,F021,99213,76.05,132.04,2026-02-27 11:02:00
+C034911,impossible_timing,"Billed at F001 and F021, 234 km apart, within 19 min",P001,M00339,F021,99214,121.63,190.3,2026-03-13 09:22:00
+C034932,impossible_timing,"Billed at F021 and F001, 234 km apart, within 38 min",P001,M02494,F001,99214,105.85,185.32,2026-03-13 10:00:00
+C035376,impossible_timing,"Billed at F001 and F021, 234 km apart, within 8 min",P001,M02148,F021,99213,82.03,131.86,2026-03-16 14:00:00
+C043088,impossible_timing,"Billed at F001 and F021, 234 km apart, within 14 min",P001,M01776,F021,99214,122.07,191.01,2026-04-20 16:45:00
+C051660,impossible_timing,"Billed at F001 and F021, 234 km apart, within 10 min",P001,M04178,F021,99212,50.21,81.61,2026-05-28 09:04:00
+C060319,impossible_timing,"Billed at F001 and F021, 234 km apart, within 15 min",P001,M01547,F021,99213,78.95,138.49,2026-07-06 14:22:00
+C061546,impossible_timing,"Billed at F001 and F021, 234 km apart, within 19 min",P001,M01547,F021,99213,89.21,135.64,2026-07-10 12:53:00
+C067926,impossible_timing,"Billed at F001 and F021, 234 km apart, within 9 min",P001,M00996,F021,99214,129.22,192.79,2026-08-07 14:47:00
+C067952,impossible_timing,"Billed at F021 and F001, 234 km apart, within 40 min",P001,M00767,F001,99215,166.59,266.14,2026-08-07 15:27:00
+C068451,impossible_timing,"Billed at F001 and F021, 234 km apart, within 27 min",P001,M01303,F021,99211,19.46,35.44,2026-08-11 10:59:00
+C069563,impossible_timing,"Billed at F001 and F021, 234 km apart, within 24 min",P001,M01804,F021,99214,102.64,187.92,2026-08-14 15:09:00
+C069790,impossible_timing,"Billed at F001 and F021, 234 km apart, within 27 min",P001,M02031,F021,99214,108.52,182.7,2026-08-17 12:30:00
+C072347,impossible_timing,"Billed at F001 and F021, 234 km apart, within 28 min",P001,M03832,F021,99213,72.0,131.94,2026-08-27 12:08:00
+C074323,impossible_timing,"Billed at F001 and F021, 234 km apart, within 6 min",P001,M04915,F021,99213,84.76,132.71,2026-09-04 12:49:00
+C075760,impossible_timing,"Billed at F001 and F021, 234 km apart, within 24 min",P001,M03012,F021,99213,87.4,137.23,2026-09-10 16:51:00
+C077669,impossible_timing,"Billed at F001 and F021, 234 km apart, within 16 min",P001,M02247,F021,99214,120.74,191.16,2026-09-18 14:06:00
+C077967,impossible_timing,"Billed at F001 and F021, 234 km apart, within 8 min",P001,M03663,F021,99213,74.15,135.66,2026-09-21 12:53:00
+C078000,impossible_timing,"Billed at F021 and F001, 234 km apart, within 47 min",P001,M02494,F001,71046,31.39,51.17,2026-09-21 13:40:00
+C080332,impossible_timing,"Billed at F001 and F021, 234 km apart, within 15 min",P001,M04510,F021,99214,108.47,186.77,2026-09-30 14:11:00
+C013400,impossible_timing,"Billed at F013 and F004, 229 km apart, within 8 min",P141,M04137,F004,99214,104.46,190.94,2025-12-02 13:22:00
+C013807,impossible_timing,"Billed at F013 and F004, 229 km apart, within 30 min",P141,M00225,F004,99213,87.37,138.25,2025-12-03 16:58:00
+C014262,impossible_timing,"Billed at F013 and F004, 229 km apart, within 27 min",P141,M02679,F004,99213,77.26,143.44,2025-12-05 12:37:00
+C022690,impossible_timing,"Billed at F013 and F004, 229 km apart, within 13 min",P141,M04178,F004,99213,77.34,136.59,2026-01-15 11:57:00
+C023317,impossible_timing,"Billed at F013 and F004, 229 km apart, within 6 min",P141,M02794,F004,99213,84.29,134.18,2026-01-19 12:07:00
+C023347,impossible_timing,"Billed at F004 and F013, 229 km apart, within 36 min",P141,M03989,F013,99213,91.48,141.32,2026-01-19 12:43:00
+C023368,impossible_timing,"Billed at F013 and F004, 229 km apart, within 23 min",P141,M01398,F004,99214,127.26,197.89,2026-01-19 13:06:00
+C023641,impossible_timing,"Billed at F013 and F004, 229 km apart, within 30 min",P141,M00339,F004,99214,122.09,193.91,2026-01-20 12:33:00
+C024264,impossible_timing,"Billed at F013 and F004, 229 km apart, within 24 min",P141,M02174,F004,99214,121.85,196.24,2026-01-22 14:14:00
+C024752,impossible_timing,"Billed at F013 and F004, 229 km apart, within 29 min",P141,M01721,F004,99213,91.94,135.67,2026-01-26 10:19:00
+C028432,impossible_timing,"Billed at F013 and F004, 229 km apart, within 25 min",P141,M02656,F004,99213,91.14,138.82,2026-02-11 14:38:00
+C029657,impossible_timing,"Billed at F013 and F004, 229 km apart, within 19 min",P141,M01942,F004,99213,88.05,136.26,2026-02-17 16:32:00
+C029762,impossible_timing,"Billed at F013 and F004, 229 km apart, within 12 min",P141,M03335,F004,99213,74.77,135.76,2026-02-18 10:32:00
+C030211,impossible_timing,"Billed at F013 and F004, 229 km apart, within 18 min",P141,M04375,F004,99214,115.3,189.82,2026-02-19 15:10:00
+C030465,impossible_timing,"Billed at F013 and F004, 229 km apart, within 24 min",P141,M01368,F004,99213,83.8,138.86,2026-02-20 13:46:00
+C030535,impossible_timing,"Billed at F013 and F004, 229 km apart, within 10 min",P141,M02091,F004,99214,127.0,198.31,2026-02-20 16:08:00
+C032717,impossible_timing,"Billed at F013 and F004, 229 km apart, within 7 min",P141,M00254,F004,99214,126.27,194.73,2026-03-04 08:09:00
+C034576,impossible_timing,"Billed at F013 and F004, 229 km apart, within 14 min",P141,M00378,F004,99214,121.37,191.36,2026-03-12 09:19:00
+C038653,impossible_timing,"Billed at F013 and F004, 229 km apart, within 18 min",P141,M03779,F004,99213,90.15,135.35,2026-03-31 14:19:00
+C044640,impossible_timing,"Billed at F013 and F004, 229 km apart, within 22 min",P141,M00308,F004,99213,75.99,135.12,2026-04-27 15:31:00
+C045410,impossible_timing,"Billed at F013 and F004, 229 km apart, within 14 min",P141,M03597,F004,99214,128.25,190.78,2026-04-30 10:53:00
+C047969,impossible_timing,"Billed at F013 and F004, 229 km apart, within 12 min",P141,M03543,F004,99214,109.19,193.24,2026-05-12 10:32:00
+C049577,impossible_timing,"Billed at F013 and F004, 229 km apart, within 18 min",P141,M04579,F004,99215,170.29,274.24,2026-05-19 12:46:00
+C060269,impossible_timing,"Billed at F013 and F004, 229 km apart, within 25 min",P141,M02077,F004,99213,83.46,138.87,2026-07-06 12:39:00
+C064737,impossible_timing,"Billed at F013 and F004, 229 km apart, within 8 min",P141,M01218,F004,99214,102.93,193.2,2026-07-24 13:05:00
+C065682,impossible_timing,"Billed at F013 and F004, 229 km apart, within 27 min",P141,M03309,F004,99214,116.82,198.97,2026-07-29 13:25:00
+C067322,impossible_timing,"Billed at F013 and F004, 229 km apart, within 23 min",P141,M00919,F004,99215,158.25,274.39,2026-08-05 16:31:00
+C068784,impossible_timing,"Billed at F013 and F004, 229 km apart, within 28 min",P141,M01683,F004,99213,91.67,138.25,2026-08-12 11:08:00
+C069265,impossible_timing,"Billed at F013 and F004, 229 km apart, within 8 min",P141,M01087,F004,99212,47.27,85.44,2026-08-13 15:37:00
+C077601,impossible_timing,"Billed at F013 and F004, 229 km apart, within 9 min",P141,M00155,F004,99215,153.13,274.86,2026-09-18 12:33:00
+C020779,impossible_timing,"Billed at F023 and F030, 408 km apart, within 28 min",P209,M03383,F030,90837,151.76,322.34,2026-01-06 15:48:00
+C021297,impossible_timing,"Billed at F023 and F030, 408 km apart, within 24 min",P209,M03982,F030,90834,96.51,218.68,2026-01-08 13:07:00
+C022170,impossible_timing,"Billed at F023 and F030, 408 km apart, within 8 min",P209,M04195,F030,90834,91.09,214.01,2026-01-13 13:04:00
+C023139,impossible_timing,"Billed at F023 and F030, 408 km apart, within 8 min",P209,M04578,F030,90834,89.34,212.46,2026-01-16 16:29:00
+C023418,impossible_timing,"Billed at F023 and F030, 408 km apart, within 29 min",P209,M01641,F030,90837,135.41,303.53,2026-01-19 14:39:00
+C024205,impossible_timing,"Billed at F023 and F030, 408 km apart, within 11 min",P209,M03768,F030,90837,148.17,302.36,2026-01-22 12:20:00
+C024948,impossible_timing,"Billed at F023 and F030, 408 km apart, within 12 min",P209,M02942,F030,90837,127.81,320.6,2026-01-26 15:45:00
+C028794,impossible_timing,"Billed at F023 and F030, 408 km apart, within 22 min",P209,M00808,F030,90837,135.59,308.47,2026-02-12 16:02:00
+C029847,impossible_timing,"Billed at F023 and F030, 408 km apart, within 24 min",P209,M00036,F030,90834,101.83,212.56,2026-02-18 12:48:00
+C029874,impossible_timing,"Billed at F030 and F023, 408 km apart, within 28 min",P209,M04023,F023,90837,153.16,319.14,2026-02-18 13:16:00
+C035776,impossible_timing,"Billed at F023 and F030, 408 km apart, within 28 min",P209,M02684,F030,90837,137.31,302.09,2026-03-18 08:29:00
+C038487,impossible_timing,"Billed at F023 and F030, 408 km apart, within 19 min",P209,M01963,F030,90834,93.56,207.21,2026-03-31 09:08:00
+C042491,impossible_timing,"Billed at F023 and F030, 408 km apart, within 8 min",P209,M01860,F030,90834,89.7,208.53,2026-04-17 10:38:00
+C042525,impossible_timing,"Billed at F030 and F023, 408 km apart, within 51 min",P209,M02323,F023,90834,101.29,205.95,2026-04-17 11:29:00
+C043629,impossible_timing,"Billed at F023 and F030, 408 km apart, within 17 min",P209,M01827,F030,90837,129.23,317.92,2026-04-22 13:33:00
+C043667,impossible_timing,"Billed at F030 and F023, 408 km apart, within 47 min",P209,M01795,F023,90834,103.88,202.96,2026-04-22 14:20:00
+C044948,impossible_timing,"Billed at F023 and F030, 408 km apart, within 9 min",P209,M02408,F030,90834,99.39,214.65,2026-04-28 15:34:00
+C044963,impossible_timing,"Billed at F030 and F023, 408 km apart, within 29 min",P209,M00305,F023,90834,102.79,210.91,2026-04-28 16:03:00
+C045309,impossible_timing,"Billed at F023 and F030, 408 km apart, within 16 min",P209,M01873,F030,90837,122.96,310.22,2026-04-29 16:57:00
+C045409,impossible_timing,"Billed at F023 and F030, 408 km apart, within 30 min",P209,M03781,F030,90834,96.66,204.86,2026-04-30 10:49:00
+C045442,impossible_timing,"Billed at F030 and F023, 408 km apart, within 58 min",P209,M01472,F023,90834,90.25,207.58,2026-04-30 11:47:00
+C046622,impossible_timing,"Billed at F023 and F030, 408 km apart, within 9 min",P209,M01651,F030,90837,139.72,308.07,2026-05-06 08:23:00
+C049081,impossible_timing,"Billed at F023 and F030, 408 km apart, within 10 min",P209,M01945,F030,90837,144.44,314.8,2026-05-15 16:11:00
+C049097,impossible_timing,"Billed at F030 and F023, 408 km apart, within 30 min",P209,M00305,F023,90834,102.95,208.88,2026-05-15 16:41:00
+C055872,impossible_timing,"Billed at F023 and F030, 408 km apart, within 22 min",P209,M02491,F030,90834,100.84,204.46,2026-06-16 12:20:00
+C059243,impossible_timing,"Billed at F023 and F030, 408 km apart, within 12 min",P209,M03673,F030,90834,99.11,210.86,2026-07-01 10:46:00
+C063649,impossible_timing,"Billed at F023 and F030, 408 km apart, within 15 min",P209,M01052,F030,90837,122.6,318.61,2026-07-21 09:40:00
+C066059,impossible_timing,"Billed at F023 and F030, 408 km apart, within 14 min",P209,M03540,F030,90837,134.23,296.99,2026-07-30 16:37:00
+C067536,impossible_timing,"Billed at F023 and F030, 408 km apart, within 11 min",P209,M01315,F030,90834,100.84,209.12,2026-08-06 13:02:00
+C067537,impossible_timing,"Billed at F030 and F023, 408 km apart, within 1 min",P209,M04731,F023,90837,132.9,305.66,2026-08-06 13:03:00
+C068558,impossible_timing,"Billed at F023 and F030, 408 km apart, within 6 min",P209,M04154,F030,90837,124.71,310.25,2026-08-11 14:11:00
+C071777,impossible_timing,"Billed at F023 and F030, 408 km apart, within 22 min",P209,M02768,F030,90834,92.33,214.92,2026-08-25 15:04:00
+C072616,impossible_timing,"Billed at F023 and F030, 408 km apart, within 22 min",P209,M00087,F030,90834,103.89,211.48,2026-08-28 11:28:00
+C072775,impossible_timing,"Billed at F023 and F030, 408 km apart, within 7 min",P209,M03321,F030,90837,131.66,312.9,2026-08-28 15:53:00
+C072786,impossible_timing,"Billed at F030 and F023, 408 km apart, within 10 min",P209,M01144,F023,90837,126.41,315.47,2026-08-28 16:03:00
+C079291,impossible_timing,"Billed at F023 and F030, 408 km apart, within 16 min",P209,M04670,F030,90837,129.49,316.41,2026-09-25 12:14:00
+C041986,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 2 min",P219,M04942,F011,99214,110.09,206.77,2026-04-15 12:31:00
+C043868,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 13 min",P219,M03651,F011,99214,114.79,201.11,2026-04-23 11:16:00
+C045633,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 9 min",P219,M01592,F011,99214,116.21,202.72,2026-04-30 16:51:00
+C048478,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 18 min",P219,M01124,F011,99211,20.38,38.32,2026-05-13 16:16:00
+C048491,impossible_timing,"Billed at F011 and F036, 1079 km apart, within 24 min",P219,M02178,F036,71046,32.57,55.45,2026-05-13 16:40:00
+C051391,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 27 min",P219,M04715,F011,99213,77.04,150.07,2026-05-27 09:30:00
+C052008,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 24 min",P219,M01916,F011,99214,124.13,206.24,2026-05-29 10:02:00
+C052620,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 25 min",P219,M01987,F011,99213,73.81,143.65,2026-06-02 10:44:00
+C057048,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 25 min",P219,M03752,F011,99214,128.24,214.53,2026-06-22 08:41:00
+C057058,impossible_timing,"Billed at F011 and F036, 1079 km apart, within 20 min",P219,M01610,F036,99214,125.07,203.45,2026-06-22 09:01:00
+C058418,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 23 min",P219,M01787,F011,99215,157.01,292.38,2026-06-26 13:36:00
+C061965,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 29 min",P219,M04365,F011,99214,122.32,214.24,2026-07-13 15:09:00
+C062868,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 10 min",P219,M04188,F011,99214,118.69,207.06,2026-07-16 13:39:00
+C062956,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 28 min",P219,M04942,F011,99213,84.24,145.12,2026-07-16 15:47:00
+C064818,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 17 min",P219,M01916,F011,99213,87.68,144.47,2026-07-24 15:31:00
+C064998,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 21 min",P219,M01392,F011,99214,104.05,204.8,2026-07-27 12:09:00
+C065205,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 27 min",P219,M00920,F011,99215,179.82,295.64,2026-07-28 09:19:00
+C067456,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 29 min",P219,M02540,F011,99213,75.26,150.15,2026-08-06 11:21:00
+C069862,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 8 min",P219,M04967,F011,99214,109.95,206.05,2026-08-17 14:19:00
+C069917,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 6 min",P219,M00069,F011,99214,104.78,209.06,2026-08-17 15:38:00
+C073096,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 15 min",P219,M03180,F011,99213,80.13,149.44,2026-08-31 15:02:00
+C073703,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 23 min",P219,M03099,F011,99212,52.79,88.45,2026-09-02 13:29:00
+C075904,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 26 min",P219,M02923,F011,99213,79.21,142.1,2026-09-11 12:09:00
+C075955,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 10 min",P219,M03913,F011,99214,124.96,216.27,2026-09-11 13:27:00
+C023500,impossible_timing,"Billed at F001 and F021, 234 km apart, within 14 min",P001,M03533,F001,99214,118.77,193.43,2026-01-19 16:51:00
+C023523,impossible_timing,"Billed at F001 and F021, 234 km apart, within 16 min",P001,M03365,F001,99214,103.01,189.35,2026-01-20 08:32:00
+C024870,impossible_timing,"Billed at F001 and F021, 234 km apart, within 18 min",P001,M03996,F001,99215,147.8,268.66,2026-01-26 13:43:00
+C025042,impossible_timing,"Billed at F001 and F021, 234 km apart, within 25 min",P001,M03731,F001,99214,128.65,189.2,2026-01-27 09:28:00
+C029692,impossible_timing,"Billed at F001 and F021, 234 km apart, within 20 min",P001,M00868,F001,99215,149.47,264.79,2026-02-18 08:33:00
+C031120,impossible_timing,"Billed at F001 and F021, 234 km apart, within 25 min",P001,M00944,F001,99214,104.24,190.9,2026-02-24 14:54:00
+C031536,impossible_timing,"Billed at F001 and F021, 234 km apart, within 7 min",P001,M04643,F001,99213,84.04,135.94,2026-02-26 08:36:00
+C031910,impossible_timing,"Billed at F001 and F021, 234 km apart, within 14 min",P001,M04706,F001,99213,79.71,137.62,2026-02-27 10:48:00
+C034894,impossible_timing,"Billed at F001 and F021, 234 km apart, within 19 min",P001,M00120,F001,99213,82.74,135.76,2026-03-13 09:03:00
+C035365,impossible_timing,"Billed at F001 and F021, 234 km apart, within 8 min",P001,M03181,F001,99214,107.15,192.09,2026-03-16 13:52:00
+C043080,impossible_timing,"Billed at F001 and F021, 234 km apart, within 14 min",P001,M03952,F001,99213,76.56,136.49,2026-04-20 16:31:00
+C051656,impossible_timing,"Billed at F001 and F021, 234 km apart, within 10 min",P001,M00545,F001,99212,55.15,81.25,2026-05-28 08:54:00
+C060310,impossible_timing,"Billed at F001 and F021, 234 km apart, within 15 min",P001,M02834,F001,99214,112.95,191.94,2026-07-06 14:07:00
+C061526,impossible_timing,"Billed at F001 and F021, 234 km apart, within 19 min",P001,M00144,F001,99214,127.61,188.66,2026-07-10 12:34:00
+C067918,impossible_timing,"Billed at F001 and F021, 234 km apart, within 9 min",P001,M00246,F001,99215,172.37,265.19,2026-08-07 14:38:00
+C068430,impossible_timing,"Billed at F001 and F021, 234 km apart, within 27 min",P001,M00932,F001,99214,108.56,183.97,2026-08-11 10:32:00
+C069543,impossible_timing,"Billed at F001 and F021, 234 km apart, within 24 min",P001,M00163,F001,99213,72.52,134.34,2026-08-14 14:45:00
+C069775,impossible_timing,"Billed at F001 and F021, 234 km apart, within 27 min",P001,M03032,F001,99214,116.7,186.2,2026-08-17 12:03:00
+C072322,impossible_timing,"Billed at F001 and F021, 234 km apart, within 28 min",P001,M04891,F001,99213,91.53,133.58,2026-08-27 11:40:00
+C074318,impossible_timing,"Billed at F001 and F021, 234 km apart, within 6 min",P001,M02901,F001,99213,73.43,138.54,2026-09-04 12:43:00
+C075749,impossible_timing,"Billed at F001 and F021, 234 km apart, within 24 min",P001,M03226,F001,99214,107.46,187.07,2026-09-10 16:27:00
+C077655,impossible_timing,"Billed at F001 and F021, 234 km apart, within 16 min",P001,M04476,F001,99213,87.22,128.89,2026-09-18 13:50:00
+C077961,impossible_timing,"Billed at F001 and F021, 234 km apart, within 8 min",P001,M02159,F001,99215,162.11,265.27,2026-09-21 12:45:00
+C080325,impossible_timing,"Billed at F001 and F021, 234 km apart, within 15 min",P001,M01219,F001,99214,118.27,190.34,2026-09-30 13:56:00
+C013396,impossible_timing,"Billed at F013 and F004, 229 km apart, within 8 min",P141,M04112,F013,99213,89.52,139.61,2025-12-02 13:14:00
+C013785,impossible_timing,"Billed at F013 and F004, 229 km apart, within 30 min",P141,M01532,F013,99213,89.8,142.84,2025-12-03 16:28:00
+C014241,impossible_timing,"Billed at F013 and F004, 229 km apart, within 27 min",P141,M03135,F013,99213,82.03,141.41,2025-12-05 12:10:00
+C022683,impossible_timing,"Billed at F013 and F004, 229 km apart, within 13 min",P141,M04995,F013,99214,108.17,198.7,2026-01-15 11:44:00
+C023312,impossible_timing,"Billed at F013 and F004, 229 km apart, within 6 min",P141,M03280,F013,99214,116.69,192.51,2026-01-19 12:01:00
+C023627,impossible_timing,"Billed at F013 and F004, 229 km apart, within 30 min",P141,M00593,F013,99215,173.19,265.83,2026-01-20 12:03:00
+C024252,impossible_timing,"Billed at F013 and F004, 229 km apart, within 24 min",P141,M04929,F013,99213,74.26,136.05,2026-01-22 13:50:00
+C024732,impossible_timing,"Billed at F013 and F004, 229 km apart, within 29 min",P141,M03611,F013,99213,80.64,140.37,2026-01-26 09:50:00
+C028421,impossible_timing,"Billed at F013 and F004, 229 km apart, within 25 min",P141,M00606,F013,99213,80.49,136.67,2026-02-11 14:13:00
+C029646,impossible_timing,"Billed at F013 and F004, 229 km apart, within 19 min",P141,M02327,F013,99214,124.61,194.38,2026-02-17 16:13:00
+C029752,impossible_timing,"Billed at F013 and F004, 229 km apart, within 12 min",P141,M00715,F013,99213,90.61,137.94,2026-02-18 10:20:00
+C030194,impossible_timing,"Billed at F013 and F004, 229 km apart, within 18 min",P141,M00411,F013,99214,112.72,192.19,2026-02-19 14:52:00
+C030446,impossible_timing,"Billed at F013 and F004, 229 km apart, within 24 min",P141,M01895,F013,99214,117.1,194.76,2026-02-20 13:22:00
+C030526,impossible_timing,"Billed at F013 and F004, 229 km apart, within 10 min",P141,M04599,F013,99214,116.76,193.39,2026-02-20 15:58:00
+C032711,impossible_timing,"Billed at F013 and F004, 229 km apart, within 7 min",P141,M00314,F013,99214,120.4,188.02,2026-03-04 08:02:00
+C034567,impossible_timing,"Billed at F013 and F004, 229 km apart, within 14 min",P141,M02281,F013,99213,81.57,138.44,2026-03-12 09:05:00
+C038647,impossible_timing,"Billed at F013 and F004, 229 km apart, within 18 min",P141,M02518,F013,99214,104.49,187.66,2026-03-31 14:01:00
+C044622,impossible_timing,"Billed at F013 and F004, 229 km apart, within 22 min",P141,M00082,F013,99214,121.07,185.67,2026-04-27 15:09:00
+C045400,impossible_timing,"Billed at F013 and F004, 229 km apart, within 14 min",P141,M01926,F013,99214,115.64,198.41,2026-04-30 10:39:00
+C047961,impossible_timing,"Billed at F013 and F004, 229 km apart, within 12 min",P141,M01401,F013,99214,116.29,194.64,2026-05-12 10:20:00
+C049565,impossible_timing,"Billed at F013 and F004, 229 km apart, within 18 min",P141,M01139,F013,99214,111.15,189.24,2026-05-19 12:28:00
+C060258,impossible_timing,"Billed at F013 and F004, 229 km apart, within 25 min",P141,M04829,F013,99213,71.94,134.39,2026-07-06 12:14:00
+C064732,impossible_timing,"Billed at F013 and F004, 229 km apart, within 8 min",P141,M02750,F013,99214,119.69,191.04,2026-07-24 12:57:00
+C065673,impossible_timing,"Billed at F013 and F004, 229 km apart, within 27 min",P141,M03331,F013,99213,84.28,141.27,2026-07-29 12:58:00
+C067313,impossible_timing,"Billed at F013 and F004, 229 km apart, within 23 min",P141,M02655,F013,99214,111.5,195.57,2026-08-05 16:08:00
+C068773,impossible_timing,"Billed at F013 and F004, 229 km apart, within 28 min",P141,M04381,F013,99214,127.36,186.36,2026-08-12 10:40:00
+C069263,impossible_timing,"Billed at F013 and F004, 229 km apart, within 8 min",P141,M02023,F013,99214,115.88,190.67,2026-08-13 15:29:00
+C077598,impossible_timing,"Billed at F013 and F004, 229 km apart, within 9 min",P141,M04434,F013,99212,55.42,84.37,2026-09-18 12:24:00
+C020765,impossible_timing,"Billed at F023 and F030, 408 km apart, within 28 min",P209,M03935,F023,90834,85.69,205.01,2026-01-06 15:20:00
+C021284,impossible_timing,"Billed at F023 and F030, 408 km apart, within 24 min",P209,M00735,F023,90834,102.37,206.85,2026-01-08 12:43:00
+C022164,impossible_timing,"Billed at F023 and F030, 408 km apart, within 8 min",P209,M01355,F023,90834,102.98,209.06,2026-01-13 12:56:00
+C023129,impossible_timing,"Billed at F023 and F030, 408 km apart, within 8 min",P209,M04028,F023,90834,92.12,206.5,2026-01-16 16:21:00
+C023395,impossible_timing,"Billed at F023 and F030, 408 km apart, within 29 min",P209,M03892,F023,90834,85.76,212.14,2026-01-19 14:10:00
+C024197,impossible_timing,"Billed at F023 and F030, 408 km apart, within 11 min",P209,M01336,F023,90834,103.74,213.77,2026-01-22 12:09:00
+C024939,impossible_timing,"Billed at F023 and F030, 408 km apart, within 12 min",P209,M04262,F023,90834,86.76,204.73,2026-01-26 15:33:00
+C028783,impossible_timing,"Billed at F023 and F030, 408 km apart, within 22 min",P209,M01937,F023,90837,134.66,311.01,2026-02-12 15:40:00
+C029834,impossible_timing,"Billed at F023 and F030, 408 km apart, within 24 min",P209,M03474,F023,90834,88.77,210.06,2026-02-18 12:24:00
+C035763,impossible_timing,"Billed at F023 and F030, 408 km apart, within 28 min",P209,M02042,F023,90837,151.63,310.04,2026-03-18 08:01:00
+C038476,impossible_timing,"Billed at F023 and F030, 408 km apart, within 19 min",P209,M00500,F023,90834,86.37,210.21,2026-03-31 08:49:00
+C042489,impossible_timing,"Billed at F023 and F030, 408 km apart, within 8 min",P209,M03477,F023,90834,93.99,219.26,2026-04-17 10:30:00
+C043622,impossible_timing,"Billed at F023 and F030, 408 km apart, within 17 min",P209,M02761,F023,90837,128.54,313.25,2026-04-22 13:16:00
+C044942,impossible_timing,"Billed at F023 and F030, 408 km apart, within 9 min",P209,M01376,F023,90834,85.64,206.83,2026-04-28 15:25:00
+C045301,impossible_timing,"Billed at F023 and F030, 408 km apart, within 16 min",P209,M01758,F023,90834,84.07,211.42,2026-04-29 16:41:00
+C045388,impossible_timing,"Billed at F023 and F030, 408 km apart, within 30 min",P209,M03157,F023,90837,140.92,309.69,2026-04-30 10:19:00
+C046616,impossible_timing,"Billed at F023 and F030, 408 km apart, within 9 min",P209,M04337,F023,90834,98.4,209.12,2026-05-06 08:14:00
+C049077,impossible_timing,"Billed at F023 and F030, 408 km apart, within 10 min",P209,M01039,F023,90834,104.08,207.11,2026-05-15 16:01:00
+C055857,impossible_timing,"Billed at F023 and F030, 408 km apart, within 22 min",P209,M01234,F023,90837,128.04,311.37,2026-06-16 11:58:00
+C059236,impossible_timing,"Billed at F023 and F030, 408 km apart, within 12 min",P209,M01237,F023,90834,95.77,210.65,2026-07-01 10:34:00
+C063638,impossible_timing,"Billed at F023 and F030, 408 km apart, within 15 min",P209,M03382,F023,90837,132.61,306.17,2026-07-21 09:25:00
+C066052,impossible_timing,"Billed at F023 and F030, 408 km apart, within 14 min",P209,M00602,F023,90837,144.33,310.19,2026-07-30 16:23:00
+C067524,impossible_timing,"Billed at F023 and F030, 408 km apart, within 11 min",P209,M02280,F023,90837,149.95,309.51,2026-08-06 12:51:00
+C068556,impossible_timing,"Billed at F023 and F030, 408 km apart, within 6 min",P209,M02929,F023,90837,146.93,313.59,2026-08-11 14:05:00
+C071758,impossible_timing,"Billed at F023 and F030, 408 km apart, within 22 min",P209,M02926,F023,90837,122.33,313.84,2026-08-25 14:42:00
+C072603,impossible_timing,"Billed at F023 and F030, 408 km apart, within 22 min",P209,M02521,F023,90834,87.02,198.83,2026-08-28 11:06:00
+C072770,impossible_timing,"Billed at F023 and F030, 408 km apart, within 7 min",P209,M02988,F023,90837,136.16,311.46,2026-08-28 15:46:00
+C079281,impossible_timing,"Billed at F023 and F030, 408 km apart, within 16 min",P209,M04187,F023,90834,82.63,211.87,2026-09-25 11:58:00
+C041984,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 2 min",P219,M00959,F036,99214,128.27,209.85,2026-04-15 12:29:00
+C043857,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 13 min",P219,M01297,F036,99214,110.35,204.03,2026-04-23 11:03:00
+C045626,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 9 min",P219,M02859,F036,99211,19.75,39.91,2026-04-30 16:42:00
+C048463,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 18 min",P219,M03236,F036,99214,110.28,207.37,2026-05-13 15:58:00
+C051371,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 27 min",P219,M01713,F036,99215,144.27,294.0,2026-05-27 09:03:00
+C051993,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 24 min",P219,M02705,F036,99214,102.35,211.74,2026-05-29 09:38:00
+C052610,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 25 min",P219,M04394,F036,99214,121.11,207.36,2026-06-02 10:19:00
+C057029,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 25 min",P219,M02839,F036,99214,126.36,207.19,2026-06-22 08:16:00
+C058402,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 23 min",P219,M03271,F036,99215,152.37,291.98,2026-06-26 13:13:00
+C061941,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 29 min",P219,M00419,F036,99215,155.8,297.04,2026-07-13 14:40:00
+C062859,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 10 min",P219,M02516,F036,99213,89.87,146.69,2026-07-16 13:29:00
+C062934,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 28 min",P219,M04386,F036,99214,111.69,215.5,2026-07-16 15:19:00
+C064809,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 17 min",P219,M04165,F036,99215,159.16,286.7,2026-07-24 15:14:00
+C064987,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 21 min",P219,M01455,F036,99215,179.21,303.65,2026-07-27 11:48:00
+C065189,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 27 min",P219,M01014,F036,99214,114.11,209.87,2026-07-28 08:52:00
+C067433,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 29 min",P219,M02516,F036,99214,120.76,208.16,2026-08-06 10:52:00
+C069859,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 8 min",P219,M03072,F036,99213,72.29,147.06,2026-08-17 14:11:00
+C069912,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 6 min",P219,M02133,F036,99214,119.23,203.81,2026-08-17 15:32:00
+C073084,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 15 min",P219,M01969,F036,99213,81.33,143.9,2026-08-31 14:47:00
+C073687,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 23 min",P219,M01402,F036,99213,83.05,147.15,2026-09-02 13:06:00
+C075893,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 26 min",P219,M01822,F036,99212,50.3,92.48,2026-09-11 11:43:00
+C075948,impossible_timing,"Billed at F036 and F011, 1079 km apart, within 10 min",P219,M03032,F036,99214,102.73,204.86,2026-09-11 13:17:00
+C027602,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P076,M03856,F034,80048,7.44,13.04,2026-02-06 16:54:00
+C037693,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P103,M01934,F004,80048,8.34,14.03,2026-03-26 11:59:00
+C026511,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M00366,F011,80048,8.29,12.16,2026-02-03 10:03:00
+C032009,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M04715,F011,80048,7.42,12.24,2026-02-27 13:55:00
+C036826,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M01074,F011,80048,7.26,12.35,2026-03-23 14:17:00
+C040854,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M02471,F011,80048,8.15,11.89,2026-04-09 15:58:00
+C046784,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M02504,F011,80048,7.32,11.78,2026-05-06 12:34:00
+C047540,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M03863,F011,80048,6.74,12.22,2026-05-11 08:04:00
+C050474,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M03843,F011,80048,8.31,11.92,2026-05-22 11:55:00
+C051047,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M00514,F011,80048,7.86,12.17,2026-05-26 10:00:00
+C052635,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M04967,F011,80048,7.28,11.77,2026-06-02 11:06:00
+C058877,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M03752,F011,80048,8.38,11.69,2026-06-30 09:58:00
+C061513,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M01806,F011,80048,8.07,12.16,2026-07-10 12:07:00
+C061717,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M01968,F011,80048,8.18,12.34,2026-07-13 08:40:00
+C063872,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M04717,F011,80048,8.36,12.2,2026-07-21 16:05:00
+C065282,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M02772,F011,80048,8.06,12.04,2026-07-28 11:27:00
+C068577,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M03752,F011,80048,7.95,12.03,2026-08-11 14:28:00
+C073542,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M03843,F011,80048,6.78,12.36,2026-09-02 09:35:00
+C075770,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M03036,F011,80048,8.03,11.63,2026-09-11 08:03:00
+C076604,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P185,M04243,F011,80048,6.95,12.37,2026-09-15 12:52:00
+C021102,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M01651,F030,80048,7.41,17.35,2026-01-07 16:19:00
+C021512,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M04908,F030,80048,8.23,16.97,2026-01-09 10:02:00
+C022589,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M04095,F030,80048,7.58,17.1,2026-01-15 08:37:00
+C026315,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00252,F030,80048,6.91,17.33,2026-02-02 12:43:00
+C026404,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M04095,F030,80048,7.27,17.05,2026-02-02 15:13:00
+C027881,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M04289,F030,80048,6.67,16.92,2026-02-09 16:25:00
+C027910,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00146,F030,80048,7.08,17.47,2026-02-10 08:07:00
+C028771,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00903,F030,80048,7.54,17.86,2026-02-12 15:21:00
+C031434,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M03423,F030,80048,8.05,17.4,2026-02-25 15:15:00
+C031450,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00903,F030,80048,7.59,18.17,2026-02-25 15:46:00
+C032604,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M01581,F030,80048,7.21,17.09,2026-03-03 13:47:00
+C033335,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M02605,F030,80048,8.16,16.81,2026-03-06 08:07:00
+C034904,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M01686,F030,80048,7.15,17.21,2026-03-13 09:14:00
+C037211,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M04086,F030,80048,7.2,17.31,2026-03-24 15:57:00
+C037502,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M01181,F030,80048,7.37,18.46,2026-03-25 15:23:00
+C037865,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M02960,F030,80048,8.26,17.19,2026-03-27 08:32:00
+C038375,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M01536,F030,80048,8.12,17.03,2026-03-30 14:56:00
+C039150,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M03000,F030,80048,7.59,16.98,2026-04-02 11:37:00
+C039214,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M03578,F030,80048,8.07,17.81,2026-04-02 13:22:00
+C039558,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00787,F030,80048,6.78,17.23,2026-04-03 14:24:00
+C040193,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M02414,F030,80048,8.46,17.31,2026-04-07 14:10:00
+C040686,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M02668,F030,80048,8.21,17.23,2026-04-09 10:02:00
+C040730,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M01588,F030,80048,6.88,17.2,2026-04-09 11:35:00
+C044679,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M02682,F030,80048,7.85,16.91,2026-04-27 16:22:00
+C045107,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M04174,F030,80048,7.2,17.03,2026-04-29 11:25:00
+C045853,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M04160,F030,80048,8.43,17.68,2026-05-01 14:08:00
+C046769,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M01225,F030,80048,6.67,16.7,2026-05-06 12:21:00
+C048782,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00380,F030,80048,8.27,17.74,2026-05-14 16:21:00
+C051199,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M01682,F030,80048,8.03,17.46,2026-05-26 13:45:00
+C051727,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00676,F030,80048,7.41,16.96,2026-05-28 11:15:00
+C052982,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M04289,F030,80048,7.22,17.69,2026-06-03 11:41:00
+C053566,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M03053,F030,80048,7.66,17.67,2026-06-05 10:46:00
+C053781,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M03596,F030,80048,6.94,16.73,2026-06-05 16:21:00
+C054895,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M03171,F030,80048,7.56,17.76,2026-06-11 12:26:00
+C055446,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M02960,F030,80048,6.7,17.11,2026-06-15 08:58:00
+C055763,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00808,F030,80048,7.8,17.73,2026-06-16 08:41:00
+C058089,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M03658,F030,80048,6.94,17.69,2026-06-25 12:36:00
+C058424,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M01907,F030,80048,7.55,17.84,2026-06-26 13:43:00
+C059570,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M01389,F030,80048,8.33,17.43,2026-07-02 10:45:00
+C059655,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M01025,F030,80048,7.07,16.51,2026-07-02 13:17:00
+C060759,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M04059,F030,80048,8.11,17.28,2026-07-08 09:11:00
+C062801,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00404,F030,80048,7.48,17.26,2026-07-16 12:00:00
+C064455,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M01536,F030,80048,7.01,17.43,2026-07-23 14:31:00
+C067392,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00326,F030,80048,6.81,17.77,2026-08-06 09:36:00
+C068051,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00676,F030,80048,7.44,16.88,2026-08-10 09:09:00
+C069397,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M02874,F030,80048,7.04,17.01,2026-08-14 10:02:00
+C069678,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00271,F030,80048,7.87,17.96,2026-08-17 09:38:00
+C070052,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M03510,F030,80048,7.54,17.04,2026-08-18 10:28:00
+C070251,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M04982,F030,80048,7.21,17.46,2026-08-18 16:23:00
+C070772,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M03656,F030,80048,8.38,16.73,2026-08-20 13:08:00
+C070784,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00782,F030,80048,7.15,17.88,2026-08-20 13:18:00
+C071419,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M04870,F030,80048,7.87,17.07,2026-08-24 13:11:00
+C073510,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M04535,F030,80048,8.09,17.71,2026-09-02 08:43:00
+C074302,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M02414,F030,80048,6.66,16.93,2026-09-04 12:21:00
+C075588,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00404,F030,80048,6.95,17.08,2026-09-10 11:57:00
+C076838,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00341,F030,80048,7.04,17.12,2026-09-16 10:02:00
+C077015,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M03321,F030,80048,7.98,17.71,2026-09-16 14:46:00
+C079420,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00068,F030,80048,6.96,17.36,2026-09-25 15:39:00
+C079722,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M03510,F030,80048,8.01,17.69,2026-09-28 14:53:00
+C079907,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P210,M00004,F030,80048,7.65,17.92,2026-09-29 10:37:00
+C027565,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M01491,F017,80048,7.76,13.9,2026-02-06 15:30:00
+C028115,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M02011,F017,80048,7.48,13.61,2026-02-10 14:24:00
+C029996,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M04900,F017,80048,7.04,13.62,2026-02-19 08:07:00
+C036539,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M01717,F017,80048,8.38,13.83,2026-03-20 14:28:00
+C036661,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M01297,F017,80048,7.8,13.91,2026-03-23 08:53:00
+C038361,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M04434,F017,80048,7.34,13.89,2026-03-30 14:39:00
+C038769,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M02597,F017,80048,7.18,14.17,2026-04-01 08:46:00
+C042596,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M01377,F017,80048,7.36,13.85,2026-04-17 13:34:00
+C045221,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M04900,F017,80048,7.45,13.55,2026-04-29 14:45:00
+C045600,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M04511,F017,80048,7.03,13.97,2026-04-30 15:55:00
+C049049,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M02597,F017,80048,7.76,13.27,2026-05-15 15:22:00
+C050586,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M02257,F017,80048,7.39,13.73,2026-05-22 14:50:00
+C052377,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M02649,F017,80048,6.78,13.72,2026-06-01 12:05:00
+C053506,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M00143,F017,80048,7.06,13.59,2026-06-05 08:36:00
+C059314,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M01717,F017,80048,7.42,13.5,2026-07-01 12:36:00
+C059615,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P231,M00896,F017,80048,7.5,13.41,2026-07-02 12:03:00
+C065203,unbundling,80048 billed with 80053 on the same date; 80048 is included in 80053,P274,M04051,F017,80048,7.6,14.19,2026-07-28 09:14:00
+C014355,mue_exceeded,2 units of E0601 for one member on one date; limit is 1,P002,M02578,F012,E0601,53.18,92.71,2025-12-05 15:24:00
+C036341,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P011,M04694,F016,99349,106.61,188.96,2026-03-19 16:58:00
+C078286,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P011,M04011,F016,99349,103.65,187.89,2026-09-22 12:37:00
+C046335,mue_exceeded,7 units of 97110 for one member on one date; limit is 6,P015,M04460,F005,97110,81.89,179.64,2026-05-05 09:58:00
+C080084,mue_exceeded,2 units of 99215 for one member on one date; limit is 1,P062,M04729,F034,99215,153.67,273.02,2026-09-29 15:36:00
+C001856,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P068,M03693,F001,99349,127.02,271.54,2025-10-08 16:40:00
+C071835,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P068,M01412,F001,99349,99.92,268.85,2026-08-25 16:41:00
+C079732,mue_exceeded,8 units of 97110 for one member on one date; limit is 6,P081,M02896,F026,97110,94.6,229.67,2026-09-28 15:04:00
+C006414,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P083,M02821,F018,99349,127.81,186.59,2025-10-30 11:03:00
+C016110,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P083,M00456,F018,99349,101.71,177.3,2025-12-15 16:30:00
+C028111,mue_exceeded,2 units of 80053 for one member on one date; limit is 1,P089,M04649,F027,80053,9.33,17.75,2026-02-10 14:13:00
+C055608,mue_exceeded,2 units of 83036 for one member on one date; limit is 1,P097,M02102,F037,83036,9.12,16.19,2026-06-15 13:22:00
+C037392,mue_exceeded,2 units of 99211 for one member on one date; limit is 1,P098,M03272,F011,99211,23.68,47.45,2026-03-25 11:57:00
+C040092,mue_exceeded,2 units of 99215 for one member on one date; limit is 1,P098,M01750,F011,99215,161.4,378.42,2026-04-07 10:47:00
+C040591,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P107,M04844,F039,99349,104.65,269.78,2026-04-08 16:16:00
+C063998,mue_exceeded,2 units of 99350 for one member on one date; limit is 1,P107,M04834,F039,99350,153.39,395.69,2026-07-22 10:24:00
+C001489,mue_exceeded,8 units of 97110 for one member on one date; limit is 6,P116,M01672,F020,97110,114.39,221.4,2025-10-07 15:35:00
+C008625,mue_exceeded,7 units of 97110 for one member on one date; limit is 6,P116,M04234,F020,97110,107.47,216.39,2025-11-10 15:17:00
+C035754,mue_exceeded,8 units of 97110 for one member on one date; limit is 6,P116,M03059,F020,97110,110.6,220.67,2026-03-17 16:40:00
+C038728,mue_exceeded,7 units of 97110 for one member on one date; limit is 6,P116,M00888,F020,97110,88.02,164.53,2026-03-31 16:25:00
+C057589,mue_exceeded,7 units of 97110 for one member on one date; limit is 6,P116,M01739,F020,97110,78.49,164.06,2026-06-23 16:00:00
+C043400,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P121,M04073,F027,99349,113.18,308.91,2026-04-21 16:23:00
+C074193,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P121,M04612,F027,99349,101.08,303.52,2026-09-04 09:21:00
+C080303,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P121,M00334,F027,99349,121.77,314.82,2026-09-30 13:08:00
+C015242,mue_exceeded,2 units of E0601 for one member on one date; limit is 1,P122,M04851,F024,E0601,52.96,93.59,2025-12-10 15:37:00
+C078006,mue_exceeded,7 units of 97110 for one member on one date; limit is 6,P123,M01297,F037,97110,119.16,258.89,2026-09-21 13:47:00
+C062853,mue_exceeded,2 units of E0601 for one member on one date; limit is 1,P125,M02210,F029,E0601,46.54,119.3,2026-07-16 13:22:00
+C078018,mue_exceeded,2 units of E0601 for one member on one date; limit is 1,P125,M04460,F029,E0601,45.49,123.17,2026-09-21 14:06:00
+C056829,mue_exceeded,7 units of 97110 for one member on one date; limit is 6,P130,M04026,F032,97110,108.58,270.64,2026-06-19 11:19:00
+C054409,mue_exceeded,2 units of 99211 for one member on one date; limit is 1,P140,M00628,F033,99211,23.47,51.04,2026-06-09 16:17:00
+C023467,mue_exceeded,2 units of 99350 for one member on one date; limit is 1,P144,M00931,F014,99350,153.21,404.87,2026-01-19 15:58:00
+C025498,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M04429,F014,99349,116.79,288.4,2026-01-28 15:00:00
+C030338,mue_exceeded,2 units of 99350 for one member on one date; limit is 1,P144,M03606,F014,99350,178.55,400.08,2026-02-20 10:02:00
+C031081,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M00924,F014,99349,120.14,291.71,2026-02-24 13:47:00
+C033580,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M03819,F014,99349,116.18,296.95,2026-03-06 14:51:00
+C034115,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M03016,F014,99349,104.68,302.89,2026-03-10 13:17:00
+C040988,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M00362,F014,99349,104.13,293.85,2026-04-10 10:45:00
+C041004,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M04205,F014,99349,105.45,297.18,2026-04-10 11:18:00
+C043162,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M00227,F014,99349,117.44,282.91,2026-04-21 10:08:00
+C045431,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M00320,F014,99349,112.88,294.65,2026-04-30 11:24:00
+C045625,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M04539,F014,99349,126.98,290.92,2026-04-30 16:41:00
+C051125,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M03016,F014,99349,108.97,302.14,2026-05-26 11:57:00
+C052273,mue_exceeded,2 units of 99350 for one member on one date; limit is 1,P144,M04374,F014,99350,156.09,421.71,2026-06-01 08:58:00
+C055282,mue_exceeded,2 units of 99350 for one member on one date; limit is 1,P144,M00706,F014,99350,172.37,426.18,2026-06-12 13:41:00
+C056018,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M04804,F014,99349,124.11,295.78,2026-06-16 16:42:00
+C062459,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M01085,F014,99349,121.01,296.44,2026-07-15 10:40:00
+C063485,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M01549,F014,99349,100.63,287.58,2026-07-20 13:50:00
+C065399,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M03197,F014,99349,104.03,290.45,2026-07-28 14:13:00
+C070457,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M01216,F014,99349,119.39,296.36,2026-08-19 13:12:00
+C071818,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M03909,F014,99349,99.94,288.08,2026-08-25 16:20:00
+C072160,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M00924,F014,99349,99.89,290.07,2026-08-26 16:26:00
+C077807,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M00356,F014,99349,115.33,290.46,2026-09-21 08:34:00
+C079322,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P144,M04374,F014,99349,121.6,289.14,2026-09-25 12:55:00
+C072702,mue_exceeded,2 units of E0601 for one member on one date; limit is 1,P154,M03137,F030,E0601,51.09,90.87,2026-08-28 13:40:00
+C019507,mue_exceeded,2 units of 99215 for one member on one date; limit is 1,P155,M03619,F004,99215,169.58,408.14,2025-12-31 13:49:00
+C035134,mue_exceeded,2 units of 99215 for one member on one date; limit is 1,P170,M02800,F020,99215,151.83,372.52,2026-03-13 15:35:00
+C035743,mue_exceeded,2 units of E0601 for one member on one date; limit is 1,P173,M02693,F026,E0601,47.02,93.5,2026-03-17 16:24:00
+C052723,mue_exceeded,2 units of 99215 for one member on one date; limit is 1,P177,M04142,F036,99215,159.24,285.59,2026-06-02 13:24:00
+C000275,mue_exceeded,2 units of 99350 for one member on one date; limit is 1,P179,M04131,F002,99350,164.4,346.19,2025-10-01 16:16:00
+C008233,mue_exceeded,2 units of 80053 for one member on one date; limit is 1,P185,M01806,F011,80053,10.09,14.72,2025-11-07 12:40:00
+C074469,mue_exceeded,8 units of 97110 for one member on one date; limit is 6,P220,M02997,F031,97110,110.1,268.89,2026-09-04 17:08:00
+C037957,mue_exceeded,2 units of 99215 for one member on one date; limit is 1,P221,M03963,F005,99215,158.33,276.19,2026-03-27 11:15:00
+C045580,mue_exceeded,2 units of 99215 for one member on one date; limit is 1,P221,M03778,F005,99215,175.36,267.22,2026-04-30 15:21:00
+C072972,mue_exceeded,2 units of 99215 for one member on one date; limit is 1,P221,M02141,F005,99215,156.87,279.24,2026-08-31 11:55:00
+C062805,mue_exceeded,2 units of 99349 for one member on one date; limit is 1,P225,M02685,F027,99349,100.89,198.27,2026-07-16 12:04:00
+C059773,mue_exceeded,3 units of 99213 for one member on one date; limit is 2,P226,M02093,F016,99213,73.25,169.47,2026-07-02 15:57:00
+C045753,mue_exceeded,2 units of 80053 for one member on one date; limit is 1,P246,M00600,F009,80053,9.72,17.52,2026-05-01 10:49:00
+C016350,mue_exceeded,2 units of 80053 for one member on one date; limit is 1,P252,M00657,F017,80053,10.43,17.71,2025-12-16 14:32:00
+C023667,mue_exceeded,2 units of 99211 for one member on one date; limit is 1,P258,M04050,F029,99211,19.77,52.05,2026-01-20 13:31:00
+C036061,mue_exceeded,2 units of 99211 for one member on one date; limit is 1,P258,M02727,F029,99211,21.54,53.68,2026-03-19 09:00:00
+C054718,mue_exceeded,2 units of 99211 for one member on one date; limit is 1,P258,M02686,F029,99211,20.82,52.13,2026-06-10 16:13:00
+C058474,mue_exceeded,2 units of 99215 for one member on one date; limit is 1,P258,M00916,F029,99215,159.9,397.86,2026-06-26 14:57:00
+C075734,mue_exceeded,2 units of 99215 for one member on one date; limit is 1,P258,M02020,F029,99215,144.07,392.79,2026-09-10 16:05:00
+C079035,mue_exceeded,2 units of 99215 for one member on one date; limit is 1,P258,M00916,F029,99215,157.22,400.95,2026-09-24 14:05:00
+C040507,mue_exceeded,2 units of E0601 for one member on one date; limit is 1,P263,M02692,F013,E0601,49.86,89.68,2026-04-08 13:48:00
+C042918,mue_exceeded,2 units of E0601 for one member on one date; limit is 1,P263,M02692,F013,E0601,49.53,86.47,2026-04-20 12:42:00
+C043884,mue_exceeded,2 units of E1390 for one member on one date; limit is 1,P263,M02023,F013,E1390,73.91,123.11,2026-04-23 11:48:00
+C059062,mue_exceeded,2 units of E0601 for one member on one date; limit is 1,P263,M01099,F013,E0601,48.7,90.03,2026-06-30 14:51:00
+C077909,mue_exceeded,2 units of E0601 for one member on one date; limit is 1,P263,M03050,F013,E0601,46.35,89.02,2026-09-21 11:28:00
+C001673,mue_exceeded,2 units of 80053 for one member on one date; limit is 1,P274,M01763,F017,80053,8.91,17.43,2025-10-08 11:09:00
+C046161,mue_exceeded,7 units of 97110 for one member on one date; limit is 6,P297,M01230,F006,97110,80.23,213.48,2026-05-04 14:10:00
+C057195,mue_exceeded,2 units of 99215 for one member on one date; limit is 1,P298,M00480,F032,99215,146.05,343.2,2026-06-22 13:02:00
+C074262,upcoding,Level 5 was 35% of office visits in 2026-09 vs 9% for all providers,P040,M03496,F009,99215,179.93,264.87,2026-09-04 11:08:00
+C075355,upcoding,Level 5 was 35% of office visits in 2026-09 vs 9% for all providers,P040,M02686,F009,99215,179.23,261.65,2026-09-09 14:45:00
+C075685,upcoding,Level 5 was 35% of office visits in 2026-09 vs 9% for all providers,P040,M00588,F009,99215,158.64,256.53,2026-09-10 14:32:00
+C075871,upcoding,Level 5 was 35% of office visits in 2026-09 vs 9% for all providers,P040,M02096,F009,99215,176.86,261.8,2026-09-11 11:07:00
+C076737,upcoding,Level 5 was 35% of office visits in 2026-09 vs 9% for all providers,P040,M02352,F009,99215,162.48,266.75,2026-09-15 16:40:00
+C077703,upcoding,Level 5 was 35% of office visits in 2026-09 vs 9% for all providers,P040,M01949,F009,99215,148.08,253.55,2026-09-18 14:44:00
+C027662,upcoding,Level 5 was 38% of office visits in 2026-02 vs 9% for all providers,P106,M03610,F024,99215,162.84,296.69,2026-02-09 09:10:00
+C028089,upcoding,Level 5 was 38% of office visits in 2026-02 vs 9% for all providers,P106,M01190,F024,99215,156.02,306.69,2026-02-10 13:36:00
+C028288,upcoding,Level 5 was 38% of office visits in 2026-02 vs 9% for all providers,P106,M04190,F024,99215,173.27,288.67,2026-02-11 10:20:00
+C030062,upcoding,Level 5 was 38% of office visits in 2026-02 vs 9% for all providers,P106,M03444,F024,99215,181.72,287.13,2026-02-19 10:33:00
+C031966,upcoding,Level 5 was 38% of office visits in 2026-02 vs 9% for all providers,P106,M03123,F024,99215,155.24,310.14,2026-02-27 12:53:00
+C020795,upcoding,Level 5 was 40% of office visits in 2026-01 vs 9% for all providers,P168,M00912,F038,99215,179.56,352.02,2026-01-06 16:24:00
+C021569,upcoding,Level 5 was 40% of office visits in 2026-01 vs 9% for all providers,P168,M04352,F038,99215,146.5,362.27,2026-01-09 11:52:00
+C022362,upcoding,Level 5 was 40% of office visits in 2026-01 vs 9% for all providers,P168,M04742,F038,99215,180.47,356.38,2026-01-14 10:05:00
+C023567,upcoding,Level 5 was 40% of office visits in 2026-01 vs 9% for all providers,P168,M02048,F038,99215,151.77,345.37,2026-01-20 09:43:00
+C027240,upcoding,Level 5 was 38% of office visits in 2026-02 vs 9% for all providers,P168,M01796,F038,99215,162.24,350.69,2026-02-05 15:39:00
+C027574,upcoding,Level 5 was 38% of office visits in 2026-02 vs 9% for all providers,P168,M04254,F038,99215,175.3,361.45,2026-02-06 15:52:00
+C029472,upcoding,Level 5 was 38% of office visits in 2026-02 vs 9% for all providers,P168,M02037,F038,99215,178.48,368.99,2026-02-17 11:21:00
+C030877,upcoding,Level 5 was 38% of office visits in 2026-02 vs 9% for all providers,P168,M01466,F038,99215,154.94,364.45,2026-02-23 16:47:00
+C031176,upcoding,Level 5 was 38% of office visits in 2026-02 vs 9% for all providers,P168,M02031,F038,99215,180.65,366.25,2026-02-24 16:20:00
+C046595,upcoding,Level 5 was 45% of office visits in 2026-05 vs 9% for all providers,P168,M03922,F038,99215,157.37,357.57,2026-05-05 16:45:00
+C047742,upcoding,Level 5 was 45% of office visits in 2026-05 vs 9% for all providers,P168,M02340,F038,99215,150.04,360.92,2026-05-11 13:24:00
+C049374,upcoding,Level 5 was 45% of office visits in 2026-05 vs 9% for all providers,P168,M05000,F038,99215,145.6,361.34,2026-05-18 15:50:00
+C050549,upcoding,Level 5 was 45% of office visits in 2026-05 vs 9% for all providers,P168,M04014,F038,99215,161.78,362.82,2026-05-22 13:39:00
+C050561,upcoding,Level 5 was 45% of office visits in 2026-05 vs 9% for all providers,P168,M03332,F038,99215,166.53,354.01,2026-05-22 14:03:00
+C052975,upcoding,Level 5 was 40% of office visits in 2026-06 vs 9% for all providers,P168,M04254,F038,99215,160.07,363.66,2026-06-03 11:29:00
+C055332,upcoding,Level 5 was 40% of office visits in 2026-06 vs 9% for all providers,P168,M02599,F038,99215,147.75,357.68,2026-06-12 14:57:00
+C055769,upcoding,Level 5 was 40% of office visits in 2026-06 vs 9% for all providers,P168,M01658,F038,99215,144.39,346.92,2026-06-16 09:08:00
+C056232,upcoding,Level 5 was 40% of office visits in 2026-06 vs 9% for all providers,P168,M04352,F038,99215,167.63,360.25,2026-06-17 13:09:00
+C060009,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P168,M03264,F038,99215,173.9,363.0,2026-07-03 13:14:00
+C061927,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P168,M03873,F038,99215,154.39,365.31,2026-07-13 14:23:00
+C063209,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P168,M03779,F038,99215,171.2,359.07,2026-07-17 14:14:00
+C064035,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P168,M03873,F038,99215,177.47,358.04,2026-07-22 11:24:00
+C064832,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P168,M00139,F038,99215,156.01,369.5,2026-07-24 15:58:00
+C065852,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P168,M01466,F038,99215,148.19,357.47,2026-07-30 10:09:00
+C065905,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P168,M04579,F038,99215,168.62,360.45,2026-07-30 11:50:00
+C066483,upcoding,Level 5 was 77% of office visits in 2026-08 vs 9% for all providers,P168,M01495,F038,99215,176.54,358.97,2026-08-03 10:41:00
+C066568,upcoding,Level 5 was 77% of office visits in 2026-08 vs 9% for all providers,P168,M04772,F038,99215,162.0,364.16,2026-08-03 12:52:00
+C068657,upcoding,Level 5 was 77% of office visits in 2026-08 vs 9% for all providers,P168,M03230,F038,99215,144.27,351.69,2026-08-11 16:34:00
+C068946,upcoding,Level 5 was 77% of office visits in 2026-08 vs 9% for all providers,P168,M01121,F038,99215,162.94,356.68,2026-08-12 15:01:00
+C069115,upcoding,Level 5 was 77% of office visits in 2026-08 vs 9% for all providers,P168,M00032,F038,99215,180.51,356.79,2026-08-13 11:04:00
+C070135,upcoding,Level 5 was 77% of office visits in 2026-08 vs 9% for all providers,P168,M00918,F038,99215,180.39,361.09,2026-08-18 13:14:00
+C070340,upcoding,Level 5 was 77% of office visits in 2026-08 vs 9% for all providers,P168,M04742,F038,99215,170.27,363.92,2026-08-19 09:46:00
+C070583,upcoding,Level 5 was 77% of office visits in 2026-08 vs 9% for all providers,P168,M03631,F038,99215,174.81,366.56,2026-08-20 08:01:00
+C072015,upcoding,Level 5 was 77% of office visits in 2026-08 vs 9% for all providers,P168,M01121,F038,99215,159.62,359.62,2026-08-26 12:15:00
+C072484,upcoding,Level 5 was 77% of office visits in 2026-08 vs 9% for all providers,P168,M00575,F038,99215,158.73,371.63,2026-08-27 16:37:00
+C074284,upcoding,Level 5 was 64% of office visits in 2026-09 vs 9% for all providers,P168,M02037,F038,99215,163.19,359.36,2026-09-04 11:58:00
+C074358,upcoding,Level 5 was 64% of office visits in 2026-09 vs 9% for all providers,P168,M01879,F038,99215,157.56,358.55,2026-09-04 13:35:00
+C074504,upcoding,Level 5 was 64% of office visits in 2026-09 vs 9% for all providers,P168,M02037,F038,99215,151.84,358.71,2026-09-07 08:42:00
+C076495,upcoding,Level 5 was 64% of office visits in 2026-09 vs 9% for all providers,P168,M04533,F038,99215,158.54,350.77,2026-09-15 10:08:00
+C077194,upcoding,Level 5 was 64% of office visits in 2026-09 vs 9% for all providers,P168,M02271,F038,99215,173.43,364.52,2026-09-17 09:42:00
+C077600,upcoding,Level 5 was 64% of office visits in 2026-09 vs 9% for all providers,P168,M00303,F038,99215,165.15,355.17,2026-09-18 12:32:00
+C078176,upcoding,Level 5 was 64% of office visits in 2026-09 vs 9% for all providers,P168,M04699,F038,99215,182.25,366.02,2026-09-22 09:19:00
+C079724,upcoding,Level 5 was 64% of office visits in 2026-09 vs 9% for all providers,P168,M02373,F038,99215,144.62,359.54,2026-09-28 14:58:00
+C080095,upcoding,Level 5 was 64% of office visits in 2026-09 vs 9% for all providers,P168,M01962,F038,99215,148.02,366.4,2026-09-29 16:10:00
+C045808,upcoding,Level 5 was 46% of office visits in 2026-05 vs 9% for all providers,P170,M02152,F020,99215,154.35,368.22,2026-05-01 12:47:00
+C046367,upcoding,Level 5 was 46% of office visits in 2026-05 vs 9% for all providers,P170,M01047,F020,99215,168.77,382.69,2026-05-05 10:59:00
+C048587,upcoding,Level 5 was 46% of office visits in 2026-05 vs 9% for all providers,P170,M02279,F020,99215,174.67,377.17,2026-05-14 10:12:00
+C048769,upcoding,Level 5 was 46% of office visits in 2026-05 vs 9% for all providers,P170,M02529,F020,99215,147.12,374.55,2026-05-14 15:40:00
+C050325,upcoding,Level 5 was 46% of office visits in 2026-05 vs 9% for all providers,P170,M03459,F020,99215,181.22,376.3,2026-05-21 15:56:00
+C050930,upcoding,Level 5 was 46% of office visits in 2026-05 vs 9% for all providers,P170,M00075,F020,99215,182.99,378.24,2026-05-25 15:35:00
+C053410,upcoding,Level 5 was 50% of office visits in 2026-06 vs 9% for all providers,P170,M03895,F020,99215,145.77,385.73,2026-06-04 14:47:00
+C053555,upcoding,Level 5 was 50% of office visits in 2026-06 vs 9% for all providers,P170,M01646,F020,99215,164.37,380.19,2026-06-05 10:13:00
+C053796,upcoding,Level 5 was 50% of office visits in 2026-06 vs 9% for all providers,P170,M00124,F020,99215,149.71,363.7,2026-06-05 16:44:00
+C054151,upcoding,Level 5 was 50% of office visits in 2026-06 vs 9% for all providers,P170,M01048,F020,99215,142.86,383.25,2026-06-09 09:14:00
+C055809,upcoding,Level 5 was 50% of office visits in 2026-06 vs 9% for all providers,P170,M03459,F020,99215,154.91,386.81,2026-06-16 10:42:00
+C057258,upcoding,Level 5 was 50% of office visits in 2026-06 vs 9% for all providers,P170,M01646,F020,99215,175.01,390.88,2026-06-22 15:08:00
+C058476,upcoding,Level 5 was 50% of office visits in 2026-06 vs 9% for all providers,P170,M02800,F020,99215,170.81,366.08,2026-06-26 14:57:00
+C059551,upcoding,Level 5 was 43% of office visits in 2026-07 vs 9% for all providers,P170,M00124,F020,99215,157.35,372.04,2026-07-02 09:54:00
+C059783,upcoding,Level 5 was 43% of office visits in 2026-07 vs 9% for all providers,P170,M01047,F020,99215,145.32,378.66,2026-07-02 16:14:00
+C060632,upcoding,Level 5 was 43% of office visits in 2026-07 vs 9% for all providers,P170,M02529,F020,99215,182.37,376.25,2026-07-07 14:04:00
+C063136,upcoding,Level 5 was 43% of office visits in 2026-07 vs 9% for all providers,P170,M01609,F020,99215,148.91,377.8,2026-07-17 12:21:00
+C063457,upcoding,Level 5 was 43% of office visits in 2026-07 vs 9% for all providers,P170,M04873,F020,99215,166.31,380.33,2026-07-20 13:04:00
+C064593,upcoding,Level 5 was 43% of office visits in 2026-07 vs 9% for all providers,P170,M03307,F020,99215,150.3,386.49,2026-07-24 09:45:00
+C069017,upcoding,Level 5 was 43% of office visits in 2026-08 vs 9% for all providers,P170,M01646,F020,99215,165.49,383.08,2026-08-13 08:13:00
+C070568,upcoding,Level 5 was 43% of office visits in 2026-08 vs 9% for all providers,P170,M02529,F020,99215,156.29,383.15,2026-08-19 16:35:00
+C070646,upcoding,Level 5 was 43% of office visits in 2026-08 vs 9% for all providers,P170,M01048,F020,99215,166.59,391.9,2026-08-20 09:50:00
+C072656,upcoding,Level 5 was 43% of office visits in 2026-08 vs 9% for all providers,P170,M01047,F020,99215,149.72,382.03,2026-08-28 12:44:00
+C072888,upcoding,Level 5 was 43% of office visits in 2026-08 vs 9% for all providers,P170,M04107,F020,99215,158.91,380.45,2026-08-31 10:03:00
+C073068,upcoding,Level 5 was 43% of office visits in 2026-08 vs 9% for all providers,P170,M02260,F020,99215,143.59,380.45,2026-08-31 14:33:00
+C073176,upcoding,Level 5 was 45% of office visits in 2026-09 vs 9% for all providers,P170,M04127,F020,99215,177.07,373.55,2026-09-01 08:07:00
+C073611,upcoding,Level 5 was 45% of office visits in 2026-09 vs 9% for all providers,P170,M03538,F020,99215,156.85,374.14,2026-09-02 11:24:00
+C075022,upcoding,Level 5 was 45% of office visits in 2026-09 vs 9% for all providers,P170,M04316,F020,99215,179.97,371.49,2026-09-08 15:17:00
+C075310,upcoding,Level 5 was 45% of office visits in 2026-09 vs 9% for all providers,P170,M02632,F020,99215,146.2,379.85,2026-09-09 13:44:00
+C075877,upcoding,Level 5 was 45% of office visits in 2026-09 vs 9% for all providers,P170,M00778,F020,99215,180.51,376.33,2026-09-11 11:20:00
+C039575,upcoding,Level 5 was 36% of office visits in 2026-04 vs 9% for all providers,P177,M03925,F036,99215,156.91,296.16,2026-04-03 14:56:00
+C040190,upcoding,Level 5 was 36% of office visits in 2026-04 vs 9% for all providers,P177,M03051,F036,99215,151.39,281.98,2026-04-07 14:00:00
+C040517,upcoding,Level 5 was 36% of office visits in 2026-04 vs 9% for all providers,P177,M03284,F036,99215,167.56,280.54,2026-04-08 14:19:00
+C042343,upcoding,Level 5 was 36% of office visits in 2026-04 vs 9% for all providers,P177,M03399,F036,99215,178.41,285.29,2026-04-16 15:36:00
+C052639,upcoding,Level 5 was 48% of office visits in 2026-06 vs 9% for all providers,P177,M04142,F036,99215,155.74,280.38,2026-06-02 11:09:00
+C052723,upcoding,Level 5 was 48% of office visits in 2026-06 vs 9% for all providers,P177,M04142,F036,99215,159.24,285.59,2026-06-02 13:24:00
+C053103,upcoding,Level 5 was 48% of office visits in 2026-06 vs 9% for all providers,P177,M03031,F036,99215,168.06,280.72,2026-06-03 15:40:00
+C053958,upcoding,Level 5 was 48% of office visits in 2026-06 vs 9% for all providers,P177,M00037,F036,99215,163.01,285.38,2026-06-08 12:29:00
+C055396,upcoding,Level 5 was 48% of office visits in 2026-06 vs 9% for all providers,P177,M04130,F036,99215,181.95,290.74,2026-06-12 16:45:00
+C055485,upcoding,Level 5 was 48% of office visits in 2026-06 vs 9% for all providers,P177,M03558,F036,99215,177.89,275.63,2026-06-15 10:04:00
+C055786,upcoding,Level 5 was 48% of office visits in 2026-06 vs 9% for all providers,P177,M01688,F036,99215,147.86,284.7,2026-06-16 09:43:00
+C056135,upcoding,Level 5 was 48% of office visits in 2026-06 vs 9% for all providers,P177,M04142,F036,99215,143.92,282.52,2026-06-17 10:42:00
+C056231,upcoding,Level 5 was 48% of office visits in 2026-06 vs 9% for all providers,P177,M03925,F036,99215,156.32,287.87,2026-06-17 13:08:00
+C058038,upcoding,Level 5 was 48% of office visits in 2026-06 vs 9% for all providers,P177,M03827,F036,99215,147.87,289.98,2026-06-25 10:56:00
+C058634,upcoding,Level 5 was 48% of office visits in 2026-06 vs 9% for all providers,P177,M04475,F036,99215,165.42,286.44,2026-06-29 11:30:00
+C059069,upcoding,Level 5 was 48% of office visits in 2026-06 vs 9% for all providers,P177,M03399,F036,99215,180.47,283.35,2026-06-30 14:59:00
+C059191,upcoding,Level 5 was 50% of office visits in 2026-07 vs 9% for all providers,P177,M00460,F036,99215,172.86,279.54,2026-07-01 09:31:00
+C059265,upcoding,Level 5 was 50% of office visits in 2026-07 vs 9% for all providers,P177,M03827,F036,99215,153.47,285.5,2026-07-01 11:21:00
+C059895,upcoding,Level 5 was 50% of office visits in 2026-07 vs 9% for all providers,P177,M04142,F036,99215,163.97,291.18,2026-07-03 10:31:00
+C062032,upcoding,Level 5 was 50% of office visits in 2026-07 vs 9% for all providers,P177,M00655,F036,99215,160.99,289.01,2026-07-13 16:36:00
+C062313,upcoding,Level 5 was 50% of office visits in 2026-07 vs 9% for all providers,P177,M01688,F036,99215,156.25,284.83,2026-07-14 15:31:00
+C062842,upcoding,Level 5 was 50% of office visits in 2026-07 vs 9% for all providers,P177,M01482,F036,99215,181.36,285.31,2026-07-16 13:06:00
+C064247,upcoding,Level 5 was 50% of office visits in 2026-07 vs 9% for all providers,P177,M03051,F036,99215,167.65,283.18,2026-07-23 08:15:00
+C064946,upcoding,Level 5 was 50% of office visits in 2026-07 vs 9% for all providers,P177,M04018,F036,99215,163.54,289.18,2026-07-27 10:39:00
+C066747,upcoding,Level 5 was 43% of office visits in 2026-08 vs 9% for all providers,P177,M03925,F036,99215,157.09,285.15,2026-08-04 08:51:00
+C067568,upcoding,Level 5 was 43% of office visits in 2026-08 vs 9% for all providers,P177,M00317,F036,99215,164.49,290.47,2026-08-06 14:12:00
+C067793,upcoding,Level 5 was 43% of office visits in 2026-08 vs 9% for all providers,P177,M03594,F036,99215,167.05,286.65,2026-08-07 10:58:00
+C071863,upcoding,Level 5 was 43% of office visits in 2026-08 vs 9% for all providers,P177,M01469,F036,99215,158.27,267.7,2026-08-26 08:30:00
+C073101,upcoding,Level 5 was 43% of office visits in 2026-08 vs 9% for all providers,P177,M04573,F036,99215,145.25,284.57,2026-08-31 15:08:00
+C073130,upcoding,Level 5 was 43% of office visits in 2026-08 vs 9% for all providers,P177,M01778,F036,99215,175.46,287.02,2026-08-31 15:46:00
+C074006,upcoding,Level 5 was 37% of office visits in 2026-09 vs 9% for all providers,P177,M03210,F036,99215,158.89,292.99,2026-09-03 13:08:00
+C076378,upcoding,Level 5 was 37% of office visits in 2026-09 vs 9% for all providers,P177,M00037,F036,99215,168.45,291.42,2026-09-14 15:55:00
+C076534,upcoding,Level 5 was 37% of office visits in 2026-09 vs 9% for all providers,P177,M04475,F036,99215,148.42,284.38,2026-09-15 11:04:00
+C077765,upcoding,Level 5 was 37% of office visits in 2026-09 vs 9% for all providers,P177,M04190,F036,99215,155.26,287.33,2026-09-18 16:23:00
+C078294,upcoding,Level 5 was 37% of office visits in 2026-09 vs 9% for all providers,P177,M00655,F036,99215,163.72,282.99,2026-09-22 12:53:00
+C078661,upcoding,Level 5 was 37% of office visits in 2026-09 vs 9% for all providers,P177,M03827,F036,99215,177.93,287.96,2026-09-23 13:29:00
+C078913,upcoding,Level 5 was 37% of office visits in 2026-09 vs 9% for all providers,P177,M04353,F036,99215,153.94,278.74,2026-09-24 10:43:00
+C059883,upcoding,Level 5 was 40% of office visits in 2026-07 vs 9% for all providers,P213,M00783,F001,99215,180.11,383.73,2026-07-03 10:06:00
+C061181,upcoding,Level 5 was 40% of office visits in 2026-07 vs 9% for all providers,P213,M03026,F001,99215,165.44,362.81,2026-07-09 12:08:00
+C061504,upcoding,Level 5 was 40% of office visits in 2026-07 vs 9% for all providers,P213,M02581,F001,99215,162.38,378.83,2026-07-10 11:55:00
+C064300,upcoding,Level 5 was 40% of office visits in 2026-07 vs 9% for all providers,P213,M04566,F001,99215,159.18,366.95,2026-07-23 10:09:00
+C075574,upcoding,Level 5 was 38% of office visits in 2026-09 vs 9% for all providers,P213,M03026,F001,99215,158.53,376.52,2026-09-10 11:39:00
+C077205,upcoding,Level 5 was 38% of office visits in 2026-09 vs 9% for all providers,P213,M02393,F001,99215,169.25,374.32,2026-09-17 09:58:00
+C078168,upcoding,Level 5 was 38% of office visits in 2026-09 vs 9% for all providers,P213,M00191,F001,99215,160.92,364.08,2026-09-22 09:03:00
+C078474,upcoding,Level 5 was 38% of office visits in 2026-09 vs 9% for all providers,P213,M01662,F001,99215,175.07,358.83,2026-09-23 08:13:00
+C079275,upcoding,Level 5 was 38% of office visits in 2026-09 vs 9% for all providers,P213,M04229,F001,99215,178.61,371.28,2026-09-25 11:50:00
+C039643,upcoding,Level 5 was 39% of office visits in 2026-04 vs 9% for all providers,P221,M00391,F005,99215,170.23,275.26,2026-04-03 16:49:00
+C039648,upcoding,Level 5 was 39% of office visits in 2026-04 vs 9% for all providers,P221,M00391,F005,99215,170.23,275.26,2026-04-05 16:49:00
+C040078,upcoding,Level 5 was 39% of office visits in 2026-04 vs 9% for all providers,P221,M04236,F005,99215,163.37,259.97,2026-04-07 10:31:00
+C040707,upcoding,Level 5 was 39% of office visits in 2026-04 vs 9% for all providers,P221,M04236,F005,99215,163.37,259.97,2026-04-09 10:31:00
+C042582,upcoding,Level 5 was 39% of office visits in 2026-04 vs 9% for all providers,P221,M01612,F005,99215,170.17,272.45,2026-04-17 13:16:00
+C042827,upcoding,Level 5 was 39% of office visits in 2026-04 vs 9% for all providers,P221,M03670,F005,99215,182.62,272.91,2026-04-20 10:11:00
+C044299,upcoding,Level 5 was 39% of office visits in 2026-04 vs 9% for all providers,P221,M01754,F005,99215,182.93,265.7,2026-04-24 14:54:00
+C045568,upcoding,Level 5 was 39% of office visits in 2026-04 vs 9% for all providers,P221,M03778,F005,99215,175.36,267.22,2026-04-30 15:03:00
+C045580,upcoding,Level 5 was 39% of office visits in 2026-04 vs 9% for all providers,P221,M03778,F005,99215,175.36,267.22,2026-04-30 15:21:00
+C073813,upcoding,Level 5 was 36% of office visits in 2026-09 vs 9% for all providers,P268,M00039,F009,99215,153.17,383.84,2026-09-02 16:36:00
+C074996,upcoding,Level 5 was 36% of office visits in 2026-09 vs 9% for all providers,P268,M04693,F009,99215,177.45,404.05,2026-09-08 14:11:00
+C075476,upcoding,Level 5 was 36% of office visits in 2026-09 vs 9% for all providers,P268,M04961,F009,99215,170.27,408.28,2026-09-10 09:08:00
+C075671,upcoding,Level 5 was 36% of office visits in 2026-09 vs 9% for all providers,P268,M03917,F009,99215,152.22,400.31,2026-09-10 14:16:00
+C078049,upcoding,Level 5 was 36% of office visits in 2026-09 vs 9% for all providers,P268,M00381,F009,99215,170.19,402.3,2026-09-21 14:56:00
+C007747,upcoding,Level 5 was 40% of office visits in 2025-11 vs 9% for all providers,P294,M03996,F013,99215,147.2,414.83,2025-11-06 08:04:00
+C007917,upcoding,Level 5 was 40% of office visits in 2025-11 vs 9% for all providers,P294,M03874,F013,99215,172.8,418.51,2025-11-06 13:11:00
+C008339,upcoding,Level 5 was 40% of office visits in 2025-11 vs 9% for all providers,P294,M04624,F013,99215,176.79,413.21,2025-11-07 15:55:00
+C008888,upcoding,Level 5 was 40% of office visits in 2025-11 vs 9% for all providers,P294,M04589,F013,99215,154.52,399.12,2025-11-11 14:04:00
+C046213,upcoding,Level 5 was 39% of office visits in 2026-05 vs 9% for all providers,P298,M04522,F032,99215,142.83,327.17,2026-05-04 15:37:00
+C046563,upcoding,Level 5 was 39% of office visits in 2026-05 vs 9% for all providers,P298,M00569,F032,99215,173.37,340.15,2026-05-05 15:55:00
+C046683,upcoding,Level 5 was 39% of office visits in 2026-05 vs 9% for all providers,P298,M00867,F032,99215,166.02,343.47,2026-05-06 09:55:00
+C046834,upcoding,Level 5 was 39% of office visits in 2026-05 vs 9% for all providers,P298,M04967,F032,99215,163.83,346.0,2026-05-06 13:57:00
+C049541,upcoding,Level 5 was 39% of office visits in 2026-05 vs 9% for all providers,P298,M01023,F032,99215,150.92,353.02,2026-05-19 11:41:00
+C051034,upcoding,Level 5 was 39% of office visits in 2026-05 vs 9% for all providers,P298,M04677,F032,99215,182.11,343.37,2026-05-26 09:33:00
+C051395,upcoding,Level 5 was 39% of office visits in 2026-05 vs 9% for all providers,P298,M00188,F032,99215,161.0,340.12,2026-05-27 09:37:00
+C052452,upcoding,Level 5 was 52% of office visits in 2026-06 vs 9% for all providers,P298,M01201,F032,99215,153.59,329.63,2026-06-01 14:43:00
+C054008,upcoding,Level 5 was 52% of office visits in 2026-06 vs 9% for all providers,P298,M00567,F032,99215,175.17,335.24,2026-06-08 13:44:00
+C054041,upcoding,Level 5 was 52% of office visits in 2026-06 vs 9% for all providers,P298,M01900,F032,99215,144.39,335.64,2026-06-08 14:35:00
+C054484,upcoding,Level 5 was 52% of office visits in 2026-06 vs 9% for all providers,P298,M02617,F032,99215,147.78,340.93,2026-06-10 09:10:00
+C056727,upcoding,Level 5 was 52% of office visits in 2026-06 vs 9% for all providers,P298,M03916,F032,99215,172.24,345.27,2026-06-19 08:04:00
+C056961,upcoding,Level 5 was 52% of office visits in 2026-06 vs 9% for all providers,P298,M01592,F032,99215,154.84,342.39,2026-06-19 15:06:00
+C057188,upcoding,Level 5 was 52% of office visits in 2026-06 vs 9% for all providers,P298,M00480,F032,99215,143.1,338.13,2026-06-22 12:45:00
+C057195,upcoding,Level 5 was 52% of office visits in 2026-06 vs 9% for all providers,P298,M00480,F032,99215,146.05,343.2,2026-06-22 13:02:00
+C057241,upcoding,Level 5 was 52% of office visits in 2026-06 vs 9% for all providers,P298,M03651,F032,99215,161.75,330.54,2026-06-22 14:36:00
+C057971,upcoding,Level 5 was 52% of office visits in 2026-06 vs 9% for all providers,P298,M00431,F032,99215,165.05,342.22,2026-06-25 09:14:00
+C058057,upcoding,Level 5 was 52% of office visits in 2026-06 vs 9% for all providers,P298,M04196,F032,99215,164.83,338.35,2026-06-25 11:33:00
+C058691,upcoding,Level 5 was 52% of office visits in 2026-06 vs 9% for all providers,P298,M00807,F032,99215,180.41,338.01,2026-06-29 13:36:00
+C059814,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P298,M01064,F032,99215,154.65,346.25,2026-07-03 08:01:00
+C060226,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P298,M01836,F032,99215,144.09,345.9,2026-07-06 11:16:00
+C062221,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P298,M03430,F032,99215,168.47,337.91,2026-07-14 12:49:00
+C062476,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P298,M04689,F032,99215,164.85,339.81,2026-07-15 11:08:00
+C063013,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P298,M00431,F032,99215,145.34,340.56,2026-07-17 08:49:00
+C064109,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P298,M04715,F032,99215,147.67,348.5,2026-07-22 13:41:00
+C064315,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P298,M04104,F032,99215,173.59,343.76,2026-07-23 10:32:00
+C064966,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P298,M03272,F032,99215,172.66,341.33,2026-07-27 11:24:00
+C065380,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P298,M00742,F032,99215,168.94,348.92,2026-07-28 13:51:00
+C066065,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P298,M03893,F032,99215,161.48,341.36,2026-07-30 16:48:00
+C066278,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P298,M03593,F032,99215,143.51,337.34,2026-07-31 14:03:00
+C066340,upcoding,Level 5 was 41% of office visits in 2026-07 vs 9% for all providers,P298,M01064,F032,99215,145.09,339.69,2026-07-31 15:30:00
+C066790,upcoding,Level 5 was 44% of office visits in 2026-08 vs 9% for all providers,P298,M00867,F032,99215,148.47,331.54,2026-08-04 10:12:00
+C066793,upcoding,Level 5 was 44% of office visits in 2026-08 vs 9% for all providers,P298,M01766,F032,99215,168.83,341.47,2026-08-04 10:15:00
+C067701,upcoding,Level 5 was 44% of office visits in 2026-08 vs 9% for all providers,P298,M03843,F032,99215,155.92,351.92,2026-08-07 08:51:00
+C068884,upcoding,Level 5 was 44% of office visits in 2026-08 vs 9% for all providers,P298,M01023,F032,99215,161.1,344.17,2026-08-12 13:27:00
+C071335,upcoding,Level 5 was 44% of office visits in 2026-08 vs 9% for all providers,P298,M03687,F032,99215,177.54,336.0,2026-08-24 10:59:00
+C072966,upcoding,Level 5 was 44% of office visits in 2026-08 vs 9% for all providers,P298,M01677,F032,99215,145.74,339.4,2026-08-31 11:46:00
+C073024,upcoding,Level 5 was 44% of office visits in 2026-08 vs 9% for all providers,P298,M00920,F032,99215,155.39,328.44,2026-08-31 13:32:00
+C073978,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M01287,F032,99215,146.75,345.7,2026-09-03 12:14:00
+C074052,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M02195,F032,99215,169.17,339.03,2026-09-03 14:21:00
+C075014,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M04967,F032,99215,154.83,344.54,2026-09-08 14:57:00
+C075969,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M04104,F032,99215,144.88,344.78,2026-09-11 13:48:00
+C076048,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M04889,F032,99215,157.39,344.88,2026-09-11 15:55:00
+C076187,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M03651,F032,99215,178.87,344.72,2026-09-14 10:40:00
+C076231,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M04715,F032,99215,160.76,342.86,2026-09-14 11:45:00
+C076269,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M03843,F032,99215,155.9,339.94,2026-09-14 12:40:00
+C077099,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M01075,F032,99215,180.5,338.06,2026-09-16 16:48:00
+C077297,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M04581,F032,99215,169.59,338.88,2026-09-17 12:30:00
+C078184,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M00431,F032,99215,172.02,349.49,2026-09-22 09:26:00
+C078804,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M01787,F032,99215,168.83,337.67,2026-09-24 08:05:00
+C078810,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M04209,F032,99215,143.58,335.82,2026-09-24 08:11:00
+C079700,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M03430,F032,99215,179.33,345.92,2026-09-28 14:09:00
+C079937,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M03916,F032,99215,154.75,337.1,2026-09-29 11:34:00
+C080141,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M01787,F032,99215,144.16,336.72,2026-09-30 08:23:00
+C080429,upcoding,Level 5 was 55% of office visits in 2026-09 vs 9% for all providers,P298,M04562,F032,99215,170.72,339.64,2026-09-30 16:16:00

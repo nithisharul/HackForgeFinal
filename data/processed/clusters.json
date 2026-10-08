@@ -1,0 +1,21 @@
+{
+ "N01": {
+  "cluster_id": "N01",
+  "providers": [
+   "P055",
+   "P062",
+   "P081",
+   "P250",
+   "P263",
+   "P274"
+  ],
+  "size": 6,
+  "method": "leiden",
+  "top_owner": "O061",
+  "owner_share": 1.0,
+  "referral_cycle": true,
+  "shared_members": 72,
+  "paid_on_shared_members": 189511.82,
+  "score": 1.0
+ }
+}

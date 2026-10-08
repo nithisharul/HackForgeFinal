@@ -1,0 +1,5001 @@
+member_id,age,gender,city,chronic_flag
+M00001,52,F,Houston,0
+M00002,71,F,Houston,1
+M00003,87,M,El Paso,1
+M00004,18,F,Dallas,0
+M00005,26,F,Fort Worth,1
+M00006,72,M,San Antonio,1
+M00007,75,M,Houston,1
+M00008,63,F,Dallas,0
+M00009,47,F,Houston,1
+M00010,43,M,Austin,0
+M00011,64,M,Corpus Christi,0
+M00012,66,F,Fort Worth,1
+M00013,72,F,Fort Worth,1
+M00014,70,F,El Paso,0
+M00015,34,M,Fort Worth,0
+M00016,82,M,San Antonio,0
+M00017,61,M,Austin,1
+M00018,41,F,Dallas,0
+M00019,18,M,Houston,1
+M00020,88,F,Austin,1
+M00021,24,M,Austin,0
+M00022,40,F,Houston,0
+M00023,44,F,Corpus Christi,0
+M00024,71,F,Houston,0
+M00025,76,F,Fort Worth,0
+M00026,43,F,Lubbock,0
+M00027,80,M,Dallas,1
+M00028,90,M,Corpus Christi,1
+M00029,84,F,Fort Worth,0
+M00030,34,F,Fort Worth,1
+M00031,29,F,Corpus Christi,0
+M00032,84,M,Austin,1
+M00033,39,F,San Antonio,1
+M00034,70,F,Austin,1
+M00035,46,F,Dallas,0
+M00036,18,F,Dallas,1
+M00037,79,M,Houston,1
+M00038,68,F,Dallas,1
+M00039,69,F,Fort Worth,1
+M00040,50,M,Corpus Christi,1
+M00041,74,F,Lubbock,0
+M00042,26,M,Houston,1
+M00043,39,F,San Antonio,0
+M00044,31,M,San Antonio,0
+M00045,29,M,Houston,0
+M00046,76,F,San Antonio,0
+M00047,78,M,Dallas,0
+M00048,35,F,Corpus Christi,0
+M00049,73,F,Houston,1
+M00050,77,M,Fort Worth,1
+M00051,27,M,El Paso,1
+M00052,36,F,Fort Worth,0
+M00053,30,F,Houston,0
+M00054,53,F,Dallas,0
+M00055,67,M,Lubbock,0
+M00056,83,M,Houston,0
+M00057,75,F,Houston,1
+M00058,51,M,Lubbock,0
+M00059,59,F,Fort Worth,0
+M00060,61,M,Fort Worth,1
+M00061,64,M,Houston,0
+M00062,72,M,San Antonio,0
+M00063,53,F,El Paso,0
+M00064,25,F,Dallas,0
+M00065,67,F,Houston,0
+M00066,69,M,Houston,1
+M00067,27,M,Austin,0
+M00068,75,F,Dallas,1
+M00069,43,F,El Paso,1
+M00070,75,F,Dallas,1
+M00071,70,M,Houston,0
+M00072,53,M,Lubbock,0
+M00073,68,F,Lubbock,1
+M00074,80,M,Austin,1
+M00075,58,F,Corpus Christi,1
+M00076,72,M,Houston,0
+M00077,84,F,San Antonio,1
+M00078,65,F,Houston,0
+M00079,72,M,San Antonio,1
+M00080,61,M,Fort Worth,1
+M00081,32,F,El Paso,0
+M00082,56,M,Houston,0
+M00083,72,F,Dallas,1
+M00084,82,F,Lubbock,1
+M00085,45,M,San Antonio,0
+M00086,56,M,Dallas,1
+M00087,59,F,Dallas,1
+M00088,75,M,Dallas,0
+M00089,67,M,San Antonio,1
+M00090,55,F,San Antonio,0
+M00091,71,F,San Antonio,1
+M00092,31,F,San Antonio,0
+M00093,84,M,San Antonio,1
+M00094,73,M,Houston,0
+M00095,64,F,Houston,0
+M00096,28,F,Dallas,0
+M00097,56,F,El Paso,0
+M00098,39,M,Fort Worth,1
+M00099,80,M,Houston,1
+M00100,37,F,San Antonio,0
+M00101,77,M,Austin,1
+M00102,41,F,San Antonio,0
+M00103,35,M,Austin,1
+M00104,31,M,Lubbock,0
+M00105,57,M,Houston,1
+M00106,18,F,San Antonio,0
+M00107,39,M,San Antonio,0
+M00108,35,M,San Antonio,1
+M00109,58,M,Houston,0
+M00110,21,M,Austin,0
+M00111,35,M,Houston,0
+M00112,40,F,Fort Worth,0
+M00113,56,F,Austin,1
+M00114,95,M,Dallas,1
+M00115,25,F,Lubbock,0
+M00116,73,M,Fort Worth,1
+M00117,76,M,San Antonio,1
+M00118,25,M,Lubbock,0
+M00119,72,M,Fort Worth,1
+M00120,63,M,Houston,0
+M00121,72,M,San Antonio,1
+M00122,76,F,San Antonio,1
+M00123,74,F,Austin,1
+M00124,76,F,Corpus Christi,1
+M00125,31,F,San Antonio,0
+M00126,79,M,Houston,1
+M00127,54,F,San Antonio,1
+M00128,33,M,Fort Worth,0
+M00129,41,F,Dallas,0
+M00130,70,F,Houston,1
+M00131,25,M,Dallas,0
+M00132,56,F,Austin,0
+M00133,34,M,Houston,0
+M00134,18,F,Dallas,0
+M00135,66,F,Houston,0
+M00136,30,F,San Antonio,1
+M00137,60,M,Houston,0
+M00138,64,F,Houston,1
+M00139,68,M,Austin,1
+M00140,39,M,Houston,0
+M00141,24,F,Houston,1
+M00142,77,F,San Antonio,0
+M00143,39,F,Houston,0
+M00144,68,M,Houston,1
+M00145,46,F,Dallas,0
+M00146,66,F,Dallas,1
+M00147,42,M,San Antonio,0
+M00148,81,F,Lubbock,1
+M00149,48,M,Dallas,1
+M00150,44,F,San Antonio,1
+M00151,69,F,Corpus Christi,0
+M00152,42,F,San Antonio,0
+M00153,28,M,Fort Worth,0
+M00154,41,M,San Antonio,0
+M00155,80,F,Austin,0
+M00156,48,F,Corpus Christi,1
+M00157,72,M,Houston,0
+M00158,24,F,El Paso,0
+M00159,74,M,San Antonio,1
+M00160,45,F,Austin,0
+M00161,61,F,San Antonio,0
+M00162,43,F,Dallas,0
+M00163,53,F,Houston,0
+M00164,56,M,Corpus Christi,0
+M00165,45,F,Austin,0
+M00166,30,F,El Paso,0
+M00167,44,F,Dallas,0
+M00168,58,F,Dallas,0
+M00169,66,M,Dallas,0
+M00170,70,M,Houston,0
+M00171,78,M,San Antonio,1
+M00172,39,F,Corpus Christi,0
+M00173,78,F,El Paso,0
+M00174,41,F,San Antonio,0
+M00175,58,M,Dallas,1
+M00176,73,F,Austin,0
+M00177,42,F,Austin,0
+M00178,40,M,Austin,0
+M00179,74,F,San Antonio,1
+M00180,64,M,Houston,1
+M00181,71,F,Houston,1
+M00182,83,M,Lubbock,0
+M00183,85,M,Fort Worth,1
+M00184,56,F,Corpus Christi,0
+M00185,78,M,Dallas,1
+M00186,61,F,San Antonio,0
+M00187,39,F,Dallas,0
+M00188,69,M,El Paso,0
+M00189,53,M,Dallas,0
+M00190,31,M,Austin,0
+M00191,22,M,Houston,0
+M00192,79,F,Houston,1
+M00193,41,F,Houston,1
+M00194,21,F,San Antonio,0
+M00195,48,F,El Paso,0
+M00196,71,F,Lubbock,0
+M00197,49,F,Austin,1
+M00198,48,F,San Antonio,0
+M00199,77,M,Fort Worth,1
+M00200,50,F,Houston,0
+M00201,35,F,Fort Worth,0
+M00202,80,M,Fort Worth,1
+M00203,34,M,San Antonio,0
+M00204,57,F,Houston,0
+M00205,66,M,Houston,0
+M00206,61,M,Dallas,0
+M00207,72,M,Corpus Christi,1
+M00208,68,F,Austin,1
+M00209,18,F,San Antonio,0
+M00210,56,M,San Antonio,0
+M00211,59,F,Fort Worth,1
+M00212,29,M,Dallas,0
+M00213,33,M,Houston,0
+M00214,79,M,Austin,0
+M00215,60,M,Dallas,1
+M00216,75,M,Dallas,0
+M00217,59,M,San Antonio,0
+M00218,48,M,Houston,0
+M00219,37,F,Corpus Christi,0
+M00220,86,M,El Paso,1
+M00221,49,M,Lubbock,0
+M00222,64,M,Lubbock,0
+M00223,74,F,Dallas,0
+M00224,91,F,Dallas,1
+M00225,44,M,Austin,1
+M00226,83,F,Houston,0
+M00227,36,M,Lubbock,1
+M00228,26,F,Houston,0
+M00229,76,F,San Antonio,1
+M00230,75,F,Austin,1
+M00231,65,M,Corpus Christi,0
+M00232,59,F,Austin,0
+M00233,23,M,San Antonio,0
+M00234,81,M,Dallas,1
+M00235,36,M,San Antonio,0
+M00236,86,F,Fort Worth,1
+M00237,34,F,San Antonio,0
+M00238,35,M,Fort Worth,0
+M00239,22,F,Houston,0
+M00240,48,F,Dallas,0
+M00241,39,M,Corpus Christi,0
+M00242,63,F,Dallas,0
+M00243,75,F,Austin,1
+M00244,70,M,San Antonio,0
+M00245,27,F,Corpus Christi,0
+M00246,30,F,Houston,0
+M00247,59,F,Dallas,0
+M00248,43,M,El Paso,0
+M00249,56,M,Austin,0
+M00250,47,M,San Antonio,0
+M00251,77,M,Dallas,0
+M00252,59,F,Dallas,0
+M00253,53,M,Corpus Christi,0
+M00254,58,F,Austin,0
+M00255,57,M,Corpus Christi,0
+M00256,85,M,Lubbock,1
+M00257,60,F,San Antonio,0
+M00258,65,M,Austin,0
+M00259,31,M,Austin,1
+M00260,39,F,Fort Worth,0
+M00261,75,M,Austin,1
+M00262,75,M,Houston,1
+M00263,74,F,Corpus Christi,1
+M00264,53,F,Austin,0
+M00265,43,M,El Paso,0
+M00266,33,F,Dallas,1
+M00267,32,F,San Antonio,0
+M00268,47,M,Austin,0
+M00269,74,M,Fort Worth,0
+M00270,22,F,Houston,0
+M00271,73,F,Dallas,1
+M00272,35,M,Fort Worth,0
+M00273,64,F,Lubbock,1
+M00274,22,M,Houston,0
+M00275,39,M,Dallas,0
+M00276,66,F,San Antonio,0
+M00277,28,M,Houston,0
+M00278,83,M,Houston,0
+M00279,66,M,San Antonio,0
+M00280,71,F,Austin,1
+M00281,67,F,Dallas,1
+M00282,74,M,Dallas,1
+M00283,79,M,Lubbock,0
+M00284,65,M,San Antonio,0
+M00285,33,F,Fort Worth,0
+M00286,38,F,Dallas,0
+M00287,56,F,Fort Worth,0
+M00288,71,M,Fort Worth,1
+M00289,68,M,Dallas,1
+M00290,64,M,Austin,0
+M00291,67,F,Austin,1
+M00292,73,M,San Antonio,1
+M00293,87,F,Fort Worth,0
+M00294,44,F,Dallas,1
+M00295,74,M,San Antonio,1
+M00296,65,F,Lubbock,1
+M00297,42,M,Houston,1
+M00298,40,M,Houston,0
+M00299,64,F,Houston,0
+M00300,41,F,Lubbock,0
+M00301,78,F,Houston,0
+M00302,31,M,Houston,0
+M00303,22,F,Austin,1
+M00304,67,F,Fort Worth,1
+M00305,72,F,San Antonio,1
+M00306,79,M,Lubbock,1
+M00307,45,F,Houston,0
+M00308,28,F,Austin,0
+M00309,54,F,Austin,0
+M00310,22,F,Dallas,0
+M00311,20,F,El Paso,1
+M00312,34,F,San Antonio,0
+M00313,69,M,Houston,1
+M00314,75,F,Houston,0
+M00315,35,F,Houston,0
+M00316,32,M,El Paso,1
+M00317,61,F,Houston,0
+M00318,69,F,El Paso,1
+M00319,44,F,Houston,0
+M00320,69,F,Lubbock,1
+M00321,84,F,Fort Worth,0
+M00322,60,M,Houston,0
+M00323,59,F,Houston,0
+M00324,65,M,Fort Worth,0
+M00325,49,M,Houston,0
+M00326,76,F,Dallas,0
+M00327,48,M,Fort Worth,0
+M00328,47,F,El Paso,1
+M00329,57,F,Fort Worth,0
+M00330,81,M,El Paso,0
+M00331,20,F,San Antonio,0
+M00332,77,M,Fort Worth,1
+M00333,61,M,Dallas,0
+M00334,21,F,Fort Worth,0
+M00335,36,F,Austin,0
+M00336,36,M,San Antonio,1
+M00337,59,F,Lubbock,1
+M00338,43,F,San Antonio,0
+M00339,56,F,Austin,0
+M00340,76,F,San Antonio,0
+M00341,34,M,Dallas,0
+M00342,82,F,Dallas,1
+M00343,67,F,Lubbock,0
+M00344,58,M,Dallas,0
+M00345,82,M,Austin,0
+M00346,58,M,San Antonio,0
+M00347,18,M,El Paso,0
+M00348,37,F,Fort Worth,1
+M00349,18,F,Houston,0
+M00350,67,M,Dallas,0
+M00351,50,F,Austin,0
+M00352,62,M,Houston,0
+M00353,70,F,San Antonio,1
+M00354,71,M,Dallas,1
+M00355,77,M,Houston,0
+M00356,27,M,Lubbock,0
+M00357,66,F,Corpus Christi,0
+M00358,43,M,Fort Worth,0
+M00359,80,M,Houston,1
+M00360,90,M,Lubbock,1
+M00361,56,M,Austin,0
+M00362,74,F,Lubbock,1
+M00363,63,F,Houston,0
+M00364,80,F,Houston,1
+M00365,18,M,Austin,1
+M00366,32,M,El Paso,1
+M00367,30,F,Houston,0
+M00368,71,M,Dallas,0
+M00369,74,F,San Antonio,1
+M00370,35,M,Lubbock,1
+M00371,50,F,Fort Worth,0
+M00372,66,F,Corpus Christi,0
+M00373,18,F,Austin,1
+M00374,23,M,El Paso,0
+M00375,81,M,San Antonio,0
+M00376,66,F,Houston,1
+M00377,39,F,Austin,0
+M00378,71,M,Austin,0
+M00379,52,F,San Antonio,0
+M00380,55,M,Dallas,1
+M00381,41,F,Fort Worth,1
+M00382,30,M,Fort Worth,0
+M00383,45,M,Dallas,0
+M00384,38,F,Corpus Christi,0
+M00385,38,M,Dallas,0
+M00386,34,F,Houston,0
+M00387,57,M,Houston,0
+M00388,45,M,San Antonio,0
+M00389,56,F,Houston,0
+M00390,79,M,Austin,0
+M00391,76,F,Fort Worth,1
+M00392,34,M,San Antonio,0
+M00393,56,M,El Paso,0
+M00394,70,M,Corpus Christi,1
+M00395,64,F,San Antonio,0
+M00396,75,M,Houston,0
+M00397,78,F,Houston,0
+M00398,46,F,Austin,0
+M00399,74,M,Dallas,0
+M00400,79,F,Austin,1
+M00401,46,F,Austin,0
+M00402,68,F,Austin,0
+M00403,75,M,Houston,0
+M00404,46,M,Dallas,0
+M00405,35,F,Dallas,1
+M00406,37,F,Fort Worth,0
+M00407,23,M,Austin,0
+M00408,65,F,Austin,0
+M00409,34,M,Austin,0
+M00410,55,M,San Antonio,1
+M00411,45,M,Houston,0
+M00412,46,F,Houston,1
+M00413,40,M,Houston,0
+M00414,30,M,Houston,0
+M00415,78,F,Dallas,1
+M00416,66,M,Fort Worth,0
+M00417,87,F,Houston,0
+M00418,57,M,Houston,0
+M00419,61,M,Houston,0
+M00420,36,F,Dallas,0
+M00421,47,F,Houston,0
+M00422,53,F,Houston,0
+M00423,25,F,Dallas,0
+M00424,39,M,Lubbock,0
+M00425,78,F,Dallas,0
+M00426,74,M,Houston,1
+M00427,67,F,San Antonio,1
+M00428,39,M,Houston,0
+M00429,71,M,San Antonio,1
+M00430,18,M,Dallas,0
+M00431,49,M,El Paso,0
+M00432,38,M,Corpus Christi,1
+M00433,63,M,Austin,0
+M00434,38,M,Houston,0
+M00435,72,F,San Antonio,0
+M00436,52,F,Dallas,0
+M00437,44,F,Fort Worth,1
+M00438,57,M,Houston,0
+M00439,59,M,Austin,0
+M00440,75,M,Dallas,1
+M00441,75,M,San Antonio,1
+M00442,72,F,Dallas,1
+M00443,59,M,Dallas,1
+M00444,30,F,Austin,0
+M00445,20,F,San Antonio,0
+M00446,18,M,Houston,0
+M00447,42,F,Houston,0
+M00448,46,M,El Paso,0
+M00449,25,M,San Antonio,0
+M00450,64,M,Austin,0
+M00451,77,F,San Antonio,1
+M00452,60,F,Austin,0
+M00453,47,F,Austin,1
+M00454,78,F,Houston,1
+M00455,48,F,San Antonio,0
+M00456,51,F,San Antonio,1
+M00457,75,M,Houston,0
+M00458,73,M,Fort Worth,1
+M00459,43,M,Houston,0
+M00460,27,F,Houston,0
+M00461,66,M,Fort Worth,1
+M00462,36,F,El Paso,0
+M00463,71,F,Houston,1
+M00464,18,F,Austin,0
+M00465,74,M,Houston,0
+M00466,62,M,Austin,0
+M00467,64,F,San Antonio,0
+M00468,54,M,Fort Worth,0
+M00469,36,M,Dallas,0
+M00470,62,F,Dallas,1
+M00471,73,M,El Paso,1
+M00472,74,F,Houston,1
+M00473,40,F,Houston,0
+M00474,49,M,Dallas,0
+M00475,38,F,San Antonio,0
+M00476,85,M,Houston,1
+M00477,85,F,San Antonio,0
+M00478,79,M,Dallas,0
+M00479,27,M,Austin,0
+M00480,23,M,El Paso,1
+M00481,28,M,San Antonio,0
+M00482,49,M,San Antonio,1
+M00483,76,F,San Antonio,1
+M00484,53,F,Houston,0
+M00485,37,M,Fort Worth,1
+M00486,73,F,El Paso,1
+M00487,73,F,Fort Worth,1
+M00488,75,M,Corpus Christi,1
+M00489,67,F,San Antonio,0
+M00490,61,F,Austin,0
+M00491,34,M,Houston,0
+M00492,56,M,Lubbock,0
+M00493,75,M,San Antonio,0
+M00494,61,F,Dallas,0
+M00495,18,F,Fort Worth,0
+M00496,34,M,San Antonio,0
+M00497,39,F,Corpus Christi,0
+M00498,62,M,Fort Worth,1
+M00499,25,F,El Paso,0
+M00500,73,F,San Antonio,1
+M00501,78,F,San Antonio,1
+M00502,31,F,Fort Worth,0
+M00503,36,F,Houston,1
+M00504,43,M,Houston,0
+M00505,21,M,Lubbock,0
+M00506,35,F,Corpus Christi,0
+M00507,75,M,Corpus Christi,0
+M00508,68,F,Houston,1
+M00509,65,F,Dallas,0
+M00510,80,M,El Paso,0
+M00511,50,M,Houston,0
+M00512,75,M,San Antonio,0
+M00513,34,F,Dallas,1
+M00514,63,F,El Paso,1
+M00515,60,M,San Antonio,0
+M00516,73,M,Dallas,0
+M00517,30,M,San Antonio,0
+M00518,27,M,Houston,1
+M00519,37,F,Fort Worth,0
+M00520,42,M,Austin,0
+M00521,18,M,Austin,0
+M00522,48,F,Dallas,0
+M00523,79,F,Dallas,1
+M00524,50,M,Houston,0
+M00525,75,F,Corpus Christi,1
+M00526,30,M,Dallas,0
+M00527,46,M,San Antonio,0
+M00528,39,F,Dallas,0
+M00529,74,F,Lubbock,1
+M00530,69,M,Fort Worth,1
+M00531,57,F,Houston,0
+M00532,82,M,Austin,1
+M00533,77,F,San Antonio,0
+M00534,75,M,Fort Worth,0
+M00535,71,F,Lubbock,0
+M00536,54,F,Fort Worth,0
+M00537,55,M,El Paso,0
+M00538,72,F,San Antonio,1
+M00539,73,F,Dallas,1
+M00540,75,F,Austin,0
+M00541,79,M,Fort Worth,1
+M00542,66,M,Houston,0
+M00543,60,F,San Antonio,0
+M00544,83,F,Houston,1
+M00545,78,F,Houston,0
+M00546,68,M,El Paso,0
+M00547,71,F,Houston,1
+M00548,71,M,Fort Worth,0
+M00549,72,F,Dallas,1
+M00550,46,M,Austin,1
+M00551,92,M,Corpus Christi,0
+M00552,40,F,Fort Worth,1
+M00553,57,M,Fort Worth,0
+M00554,58,F,Dallas,1
+M00555,68,M,Dallas,1
+M00556,64,F,Fort Worth,0
+M00557,55,F,Fort Worth,1
+M00558,36,F,Fort Worth,0
+M00559,77,F,Fort Worth,0
+M00560,87,M,Houston,1
+M00561,48,M,Dallas,0
+M00562,21,F,Corpus Christi,0
+M00563,49,F,San Antonio,0
+M00564,79,M,Fort Worth,0
+M00565,42,F,San Antonio,0
+M00566,53,F,Corpus Christi,0
+M00567,27,M,El Paso,0
+M00568,66,F,Dallas,0
+M00569,74,F,El Paso,1
+M00570,76,F,Dallas,0
+M00571,68,F,San Antonio,1
+M00572,59,M,El Paso,0
+M00573,77,M,Dallas,1
+M00574,85,M,Dallas,1
+M00575,81,F,Austin,0
+M00576,56,M,Lubbock,1
+M00577,46,M,Houston,1
+M00578,65,M,Austin,0
+M00579,42,M,San Antonio,1
+M00580,18,M,Dallas,0
+M00581,18,M,Fort Worth,0
+M00582,60,M,San Antonio,1
+M00583,36,M,Fort Worth,0
+M00584,38,F,Fort Worth,1
+M00585,67,M,Lubbock,1
+M00586,61,M,Fort Worth,0
+M00587,49,F,Houston,0
+M00588,69,F,Fort Worth,0
+M00589,49,F,Austin,0
+M00590,46,M,Houston,1
+M00591,45,F,Austin,0
+M00592,24,F,Fort Worth,0
+M00593,69,F,Houston,1
+M00594,18,F,Dallas,0
+M00595,80,M,San Antonio,1
+M00596,42,F,Dallas,0
+M00597,30,F,El Paso,0
+M00598,70,F,Houston,0
+M00599,66,M,Fort Worth,1
+M00600,76,M,Fort Worth,1
+M00601,67,F,San Antonio,1
+M00602,75,F,San Antonio,0
+M00603,72,M,Houston,1
+M00604,69,M,Houston,1
+M00605,69,M,San Antonio,1
+M00606,18,F,Houston,0
+M00607,43,M,Fort Worth,0
+M00608,48,M,Austin,1
+M00609,73,F,Houston,1
+M00610,40,M,Dallas,1
+M00611,36,M,El Paso,0
+M00612,87,M,Dallas,1
+M00613,68,M,Austin,0
+M00614,52,F,Houston,0
+M00615,64,F,Corpus Christi,0
+M00616,51,F,San Antonio,0
+M00617,21,M,San Antonio,0
+M00618,82,F,San Antonio,1
+M00619,76,F,Dallas,1
+M00620,33,M,Austin,1
+M00621,59,F,Houston,0
+M00622,69,M,Houston,0
+M00623,52,F,Houston,0
+M00624,63,F,Austin,0
+M00625,41,F,El Paso,0
+M00626,55,F,Houston,0
+M00627,73,F,El Paso,1
+M00628,68,F,Fort Worth,1
+M00629,52,M,Houston,0
+M00630,57,F,Houston,0
+M00631,33,F,Dallas,0
+M00632,28,F,Houston,0
+M00633,76,F,Fort Worth,1
+M00634,55,F,San Antonio,1
+M00635,64,F,Dallas,0
+M00636,34,M,Austin,0
+M00637,80,M,Dallas,1
+M00638,32,M,El Paso,0
+M00639,49,M,Austin,0
+M00640,65,F,Dallas,0
+M00641,44,F,San Antonio,1
+M00642,34,F,Houston,1
+M00643,56,M,Lubbock,0
+M00644,46,F,Dallas,0
+M00645,50,F,El Paso,1
+M00646,70,M,Lubbock,0
+M00647,49,F,San Antonio,0
+M00648,68,F,Austin,1
+M00649,29,M,San Antonio,0
+M00650,47,F,Houston,0
+M00651,73,F,Corpus Christi,0
+M00652,78,F,San Antonio,1
+M00653,47,F,El Paso,0
+M00654,97,M,Austin,1
+M00655,30,M,Houston,1
+M00656,73,F,Dallas,0
+M00657,44,F,Houston,0
+M00658,67,F,Houston,1
+M00659,81,M,Austin,1
+M00660,26,F,Houston,0
+M00661,18,F,Lubbock,0
+M00662,72,M,San Antonio,1
+M00663,40,M,San Antonio,0
+M00664,74,M,Dallas,1
+M00665,67,M,Houston,1
+M00666,57,F,San Antonio,0
+M00667,44,M,Dallas,0
+M00668,21,M,Austin,0
+M00669,23,F,San Antonio,1
+M00670,25,F,Houston,0
+M00671,38,F,San Antonio,0
+M00672,81,M,Dallas,1
+M00673,45,M,Houston,0
+M00674,51,M,Fort Worth,0
+M00675,37,F,Houston,0
+M00676,78,M,Dallas,1
+M00677,57,F,San Antonio,0
+M00678,23,F,San Antonio,0
+M00679,66,M,Corpus Christi,0
+M00680,51,M,El Paso,1
+M00681,75,M,Fort Worth,1
+M00682,18,F,San Antonio,0
+M00683,41,F,Dallas,1
+M00684,81,F,Houston,1
+M00685,65,F,Fort Worth,1
+M00686,33,M,Dallas,0
+M00687,51,F,Dallas,0
+M00688,70,F,Austin,0
+M00689,28,F,Fort Worth,0
+M00690,43,M,San Antonio,0
+M00691,49,M,Houston,0
+M00692,76,F,Corpus Christi,1
+M00693,67,F,Houston,1
+M00694,87,M,Lubbock,0
+M00695,69,M,San Antonio,1
+M00696,73,F,Corpus Christi,1
+M00697,46,F,Corpus Christi,1
+M00698,85,M,Dallas,1
+M00699,51,M,Fort Worth,1
+M00700,73,F,Houston,1
+M00701,81,F,Houston,1
+M00702,51,F,Dallas,1
+M00703,62,F,Austin,0
+M00704,80,F,Houston,0
+M00705,92,F,San Antonio,1
+M00706,74,F,Lubbock,1
+M00707,35,F,El Paso,0
+M00708,23,F,Houston,0
+M00709,82,F,San Antonio,1
+M00710,67,M,Houston,1
+M00711,25,F,Dallas,0
+M00712,49,M,Corpus Christi,0
+M00713,62,M,Lubbock,1
+M00714,19,M,Houston,1
+M00715,71,F,Houston,1
+M00716,86,F,Dallas,1
+M00717,76,M,San Antonio,1
+M00718,67,F,Houston,0
+M00719,37,F,Houston,0
+M00720,43,F,Dallas,0
+M00721,52,M,Houston,0
+M00722,18,M,El Paso,0
+M00723,43,F,Fort Worth,0
+M00724,80,M,San Antonio,0
+M00725,64,M,Dallas,0
+M00726,75,F,Fort Worth,0
+M00727,36,F,Houston,0
+M00728,73,F,El Paso,0
+M00729,27,M,Houston,0
+M00730,57,M,Corpus Christi,0
+M00731,42,M,Houston,0
+M00732,60,M,Fort Worth,0
+M00733,77,F,Houston,0
+M00734,80,M,Fort Worth,0
+M00735,35,M,San Antonio,0
+M00736,24,M,Houston,1
+M00737,38,F,Fort Worth,0
+M00738,70,F,Houston,1
+M00739,67,F,San Antonio,1
+M00740,63,F,Dallas,1
+M00741,45,M,Fort Worth,0
+M00742,34,M,El Paso,1
+M00743,76,M,San Antonio,1
+M00744,72,F,Fort Worth,0
+M00745,78,F,Corpus Christi,1
+M00746,27,F,Austin,0
+M00747,74,M,Dallas,1
+M00748,69,M,San Antonio,1
+M00749,56,F,Houston,0
+M00750,74,M,San Antonio,1
+M00751,68,M,Houston,0
+M00752,61,F,Fort Worth,0
+M00753,73,F,Austin,0
+M00754,51,F,Austin,0
+M00755,49,F,Houston,0
+M00756,33,M,Houston,1
+M00757,79,F,Fort Worth,0
+M00758,30,M,San Antonio,1
+M00759,68,M,Corpus Christi,0
+M00760,67,F,San Antonio,1
+M00761,63,M,Houston,0
+M00762,26,F,Austin,0
+M00763,29,M,Austin,0
+M00764,36,F,Houston,0
+M00765,18,M,Austin,0
+M00766,38,F,Houston,1
+M00767,34,F,Houston,0
+M00768,53,F,Houston,0
+M00769,71,M,Austin,1
+M00770,60,M,Fort Worth,0
+M00771,67,M,Houston,1
+M00772,38,F,Fort Worth,0
+M00773,62,M,Fort Worth,0
+M00774,30,M,Dallas,0
+M00775,83,F,Houston,0
+M00776,26,F,Dallas,1
+M00777,79,F,Houston,1
+M00778,83,M,Corpus Christi,1
+M00779,76,F,Fort Worth,0
+M00780,71,F,Houston,1
+M00781,56,M,San Antonio,0
+M00782,80,M,Dallas,1
+M00783,40,F,Houston,1
+M00784,38,M,Dallas,0
+M00785,65,F,Houston,0
+M00786,51,M,Houston,1
+M00787,78,F,Dallas,1
+M00788,51,F,Dallas,0
+M00789,26,M,San Antonio,0
+M00790,46,F,San Antonio,0
+M00791,44,M,Dallas,0
+M00792,81,F,San Antonio,1
+M00793,32,F,Dallas,0
+M00794,75,M,Lubbock,1
+M00795,67,M,Houston,1
+M00796,58,M,San Antonio,0
+M00797,52,M,Houston,0
+M00798,18,F,Dallas,0
+M00799,51,F,San Antonio,0
+M00800,18,F,Fort Worth,0
+M00801,73,F,Lubbock,1
+M00802,23,F,San Antonio,0
+M00803,73,F,Houston,1
+M00804,53,M,Fort Worth,1
+M00805,61,F,Houston,0
+M00806,36,M,San Antonio,1
+M00807,67,F,El Paso,1
+M00808,66,F,Dallas,1
+M00809,48,F,San Antonio,0
+M00810,81,F,Houston,1
+M00811,81,M,Houston,0
+M00812,63,F,Lubbock,1
+M00813,71,M,Houston,0
+M00814,29,M,Dallas,0
+M00815,78,F,San Antonio,1
+M00816,38,M,Dallas,0
+M00817,34,M,Houston,0
+M00818,18,F,Houston,0
+M00819,32,M,San Antonio,0
+M00820,61,F,Dallas,0
+M00821,36,M,Fort Worth,0
+M00822,85,F,Dallas,1
+M00823,87,M,Corpus Christi,0
+M00824,73,M,Dallas,1
+M00825,42,M,Dallas,0
+M00826,70,M,Corpus Christi,1
+M00827,76,F,El Paso,1
+M00828,38,M,Dallas,0
+M00829,42,F,Dallas,0
+M00830,31,F,El Paso,0
+M00831,39,F,Houston,0
+M00832,54,M,Dallas,0
+M00833,70,M,San Antonio,0
+M00834,42,F,Fort Worth,1
+M00835,85,M,San Antonio,0
+M00836,30,M,San Antonio,1
+M00837,72,F,Lubbock,0
+M00838,43,F,Houston,0
+M00839,39,M,Fort Worth,1
+M00840,18,M,Houston,1
+M00841,36,F,Fort Worth,0
+M00842,73,F,San Antonio,1
+M00843,66,F,Dallas,0
+M00844,70,F,San Antonio,1
+M00845,76,F,El Paso,1
+M00846,74,F,San Antonio,1
+M00847,72,F,Houston,1
+M00848,73,M,Houston,1
+M00849,29,F,Austin,0
+M00850,55,F,Austin,0
+M00851,52,F,Dallas,0
+M00852,85,M,Houston,1
+M00853,93,F,Austin,1
+M00854,62,F,Dallas,1
+M00855,66,F,Houston,1
+M00856,50,M,Dallas,1
+M00857,71,F,San Antonio,1
+M00858,36,F,Lubbock,0
+M00859,76,M,San Antonio,1
+M00860,73,M,Houston,1
+M00861,76,F,Fort Worth,1
+M00862,66,F,Dallas,0
+M00863,31,M,Corpus Christi,0
+M00864,21,M,Dallas,0
+M00865,59,M,El Paso,0
+M00866,18,M,El Paso,1
+M00867,37,M,El Paso,0
+M00868,34,M,Houston,1
+M00869,48,F,El Paso,0
+M00870,76,M,Austin,0
+M00871,18,M,Dallas,0
+M00872,60,M,San Antonio,0
+M00873,38,F,Austin,1
+M00874,49,F,Corpus Christi,1
+M00875,22,M,Fort Worth,0
+M00876,57,M,Dallas,0
+M00877,78,F,Austin,1
+M00878,41,M,Houston,1
+M00879,18,F,Dallas,0
+M00880,97,F,Fort Worth,1
+M00881,53,M,Austin,1
+M00882,38,M,Fort Worth,0
+M00883,57,F,San Antonio,0
+M00884,57,F,Dallas,0
+M00885,33,F,Fort Worth,0
+M00886,64,M,Houston,0
+M00887,64,M,Lubbock,0
+M00888,78,M,Corpus Christi,0
+M00889,43,M,El Paso,0
+M00890,42,F,El Paso,0
+M00891,18,F,San Antonio,0
+M00892,39,M,San Antonio,0
+M00893,22,F,Fort Worth,0
+M00894,64,F,Dallas,0
+M00895,64,F,El Paso,0
+M00896,53,M,Houston,0
+M00897,38,F,El Paso,0
+M00898,71,F,San Antonio,0
+M00899,32,M,El Paso,0
+M00900,84,F,San Antonio,0
+M00901,75,F,Austin,1
+M00902,18,M,Corpus Christi,1
+M00903,70,M,Dallas,1
+M00904,71,F,Houston,1
+M00905,65,F,Houston,1
+M00906,56,F,San Antonio,0
+M00907,68,F,Austin,1
+M00908,67,M,Austin,0
+M00909,67,M,Houston,1
+M00910,42,F,Houston,0
+M00911,50,M,El Paso,0
+M00912,83,F,Austin,1
+M00913,39,F,Houston,0
+M00914,77,M,Houston,0
+M00915,52,F,Houston,0
+M00916,67,F,Fort Worth,1
+M00917,70,M,Austin,1
+M00918,68,F,Austin,1
+M00919,73,F,Austin,1
+M00920,28,F,El Paso,0
+M00921,50,F,Dallas,0
+M00922,66,F,Dallas,1
+M00923,73,F,Dallas,1
+M00924,69,F,Lubbock,1
+M00925,49,F,San Antonio,0
+M00926,60,M,San Antonio,1
+M00927,64,M,Fort Worth,0
+M00928,70,M,Houston,0
+M00929,73,M,Dallas,0
+M00930,51,M,Austin,0
+M00931,73,F,Lubbock,1
+M00932,71,F,Houston,0
+M00933,45,F,San Antonio,0
+M00934,51,F,El Paso,0
+M00935,45,M,Austin,0
+M00936,29,F,Austin,0
+M00937,35,M,Houston,0
+M00938,35,F,Houston,0
+M00939,30,F,Dallas,0
+M00940,75,F,Houston,0
+M00941,47,F,Fort Worth,0
+M00942,55,F,Austin,0
+M00943,78,M,Fort Worth,1
+M00944,33,F,Houston,0
+M00945,65,M,Dallas,0
+M00946,64,M,Fort Worth,0
+M00947,42,F,Houston,0
+M00948,59,M,Houston,0
+M00949,57,F,Dallas,0
+M00950,58,F,Houston,0
+M00951,57,F,Houston,0
+M00952,58,M,Dallas,0
+M00953,70,M,El Paso,0
+M00954,68,M,Houston,1
+M00955,53,M,San Antonio,0
+M00956,35,F,San Antonio,0
+M00957,61,M,San Antonio,0
+M00958,66,M,San Antonio,1
+M00959,61,F,Houston,0
+M00960,54,F,Houston,0
+M00961,74,F,San Antonio,1
+M00962,50,F,Lubbock,0
+M00963,83,M,Dallas,0
+M00964,75,F,San Antonio,0
+M00965,69,F,Lubbock,1
+M00966,66,M,Fort Worth,1
+M00967,42,M,Fort Worth,0
+M00968,76,M,San Antonio,0
+M00969,40,F,El Paso,0
+M00970,42,M,San Antonio,0
+M00971,89,F,Austin,1
+M00972,71,M,Fort Worth,1
+M00973,55,F,Dallas,0
+M00974,45,F,Corpus Christi,1
+M00975,34,M,Lubbock,1
+M00976,39,M,San Antonio,0
+M00977,79,M,Houston,1
+M00978,67,F,Fort Worth,1
+M00979,57,M,Dallas,0
+M00980,70,F,San Antonio,1
+M00981,22,F,Houston,0
+M00982,34,F,Fort Worth,0
+M00983,44,F,Corpus Christi,0
+M00984,57,F,Houston,0
+M00985,71,M,Fort Worth,0
+M00986,77,F,El Paso,0
+M00987,67,M,Houston,1
+M00988,52,M,Houston,0
+M00989,70,F,Dallas,0
+M00990,80,M,Fort Worth,1
+M00991,67,F,San Antonio,1
+M00992,65,M,Houston,0
+M00993,84,F,Houston,0
+M00994,75,F,San Antonio,1
+M00995,29,F,Houston,1
+M00996,74,M,Austin,0
+M00997,34,F,Houston,0
+M00998,77,M,Fort Worth,1
+M00999,62,F,Fort Worth,0
+M01000,56,M,El Paso,0
+M01001,46,F,Houston,0
+M01002,36,F,Austin,0
+M01003,78,F,Fort Worth,1
+M01004,74,F,San Antonio,0
+M01005,46,M,Houston,0
+M01006,51,M,Houston,0
+M01007,75,F,Austin,1
+M01008,44,F,San Antonio,1
+M01009,46,F,Corpus Christi,0
+M01010,57,M,Fort Worth,0
+M01011,48,M,Austin,0
+M01012,54,M,Lubbock,0
+M01013,74,M,Austin,1
+M01014,24,F,Houston,0
+M01015,45,F,Houston,0
+M01016,61,M,Fort Worth,0
+M01017,78,F,Dallas,1
+M01018,31,F,Corpus Christi,0
+M01019,59,F,Houston,0
+M01020,35,M,Houston,0
+M01021,73,M,Fort Worth,0
+M01022,61,M,El Paso,0
+M01023,41,F,El Paso,1
+M01024,67,F,Houston,0
+M01025,34,F,Dallas,1
+M01026,45,M,Austin,0
+M01027,79,F,Corpus Christi,1
+M01028,65,M,Houston,0
+M01029,79,F,Austin,1
+M01030,63,M,Houston,0
+M01031,54,M,Fort Worth,0
+M01032,66,F,Houston,0
+M01033,33,M,Lubbock,0
+M01034,42,F,Houston,0
+M01035,50,M,Austin,0
+M01036,53,M,Fort Worth,0
+M01037,69,M,Houston,0
+M01038,91,F,Houston,1
+M01039,53,M,San Antonio,0
+M01040,66,M,Austin,1
+M01041,54,M,Austin,0
+M01042,70,M,San Antonio,0
+M01043,73,F,Houston,1
+M01044,66,F,Corpus Christi,1
+M01045,75,F,Houston,1
+M01046,83,F,San Antonio,1
+M01047,61,M,Corpus Christi,1
+M01048,22,M,Corpus Christi,0
+M01049,68,F,Houston,0
+M01050,68,F,Houston,0
+M01051,87,M,Austin,0
+M01052,80,M,Dallas,0
+M01053,79,M,Fort Worth,0
+M01054,31,F,San Antonio,0
+M01055,69,M,Dallas,0
+M01056,47,F,Dallas,0
+M01057,30,F,Austin,0
+M01058,75,M,Fort Worth,1
+M01059,82,F,Dallas,0
+M01060,70,M,Houston,0
+M01061,18,F,Dallas,0
+M01062,73,F,Austin,1
+M01063,36,M,Fort Worth,0
+M01064,23,F,El Paso,0
+M01065,37,F,Lubbock,0
+M01066,65,F,San Antonio,0
+M01067,22,F,El Paso,0
+M01068,55,M,Dallas,0
+M01069,70,F,San Antonio,0
+M01070,83,M,San Antonio,1
+M01071,36,M,Fort Worth,0
+M01072,39,F,Fort Worth,1
+M01073,48,F,Dallas,0
+M01074,71,M,El Paso,1
+M01075,34,M,El Paso,0
+M01076,31,F,Corpus Christi,0
+M01077,22,M,San Antonio,0
+M01078,43,F,Lubbock,0
+M01079,55,F,Fort Worth,1
+M01080,82,F,Austin,1
+M01081,29,F,Dallas,0
+M01082,65,F,El Paso,0
+M01083,62,F,Fort Worth,0
+M01084,70,F,San Antonio,1
+M01085,86,M,Lubbock,0
+M01086,43,F,Houston,0
+M01087,25,M,Austin,0
+M01088,69,M,Dallas,1
+M01089,63,F,San Antonio,0
+M01090,79,F,Dallas,1
+M01091,40,F,Dallas,0
+M01092,86,M,Dallas,0
+M01093,29,F,Houston,0
+M01094,68,F,Houston,1
+M01095,84,M,Austin,0
+M01096,38,F,Dallas,0
+M01097,23,F,Houston,0
+M01098,45,M,Houston,0
+M01099,42,M,Houston,0
+M01100,37,F,Houston,0
+M01101,82,F,Corpus Christi,1
+M01102,57,F,San Antonio,0
+M01103,69,F,Dallas,1
+M01104,62,F,San Antonio,0
+M01105,85,F,Houston,1
+M01106,31,M,Austin,0
+M01107,65,M,Lubbock,0
+M01108,72,M,Houston,1
+M01109,61,M,Houston,1
+M01110,38,F,Austin,0
+M01111,72,F,Houston,1
+M01112,29,F,Houston,0
+M01113,46,F,Austin,0
+M01114,37,F,Austin,0
+M01115,38,M,Houston,0
+M01116,60,F,Fort Worth,0
+M01117,49,F,Houston,0
+M01118,72,F,Dallas,1
+M01119,31,M,Fort Worth,0
+M01120,48,M,Austin,0
+M01121,70,F,Austin,1
+M01122,78,F,Austin,0
+M01123,25,M,Austin,0
+M01124,58,F,El Paso,0
+M01125,68,M,San Antonio,1
+M01126,34,M,Dallas,1
+M01127,41,M,Fort Worth,1
+M01128,33,F,Houston,0
+M01129,36,M,Fort Worth,0
+M01130,73,F,Dallas,0
+M01131,36,F,San Antonio,0
+M01132,65,F,Fort Worth,0
+M01133,27,F,Austin,0
+M01134,70,F,Houston,0
+M01135,42,M,San Antonio,0
+M01136,58,M,Fort Worth,0
+M01137,83,F,Lubbock,1
+M01138,52,M,San Antonio,1
+M01139,52,M,Houston,1
+M01140,55,F,Dallas,0
+M01141,46,M,San Antonio,0
+M01142,50,M,Houston,1
+M01143,72,M,El Paso,1
+M01144,73,F,San Antonio,0
+M01145,27,M,Dallas,0
+M01146,20,M,Dallas,1
+M01147,71,F,Houston,0
+M01148,66,F,San Antonio,0
+M01149,29,F,San Antonio,0
+M01150,31,F,Dallas,0
+M01151,37,F,Austin,0
+M01152,59,F,Dallas,0
+M01153,23,M,San Antonio,0
+M01154,78,M,El Paso,0
+M01155,72,F,Dallas,0
+M01156,69,F,Dallas,0
+M01157,71,F,El Paso,0
+M01158,39,F,Dallas,1
+M01159,48,M,Dallas,1
+M01160,70,F,Fort Worth,0
+M01161,72,M,San Antonio,1
+M01162,43,F,Corpus Christi,0
+M01163,71,F,San Antonio,1
+M01164,37,M,San Antonio,0
+M01165,36,F,Houston,0
+M01166,37,F,Houston,0
+M01167,70,F,San Antonio,1
+M01168,28,M,Houston,1
+M01169,63,F,San Antonio,0
+M01170,44,M,Dallas,1
+M01171,81,M,Houston,0
+M01172,22,M,San Antonio,0
+M01173,42,M,Austin,0
+M01174,81,M,Dallas,0
+M01175,84,M,Fort Worth,1
+M01176,82,F,Houston,0
+M01177,65,M,Houston,0
+M01178,68,M,Corpus Christi,0
+M01179,42,F,Corpus Christi,0
+M01180,73,M,Dallas,1
+M01181,36,F,Dallas,1
+M01182,58,M,El Paso,0
+M01183,80,F,San Antonio,1
+M01184,57,F,Houston,0
+M01185,46,F,Houston,1
+M01186,47,F,Houston,0
+M01187,62,F,Fort Worth,0
+M01188,72,F,Austin,0
+M01189,63,M,Dallas,0
+M01190,59,F,Houston,0
+M01191,34,M,Houston,0
+M01192,45,M,Fort Worth,0
+M01193,69,F,El Paso,0
+M01194,58,F,San Antonio,0
+M01195,72,F,Fort Worth,0
+M01196,53,F,Dallas,0
+M01197,75,F,San Antonio,1
+M01198,19,M,Dallas,0
+M01199,18,M,Houston,0
+M01200,70,F,San Antonio,0
+M01201,74,M,El Paso,1
+M01202,54,F,Houston,0
+M01203,76,M,San Antonio,0
+M01204,34,M,El Paso,0
+M01205,40,F,Fort Worth,0
+M01206,62,M,San Antonio,0
+M01207,77,M,Houston,0
+M01208,85,F,El Paso,1
+M01209,79,F,Houston,0
+M01210,60,M,Dallas,0
+M01211,76,F,Houston,0
+M01212,92,F,San Antonio,0
+M01213,76,M,Austin,0
+M01214,28,F,Fort Worth,0
+M01215,74,F,San Antonio,1
+M01216,26,M,Lubbock,0
+M01217,56,F,San Antonio,0
+M01218,49,F,Austin,0
+M01219,62,M,Houston,0
+M01220,19,F,Houston,0
+M01221,68,M,San Antonio,1
+M01222,83,M,Austin,0
+M01223,25,F,Houston,1
+M01224,33,F,San Antonio,0
+M01225,60,M,Dallas,0
+M01226,45,M,Dallas,0
+M01227,38,F,Houston,0
+M01228,30,F,Houston,0
+M01229,22,F,Dallas,0
+M01230,57,M,El Paso,0
+M01231,84,M,Fort Worth,1
+M01232,66,F,Houston,0
+M01233,70,M,Houston,1
+M01234,63,F,San Antonio,0
+M01235,79,F,Dallas,0
+M01236,48,M,Fort Worth,0
+M01237,57,F,San Antonio,0
+M01238,34,M,El Paso,0
+M01239,26,F,Houston,0
+M01240,60,M,Lubbock,0
+M01241,76,M,Fort Worth,0
+M01242,81,F,Fort Worth,0
+M01243,33,F,Corpus Christi,0
+M01244,76,M,San Antonio,0
+M01245,23,F,Houston,0
+M01246,40,M,San Antonio,0
+M01247,18,M,Fort Worth,0
+M01248,67,F,El Paso,0
+M01249,64,M,San Antonio,0
+M01250,79,F,Fort Worth,0
+M01251,61,F,Houston,1
+M01252,69,F,Houston,1
+M01253,45,M,San Antonio,0
+M01254,66,M,Dallas,0
+M01255,44,F,Houston,1
+M01256,51,F,Fort Worth,1
+M01257,71,F,San Antonio,0
+M01258,34,M,San Antonio,0
+M01259,43,F,Houston,0
+M01260,32,F,Houston,0
+M01261,52,F,Austin,0
+M01262,73,F,El Paso,1
+M01263,70,M,Houston,0
+M01264,57,M,Fort Worth,0
+M01265,59,F,Fort Worth,1
+M01266,18,F,Fort Worth,0
+M01267,75,F,San Antonio,1
+M01268,58,M,Dallas,0
+M01269,39,F,Fort Worth,0
+M01270,72,F,San Antonio,1
+M01271,70,F,Houston,0
+M01272,41,F,Dallas,1
+M01273,22,M,San Antonio,0
+M01274,65,F,San Antonio,0
+M01275,64,F,El Paso,0
+M01276,46,M,Dallas,1
+M01277,74,F,Dallas,1
+M01278,37,F,Lubbock,1
+M01279,77,M,Houston,1
+M01280,72,F,Houston,1
+M01281,37,M,El Paso,0
+M01282,68,F,Corpus Christi,1
+M01283,28,M,Austin,0
+M01284,67,M,Dallas,1
+M01285,25,F,San Antonio,0
+M01286,51,F,Fort Worth,0
+M01287,51,M,El Paso,0
+M01288,77,F,Houston,0
+M01289,81,F,El Paso,0
+M01290,18,M,Austin,0
+M01291,80,M,Houston,0
+M01292,49,M,Houston,0
+M01293,69,M,Houston,0
+M01294,43,M,Corpus Christi,1
+M01295,21,M,Dallas,0
+M01296,38,M,Austin,0
+M01297,25,M,Houston,1
+M01298,63,M,Fort Worth,0
+M01299,34,F,San Antonio,0
+M01300,25,M,Corpus Christi,1
+M01301,32,F,San Antonio,0
+M01302,88,M,Fort Worth,0
+M01303,23,M,Austin,1
+M01304,57,M,San Antonio,1
+M01305,36,F,Corpus Christi,0
+M01306,73,F,San Antonio,0
+M01307,33,F,El Paso,0
+M01308,54,M,Houston,0
+M01309,31,M,Austin,1
+M01310,71,F,Corpus Christi,0
+M01311,68,F,El Paso,1
+M01312,49,F,San Antonio,0
+M01313,56,F,San Antonio,0
+M01314,48,M,Fort Worth,1
+M01315,22,M,Dallas,0
+M01316,88,M,Corpus Christi,0
+M01317,58,F,Houston,0
+M01318,59,F,Houston,0
+M01319,67,M,Fort Worth,1
+M01320,35,M,Dallas,0
+M01321,43,F,Dallas,0
+M01322,22,M,Dallas,0
+M01323,75,F,Lubbock,1
+M01324,71,F,San Antonio,0
+M01325,45,M,Lubbock,0
+M01326,69,M,Dallas,1
+M01327,81,M,Dallas,1
+M01328,61,F,Houston,0
+M01329,28,F,Dallas,0
+M01330,44,M,Houston,0
+M01331,27,M,Houston,0
+M01332,57,F,San Antonio,1
+M01333,72,F,Fort Worth,1
+M01334,60,F,Dallas,1
+M01335,48,M,San Antonio,0
+M01336,78,M,San Antonio,1
+M01337,68,F,San Antonio,1
+M01338,70,F,Fort Worth,0
+M01339,62,F,Fort Worth,0
+M01340,43,M,Fort Worth,0
+M01341,18,F,Houston,1
+M01342,72,F,San Antonio,1
+M01343,34,M,Fort Worth,1
+M01344,29,F,Corpus Christi,0
+M01345,25,M,San Antonio,0
+M01346,55,M,San Antonio,0
+M01347,82,F,Fort Worth,1
+M01348,30,M,Lubbock,0
+M01349,87,M,Dallas,1
+M01350,71,M,Houston,0
+M01351,71,M,Fort Worth,1
+M01352,30,F,Austin,1
+M01353,50,F,Houston,1
+M01354,73,F,Dallas,0
+M01355,45,F,San Antonio,0
+M01356,83,F,Fort Worth,1
+M01357,79,F,Fort Worth,1
+M01358,62,M,Houston,0
+M01359,81,F,Houston,1
+M01360,69,M,Fort Worth,1
+M01361,64,M,Houston,0
+M01362,73,F,San Antonio,1
+M01363,36,M,San Antonio,0
+M01364,58,F,Dallas,0
+M01365,41,M,Fort Worth,0
+M01366,59,M,Houston,0
+M01367,49,M,Fort Worth,1
+M01368,40,M,Austin,1
+M01369,53,M,San Antonio,0
+M01370,53,M,El Paso,1
+M01371,48,M,Houston,0
+M01372,18,F,Fort Worth,1
+M01373,28,M,Houston,0
+M01374,71,M,Lubbock,1
+M01375,72,F,Houston,1
+M01376,54,M,San Antonio,0
+M01377,51,M,Houston,0
+M01378,71,M,Dallas,0
+M01379,18,F,Houston,0
+M01380,34,M,Houston,0
+M01381,71,M,Houston,0
+M01382,74,F,Houston,0
+M01383,69,M,Austin,1
+M01384,28,M,San Antonio,0
+M01385,59,F,Houston,0
+M01386,38,M,Corpus Christi,0
+M01387,33,F,Austin,1
+M01388,61,M,Dallas,1
+M01389,68,M,Dallas,1
+M01390,79,F,San Antonio,1
+M01391,82,F,San Antonio,1
+M01392,58,F,El Paso,0
+M01393,42,F,San Antonio,0
+M01394,78,M,Lubbock,1
+M01395,18,F,Austin,0
+M01396,62,F,Lubbock,0
+M01397,77,F,San Antonio,0
+M01398,73,M,Austin,0
+M01399,92,M,Fort Worth,1
+M01400,29,F,Fort Worth,0
+M01401,77,F,Houston,1
+M01402,65,F,Houston,0
+M01403,38,F,Houston,0
+M01404,63,F,Dallas,0
+M01405,58,M,El Paso,0
+M01406,38,M,Austin,1
+M01407,71,F,Houston,1
+M01408,45,M,Dallas,0
+M01409,67,M,Houston,1
+M01410,80,F,Fort Worth,1
+M01411,54,F,Corpus Christi,0
+M01412,66,M,Houston,1
+M01413,69,F,Dallas,0
+M01414,30,M,Corpus Christi,0
+M01415,77,M,Austin,0
+M01416,67,M,El Paso,0
+M01417,71,F,Dallas,0
+M01418,71,F,Houston,1
+M01419,55,M,Austin,0
+M01420,49,F,Houston,0
+M01421,80,F,Fort Worth,0
+M01422,47,M,Fort Worth,0
+M01423,63,F,Dallas,0
+M01424,71,M,San Antonio,0
+M01425,53,M,Fort Worth,1
+M01426,56,M,Corpus Christi,0
+M01427,71,F,Dallas,1
+M01428,78,M,Fort Worth,1
+M01429,64,M,Houston,0
+M01430,41,F,El Paso,0
+M01431,82,M,Austin,0
+M01432,83,F,Houston,1
+M01433,40,F,Fort Worth,0
+M01434,78,M,Austin,1
+M01435,73,F,Fort Worth,1
+M01436,79,F,Dallas,1
+M01437,67,M,Fort Worth,0
+M01438,53,F,Fort Worth,0
+M01439,33,F,Dallas,0
+M01440,52,F,Houston,0
+M01441,46,M,El Paso,0
+M01442,60,M,Austin,0
+M01443,75,F,San Antonio,1
+M01444,70,M,El Paso,0
+M01445,40,F,Houston,0
+M01446,60,F,Fort Worth,1
+M01447,29,F,San Antonio,0
+M01448,50,F,Houston,0
+M01449,75,F,Lubbock,0
+M01450,59,M,Fort Worth,0
+M01451,80,M,Houston,0
+M01452,78,M,Corpus Christi,1
+M01453,53,M,Corpus Christi,0
+M01454,76,F,Fort Worth,0
+M01455,57,F,Houston,0
+M01456,57,F,Houston,0
+M01457,59,F,Fort Worth,1
+M01458,75,M,Corpus Christi,1
+M01459,82,F,Houston,1
+M01460,53,F,San Antonio,0
+M01461,69,F,Houston,0
+M01462,34,M,San Antonio,1
+M01463,81,F,Austin,0
+M01464,84,M,Houston,0
+M01465,29,F,Austin,0
+M01466,83,F,Austin,0
+M01467,62,F,San Antonio,0
+M01468,62,M,El Paso,0
+M01469,30,M,Houston,0
+M01470,62,F,Houston,0
+M01471,59,F,San Antonio,1
+M01472,56,F,San Antonio,0
+M01473,60,F,Dallas,0
+M01474,59,F,Lubbock,0
+M01475,68,F,Houston,1
+M01476,71,M,Dallas,1
+M01477,49,M,Fort Worth,0
+M01478,85,M,Corpus Christi,0
+M01479,31,M,San Antonio,1
+M01480,52,M,Houston,0
+M01481,72,M,Dallas,1
+M01482,39,F,Houston,1
+M01483,37,F,San Antonio,0
+M01484,48,F,Austin,0
+M01485,66,M,Dallas,1
+M01486,23,F,San Antonio,0
+M01487,58,F,Fort Worth,0
+M01488,35,F,Houston,1
+M01489,42,M,Houston,1
+M01490,33,M,Fort Worth,0
+M01491,71,M,Houston,1
+M01492,58,M,Houston,0
+M01493,75,M,Houston,1
+M01494,25,F,San Antonio,0
+M01495,37,M,Austin,1
+M01496,49,M,San Antonio,0
+M01497,81,F,Dallas,1
+M01498,43,M,San Antonio,0
+M01499,44,M,Houston,0
+M01500,62,M,Fort Worth,0
+M01501,41,M,Lubbock,0
+M01502,48,F,San Antonio,0
+M01503,28,F,Dallas,0
+M01504,62,F,Fort Worth,0
+M01505,38,M,Houston,0
+M01506,44,M,Dallas,0
+M01507,49,M,Corpus Christi,0
+M01508,36,M,Houston,1
+M01509,42,M,Houston,0
+M01510,75,F,San Antonio,0
+M01511,29,F,San Antonio,0
+M01512,48,F,San Antonio,0
+M01513,18,M,Houston,0
+M01514,75,F,Austin,0
+M01515,70,M,Houston,0
+M01516,50,M,Corpus Christi,0
+M01517,78,F,Houston,1
+M01518,30,M,Houston,0
+M01519,66,M,San Antonio,0
+M01520,97,M,Houston,1
+M01521,58,F,Austin,0
+M01522,85,F,Houston,1
+M01523,49,F,Dallas,1
+M01524,81,F,Houston,1
+M01525,55,M,Dallas,0
+M01526,26,M,Houston,0
+M01527,25,M,Dallas,0
+M01528,70,F,Houston,0
+M01529,63,M,Fort Worth,0
+M01530,41,F,Austin,0
+M01531,43,F,Houston,0
+M01532,41,M,Houston,0
+M01533,77,M,Houston,1
+M01534,73,M,Houston,0
+M01535,33,M,San Antonio,1
+M01536,61,F,Dallas,0
+M01537,70,F,Lubbock,1
+M01538,26,F,Fort Worth,0
+M01539,76,M,Houston,0
+M01540,51,F,Houston,1
+M01541,52,F,Houston,1
+M01542,37,F,Houston,0
+M01543,67,M,San Antonio,0
+M01544,28,M,Houston,0
+M01545,85,F,Houston,1
+M01546,43,F,Houston,0
+M01547,57,M,Austin,0
+M01548,71,M,Houston,0
+M01549,80,F,Lubbock,1
+M01550,67,F,Dallas,0
+M01551,43,M,Dallas,0
+M01552,40,M,San Antonio,0
+M01553,23,F,San Antonio,1
+M01554,59,M,Dallas,0
+M01555,56,M,San Antonio,0
+M01556,27,F,Dallas,0
+M01557,76,F,Dallas,1
+M01558,38,M,Houston,0
+M01559,67,F,Austin,1
+M01560,18,F,Austin,1
+M01561,32,M,Austin,0
+M01562,69,F,Corpus Christi,1
+M01563,21,M,San Antonio,0
+M01564,61,F,El Paso,0
+M01565,58,F,San Antonio,0
+M01566,53,F,San Antonio,1
+M01567,40,M,Austin,0
+M01568,73,M,Houston,0
+M01569,77,M,Houston,0
+M01570,77,F,San Antonio,1
+M01571,76,M,Houston,0
+M01572,70,F,Houston,0
+M01573,67,M,Fort Worth,0
+M01574,18,F,San Antonio,0
+M01575,67,M,Houston,1
+M01576,72,F,Houston,0
+M01577,42,F,Corpus Christi,0
+M01578,24,M,Corpus Christi,0
+M01579,22,F,Austin,0
+M01580,37,F,Houston,0
+M01581,24,M,Dallas,0
+M01582,49,F,Dallas,0
+M01583,36,M,Fort Worth,0
+M01584,33,M,San Antonio,0
+M01585,75,M,Fort Worth,0
+M01586,82,F,Dallas,1
+M01587,42,M,El Paso,0
+M01588,70,M,Dallas,0
+M01589,44,F,Dallas,0
+M01590,57,M,San Antonio,1
+M01591,87,M,San Antonio,0
+M01592,91,F,El Paso,1
+M01593,36,F,San Antonio,0
+M01594,71,M,Corpus Christi,0
+M01595,23,F,Dallas,0
+M01596,36,M,Dallas,0
+M01597,68,F,Dallas,1
+M01598,37,F,Houston,0
+M01599,71,M,El Paso,0
+M01600,64,M,Houston,0
+M01601,38,F,Dallas,0
+M01602,53,M,Houston,0
+M01603,62,F,Fort Worth,0
+M01604,61,F,Corpus Christi,0
+M01605,87,F,Fort Worth,1
+M01606,41,F,Dallas,0
+M01607,42,M,San Antonio,0
+M01608,44,F,Houston,0
+M01609,30,F,Corpus Christi,0
+M01610,86,F,Houston,1
+M01611,44,M,Corpus Christi,1
+M01612,41,M,Fort Worth,1
+M01613,24,F,Austin,0
+M01614,68,F,Fort Worth,0
+M01615,69,M,Dallas,0
+M01616,58,F,Dallas,0
+M01617,78,M,Dallas,1
+M01618,63,M,Houston,0
+M01619,83,M,Fort Worth,0
+M01620,50,F,San Antonio,0
+M01621,70,F,El Paso,0
+M01622,51,F,El Paso,0
+M01623,57,F,Houston,0
+M01624,67,F,Houston,1
+M01625,31,M,Dallas,0
+M01626,30,F,Houston,0
+M01627,51,F,Austin,0
+M01628,41,F,Fort Worth,0
+M01629,45,F,Austin,0
+M01630,38,M,San Antonio,0
+M01631,33,F,El Paso,0
+M01632,64,M,Austin,0
+M01633,61,M,Lubbock,0
+M01634,51,F,Fort Worth,0
+M01635,49,M,Austin,0
+M01636,19,F,Houston,0
+M01637,30,F,Fort Worth,0
+M01638,32,M,Dallas,1
+M01639,49,M,Dallas,0
+M01640,36,F,San Antonio,0
+M01641,81,F,Dallas,0
+M01642,68,F,Houston,1
+M01643,73,F,Houston,1
+M01644,65,M,Fort Worth,0
+M01645,64,F,Austin,0
+M01646,34,M,Corpus Christi,0
+M01647,32,M,Fort Worth,0
+M01648,73,F,Dallas,1
+M01649,18,M,Fort Worth,0
+M01650,71,M,San Antonio,0
+M01651,25,F,Dallas,0
+M01652,80,F,Lubbock,1
+M01653,33,M,Corpus Christi,0
+M01654,60,M,Houston,0
+M01655,42,F,Fort Worth,1
+M01656,53,M,Houston,1
+M01657,37,M,Corpus Christi,0
+M01658,70,M,Austin,0
+M01659,22,F,Houston,0
+M01660,63,F,Fort Worth,0
+M01661,33,M,San Antonio,0
+M01662,38,F,Houston,1
+M01663,33,F,Fort Worth,0
+M01664,61,M,Fort Worth,0
+M01665,76,F,San Antonio,0
+M01666,77,M,Fort Worth,0
+M01667,86,F,Houston,1
+M01668,57,M,Dallas,0
+M01669,66,F,Austin,0
+M01670,45,M,Houston,0
+M01671,63,F,San Antonio,0
+M01672,53,F,Corpus Christi,0
+M01673,44,M,Fort Worth,0
+M01674,46,M,San Antonio,0
+M01675,76,F,San Antonio,1
+M01676,46,F,El Paso,0
+M01677,20,M,El Paso,0
+M01678,77,M,Houston,1
+M01679,71,F,San Antonio,1
+M01680,26,M,Houston,0
+M01681,41,F,Houston,0
+M01682,43,M,Dallas,1
+M01683,44,F,Austin,0
+M01684,76,F,Fort Worth,1
+M01685,71,M,Corpus Christi,0
+M01686,40,F,Dallas,1
+M01687,48,M,Dallas,0
+M01688,25,F,Houston,0
+M01689,39,F,Houston,0
+M01690,84,M,Houston,0
+M01691,55,M,Lubbock,1
+M01692,68,F,Houston,1
+M01693,69,M,Fort Worth,1
+M01694,83,F,Dallas,1
+M01695,69,M,San Antonio,0
+M01696,22,F,El Paso,1
+M01697,86,F,Corpus Christi,0
+M01698,71,F,Houston,1
+M01699,31,M,Corpus Christi,0
+M01700,40,M,Houston,0
+M01701,76,M,Fort Worth,0
+M01702,88,F,Houston,1
+M01703,72,F,San Antonio,0
+M01704,33,F,Austin,0
+M01705,62,M,Fort Worth,0
+M01706,80,F,El Paso,0
+M01707,65,M,Dallas,0
+M01708,40,F,El Paso,0
+M01709,62,M,Dallas,0
+M01710,59,F,Houston,0
+M01711,81,M,Houston,0
+M01712,18,M,Houston,1
+M01713,62,M,Houston,0
+M01714,84,M,Austin,1
+M01715,69,M,Houston,1
+M01716,46,M,San Antonio,1
+M01717,18,F,Houston,1
+M01718,66,F,Austin,0
+M01719,60,M,Dallas,0
+M01720,29,M,Dallas,1
+M01721,33,F,Austin,0
+M01722,68,F,Corpus Christi,0
+M01723,74,M,Lubbock,0
+M01724,35,F,Dallas,0
+M01725,23,M,Corpus Christi,0
+M01726,52,M,Austin,1
+M01727,59,F,El Paso,0
+M01728,41,F,Houston,1
+M01729,59,F,Houston,1
+M01730,48,F,Houston,0
+M01731,68,M,Fort Worth,1
+M01732,80,M,Houston,1
+M01733,71,M,Houston,0
+M01734,76,F,San Antonio,1
+M01735,45,M,Corpus Christi,1
+M01736,68,F,San Antonio,0
+M01737,80,M,Fort Worth,0
+M01738,20,F,Houston,0
+M01739,51,M,Corpus Christi,1
+M01740,42,M,Houston,0
+M01741,77,F,Dallas,0
+M01742,36,M,San Antonio,0
+M01743,72,F,Houston,1
+M01744,81,F,Austin,1
+M01745,44,M,Austin,1
+M01746,72,F,Houston,0
+M01747,67,F,Houston,0
+M01748,71,F,Houston,1
+M01749,25,F,Houston,0
+M01750,67,M,El Paso,0
+M01751,70,M,Austin,1
+M01752,39,F,Houston,0
+M01753,22,F,Houston,0
+M01754,80,M,Fort Worth,1
+M01755,38,M,Fort Worth,0
+M01756,81,F,Corpus Christi,0
+M01757,59,M,Houston,0
+M01758,34,F,San Antonio,0
+M01759,68,F,Houston,0
+M01760,53,M,Fort Worth,1
+M01761,48,M,Dallas,1
+M01762,18,F,Austin,0
+M01763,51,M,Houston,0
+M01764,40,M,Fort Worth,0
+M01765,75,M,Houston,1
+M01766,40,M,El Paso,0
+M01767,19,F,Houston,0
+M01768,44,M,Fort Worth,0
+M01769,83,F,Houston,0
+M01770,37,F,Austin,0
+M01771,86,F,Fort Worth,0
+M01772,57,M,Dallas,0
+M01773,77,F,Houston,0
+M01774,62,F,Dallas,0
+M01775,55,M,Dallas,1
+M01776,35,F,Austin,0
+M01777,26,F,Houston,0
+M01778,50,F,Houston,0
+M01779,45,M,Dallas,0
+M01780,31,F,Dallas,1
+M01781,81,F,Houston,1
+M01782,87,M,Austin,1
+M01783,71,M,Houston,1
+M01784,45,M,Corpus Christi,0
+M01785,32,F,Fort Worth,1
+M01786,42,M,Dallas,0
+M01787,63,M,El Paso,0
+M01788,43,M,Austin,0
+M01789,89,F,San Antonio,1
+M01790,44,F,Dallas,0
+M01791,71,M,Austin,1
+M01792,47,F,Houston,1
+M01793,44,F,San Antonio,0
+M01794,72,F,Houston,1
+M01795,50,F,San Antonio,0
+M01796,39,M,Austin,1
+M01797,67,F,Houston,1
+M01798,73,M,Houston,1
+M01799,45,M,Fort Worth,0
+M01800,80,F,Houston,0
+M01801,71,F,Houston,1
+M01802,36,F,Dallas,0
+M01803,65,F,Corpus Christi,1
+M01804,70,M,Austin,0
+M01805,62,M,San Antonio,0
+M01806,63,M,El Paso,0
+M01807,20,M,Austin,0
+M01808,22,F,Fort Worth,0
+M01809,72,M,Austin,1
+M01810,42,F,El Paso,0
+M01811,39,F,Austin,0
+M01812,70,F,Dallas,1
+M01813,58,F,Houston,0
+M01814,72,M,Houston,0
+M01815,70,M,San Antonio,0
+M01816,73,F,Lubbock,1
+M01817,45,F,Fort Worth,0
+M01818,63,M,Fort Worth,0
+M01819,71,M,Austin,0
+M01820,79,M,El Paso,1
+M01821,63,F,Fort Worth,0
+M01822,69,F,Houston,1
+M01823,57,M,San Antonio,0
+M01824,79,M,Dallas,1
+M01825,71,F,Houston,1
+M01826,38,F,Houston,1
+M01827,72,F,Dallas,1
+M01828,42,M,Houston,1
+M01829,63,F,Houston,0
+M01830,60,M,Corpus Christi,0
+M01831,63,M,Dallas,1
+M01832,43,F,Fort Worth,0
+M01833,66,F,Houston,1
+M01834,46,F,Lubbock,0
+M01835,65,F,Fort Worth,0
+M01836,50,M,El Paso,0
+M01837,37,M,San Antonio,0
+M01838,72,F,Austin,1
+M01839,38,M,Dallas,0
+M01840,90,F,Dallas,1
+M01841,77,M,Fort Worth,1
+M01842,67,M,Houston,1
+M01843,18,F,Houston,0
+M01844,37,F,El Paso,1
+M01845,58,M,Houston,0
+M01846,43,F,Austin,0
+M01847,36,M,Houston,0
+M01848,68,F,Dallas,1
+M01849,31,F,Dallas,0
+M01850,42,M,San Antonio,0
+M01851,42,F,Fort Worth,0
+M01852,29,F,El Paso,1
+M01853,70,F,Houston,1
+M01854,80,F,Dallas,0
+M01855,39,F,Fort Worth,0
+M01856,64,F,Houston,0
+M01857,61,F,Houston,0
+M01858,38,F,San Antonio,0
+M01859,65,M,Fort Worth,1
+M01860,28,M,Dallas,0
+M01861,51,F,Houston,0
+M01862,78,M,Lubbock,1
+M01863,34,M,Corpus Christi,0
+M01864,34,M,Austin,1
+M01865,28,M,Austin,0
+M01866,68,F,Corpus Christi,1
+M01867,66,F,Austin,0
+M01868,54,M,Fort Worth,0
+M01869,70,F,San Antonio,0
+M01870,63,M,Houston,0
+M01871,65,M,Fort Worth,0
+M01872,55,F,Austin,0
+M01873,68,F,Dallas,0
+M01874,40,M,Austin,0
+M01875,42,F,Fort Worth,0
+M01876,81,M,Dallas,1
+M01877,63,M,Fort Worth,0
+M01878,42,F,Houston,0
+M01879,83,F,Austin,0
+M01880,78,M,Lubbock,1
+M01881,30,M,El Paso,1
+M01882,86,F,El Paso,0
+M01883,47,F,Austin,0
+M01884,39,F,San Antonio,0
+M01885,70,F,Austin,1
+M01886,71,F,Dallas,1
+M01887,69,F,San Antonio,1
+M01888,76,M,San Antonio,0
+M01889,66,F,San Antonio,0
+M01890,44,M,Dallas,0
+M01891,53,M,Dallas,0
+M01892,22,M,Dallas,0
+M01893,70,M,Houston,1
+M01894,75,F,Dallas,1
+M01895,83,M,Houston,0
+M01896,46,F,El Paso,0
+M01897,51,F,Houston,0
+M01898,62,M,Fort Worth,0
+M01899,42,F,Houston,0
+M01900,44,F,El Paso,0
+M01901,73,M,Austin,0
+M01902,46,F,Corpus Christi,0
+M01903,62,F,El Paso,0
+M01904,69,F,Austin,0
+M01905,42,F,Houston,0
+M01906,57,M,San Antonio,1
+M01907,76,F,Dallas,1
+M01908,52,F,El Paso,0
+M01909,87,M,El Paso,0
+M01910,18,M,Dallas,0
+M01911,54,M,Austin,0
+M01912,63,F,Dallas,0
+M01913,24,M,Austin,0
+M01914,43,M,Austin,1
+M01915,36,M,San Antonio,0
+M01916,75,F,El Paso,1
+M01917,63,F,Houston,0
+M01918,23,F,Fort Worth,0
+M01919,26,M,Austin,0
+M01920,62,F,Dallas,0
+M01921,39,M,Dallas,0
+M01922,74,F,Houston,0
+M01923,53,M,San Antonio,0
+M01924,72,F,El Paso,0
+M01925,77,F,Houston,1
+M01926,80,F,Houston,1
+M01927,69,M,San Antonio,1
+M01928,63,F,Dallas,0
+M01929,72,F,Dallas,0
+M01930,75,M,Austin,1
+M01931,60,M,Dallas,0
+M01932,64,M,El Paso,0
+M01933,66,M,Dallas,0
+M01934,70,F,Austin,0
+M01935,65,M,Dallas,0
+M01936,77,F,Houston,0
+M01937,59,M,San Antonio,0
+M01938,59,M,Austin,0
+M01939,33,F,Corpus Christi,0
+M01940,58,F,Houston,1
+M01941,42,M,San Antonio,0
+M01942,46,M,Austin,0
+M01943,39,M,Houston,0
+M01944,68,M,Fort Worth,1
+M01945,26,M,Dallas,0
+M01946,40,F,El Paso,0
+M01947,47,M,San Antonio,1
+M01948,18,F,Houston,0
+M01949,65,M,Fort Worth,0
+M01950,26,M,Houston,1
+M01951,45,F,Austin,0
+M01952,81,M,Fort Worth,1
+M01953,52,M,San Antonio,0
+M01954,78,F,Dallas,0
+M01955,48,M,Dallas,0
+M01956,54,M,San Antonio,1
+M01957,82,F,Austin,0
+M01958,81,F,Austin,0
+M01959,69,F,Dallas,1
+M01960,34,M,Fort Worth,0
+M01961,54,F,Fort Worth,0
+M01962,52,F,Austin,1
+M01963,48,M,Dallas,0
+M01964,68,M,San Antonio,0
+M01965,68,M,Dallas,1
+M01966,62,M,Fort Worth,0
+M01967,76,F,Fort Worth,0
+M01968,65,F,El Paso,0
+M01969,80,M,Houston,0
+M01970,61,F,Fort Worth,0
+M01971,73,F,El Paso,1
+M01972,50,M,Houston,0
+M01973,54,F,Houston,1
+M01974,47,M,Houston,1
+M01975,68,M,Austin,1
+M01976,73,M,Dallas,1
+M01977,39,F,Houston,0
+M01978,77,F,San Antonio,0
+M01979,74,M,Fort Worth,1
+M01980,44,M,El Paso,0
+M01981,76,F,Fort Worth,1
+M01982,86,F,El Paso,1
+M01983,78,M,Austin,0
+M01984,87,F,Fort Worth,0
+M01985,18,F,Dallas,0
+M01986,57,F,El Paso,0
+M01987,55,F,El Paso,0
+M01988,39,F,Austin,0
+M01989,35,F,Dallas,0
+M01990,38,M,Dallas,0
+M01991,80,F,Dallas,1
+M01992,25,F,Houston,0
+M01993,77,F,Houston,1
+M01994,41,M,Dallas,1
+M01995,28,F,Houston,0
+M01996,75,F,El Paso,1
+M01997,20,M,Austin,1
+M01998,54,M,El Paso,0
+M01999,33,M,San Antonio,1
+M02000,72,F,Houston,0
+M02001,73,F,Dallas,1
+M02002,18,F,El Paso,0
+M02003,33,M,Houston,1
+M02004,72,F,Austin,0
+M02005,52,F,Houston,0
+M02006,53,F,Dallas,0
+M02007,61,M,Houston,0
+M02008,69,F,San Antonio,1
+M02009,29,F,Houston,0
+M02010,64,M,El Paso,0
+M02011,81,M,Houston,1
+M02012,80,M,Houston,0
+M02013,36,M,Houston,0
+M02014,24,F,Lubbock,0
+M02015,78,M,Austin,0
+M02016,71,F,Austin,1
+M02017,66,M,San Antonio,1
+M02018,36,F,El Paso,0
+M02019,24,M,Houston,0
+M02020,19,M,Fort Worth,0
+M02021,44,F,Fort Worth,1
+M02022,43,F,Houston,1
+M02023,78,M,Houston,1
+M02024,67,F,San Antonio,0
+M02025,47,M,Houston,1
+M02026,61,F,Dallas,1
+M02027,61,M,Dallas,0
+M02028,71,M,Houston,1
+M02029,55,F,Austin,0
+M02030,75,M,San Antonio,0
+M02031,81,M,Austin,1
+M02032,41,M,San Antonio,0
+M02033,76,M,Dallas,1
+M02034,44,M,San Antonio,0
+M02035,70,F,El Paso,0
+M02036,70,F,Dallas,0
+M02037,25,F,Austin,1
+M02038,74,M,Fort Worth,1
+M02039,61,M,Austin,0
+M02040,76,F,Houston,0
+M02041,59,M,Houston,0
+M02042,25,F,San Antonio,0
+M02043,48,M,Austin,1
+M02044,73,M,Fort Worth,0
+M02045,60,M,Austin,0
+M02046,71,M,Houston,1
+M02047,18,M,Fort Worth,0
+M02048,62,F,Austin,0
+M02049,69,F,Lubbock,1
+M02050,60,F,Fort Worth,0
+M02051,76,M,Dallas,1
+M02052,73,M,Austin,0
+M02053,58,F,Austin,0
+M02054,74,F,Dallas,1
+M02055,38,F,San Antonio,0
+M02056,76,M,Houston,1
+M02057,68,F,Houston,1
+M02058,43,M,Fort Worth,0
+M02059,42,F,Dallas,0
+M02060,67,M,Fort Worth,0
+M02061,38,M,San Antonio,0
+M02062,35,F,Fort Worth,0
+M02063,44,M,Fort Worth,0
+M02064,34,F,Fort Worth,1
+M02065,39,M,Dallas,0
+M02066,92,F,Lubbock,0
+M02067,65,M,Dallas,0
+M02068,50,F,Fort Worth,0
+M02069,39,M,San Antonio,0
+M02070,18,F,Houston,1
+M02071,60,M,Austin,0
+M02072,43,F,San Antonio,0
+M02073,64,F,Dallas,0
+M02074,52,M,Dallas,0
+M02075,22,F,Houston,0
+M02076,56,F,Lubbock,0
+M02077,41,M,Austin,1
+M02078,18,F,Houston,0
+M02079,44,M,Fort Worth,0
+M02080,36,F,Austin,0
+M02081,34,M,Austin,0
+M02082,31,M,San Antonio,0
+M02083,81,F,Houston,1
+M02084,35,F,Houston,0
+M02085,86,M,Fort Worth,0
+M02086,59,M,Fort Worth,1
+M02087,38,F,Fort Worth,0
+M02088,74,F,Houston,1
+M02089,73,F,Fort Worth,0
+M02090,61,M,Dallas,0
+M02091,23,M,Austin,0
+M02092,73,F,Dallas,0
+M02093,68,F,Fort Worth,1
+M02094,34,M,Lubbock,1
+M02095,26,M,Houston,0
+M02096,78,F,Fort Worth,1
+M02097,77,F,Austin,0
+M02098,45,F,Dallas,0
+M02099,31,M,Dallas,1
+M02100,40,F,Fort Worth,0
+M02101,70,F,Dallas,1
+M02102,71,M,Houston,1
+M02103,69,M,El Paso,1
+M02104,28,F,San Antonio,0
+M02105,84,F,Fort Worth,1
+M02106,83,F,Austin,1
+M02107,34,F,San Antonio,0
+M02108,24,F,Fort Worth,0
+M02109,60,F,Houston,0
+M02110,54,F,Dallas,0
+M02111,18,M,Austin,0
+M02112,74,M,Corpus Christi,1
+M02113,68,F,Dallas,0
+M02114,38,M,Lubbock,0
+M02115,73,F,Fort Worth,1
+M02116,50,M,San Antonio,0
+M02117,46,M,Dallas,0
+M02118,27,M,Houston,0
+M02119,64,M,Austin,0
+M02120,67,F,Houston,0
+M02121,67,F,Dallas,0
+M02122,63,F,Houston,1
+M02123,80,F,Corpus Christi,1
+M02124,64,M,Dallas,0
+M02125,73,F,San Antonio,0
+M02126,38,F,Dallas,0
+M02127,49,M,Houston,0
+M02128,70,M,Dallas,1
+M02129,63,M,Fort Worth,0
+M02130,78,F,Austin,0
+M02131,78,M,Dallas,1
+M02132,77,F,Fort Worth,1
+M02133,67,M,Houston,0
+M02134,72,F,Fort Worth,0
+M02135,67,F,Houston,0
+M02136,60,M,El Paso,0
+M02137,38,F,Corpus Christi,0
+M02138,39,F,Fort Worth,1
+M02139,66,F,Houston,0
+M02140,28,M,San Antonio,0
+M02141,69,M,Fort Worth,1
+M02142,62,F,San Antonio,0
+M02143,28,M,Dallas,0
+M02144,43,F,San Antonio,0
+M02145,64,M,Houston,0
+M02146,35,F,San Antonio,0
+M02147,59,F,Houston,0
+M02148,69,M,Austin,0
+M02149,71,M,Dallas,0
+M02150,27,F,Houston,0
+M02151,77,F,Houston,1
+M02152,56,M,Corpus Christi,0
+M02153,76,F,San Antonio,1
+M02154,33,F,Austin,0
+M02155,40,M,Fort Worth,0
+M02156,72,F,Austin,0
+M02157,61,F,Dallas,0
+M02158,76,F,Austin,1
+M02159,28,F,Houston,0
+M02160,79,F,San Antonio,1
+M02161,36,M,Houston,0
+M02162,80,F,Corpus Christi,1
+M02163,57,M,San Antonio,1
+M02164,29,F,Houston,1
+M02165,34,F,Austin,0
+M02166,35,F,Houston,0
+M02167,85,F,Dallas,1
+M02168,44,M,El Paso,1
+M02169,86,F,Fort Worth,0
+M02170,49,M,Austin,1
+M02171,33,M,San Antonio,0
+M02172,61,F,San Antonio,1
+M02173,41,M,Houston,1
+M02174,53,F,Austin,0
+M02175,63,F,San Antonio,0
+M02176,75,F,Houston,1
+M02177,36,M,Houston,0
+M02178,55,M,Houston,0
+M02179,79,M,Houston,1
+M02180,67,M,Houston,0
+M02181,64,F,Dallas,1
+M02182,68,M,San Antonio,0
+M02183,64,M,Dallas,0
+M02184,46,M,Houston,0
+M02185,29,M,San Antonio,0
+M02186,69,M,Fort Worth,1
+M02187,34,F,Dallas,0
+M02188,46,M,Dallas,0
+M02189,83,M,San Antonio,1
+M02190,63,M,Houston,0
+M02191,72,F,Dallas,1
+M02192,81,F,San Antonio,1
+M02193,42,M,Dallas,0
+M02194,39,M,Fort Worth,0
+M02195,76,M,El Paso,1
+M02196,46,M,Dallas,0
+M02197,67,F,San Antonio,1
+M02198,29,M,Corpus Christi,0
+M02199,56,F,San Antonio,0
+M02200,75,F,Lubbock,0
+M02201,76,F,Fort Worth,0
+M02202,60,F,Dallas,0
+M02203,18,F,Houston,0
+M02204,75,M,Houston,1
+M02205,63,F,Fort Worth,0
+M02206,67,M,Dallas,0
+M02207,33,F,Austin,0
+M02208,29,M,San Antonio,0
+M02209,60,F,Fort Worth,0
+M02210,67,M,Fort Worth,1
+M02211,38,M,Houston,0
+M02212,46,F,Dallas,1
+M02213,81,F,San Antonio,0
+M02214,66,F,Fort Worth,0
+M02215,59,F,Austin,0
+M02216,76,F,San Antonio,1
+M02217,31,F,Fort Worth,0
+M02218,18,M,Dallas,0
+M02219,36,F,Houston,0
+M02220,80,F,El Paso,0
+M02221,32,F,San Antonio,0
+M02222,53,F,Fort Worth,0
+M02223,70,F,Dallas,0
+M02224,75,M,San Antonio,1
+M02225,43,M,Dallas,0
+M02226,74,F,Dallas,0
+M02227,31,F,Houston,0
+M02228,70,F,Fort Worth,0
+M02229,72,M,Dallas,1
+M02230,47,F,Dallas,0
+M02231,73,M,Dallas,0
+M02232,72,M,Dallas,0
+M02233,35,M,San Antonio,0
+M02234,71,F,Austin,1
+M02235,43,M,Austin,1
+M02236,65,F,Dallas,1
+M02237,24,F,San Antonio,0
+M02238,44,M,Houston,0
+M02239,36,M,San Antonio,0
+M02240,43,F,El Paso,0
+M02241,65,F,San Antonio,0
+M02242,47,F,Corpus Christi,0
+M02243,59,M,Houston,0
+M02244,32,F,Fort Worth,0
+M02245,30,F,Austin,0
+M02246,71,F,Austin,0
+M02247,41,M,Austin,1
+M02248,39,M,Houston,0
+M02249,64,F,Fort Worth,0
+M02250,69,M,San Antonio,0
+M02251,36,F,San Antonio,1
+M02252,61,M,Houston,0
+M02253,42,M,Houston,0
+M02254,78,F,Corpus Christi,0
+M02255,82,M,Dallas,0
+M02256,30,M,Dallas,0
+M02257,47,F,Houston,0
+M02258,68,F,Austin,1
+M02259,45,M,Fort Worth,0
+M02260,54,F,Corpus Christi,0
+M02261,51,M,San Antonio,0
+M02262,46,F,Dallas,0
+M02263,44,M,Houston,0
+M02264,49,M,Dallas,0
+M02265,70,M,Austin,0
+M02266,82,F,Lubbock,1
+M02267,45,M,Houston,0
+M02268,39,F,Dallas,0
+M02269,36,M,Austin,0
+M02270,63,M,San Antonio,0
+M02271,31,F,Austin,0
+M02272,77,M,San Antonio,0
+M02273,53,F,Dallas,1
+M02274,22,F,San Antonio,0
+M02275,18,M,Dallas,0
+M02276,54,F,Austin,0
+M02277,82,M,Houston,1
+M02278,69,F,San Antonio,1
+M02279,35,F,Corpus Christi,0
+M02280,22,M,San Antonio,0
+M02281,25,F,Houston,0
+M02282,71,M,Corpus Christi,1
+M02283,55,M,Houston,0
+M02284,72,F,Fort Worth,1
+M02285,73,F,Houston,0
+M02286,63,F,El Paso,0
+M02287,44,M,Houston,0
+M02288,47,F,Dallas,0
+M02289,61,M,Lubbock,0
+M02290,77,M,San Antonio,0
+M02291,67,F,Dallas,1
+M02292,45,M,Houston,0
+M02293,68,F,Houston,0
+M02294,51,M,Dallas,0
+M02295,44,F,San Antonio,0
+M02296,72,M,San Antonio,1
+M02297,23,F,Corpus Christi,1
+M02298,37,M,Fort Worth,0
+M02299,82,F,Corpus Christi,0
+M02300,77,M,San Antonio,1
+M02301,22,M,San Antonio,0
+M02302,28,M,San Antonio,0
+M02303,49,M,Dallas,1
+M02304,33,F,Houston,0
+M02305,70,F,Fort Worth,0
+M02306,54,F,Austin,0
+M02307,55,M,Dallas,1
+M02308,57,F,San Antonio,1
+M02309,53,F,Houston,0
+M02310,38,M,San Antonio,0
+M02311,39,F,Dallas,0
+M02312,65,M,El Paso,0
+M02313,72,F,San Antonio,1
+M02314,34,F,Dallas,0
+M02315,35,M,Fort Worth,1
+M02316,50,F,El Paso,0
+M02317,58,M,Fort Worth,0
+M02318,47,F,San Antonio,0
+M02319,60,F,Dallas,0
+M02320,71,F,Austin,1
+M02321,62,F,Fort Worth,0
+M02322,71,M,Lubbock,1
+M02323,31,F,San Antonio,1
+M02324,75,M,Austin,1
+M02325,61,M,Dallas,0
+M02326,29,F,Houston,1
+M02327,76,M,Houston,1
+M02328,79,F,Houston,1
+M02329,36,M,San Antonio,0
+M02330,72,F,Dallas,0
+M02331,59,M,Austin,0
+M02332,51,F,Austin,1
+M02333,60,F,Houston,0
+M02334,50,F,Austin,0
+M02335,43,F,Houston,1
+M02336,40,M,Houston,0
+M02337,41,F,Lubbock,1
+M02338,44,M,Houston,0
+M02339,32,F,Dallas,0
+M02340,39,F,Austin,0
+M02341,78,F,Dallas,1
+M02342,32,F,Dallas,1
+M02343,27,M,Austin,0
+M02344,41,F,Austin,0
+M02345,57,M,San Antonio,0
+M02346,61,F,El Paso,0
+M02347,37,F,Houston,1
+M02348,62,F,San Antonio,0
+M02349,69,M,Houston,1
+M02350,61,F,Houston,0
+M02351,73,M,Lubbock,0
+M02352,48,F,Fort Worth,1
+M02353,76,F,Houston,1
+M02354,32,M,Dallas,0
+M02355,73,M,Houston,1
+M02356,60,M,Austin,0
+M02357,75,F,Dallas,1
+M02358,46,M,Corpus Christi,0
+M02359,58,F,Houston,0
+M02360,38,M,Dallas,0
+M02361,29,F,Corpus Christi,0
+M02362,82,M,El Paso,1
+M02363,53,F,Dallas,0
+M02364,78,M,San Antonio,1
+M02365,64,M,El Paso,0
+M02366,32,M,Austin,0
+M02367,80,F,Austin,1
+M02368,34,F,Austin,0
+M02369,34,M,Corpus Christi,0
+M02370,63,M,San Antonio,1
+M02371,22,M,Houston,0
+M02372,48,F,San Antonio,1
+M02373,76,F,Austin,1
+M02374,63,F,San Antonio,0
+M02375,71,M,Dallas,0
+M02376,24,F,Austin,0
+M02377,31,F,San Antonio,0
+M02378,81,M,Lubbock,0
+M02379,45,M,Dallas,0
+M02380,24,M,Austin,1
+M02381,29,F,San Antonio,0
+M02382,30,F,Houston,0
+M02383,39,F,San Antonio,1
+M02384,69,F,Houston,0
+M02385,28,M,Fort Worth,0
+M02386,74,F,Fort Worth,0
+M02387,26,F,Houston,0
+M02388,67,F,San Antonio,0
+M02389,41,M,Lubbock,0
+M02390,71,M,Dallas,1
+M02391,74,F,El Paso,0
+M02392,70,F,Houston,0
+M02393,80,F,Houston,1
+M02394,65,M,San Antonio,1
+M02395,72,F,Houston,0
+M02396,40,F,El Paso,0
+M02397,68,M,Austin,1
+M02398,23,F,Austin,0
+M02399,52,M,Austin,0
+M02400,51,F,Austin,0
+M02401,73,M,Fort Worth,0
+M02402,75,F,Austin,0
+M02403,42,F,Fort Worth,0
+M02404,66,F,San Antonio,0
+M02405,81,F,Dallas,1
+M02406,39,M,San Antonio,0
+M02407,28,F,San Antonio,0
+M02408,73,F,Dallas,1
+M02409,53,M,Dallas,0
+M02410,34,F,Dallas,0
+M02411,48,M,Houston,0
+M02412,70,M,Fort Worth,1
+M02413,72,F,Fort Worth,1
+M02414,46,M,Dallas,1
+M02415,68,M,Corpus Christi,0
+M02416,38,M,Corpus Christi,0
+M02417,75,F,El Paso,0
+M02418,24,F,Houston,0
+M02419,27,M,Dallas,0
+M02420,41,M,San Antonio,0
+M02421,71,F,Austin,1
+M02422,70,F,Austin,0
+M02423,48,M,Austin,0
+M02424,57,M,Fort Worth,0
+M02425,33,M,Corpus Christi,1
+M02426,44,M,San Antonio,0
+M02427,35,F,El Paso,0
+M02428,36,M,Fort Worth,0
+M02429,18,F,Dallas,0
+M02430,57,F,Fort Worth,0
+M02431,54,F,Houston,0
+M02432,42,M,Houston,0
+M02433,67,F,Lubbock,1
+M02434,50,F,Dallas,0
+M02435,73,F,San Antonio,0
+M02436,66,F,Corpus Christi,1
+M02437,57,F,Dallas,1
+M02438,65,F,Houston,1
+M02439,38,F,Houston,0
+M02440,44,F,San Antonio,0
+M02441,66,M,Houston,1
+M02442,49,M,Houston,1
+M02443,74,M,Fort Worth,1
+M02444,21,F,Dallas,0
+M02445,79,F,San Antonio,1
+M02446,53,F,Houston,0
+M02447,78,M,San Antonio,1
+M02448,49,F,Austin,0
+M02449,39,F,San Antonio,0
+M02450,52,M,Dallas,0
+M02451,19,M,Dallas,0
+M02452,75,F,Houston,1
+M02453,26,M,Houston,0
+M02454,53,F,San Antonio,1
+M02455,38,F,Houston,0
+M02456,40,F,Houston,0
+M02457,38,M,Houston,0
+M02458,45,F,Fort Worth,0
+M02459,76,M,San Antonio,1
+M02460,56,F,San Antonio,1
+M02461,61,M,San Antonio,0
+M02462,46,M,Dallas,0
+M02463,65,M,Dallas,0
+M02464,84,M,Dallas,1
+M02465,57,M,San Antonio,0
+M02466,75,M,Dallas,1
+M02467,96,F,Houston,0
+M02468,44,M,Corpus Christi,0
+M02469,61,F,Fort Worth,0
+M02470,70,F,Houston,0
+M02471,64,F,El Paso,0
+M02472,54,F,Houston,1
+M02473,41,M,Houston,0
+M02474,18,F,Houston,1
+M02475,60,F,Corpus Christi,0
+M02476,37,M,Houston,0
+M02477,30,M,Fort Worth,0
+M02478,26,F,Austin,0
+M02479,78,M,San Antonio,1
+M02480,75,F,Dallas,1
+M02481,31,F,Houston,1
+M02482,32,M,Austin,0
+M02483,49,M,Dallas,0
+M02484,70,M,San Antonio,1
+M02485,53,F,Houston,0
+M02486,57,F,Fort Worth,1
+M02487,70,F,Austin,1
+M02488,43,M,San Antonio,1
+M02489,47,F,San Antonio,0
+M02490,75,F,Dallas,1
+M02491,36,F,Dallas,1
+M02492,67,M,Houston,1
+M02493,57,F,Austin,0
+M02494,69,M,Houston,1
+M02495,25,F,Houston,0
+M02496,60,F,Houston,0
+M02497,21,F,Houston,1
+M02498,43,F,San Antonio,0
+M02499,82,M,Austin,1
+M02500,38,M,Dallas,0
+M02501,45,F,Dallas,0
+M02502,47,F,San Antonio,0
+M02503,67,F,San Antonio,1
+M02504,25,M,El Paso,0
+M02505,71,M,Fort Worth,1
+M02506,70,M,Fort Worth,1
+M02507,64,F,El Paso,0
+M02508,38,F,El Paso,0
+M02509,49,M,San Antonio,0
+M02510,71,F,San Antonio,0
+M02511,39,M,Austin,1
+M02512,58,M,Houston,0
+M02513,58,M,Dallas,1
+M02514,61,M,Corpus Christi,0
+M02515,80,F,San Antonio,1
+M02516,68,M,Houston,0
+M02517,33,F,Dallas,0
+M02518,71,M,Houston,1
+M02519,62,F,Dallas,1
+M02520,87,M,San Antonio,1
+M02521,64,M,San Antonio,0
+M02522,53,M,San Antonio,1
+M02523,72,F,Houston,1
+M02524,26,F,San Antonio,1
+M02525,39,M,Houston,1
+M02526,61,M,Dallas,0
+M02527,39,F,Austin,0
+M02528,30,M,Houston,1
+M02529,38,M,Corpus Christi,0
+M02530,79,M,Austin,0
+M02531,74,M,Houston,1
+M02532,60,M,Dallas,0
+M02533,49,M,Houston,0
+M02534,53,F,Houston,0
+M02535,67,M,Corpus Christi,1
+M02536,77,M,Austin,1
+M02537,45,M,Fort Worth,0
+M02538,62,M,Austin,0
+M02539,86,M,El Paso,1
+M02540,44,F,El Paso,0
+M02541,71,F,Houston,0
+M02542,68,F,Houston,0
+M02543,30,M,Dallas,0
+M02544,67,M,Dallas,0
+M02545,54,F,San Antonio,0
+M02546,40,F,Dallas,0
+M02547,64,M,Fort Worth,1
+M02548,78,F,Houston,0
+M02549,44,F,Fort Worth,0
+M02550,82,F,Dallas,0
+M02551,50,M,Houston,1
+M02552,69,M,El Paso,1
+M02553,68,M,San Antonio,1
+M02554,74,F,Austin,1
+M02555,65,F,El Paso,0
+M02556,43,M,Houston,0
+M02557,74,M,Dallas,0
+M02558,58,F,Houston,0
+M02559,54,M,Houston,0
+M02560,31,M,Corpus Christi,0
+M02561,80,M,Fort Worth,0
+M02562,68,F,Dallas,1
+M02563,29,F,Austin,0
+M02564,71,F,Corpus Christi,1
+M02565,47,M,Houston,1
+M02566,35,M,Houston,0
+M02567,29,F,Fort Worth,0
+M02568,38,F,Austin,0
+M02569,18,F,Houston,0
+M02570,73,M,San Antonio,0
+M02571,69,M,Houston,1
+M02572,78,F,Austin,1
+M02573,52,M,Austin,1
+M02574,65,M,Dallas,0
+M02575,33,M,Fort Worth,0
+M02576,37,M,San Antonio,0
+M02577,46,F,Austin,1
+M02578,82,M,Austin,1
+M02579,32,M,San Antonio,0
+M02580,43,M,Dallas,0
+M02581,47,M,Houston,0
+M02582,26,F,Fort Worth,1
+M02583,71,M,Austin,1
+M02584,50,M,Dallas,0
+M02585,50,F,Lubbock,0
+M02586,67,M,Fort Worth,1
+M02587,63,F,Houston,0
+M02588,68,M,Houston,0
+M02589,72,F,San Antonio,1
+M02590,38,F,Houston,1
+M02591,65,M,Lubbock,0
+M02592,79,M,Austin,1
+M02593,38,M,Houston,0
+M02594,63,M,San Antonio,0
+M02595,37,F,Houston,1
+M02596,73,M,San Antonio,0
+M02597,70,M,Houston,0
+M02598,27,F,Fort Worth,0
+M02599,79,M,Austin,1
+M02600,38,F,El Paso,0
+M02601,30,F,Houston,0
+M02602,78,F,Dallas,1
+M02603,46,M,Fort Worth,0
+M02604,48,F,Dallas,0
+M02605,72,M,Dallas,1
+M02606,33,F,Lubbock,1
+M02607,56,M,Fort Worth,1
+M02608,18,F,El Paso,0
+M02609,25,F,Dallas,0
+M02610,66,F,San Antonio,1
+M02611,60,F,San Antonio,0
+M02612,76,F,San Antonio,1
+M02613,71,M,Houston,0
+M02614,57,M,El Paso,1
+M02615,60,M,Dallas,0
+M02616,59,F,San Antonio,0
+M02617,73,M,El Paso,1
+M02618,76,F,Fort Worth,1
+M02619,54,M,Houston,0
+M02620,30,M,Austin,0
+M02621,73,F,San Antonio,1
+M02622,68,F,Dallas,0
+M02623,27,M,Houston,0
+M02624,77,F,Austin,0
+M02625,33,M,Fort Worth,0
+M02626,79,M,Corpus Christi,0
+M02627,31,F,Dallas,0
+M02628,81,F,Dallas,1
+M02629,18,F,Houston,0
+M02630,77,M,Lubbock,1
+M02631,56,F,El Paso,0
+M02632,51,F,Corpus Christi,1
+M02633,40,F,San Antonio,0
+M02634,45,M,Houston,0
+M02635,72,M,San Antonio,1
+M02636,64,M,Dallas,0
+M02637,70,M,Dallas,0
+M02638,62,M,Houston,0
+M02639,78,M,Houston,0
+M02640,32,F,Dallas,0
+M02641,24,F,Corpus Christi,0
+M02642,32,M,Austin,0
+M02643,38,F,Fort Worth,0
+M02644,74,F,Houston,1
+M02645,66,M,Fort Worth,0
+M02646,62,M,Dallas,0
+M02647,82,F,Houston,1
+M02648,57,F,Dallas,0
+M02649,71,F,Houston,1
+M02650,60,F,El Paso,0
+M02651,61,F,El Paso,0
+M02652,73,F,Dallas,1
+M02653,66,M,Austin,0
+M02654,55,F,Dallas,0
+M02655,69,F,Houston,1
+M02656,68,M,Austin,0
+M02657,70,F,Fort Worth,0
+M02658,83,F,Fort Worth,1
+M02659,77,F,Houston,1
+M02660,33,M,San Antonio,1
+M02661,69,F,Houston,1
+M02662,21,F,Houston,0
+M02663,21,M,Houston,0
+M02664,18,M,Houston,0
+M02665,84,M,Dallas,1
+M02666,20,M,Dallas,0
+M02667,69,M,Austin,1
+M02668,68,F,Dallas,1
+M02669,66,F,Houston,1
+M02670,76,F,Corpus Christi,1
+M02671,67,F,El Paso,1
+M02672,76,F,Houston,0
+M02673,55,F,Dallas,0
+M02674,75,M,Houston,0
+M02675,37,M,Corpus Christi,0
+M02676,29,F,Dallas,0
+M02677,78,F,Houston,1
+M02678,43,F,Austin,0
+M02679,37,F,Austin,1
+M02680,62,F,Houston,0
+M02681,66,F,Dallas,0
+M02682,73,F,Dallas,1
+M02683,55,M,Dallas,0
+M02684,71,F,Dallas,0
+M02685,74,M,Fort Worth,1
+M02686,33,F,Fort Worth,1
+M02687,76,F,Austin,0
+M02688,73,F,Austin,1
+M02689,67,M,San Antonio,0
+M02690,42,F,Dallas,0
+M02691,73,F,Austin,1
+M02692,31,M,Houston,0
+M02693,67,F,Houston,1
+M02694,75,F,Houston,0
+M02695,34,M,Fort Worth,1
+M02696,71,F,San Antonio,1
+M02697,76,M,San Antonio,0
+M02698,60,F,San Antonio,1
+M02699,45,M,Fort Worth,1
+M02700,18,F,Houston,0
+M02701,58,M,Dallas,0
+M02702,39,M,Fort Worth,0
+M02703,70,M,Austin,1
+M02704,62,M,Dallas,0
+M02705,71,M,Houston,1
+M02706,52,F,Corpus Christi,0
+M02707,92,F,Dallas,0
+M02708,63,F,El Paso,1
+M02709,51,F,Fort Worth,0
+M02710,74,F,El Paso,0
+M02711,54,M,Houston,0
+M02712,70,M,San Antonio,0
+M02713,76,M,Houston,1
+M02714,36,F,Dallas,1
+M02715,63,M,Dallas,1
+M02716,22,M,Dallas,0
+M02717,62,M,Dallas,0
+M02718,40,M,Austin,0
+M02719,69,F,Dallas,1
+M02720,34,F,Dallas,1
+M02721,35,M,Dallas,0
+M02722,30,M,Austin,0
+M02723,70,M,Houston,1
+M02724,68,M,Fort Worth,1
+M02725,48,M,Dallas,0
+M02726,62,M,San Antonio,0
+M02727,36,M,Fort Worth,0
+M02728,21,M,San Antonio,0
+M02729,83,F,Austin,1
+M02730,65,F,Corpus Christi,1
+M02731,62,F,Houston,0
+M02732,79,F,Dallas,0
+M02733,32,M,Corpus Christi,1
+M02734,42,M,Fort Worth,0
+M02735,30,F,Austin,0
+M02736,78,F,Houston,1
+M02737,33,F,Dallas,0
+M02738,60,M,El Paso,0
+M02739,72,M,Austin,1
+M02740,28,F,Dallas,0
+M02741,37,F,Houston,0
+M02742,52,M,Fort Worth,0
+M02743,34,F,San Antonio,0
+M02744,77,M,Lubbock,0
+M02745,66,M,Dallas,0
+M02746,49,F,Dallas,0
+M02747,77,F,Dallas,0
+M02748,32,F,San Antonio,0
+M02749,75,F,Dallas,0
+M02750,26,F,Houston,1
+M02751,72,F,Dallas,1
+M02752,79,F,Houston,0
+M02753,73,M,Fort Worth,0
+M02754,84,F,Houston,1
+M02755,45,M,San Antonio,0
+M02756,52,F,Austin,1
+M02757,18,F,Houston,0
+M02758,70,F,San Antonio,1
+M02759,65,F,El Paso,0
+M02760,68,F,San Antonio,1
+M02761,18,M,San Antonio,0
+M02762,51,M,Fort Worth,0
+M02763,74,F,Corpus Christi,0
+M02764,76,F,Fort Worth,0
+M02765,81,F,Dallas,1
+M02766,62,M,Austin,1
+M02767,34,F,San Antonio,0
+M02768,42,F,Dallas,0
+M02769,34,M,Dallas,0
+M02770,70,M,Fort Worth,1
+M02771,25,M,Dallas,0
+M02772,52,F,El Paso,0
+M02773,44,F,Lubbock,0
+M02774,65,F,Dallas,0
+M02775,79,M,Houston,1
+M02776,39,M,Corpus Christi,0
+M02777,76,F,Houston,0
+M02778,52,M,Fort Worth,0
+M02779,46,F,Houston,1
+M02780,76,M,Houston,1
+M02781,37,F,Dallas,0
+M02782,56,F,Dallas,0
+M02783,43,F,Corpus Christi,0
+M02784,49,M,Houston,0
+M02785,47,F,Houston,0
+M02786,59,F,Austin,0
+M02787,52,M,Corpus Christi,0
+M02788,35,M,Dallas,0
+M02789,70,M,Fort Worth,0
+M02790,80,M,Houston,1
+M02791,31,M,Fort Worth,0
+M02792,63,M,Austin,0
+M02793,63,F,El Paso,0
+M02794,69,F,Austin,0
+M02795,69,F,Corpus Christi,1
+M02796,71,F,Dallas,1
+M02797,68,F,Fort Worth,1
+M02798,47,F,Austin,0
+M02799,41,F,Dallas,0
+M02800,71,M,Corpus Christi,0
+M02801,42,M,Fort Worth,0
+M02802,68,M,El Paso,1
+M02803,63,M,Dallas,0
+M02804,45,F,El Paso,1
+M02805,71,F,Dallas,1
+M02806,28,F,Lubbock,0
+M02807,68,M,Houston,1
+M02808,59,F,Austin,0
+M02809,64,M,Houston,0
+M02810,78,F,Austin,0
+M02811,37,F,Dallas,0
+M02812,78,F,El Paso,1
+M02813,28,F,El Paso,0
+M02814,42,M,Dallas,0
+M02815,62,M,Fort Worth,1
+M02816,60,M,Austin,0
+M02817,33,M,Dallas,1
+M02818,60,F,Dallas,0
+M02819,61,F,Houston,1
+M02820,68,M,Houston,1
+M02821,43,F,San Antonio,1
+M02822,68,F,San Antonio,1
+M02823,33,F,San Antonio,0
+M02824,42,M,Corpus Christi,0
+M02825,85,F,Houston,0
+M02826,66,M,El Paso,0
+M02827,61,F,Fort Worth,0
+M02828,78,F,Fort Worth,0
+M02829,39,F,San Antonio,0
+M02830,39,F,Houston,0
+M02831,37,F,El Paso,0
+M02832,78,M,Fort Worth,0
+M02833,80,F,Fort Worth,0
+M02834,67,F,Houston,0
+M02835,64,F,San Antonio,0
+M02836,43,F,Dallas,1
+M02837,76,M,Austin,1
+M02838,52,F,Fort Worth,1
+M02839,62,M,Houston,0
+M02840,51,F,Houston,0
+M02841,76,F,Houston,0
+M02842,38,M,Houston,0
+M02843,51,F,Houston,0
+M02844,33,M,Houston,0
+M02845,63,F,Dallas,1
+M02846,68,F,Austin,1
+M02847,36,M,Fort Worth,0
+M02848,72,F,Dallas,1
+M02849,39,M,Houston,0
+M02850,30,M,Fort Worth,0
+M02851,71,F,Dallas,1
+M02852,18,F,Houston,0
+M02853,27,M,San Antonio,0
+M02854,56,F,Lubbock,0
+M02855,33,M,Dallas,0
+M02856,35,F,Corpus Christi,1
+M02857,72,F,Houston,1
+M02858,19,F,Houston,1
+M02859,56,M,Houston,0
+M02860,50,M,Fort Worth,0
+M02861,23,M,San Antonio,0
+M02862,33,F,San Antonio,0
+M02863,41,F,Lubbock,1
+M02864,25,F,San Antonio,0
+M02865,80,F,Houston,1
+M02866,66,F,Austin,0
+M02867,67,M,Houston,1
+M02868,50,F,San Antonio,0
+M02869,76,F,El Paso,0
+M02870,78,M,San Antonio,1
+M02871,42,F,Dallas,0
+M02872,76,M,San Antonio,1
+M02873,77,F,Houston,1
+M02874,73,F,Dallas,1
+M02875,70,M,San Antonio,0
+M02876,18,M,Houston,0
+M02877,76,M,Houston,1
+M02878,72,F,San Antonio,0
+M02879,21,F,Dallas,0
+M02880,48,M,Dallas,0
+M02881,35,F,Lubbock,0
+M02882,36,M,Houston,0
+M02883,31,F,Houston,0
+M02884,74,F,El Paso,1
+M02885,30,F,Houston,0
+M02886,26,M,Corpus Christi,1
+M02887,70,F,Austin,0
+M02888,74,M,San Antonio,0
+M02889,77,F,Dallas,0
+M02890,51,F,Dallas,0
+M02891,32,F,Fort Worth,0
+M02892,35,M,Houston,0
+M02893,88,M,Fort Worth,1
+M02894,63,F,Fort Worth,0
+M02895,45,F,Austin,0
+M02896,31,M,Houston,0
+M02897,53,F,Fort Worth,0
+M02898,49,M,Austin,0
+M02899,47,M,Houston,1
+M02900,19,F,El Paso,0
+M02901,40,M,Houston,1
+M02902,25,M,Lubbock,0
+M02903,69,F,Houston,1
+M02904,77,F,Houston,1
+M02905,84,F,Austin,1
+M02906,70,M,Houston,1
+M02907,85,M,Houston,1
+M02908,37,F,Houston,0
+M02909,78,F,Fort Worth,1
+M02910,26,F,Houston,0
+M02911,44,F,Austin,1
+M02912,37,F,San Antonio,1
+M02913,63,F,San Antonio,0
+M02914,65,F,Dallas,0
+M02915,42,M,Dallas,0
+M02916,73,M,Corpus Christi,1
+M02917,36,F,Fort Worth,0
+M02918,71,M,Corpus Christi,1
+M02919,71,F,Fort Worth,0
+M02920,35,F,Fort Worth,0
+M02921,46,M,Lubbock,0
+M02922,63,F,San Antonio,0
+M02923,44,F,El Paso,0
+M02924,60,F,Houston,1
+M02925,50,M,Houston,0
+M02926,67,F,San Antonio,0
+M02927,88,M,San Antonio,1
+M02928,61,F,Dallas,0
+M02929,75,F,San Antonio,1
+M02930,73,M,San Antonio,1
+M02931,53,M,El Paso,0
+M02932,81,F,Dallas,1
+M02933,81,M,Dallas,1
+M02934,34,M,Austin,0
+M02935,73,F,Austin,0
+M02936,56,F,Fort Worth,0
+M02937,51,F,Dallas,0
+M02938,65,M,Houston,0
+M02939,51,M,Corpus Christi,0
+M02940,58,F,Houston,0
+M02941,75,M,Austin,1
+M02942,46,F,Dallas,0
+M02943,23,M,Dallas,0
+M02944,48,M,Fort Worth,1
+M02945,65,F,Dallas,0
+M02946,36,F,Houston,0
+M02947,76,F,Fort Worth,0
+M02948,81,M,Houston,1
+M02949,84,F,Dallas,0
+M02950,42,M,San Antonio,0
+M02951,83,F,Dallas,1
+M02952,49,F,Austin,0
+M02953,31,M,Dallas,0
+M02954,74,F,Dallas,1
+M02955,40,M,Dallas,0
+M02956,25,F,El Paso,0
+M02957,79,F,Houston,0
+M02958,79,F,Corpus Christi,1
+M02959,36,F,Dallas,0
+M02960,73,M,Dallas,1
+M02961,76,F,Austin,0
+M02962,74,F,Dallas,0
+M02963,76,F,Austin,0
+M02964,73,M,El Paso,0
+M02965,78,M,El Paso,0
+M02966,75,M,San Antonio,1
+M02967,70,M,Austin,1
+M02968,30,F,Dallas,0
+M02969,38,F,Fort Worth,0
+M02970,85,F,Houston,1
+M02971,67,F,Houston,0
+M02972,60,M,San Antonio,1
+M02973,30,M,Houston,0
+M02974,55,F,Austin,0
+M02975,67,M,Houston,0
+M02976,74,F,Houston,1
+M02977,62,M,Austin,1
+M02978,38,F,San Antonio,0
+M02979,40,M,Corpus Christi,0
+M02980,52,F,Houston,1
+M02981,18,M,Houston,0
+M02982,42,M,Houston,0
+M02983,73,F,San Antonio,0
+M02984,37,F,Houston,0
+M02985,69,M,Fort Worth,1
+M02986,72,M,Houston,1
+M02987,45,M,Corpus Christi,0
+M02988,45,M,San Antonio,0
+M02989,84,M,Austin,1
+M02990,47,M,Houston,0
+M02991,68,F,Houston,0
+M02992,64,M,Dallas,1
+M02993,82,F,San Antonio,0
+M02994,35,F,San Antonio,0
+M02995,30,M,Dallas,0
+M02996,66,F,Dallas,1
+M02997,75,F,Lubbock,0
+M02998,63,M,Dallas,0
+M02999,77,M,Houston,1
+M03000,54,F,Dallas,0
+M03001,35,F,Dallas,1
+M03002,45,F,Dallas,0
+M03003,60,F,Austin,0
+M03004,59,F,Austin,0
+M03005,89,F,Austin,1
+M03006,65,M,Houston,0
+M03007,27,M,Houston,1
+M03008,37,M,Fort Worth,0
+M03009,61,M,Houston,1
+M03010,44,M,Dallas,0
+M03011,73,M,San Antonio,0
+M03012,38,F,Austin,0
+M03013,81,M,Houston,0
+M03014,62,F,El Paso,0
+M03015,70,F,Dallas,1
+M03016,71,F,Lubbock,1
+M03017,80,F,Dallas,1
+M03018,76,F,Austin,0
+M03019,19,M,Dallas,0
+M03020,50,F,Fort Worth,0
+M03021,49,F,San Antonio,0
+M03022,97,F,El Paso,0
+M03023,56,M,Fort Worth,0
+M03024,72,F,San Antonio,1
+M03025,61,F,Houston,0
+M03026,66,M,Houston,1
+M03027,70,M,Lubbock,0
+M03028,67,F,Corpus Christi,1
+M03029,34,M,Houston,0
+M03030,41,F,Houston,0
+M03031,44,M,Houston,0
+M03032,70,M,Houston,1
+M03033,38,M,Dallas,0
+M03034,42,F,Fort Worth,0
+M03035,71,M,Houston,1
+M03036,64,F,El Paso,0
+M03037,44,F,Lubbock,0
+M03038,80,M,Dallas,1
+M03039,52,M,San Antonio,0
+M03040,51,F,San Antonio,0
+M03041,71,M,Houston,1
+M03042,77,F,Fort Worth,0
+M03043,67,M,San Antonio,0
+M03044,20,F,Houston,0
+M03045,77,F,El Paso,1
+M03046,68,M,Dallas,1
+M03047,76,F,Houston,1
+M03048,18,M,Lubbock,0
+M03049,30,F,Houston,1
+M03050,24,M,Houston,0
+M03051,74,F,Houston,0
+M03052,79,M,Dallas,0
+M03053,18,M,Dallas,1
+M03054,65,M,Austin,0
+M03055,53,F,Dallas,1
+M03056,44,M,San Antonio,0
+M03057,44,M,Houston,0
+M03058,36,F,Dallas,0
+M03059,27,M,Corpus Christi,1
+M03060,66,M,Fort Worth,1
+M03061,42,M,Fort Worth,0
+M03062,70,F,Dallas,1
+M03063,51,F,San Antonio,0
+M03064,64,M,El Paso,1
+M03065,77,M,El Paso,1
+M03066,36,F,Austin,1
+M03067,63,M,San Antonio,0
+M03068,77,F,Houston,1
+M03069,43,F,Houston,0
+M03070,84,M,Houston,0
+M03071,24,M,Dallas,0
+M03072,80,M,Houston,0
+M03073,75,M,Dallas,0
+M03074,79,F,San Antonio,1
+M03075,28,F,San Antonio,0
+M03076,57,F,San Antonio,0
+M03077,71,M,Houston,1
+M03078,73,F,San Antonio,1
+M03079,33,M,Lubbock,0
+M03080,66,F,San Antonio,0
+M03081,39,F,El Paso,1
+M03082,64,F,Dallas,0
+M03083,31,M,Austin,0
+M03084,42,F,San Antonio,0
+M03085,53,M,Austin,0
+M03086,63,M,El Paso,0
+M03087,70,F,San Antonio,1
+M03088,35,M,Fort Worth,0
+M03089,72,F,El Paso,0
+M03090,70,F,Fort Worth,1
+M03091,67,F,Houston,1
+M03092,84,M,Houston,0
+M03093,38,M,El Paso,0
+M03094,44,F,Austin,0
+M03095,89,M,Corpus Christi,1
+M03096,80,M,Dallas,1
+M03097,71,M,Fort Worth,0
+M03098,62,M,Fort Worth,0
+M03099,40,M,El Paso,0
+M03100,64,M,Austin,0
+M03101,56,F,Houston,0
+M03102,46,M,Austin,0
+M03103,31,F,Austin,0
+M03104,30,M,Dallas,0
+M03105,69,M,Houston,1
+M03106,27,F,El Paso,1
+M03107,66,F,Houston,0
+M03108,47,M,Dallas,0
+M03109,70,M,Austin,1
+M03110,86,M,Lubbock,1
+M03111,31,M,Austin,0
+M03112,34,F,Dallas,0
+M03113,75,F,Houston,0
+M03114,76,M,Dallas,0
+M03115,70,F,Dallas,1
+M03116,34,M,Fort Worth,0
+M03117,86,F,Dallas,0
+M03118,51,F,Houston,1
+M03119,37,M,El Paso,0
+M03120,54,M,Houston,0
+M03121,24,M,Houston,0
+M03122,85,F,San Antonio,0
+M03123,76,M,Houston,1
+M03124,41,F,Houston,0
+M03125,80,M,Lubbock,0
+M03126,66,M,El Paso,1
+M03127,73,F,Fort Worth,1
+M03128,61,M,Austin,0
+M03129,63,M,Houston,0
+M03130,28,F,Fort Worth,0
+M03131,20,M,San Antonio,0
+M03132,29,F,Houston,0
+M03133,36,M,Dallas,0
+M03134,65,F,San Antonio,0
+M03135,40,F,Houston,0
+M03136,56,M,Houston,0
+M03137,63,F,Dallas,1
+M03138,70,M,San Antonio,1
+M03139,64,F,Houston,0
+M03140,82,F,San Antonio,1
+M03141,72,F,Houston,0
+M03142,70,F,San Antonio,1
+M03143,76,F,Houston,1
+M03144,44,F,Dallas,0
+M03145,64,F,Austin,0
+M03146,75,F,Austin,0
+M03147,56,F,Houston,0
+M03148,63,F,San Antonio,0
+M03149,40,F,Fort Worth,0
+M03150,76,F,Houston,0
+M03151,61,F,San Antonio,0
+M03152,62,F,San Antonio,0
+M03153,52,F,El Paso,0
+M03154,37,F,Dallas,0
+M03155,60,M,Corpus Christi,1
+M03156,33,F,Austin,0
+M03157,76,F,San Antonio,1
+M03158,61,M,Dallas,1
+M03159,66,F,San Antonio,1
+M03160,72,F,Houston,0
+M03161,75,M,Dallas,1
+M03162,47,M,Dallas,0
+M03163,73,M,Austin,1
+M03164,50,M,Fort Worth,0
+M03165,49,M,Corpus Christi,1
+M03166,30,M,Houston,0
+M03167,46,F,El Paso,0
+M03168,73,M,El Paso,1
+M03169,75,M,El Paso,0
+M03170,22,F,Fort Worth,0
+M03171,37,F,Dallas,1
+M03172,64,M,El Paso,1
+M03173,75,F,San Antonio,0
+M03174,42,M,Fort Worth,1
+M03175,34,F,Houston,0
+M03176,68,M,Houston,1
+M03177,73,F,Dallas,1
+M03178,35,M,San Antonio,1
+M03179,82,F,Dallas,1
+M03180,59,F,El Paso,1
+M03181,66,F,Houston,1
+M03182,26,F,Houston,0
+M03183,67,F,Dallas,1
+M03184,82,M,Houston,0
+M03185,46,F,Dallas,0
+M03186,27,M,Austin,0
+M03187,52,M,Lubbock,0
+M03188,66,F,Houston,0
+M03189,60,M,Dallas,0
+M03190,49,M,Fort Worth,0
+M03191,26,M,Dallas,0
+M03192,74,M,Austin,1
+M03193,34,M,San Antonio,1
+M03194,44,M,El Paso,1
+M03195,39,F,Houston,0
+M03196,74,F,Lubbock,1
+M03197,82,M,Lubbock,0
+M03198,62,F,Houston,0
+M03199,46,M,San Antonio,1
+M03200,43,F,Dallas,0
+M03201,75,F,Houston,1
+M03202,33,M,Lubbock,0
+M03203,44,F,Houston,0
+M03204,76,F,Dallas,1
+M03205,81,M,Houston,0
+M03206,37,M,San Antonio,0
+M03207,34,M,El Paso,1
+M03208,69,F,Austin,1
+M03209,56,M,Austin,0
+M03210,53,M,Houston,1
+M03211,34,M,Austin,0
+M03212,21,F,Dallas,0
+M03213,25,F,San Antonio,0
+M03214,48,F,San Antonio,0
+M03215,77,M,Lubbock,0
+M03216,51,F,Fort Worth,0
+M03217,63,F,Austin,0
+M03218,55,M,Dallas,1
+M03219,66,F,Houston,0
+M03220,53,F,San Antonio,0
+M03221,70,F,Austin,1
+M03222,84,M,Austin,1
+M03223,68,M,Austin,1
+M03224,57,M,Dallas,0
+M03225,68,M,Houston,1
+M03226,65,M,Houston,0
+M03227,33,F,Austin,0
+M03228,18,M,Lubbock,0
+M03229,67,M,San Antonio,1
+M03230,34,F,Austin,0
+M03231,80,M,Austin,0
+M03232,67,F,Houston,1
+M03233,71,M,Houston,1
+M03234,74,M,Houston,1
+M03235,27,M,Corpus Christi,0
+M03236,45,M,Houston,0
+M03237,52,F,San Antonio,1
+M03238,38,F,Dallas,0
+M03239,53,M,Austin,0
+M03240,53,F,Houston,1
+M03241,61,F,Lubbock,0
+M03242,72,M,Dallas,0
+M03243,25,F,Corpus Christi,1
+M03244,65,F,San Antonio,0
+M03245,67,F,Dallas,0
+M03246,75,F,Fort Worth,1
+M03247,44,M,San Antonio,1
+M03248,52,F,Houston,1
+M03249,88,F,Austin,0
+M03250,76,M,San Antonio,0
+M03251,77,F,San Antonio,1
+M03252,69,M,Fort Worth,0
+M03253,57,F,Austin,1
+M03254,56,F,Dallas,1
+M03255,40,M,Dallas,1
+M03256,76,M,Houston,0
+M03257,51,M,San Antonio,0
+M03258,32,F,Dallas,0
+M03259,37,F,Houston,0
+M03260,78,F,Fort Worth,0
+M03261,62,M,Houston,0
+M03262,56,F,Houston,0
+M03263,55,M,El Paso,0
+M03264,64,M,Austin,0
+M03265,66,F,Fort Worth,1
+M03266,71,F,Dallas,1
+M03267,25,F,Austin,0
+M03268,18,F,Corpus Christi,0
+M03269,50,M,Dallas,0
+M03270,84,M,Houston,1
+M03271,81,F,Houston,1
+M03272,38,F,El Paso,0
+M03273,47,F,Dallas,0
+M03274,21,F,San Antonio,0
+M03275,57,M,San Antonio,0
+M03276,79,M,Lubbock,1
+M03277,58,M,Dallas,0
+M03278,74,M,San Antonio,0
+M03279,65,F,Corpus Christi,1
+M03280,18,M,Houston,0
+M03281,73,M,San Antonio,1
+M03282,31,F,Houston,0
+M03283,78,F,Dallas,0
+M03284,18,M,Houston,0
+M03285,21,M,Dallas,1
+M03286,28,F,Houston,0
+M03287,38,M,Fort Worth,1
+M03288,86,M,San Antonio,1
+M03289,44,M,Dallas,0
+M03290,38,F,Austin,0
+M03291,73,F,Corpus Christi,1
+M03292,18,M,Dallas,0
+M03293,44,F,Houston,0
+M03294,44,F,Houston,1
+M03295,27,M,El Paso,0
+M03296,71,F,El Paso,1
+M03297,52,F,San Antonio,1
+M03298,43,M,Houston,0
+M03299,74,F,San Antonio,0
+M03300,18,M,Austin,1
+M03301,30,F,Dallas,0
+M03302,68,F,Houston,1
+M03303,54,F,Dallas,0
+M03304,49,F,Austin,0
+M03305,59,F,Lubbock,0
+M03306,79,M,Houston,0
+M03307,53,M,Corpus Christi,0
+M03308,68,F,San Antonio,1
+M03309,32,F,Austin,0
+M03310,87,M,El Paso,0
+M03311,44,F,San Antonio,0
+M03312,18,F,Houston,1
+M03313,47,F,Dallas,0
+M03314,31,F,Fort Worth,0
+M03315,58,F,San Antonio,0
+M03316,49,F,Dallas,0
+M03317,73,M,San Antonio,0
+M03318,63,F,Dallas,0
+M03319,55,F,Houston,0
+M03320,30,F,Fort Worth,1
+M03321,39,F,Dallas,1
+M03322,49,M,Dallas,1
+M03323,36,M,Dallas,0
+M03324,37,M,Corpus Christi,0
+M03325,75,F,Houston,1
+M03326,27,F,Houston,0
+M03327,18,F,Dallas,0
+M03328,45,M,Houston,0
+M03329,18,M,Houston,0
+M03330,78,F,Houston,1
+M03331,68,F,Houston,1
+M03332,18,F,Austin,0
+M03333,68,F,Houston,1
+M03334,77,F,Dallas,0
+M03335,73,M,Austin,1
+M03336,23,M,Houston,0
+M03337,32,F,Houston,0
+M03338,58,F,Lubbock,0
+M03339,80,F,San Antonio,1
+M03340,53,F,Austin,0
+M03341,78,M,San Antonio,1
+M03342,38,F,Lubbock,0
+M03343,18,M,Houston,0
+M03344,64,M,Houston,1
+M03345,40,F,Fort Worth,0
+M03346,69,M,Houston,0
+M03347,79,M,San Antonio,1
+M03348,42,M,Houston,0
+M03349,76,F,Dallas,1
+M03350,35,M,Austin,1
+M03351,74,F,San Antonio,1
+M03352,69,F,San Antonio,1
+M03353,59,M,Houston,0
+M03354,54,F,Dallas,0
+M03355,53,F,Austin,0
+M03356,76,F,Houston,1
+M03357,36,F,San Antonio,1
+M03358,37,F,San Antonio,0
+M03359,65,F,Dallas,1
+M03360,81,M,Dallas,0
+M03361,18,M,Fort Worth,1
+M03362,73,F,Dallas,0
+M03363,33,M,Houston,0
+M03364,54,M,Lubbock,0
+M03365,47,M,Houston,1
+M03366,18,M,Fort Worth,1
+M03367,45,M,Houston,1
+M03368,44,F,Dallas,1
+M03369,47,M,San Antonio,0
+M03370,50,M,Houston,0
+M03371,64,M,Fort Worth,0
+M03372,47,F,Dallas,0
+M03373,42,M,San Antonio,0
+M03374,58,M,Fort Worth,0
+M03375,73,F,San Antonio,1
+M03376,54,M,San Antonio,0
+M03377,83,M,Dallas,0
+M03378,48,F,Houston,0
+M03379,61,F,Corpus Christi,0
+M03380,88,M,San Antonio,0
+M03381,80,M,Austin,0
+M03382,67,F,San Antonio,0
+M03383,63,M,Dallas,0
+M03384,40,F,Houston,0
+M03385,69,M,Houston,0
+M03386,39,M,Dallas,0
+M03387,77,M,Houston,1
+M03388,50,F,Houston,1
+M03389,43,F,San Antonio,0
+M03390,75,M,San Antonio,1
+M03391,62,F,Dallas,0
+M03392,57,F,Fort Worth,1
+M03393,64,F,San Antonio,1
+M03394,69,F,Houston,0
+M03395,41,M,Fort Worth,0
+M03396,51,F,San Antonio,0
+M03397,65,F,San Antonio,1
+M03398,43,F,El Paso,0
+M03399,72,F,Houston,1
+M03400,21,F,San Antonio,0
+M03401,75,M,Dallas,1
+M03402,67,M,Houston,0
+M03403,38,M,Dallas,0
+M03404,47,F,Dallas,0
+M03405,59,F,Houston,1
+M03406,30,F,San Antonio,0
+M03407,73,M,Dallas,1
+M03408,88,M,Dallas,0
+M03409,61,M,Houston,0
+M03410,33,F,Dallas,0
+M03411,70,M,San Antonio,1
+M03412,50,M,San Antonio,0
+M03413,73,F,Austin,0
+M03414,81,M,Lubbock,1
+M03415,72,M,Houston,1
+M03416,82,F,Dallas,1
+M03417,71,M,El Paso,1
+M03418,59,M,Austin,0
+M03419,66,M,Lubbock,0
+M03420,39,F,Austin,0
+M03421,47,F,Austin,0
+M03422,41,M,Houston,0
+M03423,49,F,Dallas,1
+M03424,77,F,San Antonio,1
+M03425,68,F,San Antonio,0
+M03426,70,F,Fort Worth,1
+M03427,49,M,Lubbock,0
+M03428,36,M,Houston,0
+M03429,83,F,Dallas,1
+M03430,48,M,El Paso,0
+M03431,37,F,Fort Worth,0
+M03432,56,F,Fort Worth,0
+M03433,44,F,Austin,0
+M03434,44,F,Lubbock,0
+M03435,40,F,Dallas,0
+M03436,65,M,Houston,0
+M03437,69,F,Houston,1
+M03438,60,M,Dallas,0
+M03439,24,F,Fort Worth,0
+M03440,52,M,San Antonio,0
+M03441,62,M,Austin,0
+M03442,35,F,Dallas,1
+M03443,69,M,Austin,0
+M03444,42,M,Houston,0
+M03445,79,F,San Antonio,0
+M03446,18,M,Houston,0
+M03447,48,M,San Antonio,1
+M03448,72,F,Dallas,1
+M03449,72,M,Austin,0
+M03450,63,F,San Antonio,0
+M03451,67,M,Lubbock,1
+M03452,64,M,El Paso,1
+M03453,41,M,Dallas,0
+M03454,68,M,Houston,0
+M03455,84,M,Houston,0
+M03456,69,F,Houston,1
+M03457,40,F,Houston,0
+M03458,91,M,El Paso,1
+M03459,70,F,Corpus Christi,0
+M03460,76,M,Houston,0
+M03461,77,F,Fort Worth,1
+M03462,77,F,Fort Worth,0
+M03463,74,F,Dallas,1
+M03464,73,F,El Paso,1
+M03465,72,F,Lubbock,1
+M03466,56,F,Lubbock,1
+M03467,74,M,Fort Worth,1
+M03468,88,M,Dallas,1
+M03469,36,M,Houston,1
+M03470,56,F,Lubbock,1
+M03471,44,F,Dallas,1
+M03472,65,M,Dallas,0
+M03473,69,F,Dallas,0
+M03474,79,F,San Antonio,1
+M03475,83,M,Houston,1
+M03476,65,F,Fort Worth,0
+M03477,47,M,San Antonio,0
+M03478,89,F,Dallas,1
+M03479,33,F,Dallas,0
+M03480,86,F,San Antonio,1
+M03481,73,M,Fort Worth,1
+M03482,72,M,El Paso,0
+M03483,54,M,El Paso,0
+M03484,79,F,San Antonio,1
+M03485,70,M,Fort Worth,1
+M03486,63,M,San Antonio,0
+M03487,69,M,Austin,0
+M03488,54,M,Austin,0
+M03489,70,M,Dallas,0
+M03490,68,M,San Antonio,1
+M03491,33,F,Austin,1
+M03492,80,M,Dallas,0
+M03493,68,F,Fort Worth,1
+M03494,73,M,Dallas,0
+M03495,40,F,San Antonio,0
+M03496,56,F,Fort Worth,1
+M03497,72,F,Houston,1
+M03498,72,M,Houston,1
+M03499,44,F,San Antonio,0
+M03500,66,M,Houston,1
+M03501,44,M,Houston,1
+M03502,34,F,Fort Worth,0
+M03503,56,F,Houston,0
+M03504,63,M,Austin,0
+M03505,57,M,Houston,0
+M03506,75,F,Houston,1
+M03507,57,M,Dallas,0
+M03508,46,F,Lubbock,0
+M03509,85,M,San Antonio,1
+M03510,29,M,Dallas,1
+M03511,50,F,Dallas,0
+M03512,74,F,San Antonio,1
+M03513,64,M,Austin,1
+M03514,62,F,Dallas,0
+M03515,18,F,Houston,0
+M03516,81,F,San Antonio,1
+M03517,33,M,Austin,0
+M03518,57,F,Fort Worth,0
+M03519,31,F,San Antonio,0
+M03520,30,M,Austin,0
+M03521,42,M,San Antonio,0
+M03522,42,M,San Antonio,0
+M03523,31,F,Austin,0
+M03524,69,F,Houston,1
+M03525,38,F,Corpus Christi,0
+M03526,43,F,Dallas,0
+M03527,36,F,Austin,0
+M03528,48,F,San Antonio,1
+M03529,59,M,El Paso,0
+M03530,65,F,Houston,0
+M03531,75,F,El Paso,0
+M03532,57,M,Houston,1
+M03533,49,F,Houston,0
+M03534,55,M,El Paso,0
+M03535,81,F,Houston,1
+M03536,39,M,Austin,0
+M03537,55,F,San Antonio,0
+M03538,55,F,Corpus Christi,0
+M03539,63,M,Fort Worth,0
+M03540,44,F,Dallas,0
+M03541,40,F,Fort Worth,0
+M03542,67,F,Houston,1
+M03543,19,F,Austin,1
+M03544,69,F,Fort Worth,0
+M03545,26,M,Austin,0
+M03546,53,F,Austin,0
+M03547,70,M,Fort Worth,1
+M03548,43,M,San Antonio,0
+M03549,72,F,Corpus Christi,1
+M03550,58,M,Houston,0
+M03551,33,F,Dallas,1
+M03552,82,F,Fort Worth,0
+M03553,44,M,Dallas,0
+M03554,78,M,San Antonio,0
+M03555,53,F,Fort Worth,0
+M03556,78,M,San Antonio,0
+M03557,67,M,Houston,1
+M03558,62,F,Houston,1
+M03559,41,M,Dallas,0
+M03560,46,M,Dallas,0
+M03561,31,M,Houston,0
+M03562,57,M,Fort Worth,0
+M03563,66,F,Dallas,1
+M03564,80,M,Fort Worth,1
+M03565,66,F,Lubbock,0
+M03566,68,M,Dallas,1
+M03567,73,M,Lubbock,0
+M03568,56,M,Houston,0
+M03569,74,F,Austin,1
+M03570,66,F,Lubbock,1
+M03571,79,M,Fort Worth,0
+M03572,85,F,Houston,0
+M03573,39,F,Houston,1
+M03574,35,F,Dallas,0
+M03575,75,M,Corpus Christi,0
+M03576,30,F,Houston,0
+M03577,39,M,San Antonio,0
+M03578,57,F,Dallas,0
+M03579,20,M,Dallas,1
+M03580,46,F,Dallas,0
+M03581,61,F,Dallas,0
+M03582,39,F,San Antonio,0
+M03583,34,F,Dallas,0
+M03584,54,M,San Antonio,0
+M03585,62,M,San Antonio,0
+M03586,41,M,Dallas,0
+M03587,27,M,Fort Worth,0
+M03588,59,M,San Antonio,0
+M03589,39,M,San Antonio,0
+M03590,24,M,Houston,0
+M03591,69,F,Houston,0
+M03592,57,F,Fort Worth,1
+M03593,67,M,El Paso,1
+M03594,43,M,Houston,0
+M03595,76,M,Dallas,0
+M03596,51,F,Dallas,0
+M03597,36,M,Austin,0
+M03598,76,F,Houston,1
+M03599,68,F,Lubbock,1
+M03600,72,M,Houston,0
+M03601,78,M,Lubbock,1
+M03602,49,F,Houston,0
+M03603,28,F,Dallas,0
+M03604,46,M,Houston,0
+M03605,71,F,Houston,1
+M03606,70,F,Lubbock,1
+M03607,49,M,San Antonio,1
+M03608,69,M,Houston,0
+M03609,61,F,Lubbock,0
+M03610,73,F,Houston,1
+M03611,73,M,Houston,0
+M03612,77,F,Houston,1
+M03613,83,F,San Antonio,1
+M03614,48,F,Corpus Christi,1
+M03615,39,F,Houston,0
+M03616,42,M,Austin,1
+M03617,45,F,Dallas,1
+M03618,58,M,Houston,1
+M03619,69,F,Austin,1
+M03620,31,M,Fort Worth,0
+M03621,64,M,San Antonio,0
+M03622,69,M,Houston,0
+M03623,70,M,Houston,0
+M03624,68,F,Fort Worth,1
+M03625,78,F,San Antonio,0
+M03626,18,M,Dallas,0
+M03627,41,M,Houston,0
+M03628,41,M,Fort Worth,1
+M03629,46,F,Houston,0
+M03630,28,F,Austin,0
+M03631,60,F,Austin,1
+M03632,22,M,Houston,0
+M03633,60,F,San Antonio,0
+M03634,81,F,San Antonio,0
+M03635,67,M,San Antonio,0
+M03636,71,F,El Paso,1
+M03637,31,M,San Antonio,1
+M03638,46,F,Houston,0
+M03639,56,M,Dallas,1
+M03640,67,F,Austin,0
+M03641,23,M,Dallas,0
+M03642,67,M,Fort Worth,1
+M03643,81,F,Houston,1
+M03644,69,F,Houston,0
+M03645,66,M,Houston,0
+M03646,35,M,El Paso,1
+M03647,67,F,Austin,1
+M03648,50,M,San Antonio,1
+M03649,51,F,Dallas,0
+M03650,30,F,Corpus Christi,1
+M03651,34,F,El Paso,1
+M03652,45,F,Dallas,0
+M03653,59,F,Fort Worth,0
+M03654,38,F,Corpus Christi,0
+M03655,41,F,Dallas,0
+M03656,77,F,Dallas,1
+M03657,82,M,San Antonio,0
+M03658,66,M,Dallas,1
+M03659,74,F,Fort Worth,0
+M03660,62,F,San Antonio,0
+M03661,77,M,Houston,1
+M03662,20,F,Dallas,0
+M03663,74,M,Austin,1
+M03664,59,F,Houston,0
+M03665,69,F,Dallas,0
+M03666,44,F,Houston,0
+M03667,78,M,Fort Worth,0
+M03668,29,F,Houston,1
+M03669,67,F,Houston,0
+M03670,66,F,Fort Worth,0
+M03671,75,M,Houston,0
+M03672,51,F,Austin,1
+M03673,59,M,Dallas,0
+M03674,40,F,Fort Worth,0
+M03675,65,F,Houston,0
+M03676,35,F,Houston,0
+M03677,59,M,Houston,0
+M03678,74,F,Corpus Christi,1
+M03679,71,F,Fort Worth,1
+M03680,54,M,Dallas,0
+M03681,57,F,Houston,0
+M03682,40,F,Houston,0
+M03683,87,F,Houston,0
+M03684,66,M,Houston,1
+M03685,58,F,El Paso,0
+M03686,68,M,Houston,1
+M03687,72,M,El Paso,1
+M03688,44,F,Houston,0
+M03689,41,F,Fort Worth,0
+M03690,50,M,Dallas,0
+M03691,45,M,Houston,0
+M03692,51,M,Fort Worth,0
+M03693,80,F,Houston,1
+M03694,62,M,El Paso,0
+M03695,52,M,Fort Worth,0
+M03696,49,M,Lubbock,0
+M03697,75,F,Fort Worth,0
+M03698,73,M,Houston,1
+M03699,56,M,Dallas,0
+M03700,40,M,Austin,0
+M03701,55,M,Dallas,0
+M03702,44,M,San Antonio,1
+M03703,68,F,Houston,1
+M03704,60,F,Austin,0
+M03705,58,F,Dallas,0
+M03706,58,M,Houston,0
+M03707,76,F,Lubbock,1
+M03708,62,M,El Paso,0
+M03709,32,M,Dallas,0
+M03710,68,M,Houston,1
+M03711,45,M,Fort Worth,1
+M03712,75,M,Houston,0
+M03713,38,F,Austin,0
+M03714,32,F,Fort Worth,0
+M03715,37,F,Dallas,0
+M03716,37,M,Dallas,0
+M03717,31,F,Houston,0
+M03718,45,F,Dallas,0
+M03719,47,M,San Antonio,1
+M03720,28,F,Houston,1
+M03721,59,M,Corpus Christi,0
+M03722,84,F,Austin,0
+M03723,80,M,Houston,0
+M03724,52,F,San Antonio,0
+M03725,49,M,Dallas,0
+M03726,64,M,Dallas,1
+M03727,81,F,San Antonio,1
+M03728,81,F,Houston,1
+M03729,85,M,Houston,0
+M03730,69,F,Houston,1
+M03731,18,M,Houston,1
+M03732,78,F,Austin,1
+M03733,49,M,Lubbock,0
+M03734,40,F,Austin,0
+M03735,51,M,Lubbock,1
+M03736,85,M,San Antonio,0
+M03737,32,F,Dallas,1
+M03738,34,F,El Paso,0
+M03739,39,M,Houston,0
+M03740,53,M,Houston,0
+M03741,67,M,Corpus Christi,1
+M03742,37,M,Austin,1
+M03743,75,M,Corpus Christi,1
+M03744,76,M,Houston,0
+M03745,57,M,Fort Worth,0
+M03746,29,F,Houston,1
+M03747,71,F,Dallas,0
+M03748,61,M,El Paso,0
+M03749,70,M,Dallas,0
+M03750,60,F,Austin,0
+M03751,60,F,El Paso,0
+M03752,75,M,El Paso,1
+M03753,33,M,Houston,0
+M03754,71,F,Houston,0
+M03755,78,M,Corpus Christi,1
+M03756,57,F,San Antonio,0
+M03757,73,F,San Antonio,0
+M03758,77,M,Houston,1
+M03759,28,F,Houston,0
+M03760,41,M,Corpus Christi,1
+M03761,30,F,San Antonio,0
+M03762,71,M,Fort Worth,1
+M03763,67,F,Houston,0
+M03764,40,M,Houston,0
+M03765,71,M,San Antonio,1
+M03766,58,F,El Paso,0
+M03767,73,M,Dallas,1
+M03768,68,F,Dallas,1
+M03769,59,F,San Antonio,1
+M03770,34,M,Houston,0
+M03771,56,M,Dallas,0
+M03772,63,M,San Antonio,1
+M03773,67,M,Houston,0
+M03774,23,F,Austin,0
+M03775,82,F,Houston,1
+M03776,80,F,Austin,0
+M03777,70,F,Fort Worth,1
+M03778,37,M,Fort Worth,0
+M03779,75,F,Austin,1
+M03780,52,M,San Antonio,0
+M03781,81,F,Dallas,1
+M03782,75,F,Dallas,1
+M03783,62,M,Houston,0
+M03784,67,F,Austin,0
+M03785,87,M,Houston,0
+M03786,43,M,Dallas,0
+M03787,48,M,San Antonio,0
+M03788,79,M,Austin,1
+M03789,68,M,Dallas,1
+M03790,56,F,San Antonio,1
+M03791,84,M,San Antonio,1
+M03792,75,F,Corpus Christi,0
+M03793,68,F,Austin,1
+M03794,62,M,Houston,0
+M03795,42,M,El Paso,1
+M03796,25,M,Houston,0
+M03797,53,M,Dallas,1
+M03798,19,M,Houston,1
+M03799,67,M,San Antonio,0
+M03800,67,F,Austin,1
+M03801,83,F,San Antonio,0
+M03802,83,F,Fort Worth,1
+M03803,56,M,San Antonio,0
+M03804,76,F,Houston,1
+M03805,42,F,San Antonio,0
+M03806,63,F,Fort Worth,0
+M03807,74,M,San Antonio,0
+M03808,44,F,San Antonio,0
+M03809,68,F,San Antonio,1
+M03810,61,F,San Antonio,0
+M03811,68,F,Dallas,1
+M03812,50,F,El Paso,0
+M03813,63,M,Houston,0
+M03814,21,F,Houston,1
+M03815,75,F,Fort Worth,1
+M03816,86,M,El Paso,0
+M03817,46,M,Austin,0
+M03818,67,F,San Antonio,0
+M03819,86,F,Lubbock,1
+M03820,55,M,Dallas,0
+M03821,70,M,Dallas,1
+M03822,55,F,San Antonio,0
+M03823,50,M,Dallas,0
+M03824,77,F,San Antonio,0
+M03825,59,F,Lubbock,0
+M03826,82,F,Houston,0
+M03827,41,M,Houston,1
+M03828,82,F,Dallas,0
+M03829,71,F,San Antonio,1
+M03830,65,F,Austin,0
+M03831,60,F,Corpus Christi,0
+M03832,59,F,Austin,0
+M03833,52,M,Lubbock,0
+M03834,18,M,Houston,0
+M03835,23,F,Houston,1
+M03836,44,F,Dallas,0
+M03837,41,M,Fort Worth,0
+M03838,35,F,Houston,0
+M03839,68,F,Houston,1
+M03840,43,M,Dallas,0
+M03841,49,M,Dallas,0
+M03842,59,F,Austin,0
+M03843,61,F,El Paso,0
+M03844,76,F,Houston,1
+M03845,28,F,San Antonio,0
+M03846,70,M,Houston,1
+M03847,28,M,Houston,0
+M03848,76,F,Dallas,1
+M03849,53,F,San Antonio,0
+M03850,63,F,San Antonio,1
+M03851,29,F,Austin,0
+M03852,61,M,Fort Worth,0
+M03853,79,F,Houston,0
+M03854,74,M,Fort Worth,0
+M03855,62,M,Austin,1
+M03856,77,M,Houston,1
+M03857,46,M,Dallas,0
+M03858,33,M,Houston,1
+M03859,39,M,Houston,1
+M03860,25,F,Dallas,0
+M03861,79,F,Houston,0
+M03862,52,F,El Paso,1
+M03863,55,M,El Paso,0
+M03864,69,M,San Antonio,1
+M03865,40,F,Fort Worth,0
+M03866,80,M,Lubbock,1
+M03867,54,M,Dallas,0
+M03868,61,M,San Antonio,0
+M03869,62,F,Austin,0
+M03870,62,F,Corpus Christi,1
+M03871,47,F,Fort Worth,0
+M03872,71,F,Houston,1
+M03873,25,M,Austin,0
+M03874,84,F,Houston,1
+M03875,23,F,Houston,0
+M03876,40,F,San Antonio,0
+M03877,54,M,Austin,0
+M03878,69,F,Houston,1
+M03879,44,M,Dallas,0
+M03880,81,F,Austin,1
+M03881,82,M,Houston,0
+M03882,79,F,El Paso,0
+M03883,61,F,San Antonio,0
+M03884,32,M,San Antonio,1
+M03885,51,M,Houston,0
+M03886,58,M,Corpus Christi,0
+M03887,38,M,El Paso,0
+M03888,80,F,Houston,0
+M03889,70,M,Austin,1
+M03890,39,F,Fort Worth,0
+M03891,70,M,Houston,1
+M03892,49,M,San Antonio,0
+M03893,67,M,El Paso,1
+M03894,51,M,San Antonio,1
+M03895,47,M,Corpus Christi,0
+M03896,80,F,Houston,0
+M03897,69,F,Corpus Christi,1
+M03898,69,M,Lubbock,1
+M03899,32,M,Houston,0
+M03900,18,F,Dallas,0
+M03901,74,M,Austin,1
+M03902,61,F,El Paso,0
+M03903,71,M,Houston,1
+M03904,36,M,Dallas,1
+M03905,47,F,Fort Worth,0
+M03906,18,F,Dallas,1
+M03907,45,M,Austin,0
+M03908,73,F,San Antonio,0
+M03909,40,M,Lubbock,0
+M03910,18,F,Houston,0
+M03911,75,F,Corpus Christi,0
+M03912,59,F,San Antonio,0
+M03913,54,M,El Paso,0
+M03914,22,M,Houston,0
+M03915,75,M,Austin,0
+M03916,24,M,El Paso,0
+M03917,38,M,Fort Worth,0
+M03918,54,F,Houston,0
+M03919,27,F,San Antonio,0
+M03920,35,M,Houston,1
+M03921,50,F,Houston,0
+M03922,60,M,Austin,1
+M03923,68,M,Corpus Christi,1
+M03924,27,M,Austin,1
+M03925,48,M,Houston,0
+M03926,79,M,Houston,1
+M03927,45,M,Dallas,0
+M03928,45,M,Houston,0
+M03929,40,F,El Paso,0
+M03930,43,F,Houston,0
+M03931,72,F,Houston,1
+M03932,56,M,Austin,0
+M03933,72,M,Houston,0
+M03934,44,M,Dallas,0
+M03935,41,F,San Antonio,0
+M03936,45,M,Houston,0
+M03937,32,F,San Antonio,0
+M03938,52,M,San Antonio,0
+M03939,48,F,Austin,0
+M03940,58,M,Houston,0
+M03941,54,M,Dallas,0
+M03942,42,F,Austin,0
+M03943,69,F,Houston,1
+M03944,46,F,Houston,1
+M03945,45,F,Dallas,0
+M03946,55,F,Houston,0
+M03947,53,F,Houston,0
+M03948,72,F,Lubbock,0
+M03949,35,F,San Antonio,0
+M03950,67,M,San Antonio,0
+M03951,75,F,Houston,0
+M03952,48,F,Houston,0
+M03953,89,M,Fort Worth,0
+M03954,75,F,Austin,1
+M03955,55,M,Lubbock,1
+M03956,63,M,Houston,1
+M03957,76,M,Houston,0
+M03958,66,F,Austin,0
+M03959,26,M,Dallas,0
+M03960,77,M,Houston,0
+M03961,52,M,Dallas,0
+M03962,37,F,Houston,0
+M03963,83,M,Fort Worth,1
+M03964,27,M,El Paso,0
+M03965,78,M,Austin,1
+M03966,18,F,Dallas,0
+M03967,60,F,Fort Worth,0
+M03968,49,F,Austin,1
+M03969,64,F,Fort Worth,0
+M03970,32,M,San Antonio,0
+M03971,76,F,Corpus Christi,0
+M03972,21,F,Dallas,0
+M03973,62,F,Austin,0
+M03974,67,M,Fort Worth,0
+M03975,72,M,El Paso,1
+M03976,46,M,Corpus Christi,0
+M03977,38,M,Dallas,0
+M03978,32,M,Austin,0
+M03979,18,F,Dallas,0
+M03980,47,F,Austin,1
+M03981,61,M,Houston,0
+M03982,34,M,Dallas,0
+M03983,27,F,Corpus Christi,0
+M03984,42,M,Fort Worth,0
+M03985,48,F,San Antonio,1
+M03986,43,M,Houston,0
+M03987,64,M,Dallas,0
+M03988,51,F,Houston,0
+M03989,71,M,Houston,1
+M03990,52,M,El Paso,0
+M03991,42,M,San Antonio,0
+M03992,42,M,Houston,0
+M03993,60,F,Austin,0
+M03994,80,F,Houston,1
+M03995,66,F,Dallas,1
+M03996,79,F,Houston,1
+M03997,46,F,Houston,0
+M03998,84,M,San Antonio,1
+M03999,18,F,Austin,1
+M04000,18,M,San Antonio,0
+M04001,71,F,Fort Worth,1
+M04002,50,F,Corpus Christi,0
+M04003,33,M,Fort Worth,0
+M04004,80,M,Corpus Christi,0
+M04005,28,M,Corpus Christi,0
+M04006,68,F,Fort Worth,0
+M04007,63,M,Dallas,0
+M04008,67,F,Houston,1
+M04009,18,M,Austin,0
+M04010,66,M,El Paso,1
+M04011,56,F,Fort Worth,0
+M04012,28,M,Austin,0
+M04013,49,M,Fort Worth,0
+M04014,86,F,Austin,1
+M04015,68,F,Austin,0
+M04016,74,M,Houston,0
+M04017,67,F,San Antonio,0
+M04018,36,F,Houston,1
+M04019,58,F,Houston,0
+M04020,59,M,San Antonio,0
+M04021,62,F,Houston,0
+M04022,18,M,Corpus Christi,0
+M04023,80,M,San Antonio,0
+M04024,42,F,Austin,0
+M04025,67,F,Houston,0
+M04026,18,M,El Paso,0
+M04027,18,F,San Antonio,1
+M04028,80,F,San Antonio,0
+M04029,68,F,Austin,1
+M04030,71,M,San Antonio,1
+M04031,83,M,San Antonio,1
+M04032,75,F,Fort Worth,1
+M04033,30,F,Fort Worth,1
+M04034,45,F,Dallas,0
+M04035,65,M,Corpus Christi,0
+M04036,18,F,Dallas,0
+M04037,76,M,Dallas,0
+M04038,47,M,Dallas,0
+M04039,73,F,Dallas,0
+M04040,34,M,Dallas,0
+M04041,62,M,El Paso,0
+M04042,78,M,San Antonio,0
+M04043,75,F,Lubbock,1
+M04044,69,M,Houston,1
+M04045,42,F,Austin,0
+M04046,47,M,Houston,1
+M04047,34,F,San Antonio,0
+M04048,40,F,Dallas,0
+M04049,33,M,Austin,0
+M04050,47,F,Fort Worth,0
+M04051,23,F,Houston,1
+M04052,50,M,Houston,0
+M04053,66,F,Dallas,1
+M04054,39,M,Houston,0
+M04055,63,M,Austin,0
+M04056,75,F,San Antonio,0
+M04057,32,M,Fort Worth,0
+M04058,71,M,Lubbock,1
+M04059,76,M,Dallas,1
+M04060,79,F,Corpus Christi,0
+M04061,33,M,Fort Worth,0
+M04062,39,M,Houston,0
+M04063,68,F,Fort Worth,0
+M04064,77,M,San Antonio,1
+M04065,46,F,Austin,1
+M04066,42,F,Austin,0
+M04067,68,F,El Paso,1
+M04068,52,M,Fort Worth,0
+M04069,33,F,Fort Worth,1
+M04070,57,F,Dallas,0
+M04071,52,F,Lubbock,0
+M04072,47,F,Austin,1
+M04073,18,M,Fort Worth,1
+M04074,74,F,El Paso,0
+M04075,43,F,Houston,0
+M04076,37,M,Dallas,0
+M04077,44,F,Fort Worth,0
+M04078,18,F,Corpus Christi,0
+M04079,18,M,Fort Worth,0
+M04080,28,M,San Antonio,0
+M04081,45,F,Houston,0
+M04082,70,M,San Antonio,1
+M04083,63,M,Dallas,0
+M04084,75,M,El Paso,0
+M04085,38,F,San Antonio,0
+M04086,73,M,Dallas,1
+M04087,38,M,San Antonio,0
+M04088,85,M,Corpus Christi,1
+M04089,67,M,Austin,0
+M04090,42,M,Houston,0
+M04091,66,M,San Antonio,0
+M04092,54,F,San Antonio,1
+M04093,81,F,Dallas,1
+M04094,46,M,Fort Worth,0
+M04095,85,F,Dallas,0
+M04096,37,M,San Antonio,0
+M04097,54,M,San Antonio,0
+M04098,69,M,San Antonio,0
+M04099,81,F,San Antonio,0
+M04100,79,M,Austin,0
+M04101,62,M,Houston,0
+M04102,48,F,Dallas,0
+M04103,73,M,Fort Worth,1
+M04104,67,F,El Paso,1
+M04105,32,M,Houston,0
+M04106,42,F,Houston,1
+M04107,35,M,Corpus Christi,1
+M04108,40,F,Houston,0
+M04109,55,F,Lubbock,0
+M04110,49,F,Fort Worth,0
+M04111,58,F,Houston,0
+M04112,68,M,Houston,1
+M04113,80,M,Lubbock,1
+M04114,46,F,Houston,0
+M04115,65,F,San Antonio,0
+M04116,64,M,Houston,0
+M04117,53,F,Austin,0
+M04118,33,F,El Paso,0
+M04119,31,F,Austin,1
+M04120,79,M,Houston,0
+M04121,37,M,San Antonio,0
+M04122,56,F,Austin,0
+M04123,55,M,Houston,0
+M04124,42,M,Fort Worth,0
+M04125,51,M,Austin,0
+M04126,53,M,Houston,0
+M04127,60,M,Corpus Christi,1
+M04128,47,M,San Antonio,0
+M04129,50,M,Houston,0
+M04130,48,F,Houston,0
+M04131,74,M,Dallas,0
+M04132,64,M,Dallas,0
+M04133,37,F,Dallas,1
+M04134,86,F,Fort Worth,1
+M04135,21,F,Austin,0
+M04136,51,F,Houston,0
+M04137,46,F,Austin,0
+M04138,81,F,Austin,0
+M04139,38,F,San Antonio,0
+M04140,68,M,Lubbock,1
+M04141,44,F,Dallas,0
+M04142,26,F,Houston,0
+M04143,78,F,Houston,1
+M04144,81,F,Dallas,1
+M04145,60,F,San Antonio,0
+M04146,38,M,Houston,0
+M04147,37,F,San Antonio,0
+M04148,82,F,El Paso,0
+M04149,73,M,Fort Worth,1
+M04150,64,M,Austin,0
+M04151,68,F,Austin,0
+M04152,54,F,Fort Worth,0
+M04153,18,M,San Antonio,1
+M04154,61,F,Dallas,0
+M04155,18,F,Dallas,0
+M04156,76,M,Houston,1
+M04157,36,M,San Antonio,1
+M04158,65,M,San Antonio,0
+M04159,62,F,Houston,0
+M04160,35,M,Dallas,0
+M04161,75,M,Fort Worth,1
+M04162,30,M,Houston,1
+M04163,53,F,Dallas,0
+M04164,36,F,Houston,1
+M04165,75,F,Houston,1
+M04166,49,M,Fort Worth,0
+M04167,29,F,Houston,0
+M04168,77,F,Dallas,1
+M04169,43,F,Lubbock,0
+M04170,33,F,San Antonio,0
+M04171,35,M,Austin,1
+M04172,63,F,Austin,1
+M04173,56,F,Houston,0
+M04174,36,M,Dallas,0
+M04175,39,M,Dallas,0
+M04176,68,M,Houston,1
+M04177,70,M,Houston,0
+M04178,70,F,Austin,0
+M04179,82,F,Houston,1
+M04180,18,F,Houston,1
+M04181,81,M,San Antonio,0
+M04182,62,M,San Antonio,1
+M04183,77,F,Austin,1
+M04184,26,M,Houston,0
+M04185,64,M,Austin,0
+M04186,22,M,El Paso,0
+M04187,71,F,San Antonio,0
+M04188,35,F,El Paso,0
+M04189,59,M,Dallas,0
+M04190,66,M,Houston,1
+M04191,40,M,Dallas,0
+M04192,59,M,San Antonio,0
+M04193,37,F,El Paso,0
+M04194,60,M,Dallas,0
+M04195,90,F,Dallas,1
+M04196,34,F,El Paso,0
+M04197,24,F,Houston,0
+M04198,71,F,Austin,1
+M04199,50,F,Dallas,0
+M04200,47,M,Corpus Christi,0
+M04201,56,M,Houston,0
+M04202,70,F,Austin,0
+M04203,65,F,San Antonio,1
+M04204,75,F,Lubbock,0
+M04205,82,F,Lubbock,1
+M04206,80,F,Fort Worth,0
+M04207,43,M,Houston,0
+M04208,45,M,San Antonio,0
+M04209,21,F,El Paso,0
+M04210,70,M,Austin,0
+M04211,61,M,El Paso,0
+M04212,51,F,Fort Worth,0
+M04213,31,F,Dallas,0
+M04214,24,F,Houston,0
+M04215,83,F,Dallas,1
+M04216,37,M,Austin,0
+M04217,71,F,San Antonio,1
+M04218,63,F,Houston,0
+M04219,78,F,Fort Worth,0
+M04220,41,F,Houston,0
+M04221,66,M,Dallas,0
+M04222,73,F,San Antonio,0
+M04223,47,M,San Antonio,0
+M04224,58,F,Houston,0
+M04225,63,F,Fort Worth,0
+M04226,74,F,El Paso,0
+M04227,34,M,Austin,0
+M04228,80,F,Corpus Christi,0
+M04229,64,M,Houston,0
+M04230,46,F,Houston,0
+M04231,71,M,Houston,1
+M04232,69,M,Austin,0
+M04233,75,M,Houston,0
+M04234,71,F,Corpus Christi,1
+M04235,66,F,San Antonio,1
+M04236,72,M,Fort Worth,1
+M04237,70,M,Dallas,1
+M04238,70,F,Fort Worth,1
+M04239,64,F,San Antonio,0
+M04240,42,F,San Antonio,1
+M04241,72,F,Fort Worth,1
+M04242,24,F,Houston,0
+M04243,46,F,El Paso,0
+M04244,39,F,Austin,0
+M04245,77,M,Fort Worth,1
+M04246,73,M,Houston,1
+M04247,67,M,Houston,1
+M04248,67,F,Houston,1
+M04249,77,M,Austin,1
+M04250,79,F,Houston,1
+M04251,36,M,Lubbock,1
+M04252,57,F,Lubbock,0
+M04253,54,F,Houston,0
+M04254,67,M,Austin,1
+M04255,53,F,Dallas,0
+M04256,54,M,Dallas,0
+M04257,77,M,Houston,1
+M04258,32,F,Fort Worth,0
+M04259,42,F,El Paso,0
+M04260,40,M,Houston,0
+M04261,61,M,Dallas,0
+M04262,51,M,San Antonio,0
+M04263,73,F,San Antonio,1
+M04264,68,M,Houston,0
+M04265,18,F,Fort Worth,0
+M04266,56,F,Corpus Christi,0
+M04267,46,M,Dallas,0
+M04268,64,F,El Paso,0
+M04269,68,F,Austin,0
+M04270,74,F,San Antonio,1
+M04271,54,M,Fort Worth,1
+M04272,73,M,San Antonio,1
+M04273,70,M,San Antonio,1
+M04274,66,F,Dallas,0
+M04275,35,F,Austin,0
+M04276,63,M,Houston,0
+M04277,65,F,Houston,1
+M04278,46,F,San Antonio,0
+M04279,69,F,Dallas,1
+M04280,37,M,Houston,0
+M04281,84,M,Houston,1
+M04282,40,F,El Paso,0
+M04283,53,F,San Antonio,0
+M04284,35,M,Dallas,0
+M04285,63,M,El Paso,0
+M04286,58,F,Fort Worth,0
+M04287,47,F,Houston,0
+M04288,56,M,San Antonio,0
+M04289,52,M,Dallas,1
+M04290,72,M,San Antonio,1
+M04291,69,M,Austin,0
+M04292,31,M,Houston,1
+M04293,95,F,San Antonio,1
+M04294,34,F,Dallas,0
+M04295,55,F,San Antonio,0
+M04296,59,M,Houston,0
+M04297,37,F,Fort Worth,0
+M04298,49,F,San Antonio,0
+M04299,41,F,Houston,0
+M04300,26,M,Fort Worth,0
+M04301,77,M,Houston,0
+M04302,70,F,San Antonio,1
+M04303,69,F,San Antonio,0
+M04304,30,M,Houston,0
+M04305,48,F,Houston,0
+M04306,72,M,Houston,1
+M04307,50,F,Fort Worth,0
+M04308,70,M,Austin,0
+M04309,79,F,Houston,1
+M04310,18,M,Houston,0
+M04311,39,F,El Paso,0
+M04312,76,F,Houston,1
+M04313,74,M,Dallas,0
+M04314,72,M,Austin,0
+M04315,79,M,Houston,1
+M04316,40,M,Corpus Christi,1
+M04317,74,M,Houston,1
+M04318,30,M,El Paso,1
+M04319,22,F,Dallas,0
+M04320,40,M,Houston,0
+M04321,69,F,Dallas,1
+M04322,93,F,Lubbock,0
+M04323,59,M,San Antonio,1
+M04324,79,F,Houston,1
+M04325,65,F,Corpus Christi,0
+M04326,27,F,Houston,1
+M04327,92,F,Houston,1
+M04328,64,M,Houston,0
+M04329,66,F,Fort Worth,1
+M04330,44,F,Houston,0
+M04331,62,F,Houston,0
+M04332,41,F,Corpus Christi,0
+M04333,25,F,Austin,0
+M04334,47,F,Dallas,1
+M04335,39,M,San Antonio,0
+M04336,57,M,Houston,0
+M04337,48,F,San Antonio,0
+M04338,51,F,Dallas,1
+M04339,84,F,Austin,0
+M04340,41,F,Fort Worth,0
+M04341,70,F,Dallas,0
+M04342,58,M,Houston,0
+M04343,67,M,Dallas,1
+M04344,43,F,Fort Worth,0
+M04345,27,F,Fort Worth,0
+M04346,63,M,Fort Worth,0
+M04347,70,M,Lubbock,1
+M04348,70,F,Fort Worth,0
+M04349,77,M,Lubbock,1
+M04350,28,F,Austin,0
+M04351,56,M,Houston,0
+M04352,69,F,Austin,1
+M04353,70,M,Houston,1
+M04354,41,F,Houston,0
+M04355,62,M,Dallas,0
+M04356,18,M,Dallas,0
+M04357,65,M,Austin,0
+M04358,71,M,Dallas,0
+M04359,29,F,Houston,0
+M04360,61,M,Corpus Christi,0
+M04361,53,F,San Antonio,0
+M04362,64,M,Houston,0
+M04363,61,F,Houston,0
+M04364,31,F,Houston,0
+M04365,40,F,El Paso,0
+M04366,65,M,Houston,0
+M04367,57,M,Corpus Christi,0
+M04368,43,F,Dallas,0
+M04369,79,M,Fort Worth,1
+M04370,73,F,Houston,0
+M04371,29,F,San Antonio,0
+M04372,60,F,Dallas,0
+M04373,18,M,Dallas,0
+M04374,60,M,Lubbock,0
+M04375,82,M,Austin,1
+M04376,31,F,Houston,0
+M04377,30,F,Fort Worth,0
+M04378,67,M,Houston,0
+M04379,61,F,Corpus Christi,0
+M04380,64,M,Dallas,1
+M04381,75,M,Houston,1
+M04382,32,F,Dallas,0
+M04383,88,F,Houston,0
+M04384,32,M,Corpus Christi,0
+M04385,82,M,Dallas,1
+M04386,67,M,Houston,0
+M04387,68,M,Fort Worth,1
+M04388,27,F,Houston,0
+M04389,22,M,Houston,0
+M04390,43,M,Austin,0
+M04391,31,M,Houston,0
+M04392,45,F,Fort Worth,0
+M04393,19,F,San Antonio,0
+M04394,51,F,Houston,1
+M04395,27,F,San Antonio,1
+M04396,42,M,Dallas,0
+M04397,37,M,San Antonio,0
+M04398,60,F,San Antonio,0
+M04399,44,M,Fort Worth,0
+M04400,69,F,San Antonio,0
+M04401,77,M,Fort Worth,1
+M04402,63,M,Houston,0
+M04403,39,M,Corpus Christi,1
+M04404,81,M,Houston,1
+M04405,66,M,Fort Worth,1
+M04406,69,M,San Antonio,1
+M04407,61,F,Houston,0
+M04408,37,M,Dallas,0
+M04409,39,F,Corpus Christi,0
+M04410,57,F,Fort Worth,0
+M04411,60,M,Austin,0
+M04412,33,M,Dallas,0
+M04413,71,M,San Antonio,0
+M04414,29,F,Houston,0
+M04415,68,F,Austin,1
+M04416,76,F,Dallas,0
+M04417,53,M,Fort Worth,0
+M04418,49,M,Austin,0
+M04419,74,M,Dallas,0
+M04420,63,F,Austin,0
+M04421,21,M,Dallas,0
+M04422,71,F,Houston,1
+M04423,57,M,Houston,0
+M04424,72,M,Dallas,0
+M04425,64,F,Houston,0
+M04426,77,M,Austin,0
+M04427,36,M,Fort Worth,0
+M04428,86,F,San Antonio,1
+M04429,20,F,Lubbock,0
+M04430,75,M,El Paso,0
+M04431,29,M,Houston,0
+M04432,65,M,San Antonio,0
+M04433,45,F,El Paso,0
+M04434,19,M,Houston,1
+M04435,71,F,Dallas,0
+M04436,79,F,Corpus Christi,1
+M04437,69,F,Fort Worth,1
+M04438,70,F,Fort Worth,1
+M04439,71,F,El Paso,1
+M04440,80,F,Houston,0
+M04441,74,F,Austin,1
+M04442,31,M,Fort Worth,0
+M04443,84,F,Houston,0
+M04444,69,F,Houston,0
+M04445,31,M,Houston,0
+M04446,49,M,Fort Worth,0
+M04447,77,M,Austin,0
+M04448,72,F,El Paso,0
+M04449,72,M,Dallas,1
+M04450,39,M,Austin,0
+M04451,67,M,Houston,1
+M04452,69,F,Corpus Christi,0
+M04453,39,F,San Antonio,0
+M04454,43,F,Fort Worth,0
+M04455,70,F,Dallas,0
+M04456,79,F,Houston,0
+M04457,58,M,Houston,1
+M04458,48,F,Fort Worth,0
+M04459,53,M,Houston,0
+M04460,61,M,Fort Worth,1
+M04461,73,M,Dallas,0
+M04462,59,F,San Antonio,0
+M04463,60,M,Dallas,1
+M04464,74,F,Houston,0
+M04465,70,F,San Antonio,1
+M04466,32,F,Dallas,0
+M04467,71,F,Dallas,1
+M04468,51,M,Austin,1
+M04469,68,F,Dallas,0
+M04470,28,M,San Antonio,0
+M04471,65,F,Austin,0
+M04472,32,M,Houston,0
+M04473,72,F,Dallas,1
+M04474,38,M,Houston,0
+M04475,67,F,Houston,1
+M04476,22,M,Houston,0
+M04477,80,M,San Antonio,1
+M04478,58,M,Houston,0
+M04479,65,F,El Paso,0
+M04480,68,M,Fort Worth,1
+M04481,76,M,Houston,1
+M04482,46,M,San Antonio,0
+M04483,93,M,Houston,1
+M04484,68,M,Houston,0
+M04485,68,M,Lubbock,1
+M04486,76,F,San Antonio,1
+M04487,34,F,Houston,0
+M04488,68,F,El Paso,0
+M04489,68,M,Corpus Christi,1
+M04490,19,M,San Antonio,0
+M04491,31,F,Austin,0
+M04492,24,F,Fort Worth,0
+M04493,82,F,Fort Worth,0
+M04494,72,F,San Antonio,1
+M04495,41,M,Fort Worth,1
+M04496,58,M,San Antonio,0
+M04497,50,F,Houston,0
+M04498,50,F,Houston,0
+M04499,77,F,Dallas,0
+M04500,54,M,Houston,0
+M04501,61,M,Houston,0
+M04502,56,F,San Antonio,1
+M04503,47,F,Corpus Christi,1
+M04504,68,M,Houston,0
+M04505,56,M,Dallas,0
+M04506,66,M,Fort Worth,1
+M04507,46,F,Dallas,1
+M04508,33,M,Fort Worth,0
+M04509,69,M,San Antonio,0
+M04510,82,M,Austin,1
+M04511,63,F,Houston,0
+M04512,63,F,Dallas,0
+M04513,78,F,Austin,1
+M04514,59,M,Houston,0
+M04515,76,M,Houston,1
+M04516,72,F,Dallas,1
+M04517,80,M,Austin,1
+M04518,34,M,San Antonio,1
+M04519,72,F,Austin,1
+M04520,67,M,Austin,0
+M04521,69,M,Houston,1
+M04522,53,F,El Paso,0
+M04523,75,M,Fort Worth,1
+M04524,71,F,Dallas,1
+M04525,45,M,San Antonio,0
+M04526,30,M,Dallas,0
+M04527,84,M,El Paso,1
+M04528,68,M,Dallas,0
+M04529,47,F,Dallas,1
+M04530,58,F,Corpus Christi,1
+M04531,41,M,Austin,0
+M04532,77,F,Houston,0
+M04533,78,M,Austin,1
+M04534,41,F,Fort Worth,1
+M04535,79,F,Dallas,1
+M04536,32,F,San Antonio,0
+M04537,80,M,Austin,1
+M04538,79,F,San Antonio,0
+M04539,46,M,Lubbock,0
+M04540,70,F,San Antonio,1
+M04541,61,M,Austin,0
+M04542,56,M,Fort Worth,0
+M04543,26,M,Houston,0
+M04544,28,F,Houston,0
+M04545,82,F,Lubbock,1
+M04546,87,F,Fort Worth,0
+M04547,21,M,Dallas,0
+M04548,73,F,Houston,1
+M04549,60,M,Houston,0
+M04550,39,M,Houston,0
+M04551,67,F,Dallas,1
+M04552,73,M,San Antonio,0
+M04553,72,M,Houston,0
+M04554,75,F,Austin,1
+M04555,43,M,Corpus Christi,0
+M04556,55,M,Lubbock,0
+M04557,50,F,Fort Worth,0
+M04558,73,F,San Antonio,1
+M04559,18,M,San Antonio,1
+M04560,86,F,San Antonio,1
+M04561,66,M,Houston,1
+M04562,48,M,El Paso,0
+M04563,46,M,Austin,0
+M04564,72,F,Austin,0
+M04565,49,F,Houston,0
+M04566,71,M,Houston,1
+M04567,28,F,El Paso,0
+M04568,53,F,Houston,1
+M04569,51,F,Houston,0
+M04570,61,F,Austin,0
+M04571,66,F,Austin,1
+M04572,69,F,Houston,1
+M04573,67,M,Houston,1
+M04574,66,M,Fort Worth,1
+M04575,27,M,Corpus Christi,0
+M04576,62,M,San Antonio,0
+M04577,38,F,Fort Worth,1
+M04578,35,F,Dallas,0
+M04579,60,M,Austin,1
+M04580,76,F,San Antonio,0
+M04581,84,F,El Paso,0
+M04582,84,F,Fort Worth,0
+M04583,77,M,Dallas,1
+M04584,77,F,Houston,0
+M04585,90,F,Fort Worth,0
+M04586,53,F,Houston,0
+M04587,67,M,Austin,0
+M04588,78,F,San Antonio,1
+M04589,18,M,Houston,1
+M04590,61,F,Austin,0
+M04591,48,F,San Antonio,1
+M04592,40,F,El Paso,0
+M04593,35,F,Houston,0
+M04594,67,F,Houston,0
+M04595,69,M,Houston,0
+M04596,74,F,Dallas,0
+M04597,18,M,Austin,1
+M04598,46,F,Dallas,0
+M04599,77,F,Houston,1
+M04600,80,M,Lubbock,0
+M04601,29,M,Houston,1
+M04602,58,F,Dallas,0
+M04603,71,F,El Paso,1
+M04604,95,M,Austin,0
+M04605,40,F,Dallas,0
+M04606,18,M,Lubbock,0
+M04607,47,M,San Antonio,0
+M04608,77,F,Houston,0
+M04609,61,M,Houston,0
+M04610,82,F,Corpus Christi,1
+M04611,27,M,Dallas,0
+M04612,57,M,Fort Worth,0
+M04613,45,M,Houston,0
+M04614,81,M,Houston,1
+M04615,45,M,El Paso,0
+M04616,58,F,Lubbock,0
+M04617,35,F,Houston,0
+M04618,39,F,Houston,0
+M04619,58,F,Austin,0
+M04620,61,M,San Antonio,1
+M04621,24,F,Dallas,0
+M04622,80,M,Houston,0
+M04623,76,F,Corpus Christi,1
+M04624,91,F,Houston,1
+M04625,66,F,Dallas,1
+M04626,30,M,Dallas,1
+M04627,59,F,Houston,1
+M04628,42,F,San Antonio,1
+M04629,71,F,Dallas,1
+M04630,53,M,Austin,0
+M04631,24,F,Dallas,1
+M04632,83,M,Houston,0
+M04633,76,F,El Paso,0
+M04634,71,F,San Antonio,1
+M04635,76,M,Dallas,1
+M04636,19,M,Houston,1
+M04637,51,M,San Antonio,0
+M04638,44,F,Fort Worth,0
+M04639,66,M,Austin,1
+M04640,37,M,Fort Worth,1
+M04641,44,M,Houston,1
+M04642,78,F,Lubbock,0
+M04643,42,F,Houston,1
+M04644,70,F,Dallas,1
+M04645,77,M,San Antonio,0
+M04646,78,M,Houston,0
+M04647,57,F,San Antonio,1
+M04648,18,F,Houston,0
+M04649,75,F,Fort Worth,1
+M04650,72,F,Fort Worth,0
+M04651,82,M,Austin,1
+M04652,65,F,Dallas,0
+M04653,55,F,Dallas,1
+M04654,78,F,Fort Worth,0
+M04655,38,F,San Antonio,0
+M04656,57,M,San Antonio,0
+M04657,47,F,Houston,0
+M04658,81,M,Houston,0
+M04659,40,M,Dallas,0
+M04660,62,M,Austin,0
+M04661,65,F,El Paso,1
+M04662,72,M,Lubbock,0
+M04663,75,M,Dallas,0
+M04664,65,F,San Antonio,0
+M04665,65,M,Fort Worth,0
+M04666,60,F,Dallas,0
+M04667,94,F,San Antonio,1
+M04668,40,F,Austin,0
+M04669,38,M,Houston,0
+M04670,79,F,Dallas,1
+M04671,46,F,Dallas,1
+M04672,26,F,San Antonio,1
+M04673,62,F,Dallas,1
+M04674,73,F,Houston,0
+M04675,56,M,Houston,0
+M04676,79,F,Fort Worth,0
+M04677,73,M,El Paso,0
+M04678,65,M,El Paso,0
+M04679,71,M,Fort Worth,0
+M04680,18,M,Houston,1
+M04681,44,F,Houston,0
+M04682,33,M,San Antonio,0
+M04683,35,F,San Antonio,0
+M04684,77,F,Fort Worth,0
+M04685,29,F,Houston,0
+M04686,85,M,Corpus Christi,1
+M04687,65,M,Dallas,0
+M04688,85,F,San Antonio,0
+M04689,58,M,El Paso,0
+M04690,46,F,San Antonio,0
+M04691,80,F,Fort Worth,0
+M04692,21,F,Fort Worth,0
+M04693,35,M,Fort Worth,0
+M04694,80,F,Fort Worth,0
+M04695,46,F,Dallas,0
+M04696,62,F,Dallas,0
+M04697,55,M,Fort Worth,0
+M04698,51,M,San Antonio,0
+M04699,75,F,Austin,0
+M04700,56,M,Dallas,0
+M04701,81,M,Houston,0
+M04702,34,F,San Antonio,0
+M04703,34,F,Lubbock,0
+M04704,76,M,Dallas,1
+M04705,36,F,Dallas,0
+M04706,57,F,Houston,0
+M04707,45,M,San Antonio,1
+M04708,55,M,Dallas,0
+M04709,58,M,Austin,1
+M04710,57,M,Houston,0
+M04711,18,F,Houston,1
+M04712,29,M,Houston,1
+M04713,32,F,Houston,0
+M04714,31,M,Fort Worth,0
+M04715,87,F,El Paso,1
+M04716,55,F,Fort Worth,0
+M04717,73,F,El Paso,1
+M04718,73,M,Houston,1
+M04719,64,F,El Paso,1
+M04720,76,M,San Antonio,1
+M04721,38,F,Fort Worth,1
+M04722,77,F,Austin,1
+M04723,59,M,Dallas,0
+M04724,41,F,Dallas,0
+M04725,40,M,Houston,0
+M04726,33,M,Dallas,0
+M04727,76,M,San Antonio,0
+M04728,72,F,Lubbock,1
+M04729,76,M,Houston,1
+M04730,62,M,San Antonio,0
+M04731,47,M,San Antonio,0
+M04732,21,M,Houston,0
+M04733,75,F,Dallas,1
+M04734,56,M,Dallas,0
+M04735,36,F,San Antonio,0
+M04736,41,M,Houston,0
+M04737,68,M,Houston,1
+M04738,52,M,Dallas,0
+M04739,44,F,Fort Worth,0
+M04740,45,M,Fort Worth,0
+M04741,66,F,Houston,1
+M04742,33,F,Austin,0
+M04743,58,M,Corpus Christi,0
+M04744,72,F,Houston,0
+M04745,51,F,Houston,0
+M04746,34,M,Houston,1
+M04747,76,M,Houston,0
+M04748,59,M,Fort Worth,0
+M04749,69,F,Fort Worth,1
+M04750,34,M,San Antonio,0
+M04751,21,F,Dallas,0
+M04752,23,F,Fort Worth,0
+M04753,37,F,Houston,0
+M04754,62,M,Houston,0
+M04755,31,F,Houston,0
+M04756,33,F,El Paso,0
+M04757,33,M,Austin,0
+M04758,70,M,Austin,1
+M04759,41,M,Austin,0
+M04760,68,M,Houston,0
+M04761,57,M,Dallas,0
+M04762,78,M,Fort Worth,1
+M04763,68,F,Corpus Christi,0
+M04764,25,M,San Antonio,0
+M04765,68,M,Houston,1
+M04766,60,M,Lubbock,0
+M04767,36,F,Dallas,0
+M04768,68,M,Dallas,1
+M04769,72,M,Houston,0
+M04770,29,F,Houston,0
+M04771,70,M,Austin,1
+M04772,69,M,Austin,1
+M04773,58,M,Houston,1
+M04774,76,M,Houston,1
+M04775,66,F,San Antonio,0
+M04776,77,M,Dallas,0
+M04777,33,F,Dallas,0
+M04778,38,M,Houston,0
+M04779,63,M,El Paso,0
+M04780,71,M,Lubbock,0
+M04781,41,M,Dallas,0
+M04782,53,M,Austin,0
+M04783,67,F,El Paso,1
+M04784,51,F,Houston,0
+M04785,75,F,El Paso,0
+M04786,45,M,San Antonio,0
+M04787,38,M,San Antonio,1
+M04788,56,M,San Antonio,0
+M04789,65,F,Houston,0
+M04790,73,M,Fort Worth,1
+M04791,73,F,Fort Worth,0
+M04792,56,M,Houston,0
+M04793,72,M,San Antonio,1
+M04794,41,F,Corpus Christi,0
+M04795,77,M,El Paso,1
+M04796,52,F,Austin,1
+M04797,56,F,Houston,0
+M04798,82,M,Dallas,0
+M04799,33,M,Houston,0
+M04800,51,F,Fort Worth,1
+M04801,65,F,Fort Worth,0
+M04802,53,F,Corpus Christi,0
+M04803,77,F,Houston,1
+M04804,68,F,Lubbock,1
+M04805,46,F,Lubbock,0
+M04806,57,M,Austin,0
+M04807,31,F,El Paso,1
+M04808,55,F,Dallas,0
+M04809,52,F,Dallas,1
+M04810,28,F,Houston,0
+M04811,88,M,Houston,0
+M04812,73,F,Houston,1
+M04813,66,F,Austin,1
+M04814,53,M,Dallas,0
+M04815,18,M,Houston,0
+M04816,56,F,Houston,0
+M04817,67,F,Austin,0
+M04818,83,M,Corpus Christi,1
+M04819,28,M,Dallas,0
+M04820,66,M,Fort Worth,1
+M04821,77,F,Lubbock,1
+M04822,74,M,Austin,0
+M04823,66,F,Austin,0
+M04824,38,F,Austin,0
+M04825,21,M,Lubbock,1
+M04826,62,M,Dallas,0
+M04827,70,F,Fort Worth,1
+M04828,27,F,Dallas,0
+M04829,27,M,Houston,0
+M04830,42,F,Fort Worth,0
+M04831,55,F,Fort Worth,0
+M04832,25,F,El Paso,0
+M04833,57,F,Corpus Christi,0
+M04834,74,M,Fort Worth,1
+M04835,71,F,San Antonio,0
+M04836,35,F,Corpus Christi,0
+M04837,71,M,Houston,0
+M04838,81,F,Houston,1
+M04839,31,M,Dallas,1
+M04840,70,F,San Antonio,1
+M04841,45,M,Austin,1
+M04842,30,M,Fort Worth,0
+M04843,73,M,Houston,1
+M04844,56,F,Fort Worth,1
+M04845,75,M,Austin,1
+M04846,33,M,Corpus Christi,0
+M04847,35,F,Dallas,0
+M04848,74,F,Austin,1
+M04849,67,F,Fort Worth,0
+M04850,86,F,San Antonio,1
+M04851,87,F,Houston,1
+M04852,87,M,Houston,1
+M04853,46,M,Houston,0
+M04854,76,F,San Antonio,1
+M04855,69,M,Austin,0
+M04856,78,M,San Antonio,0
+M04857,18,F,Austin,0
+M04858,82,M,Houston,1
+M04859,72,M,Houston,1
+M04860,35,M,Fort Worth,1
+M04861,59,F,Fort Worth,0
+M04862,64,F,Austin,0
+M04863,69,M,Fort Worth,1
+M04864,39,F,Lubbock,1
+M04865,31,F,Corpus Christi,0
+M04866,39,F,Austin,0
+M04867,71,F,Dallas,1
+M04868,78,F,Houston,0
+M04869,70,M,Austin,1
+M04870,60,F,Dallas,0
+M04871,76,M,Houston,1
+M04872,27,M,Houston,0
+M04873,32,F,Corpus Christi,0
+M04874,44,F,Houston,0
+M04875,74,F,Fort Worth,1
+M04876,71,M,El Paso,0
+M04877,28,M,Austin,1
+M04878,68,F,Houston,1
+M04879,81,M,El Paso,1
+M04880,33,M,Austin,0
+M04881,51,F,Dallas,0
+M04882,28,M,Austin,0
+M04883,78,M,Houston,1
+M04884,34,M,Austin,0
+M04885,49,F,El Paso,0
+M04886,85,F,San Antonio,1
+M04887,56,F,Corpus Christi,0
+M04888,91,F,Dallas,0
+M04889,41,F,El Paso,0
+M04890,57,M,Fort Worth,0
+M04891,72,F,Houston,0
+M04892,41,F,Corpus Christi,0
+M04893,77,M,Corpus Christi,0
+M04894,30,F,Dallas,0
+M04895,71,F,Fort Worth,0
+M04896,23,M,Houston,0
+M04897,76,M,Houston,1
+M04898,69,F,Houston,1
+M04899,35,M,San Antonio,0
+M04900,80,M,Houston,1
+M04901,82,M,Houston,0
+M04902,18,M,Corpus Christi,0
+M04903,33,F,San Antonio,0
+M04904,49,F,Fort Worth,0
+M04905,22,M,Houston,1
+M04906,37,F,Houston,0
+M04907,46,F,Fort Worth,0
+M04908,31,F,Dallas,0
+M04909,71,F,San Antonio,1
+M04910,63,F,Lubbock,0
+M04911,54,F,Dallas,0
+M04912,47,M,San Antonio,1
+M04913,42,F,Austin,0
+M04914,72,M,Houston,0
+M04915,79,F,Austin,1
+M04916,33,F,San Antonio,1
+M04917,61,M,Houston,0
+M04918,74,F,Dallas,0
+M04919,32,F,San Antonio,0
+M04920,40,M,Austin,0
+M04921,56,F,Corpus Christi,0
+M04922,57,F,Fort Worth,0
+M04923,50,M,Dallas,0
+M04924,52,F,Lubbock,0
+M04925,34,M,Fort Worth,0
+M04926,84,F,Houston,1
+M04927,41,F,Houston,0
+M04928,24,F,Houston,0
+M04929,80,M,Houston,1
+M04930,70,F,San Antonio,1
+M04931,54,M,Dallas,0
+M04932,55,M,Lubbock,0
+M04933,60,M,San Antonio,1
+M04934,69,F,Houston,0
+M04935,78,M,Lubbock,1
+M04936,45,M,San Antonio,0
+M04937,47,F,Houston,0
+M04938,59,M,Houston,0
+M04939,58,F,Austin,0
+M04940,78,M,San Antonio,0
+M04941,27,M,Austin,0
+M04942,57,F,El Paso,0
+M04943,65,F,Austin,0
+M04944,77,F,El Paso,1
+M04945,65,F,Fort Worth,0
+M04946,66,M,Austin,0
+M04947,56,F,Houston,1
+M04948,49,M,San Antonio,0
+M04949,62,M,Dallas,0
+M04950,70,M,San Antonio,1
+M04951,22,F,Dallas,0
+M04952,75,M,Austin,1
+M04953,49,F,Dallas,1
+M04954,38,F,San Antonio,0
+M04955,51,F,Dallas,0
+M04956,41,M,El Paso,0
+M04957,69,F,Dallas,1
+M04958,26,F,Fort Worth,0
+M04959,66,F,Austin,0
+M04960,44,M,Dallas,1
+M04961,74,M,Fort Worth,1
+M04962,76,M,Corpus Christi,0
+M04963,76,M,Fort Worth,0
+M04964,88,F,Corpus Christi,1
+M04965,58,F,Dallas,0
+M04966,25,F,Corpus Christi,0
+M04967,63,F,El Paso,1
+M04968,81,M,Fort Worth,1
+M04969,62,F,Fort Worth,0
+M04970,72,M,Fort Worth,1
+M04971,82,M,San Antonio,1
+M04972,22,M,San Antonio,1
+M04973,19,F,Dallas,1
+M04974,89,M,Austin,1
+M04975,47,M,Dallas,0
+M04976,58,F,Fort Worth,0
+M04977,80,M,San Antonio,0
+M04978,44,F,Dallas,1
+M04979,44,M,Houston,1
+M04980,40,M,Houston,0
+M04981,71,M,Austin,0
+M04982,70,M,Dallas,1
+M04983,62,M,Houston,0
+M04984,71,F,Dallas,1
+M04985,80,F,Dallas,1
+M04986,51,M,Houston,0
+M04987,56,M,Dallas,0
+M04988,51,M,Austin,0
+M04989,65,F,Fort Worth,0
+M04990,75,F,Corpus Christi,1
+M04991,29,M,Houston,0
+M04992,65,M,Dallas,0
+M04993,29,F,Houston,0
+M04994,75,F,Austin,0
+M04995,52,M,Houston,0
+M04996,58,M,Houston,0
+M04997,56,F,San Antonio,1
+M04998,38,M,Dallas,0
+M04999,36,F,San Antonio,0
+M05000,90,F,Austin,0

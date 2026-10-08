@@ -1,0 +1,41 @@
+facility_id,name,type,city,lat,lon
+F001,Houston Cypress Clinic,Clinic,Houston,29.787,-95.3854
+F002,Dallas Rio Clinic,Clinic,Dallas,32.7728,-96.8521
+F003,San Antonio Lone Star Medical Office,Medical Office,San Antonio,29.4072,-98.4682
+F004,Austin Hill Country Clinic,Clinic,Austin,30.264,-97.752
+F005,Fort Worth Rio Clinic,Clinic,Fort Worth,32.688,-97.3896
+F006,El Paso Lone Star Medical Office,Medical Office,El Paso,31.704,-106.5256
+F007,Corpus Christi Rio Clinic,Clinic,Corpus Christi,27.7477,-97.3839
+F008,Lubbock Red River Medical Office,Medical Office,Lubbock,33.538,-101.8217
+F009,Fort Worth Prairie Medical Office,Medical Office,Fort Worth,32.7715,-97.2509
+F010,Dallas Red River Hospital Outpatient,Hospital Outpatient,Dallas,32.7405,-96.6804
+F011,El Paso Pecos Hospital Outpatient,Hospital Outpatient,El Paso,31.7468,-106.4684
+F012,Austin Panhandle Clinic,Clinic,Austin,30.3192,-97.7827
+F013,Houston Bluebonnet Hospital Outpatient,Hospital Outpatient,Houston,29.7461,-95.4551
+F014,Lubbock Trinity Hospital Outpatient,Hospital Outpatient,Lubbock,33.6074,-101.8445
+F015,Fort Worth Brazos Clinic,Clinic,Fort Worth,32.7182,-97.3633
+F016,Fort Worth Live Oak Clinic,Clinic,Fort Worth,32.7473,-97.3474
+F017,Houston Cypress Medical Office,Medical Office,Houston,29.7224,-95.3943
+F018,San Antonio Panhandle Clinic,Clinic,San Antonio,29.4105,-98.4992
+F019,Dallas Pecos Clinic,Clinic,Dallas,32.8103,-96.7544
+F020,Corpus Christi Pecos Clinic,Clinic,Corpus Christi,27.7315,-97.3901
+F021,Austin Pecos Hospital Outpatient,Hospital Outpatient,Austin,30.2846,-97.7494
+F022,Fort Worth Rio Medical Office,Medical Office,Fort Worth,32.765,-97.3722
+F023,San Antonio Red River Hospital Outpatient,Hospital Outpatient,San Antonio,29.4003,-98.5606
+F024,Houston Gulf Coast Hospital Outpatient,Hospital Outpatient,Houston,29.7026,-95.3893
+F025,San Antonio Alamo Medical Office,Medical Office,San Antonio,29.427,-98.4958
+F026,Houston Lone Star Medical Office,Medical Office,Houston,29.7392,-95.2991
+F027,Fort Worth Bluebonnet Clinic,Clinic,Fort Worth,32.7648,-97.3256
+F028,Austin Bluebonnet Clinic,Clinic,Austin,30.2681,-97.7038
+F029,Fort Worth Live Oak Medical Office,Medical Office,Fort Worth,32.8196,-97.3508
+F030,Dallas Mesquite Medical Office,Medical Office,Dallas,32.7671,-96.8444
+F031,Lubbock Mesquite Medical Office,Medical Office,Lubbock,33.537,-101.8938
+F032,El Paso Pecos Hospital Outpatient,Hospital Outpatient,El Paso,31.7691,-106.514
+F033,Fort Worth Mesquite Medical Office,Medical Office,Fort Worth,32.7643,-97.2457
+F034,Houston Gulf Coast Medical Office,Medical Office,Houston,29.8148,-95.4027
+F035,San Antonio Prairie Medical Office,Medical Office,San Antonio,29.4575,-98.4601
+F036,Houston Brazos Clinic,Clinic,Houston,29.7747,-95.4059
+F037,Houston Cypress Clinic,Clinic,Houston,29.8189,-95.3325
+F038,Austin Gulf Coast Medical Office,Medical Office,Austin,30.2196,-97.7277
+F039,Fort Worth Brazos Clinic,Clinic,Fort Worth,32.7299,-97.3371
+F040,Lubbock Mesquite Medical Office,Medical Office,Lubbock,33.5408,-101.8568

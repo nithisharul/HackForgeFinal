@@ -1,0 +1,341 @@
+owner_id,owner_name,entity_type,entity_id
+O022,Pecos Care Holdings,provider,P001
+O004,Alamo Medical Group,provider,P002
+O053,Prairie Medical Group,provider,P003
+O050,Pecos Health Partners,provider,P004
+O028,Prairie Health Partners,provider,P005
+O016,Brazos Care Holdings,provider,P006
+O044,Alamo Care Holdings,provider,P007
+O012,Mesquite Health Partners,provider,P008
+O047,Pecos Medical Group,provider,P009
+O053,Prairie Medical Group,provider,P010
+O011,Gulf Coast Health Partners,provider,P011
+O032,Panhandle Care Holdings,provider,P012
+O010,Bluebonnet Care Holdings,provider,P013
+O037,Cypress Physicians LLC,provider,P014
+O041,Red River Physicians LLC,provider,P015
+O001,Gulf Coast Physicians LLC,provider,P016
+O057,Bluebonnet Health Partners,provider,P017
+O016,Brazos Care Holdings,provider,P018
+O028,Prairie Health Partners,provider,P019
+O016,Brazos Care Holdings,provider,P020
+O055,Cypress Medical Group,provider,P021
+O046,Hill Country Health Partners,provider,P022
+O060,Trinity Care Holdings,provider,P023
+O024,Rio Health Partners,provider,P024
+O034,Cypress Health Partners,provider,P025
+O035,Brazos Medical Group,provider,P026
+O014,Bluebonnet Physicians LLC,provider,P027
+O056,Mesquite Care Holdings,provider,P028
+O052,Rio Medical Group,provider,P029
+O060,Trinity Care Holdings,provider,P030
+O028,Prairie Health Partners,provider,P031
+O008,Live Oak Medical Group,provider,P032
+O010,Bluebonnet Care Holdings,provider,P033
+O034,Cypress Health Partners,provider,P034
+O050,Pecos Health Partners,provider,P035
+O042,Prairie Physicians LLC,provider,P036
+O044,Alamo Care Holdings,provider,P037
+O047,Pecos Medical Group,provider,P038
+O051,Mesquite Medical Group,provider,P039
+O056,Mesquite Care Holdings,provider,P040
+O022,Pecos Care Holdings,provider,P041
+O044,Alamo Care Holdings,provider,P042
+O017,Brazos Physicians LLC,provider,P043
+O042,Prairie Physicians LLC,provider,P044
+O004,Alamo Medical Group,provider,P045
+O004,Alamo Medical Group,provider,P046
+O012,Mesquite Health Partners,provider,P047
+O033,Panhandle Medical Group,provider,P048
+O055,Cypress Medical Group,provider,P049
+O036,Hill Country Care Holdings,provider,P050
+O034,Cypress Health Partners,provider,P051
+O042,Prairie Physicians LLC,provider,P052
+O054,Hill Country Physicians LLC,provider,P053
+O036,Hill Country Care Holdings,provider,P054
+O061,Gulfline Health Holdings LLC,provider,P055
+O025,Lone Star Medical Group,provider,P056
+O060,Trinity Care Holdings,provider,P057
+O030,Hill Country Medical Group,provider,P058
+O054,Hill Country Physicians LLC,provider,P059
+O059,Trinity Health Partners,provider,P060
+O053,Prairie Medical Group,provider,P061
+O061,Gulfline Health Holdings LLC,provider,P062
+O023,Alamo Health Partners,provider,P063
+O048,Panhandle Health Partners,provider,P064
+O056,Mesquite Care Holdings,provider,P065
+O037,Cypress Physicians LLC,provider,P066
+O047,Pecos Medical Group,provider,P067
+O027,Red River Health Partners,provider,P068
+O052,Rio Medical Group,provider,P069
+O025,Lone Star Medical Group,provider,P070
+O038,Red River Care Holdings,provider,P071
+O033,Panhandle Medical Group,provider,P072
+O051,Mesquite Medical Group,provider,P073
+O048,Panhandle Health Partners,provider,P074
+O051,Mesquite Medical Group,provider,P075
+O008,Live Oak Medical Group,provider,P076
+O015,Panhandle Physicians LLC,provider,P077
+O055,Cypress Medical Group,provider,P078
+O008,Live Oak Medical Group,provider,P079
+O047,Pecos Medical Group,provider,P080
+O061,Gulfline Health Holdings LLC,provider,P081
+O021,Prairie Care Holdings,provider,P082
+O003,Live Oak Physicians LLC,provider,P083
+O001,Gulf Coast Physicians LLC,provider,P084
+O054,Hill Country Physicians LLC,provider,P085
+O007,Rio Care Holdings,provider,P086
+O045,Brazos Health Partners,provider,P087
+O009,Gulf Coast Medical Group,provider,P088
+O024,Rio Health Partners,provider,P089
+O007,Rio Care Holdings,provider,P090
+O039,Trinity Medical Group,provider,P091
+O007,Rio Care Holdings,provider,P092
+O038,Red River Care Holdings,provider,P093
+O058,Bluebonnet Medical Group,provider,P094
+O045,Brazos Health Partners,provider,P095
+O040,Live Oak Health Partners,provider,P096
+O055,Cypress Medical Group,provider,P097
+O050,Pecos Health Partners,provider,P098
+O044,Alamo Care Holdings,provider,P099
+O034,Cypress Health Partners,provider,P100
+O024,Rio Health Partners,provider,P101
+O038,Red River Care Holdings,provider,P102
+O007,Rio Care Holdings,provider,P103
+O053,Prairie Medical Group,provider,P104
+O054,Hill Country Physicians LLC,provider,P105
+O016,Brazos Care Holdings,provider,P106
+O046,Hill Country Health Partners,provider,P107
+O042,Prairie Physicians LLC,provider,P108
+O052,Rio Medical Group,provider,P109
+O054,Hill Country Physicians LLC,provider,P110
+O045,Brazos Health Partners,provider,P111
+O057,Bluebonnet Health Partners,provider,P112
+O020,Lone Star Health Partners,provider,P113
+O027,Red River Health Partners,provider,P114
+O009,Gulf Coast Medical Group,provider,P115
+O052,Rio Medical Group,provider,P116
+O017,Brazos Physicians LLC,provider,P117
+O031,Live Oak Care Holdings,provider,P118
+O010,Bluebonnet Care Holdings,provider,P119
+O016,Brazos Care Holdings,provider,P120
+O041,Red River Physicians LLC,provider,P121
+O016,Brazos Care Holdings,provider,P122
+O031,Live Oak Care Holdings,provider,P123
+O028,Prairie Health Partners,provider,P124
+O037,Cypress Physicians LLC,provider,P125
+O016,Brazos Care Holdings,provider,P126
+O030,Hill Country Medical Group,provider,P127
+O002,Trinity Physicians LLC,provider,P128
+O032,Panhandle Care Holdings,provider,P129
+O007,Rio Care Holdings,provider,P130
+O044,Alamo Care Holdings,provider,P131
+O051,Mesquite Medical Group,provider,P132
+O025,Lone Star Medical Group,provider,P133
+O053,Prairie Medical Group,provider,P134
+O024,Rio Health Partners,provider,P135
+O053,Prairie Medical Group,provider,P136
+O032,Panhandle Care Holdings,provider,P137
+O034,Cypress Health Partners,provider,P138
+O025,Lone Star Medical Group,provider,P139
+O057,Bluebonnet Health Partners,provider,P140
+O043,Alamo Physicians LLC,provider,P141
+O030,Hill Country Medical Group,provider,P142
+O048,Panhandle Health Partners,provider,P143
+O028,Prairie Health Partners,provider,P144
+O053,Prairie Medical Group,provider,P145
+O029,Lone Star Care Holdings,provider,P146
+O049,Cypress Care Holdings,provider,P147
+O016,Brazos Care Holdings,provider,P148
+O034,Cypress Health Partners,provider,P149
+O037,Cypress Physicians LLC,provider,P150
+O032,Panhandle Care Holdings,provider,P151
+O027,Red River Health Partners,provider,P152
+O001,Gulf Coast Physicians LLC,provider,P153
+O059,Trinity Health Partners,provider,P154
+O013,Pecos Physicians LLC,provider,P155
+O011,Gulf Coast Health Partners,provider,P156
+O049,Cypress Care Holdings,provider,P157
+O005,Gulf Coast Care Holdings,provider,P158
+O046,Hill Country Health Partners,provider,P159
+O022,Pecos Care Holdings,provider,P160
+O044,Alamo Care Holdings,provider,P161
+O013,Pecos Physicians LLC,provider,P162
+O043,Alamo Physicians LLC,provider,P163
+O060,Trinity Care Holdings,provider,P164
+O031,Live Oak Care Holdings,provider,P165
+O034,Cypress Health Partners,provider,P166
+O037,Cypress Physicians LLC,provider,P167
+O022,Pecos Care Holdings,provider,P168
+O034,Cypress Health Partners,provider,P169
+O039,Trinity Medical Group,provider,P170
+O002,Trinity Physicians LLC,provider,P171
+O028,Prairie Health Partners,provider,P172
+O032,Panhandle Care Holdings,provider,P173
+O013,Pecos Physicians LLC,provider,P174
+O029,Lone Star Care Holdings,provider,P175
+O024,Rio Health Partners,provider,P176
+O034,Cypress Health Partners,provider,P177
+O018,Mesquite Physicians LLC,provider,P178
+O054,Hill Country Physicians LLC,provider,P179
+O039,Trinity Medical Group,provider,P180
+O038,Red River Care Holdings,provider,P181
+O049,Cypress Care Holdings,provider,P182
+O002,Trinity Physicians LLC,provider,P183
+O016,Brazos Care Holdings,provider,P184
+O011,Gulf Coast Health Partners,provider,P185
+O038,Red River Care Holdings,provider,P186
+O021,Prairie Care Holdings,provider,P187
+O043,Alamo Physicians LLC,provider,P188
+O057,Bluebonnet Health Partners,provider,P189
+O023,Alamo Health Partners,provider,P190
+O020,Lone Star Health Partners,provider,P191
+O030,Hill Country Medical Group,provider,P192
+O030,Hill Country Medical Group,provider,P193
+O022,Pecos Care Holdings,provider,P194
+O021,Prairie Care Holdings,provider,P195
+O023,Alamo Health Partners,provider,P196
+O030,Hill Country Medical Group,provider,P197
+O027,Red River Health Partners,provider,P198
+O028,Prairie Health Partners,provider,P199
+O018,Mesquite Physicians LLC,provider,P200
+O039,Trinity Medical Group,provider,P201
+O030,Hill Country Medical Group,provider,P202
+O014,Bluebonnet Physicians LLC,provider,P203
+O046,Hill Country Health Partners,provider,P204
+O053,Prairie Medical Group,provider,P205
+O024,Rio Health Partners,provider,P206
+O032,Panhandle Care Holdings,provider,P207
+O057,Bluebonnet Health Partners,provider,P208
+O019,Lone Star Physicians LLC,provider,P209
+O014,Bluebonnet Physicians LLC,provider,P210
+O021,Prairie Care Holdings,provider,P211
+O027,Red River Health Partners,provider,P212
+O027,Red River Health Partners,provider,P213
+O037,Cypress Physicians LLC,provider,P214
+O017,Brazos Physicians LLC,provider,P215
+O033,Panhandle Medical Group,provider,P216
+O007,Rio Care Holdings,provider,P217
+O057,Bluebonnet Health Partners,provider,P218
+O018,Mesquite Physicians LLC,provider,P219
+O020,Lone Star Health Partners,provider,P220
+O010,Bluebonnet Care Holdings,provider,P221
+O023,Alamo Health Partners,provider,P222
+O059,Trinity Health Partners,provider,P223
+O036,Hill Country Care Holdings,provider,P224
+O041,Red River Physicians LLC,provider,P225
+O036,Hill Country Care Holdings,provider,P226
+O021,Prairie Care Holdings,provider,P227
+O048,Panhandle Health Partners,provider,P228
+O021,Prairie Care Holdings,provider,P229
+O048,Panhandle Health Partners,provider,P230
+O060,Trinity Care Holdings,provider,P231
+O001,Gulf Coast Physicians LLC,provider,P232
+O011,Gulf Coast Health Partners,provider,P233
+O046,Hill Country Health Partners,provider,P234
+O008,Live Oak Medical Group,provider,P235
+O044,Alamo Care Holdings,provider,P236
+O015,Panhandle Physicians LLC,provider,P237
+O036,Hill Country Care Holdings,provider,P238
+O040,Live Oak Health Partners,provider,P239
+O020,Lone Star Health Partners,provider,P240
+O052,Rio Medical Group,provider,P241
+O055,Cypress Medical Group,provider,P242
+O014,Bluebonnet Physicians LLC,provider,P243
+O045,Brazos Health Partners,provider,P244
+O041,Red River Physicians LLC,provider,P245
+O016,Brazos Care Holdings,provider,P246
+O049,Cypress Care Holdings,provider,P247
+O019,Lone Star Physicians LLC,provider,P248
+O016,Brazos Care Holdings,provider,P249
+O061,Gulfline Health Holdings LLC,provider,P250
+O008,Live Oak Medical Group,provider,P251
+O056,Mesquite Care Holdings,provider,P252
+O024,Rio Health Partners,provider,P253
+O030,Hill Country Medical Group,provider,P254
+O041,Red River Physicians LLC,provider,P255
+O053,Prairie Medical Group,provider,P256
+O047,Pecos Medical Group,provider,P257
+O023,Alamo Health Partners,provider,P258
+O045,Brazos Health Partners,provider,P259
+O024,Rio Health Partners,provider,P260
+O031,Live Oak Care Holdings,provider,P261
+O042,Prairie Physicians LLC,provider,P262
+O061,Gulfline Health Holdings LLC,provider,P263
+O004,Alamo Medical Group,provider,P264
+O003,Live Oak Physicians LLC,provider,P265
+O009,Gulf Coast Medical Group,provider,P266
+O006,Red River Medical Group,provider,P267
+O044,Alamo Care Holdings,provider,P268
+O012,Mesquite Health Partners,provider,P269
+O015,Panhandle Physicians LLC,provider,P270
+O019,Lone Star Physicians LLC,provider,P271
+O011,Gulf Coast Health Partners,provider,P272
+O053,Prairie Medical Group,provider,P273
+O061,Gulfline Health Holdings LLC,provider,P274
+O012,Mesquite Health Partners,provider,P275
+O014,Bluebonnet Physicians LLC,provider,P276
+O006,Red River Medical Group,provider,P277
+O016,Brazos Care Holdings,provider,P278
+O012,Mesquite Health Partners,provider,P279
+O021,Prairie Care Holdings,provider,P280
+O010,Bluebonnet Care Holdings,provider,P281
+O057,Bluebonnet Health Partners,provider,P282
+O048,Panhandle Health Partners,provider,P283
+O039,Trinity Medical Group,provider,P284
+O036,Hill Country Care Holdings,provider,P285
+O042,Prairie Physicians LLC,provider,P286
+O057,Bluebonnet Health Partners,provider,P287
+O008,Live Oak Medical Group,provider,P288
+O032,Panhandle Care Holdings,provider,P289
+O012,Mesquite Health Partners,provider,P290
+O028,Prairie Health Partners,provider,P291
+O054,Hill Country Physicians LLC,provider,P292
+O038,Red River Care Holdings,provider,P293
+O039,Trinity Medical Group,provider,P294
+O006,Red River Medical Group,provider,P295
+O049,Cypress Care Holdings,provider,P296
+O043,Alamo Physicians LLC,provider,P297
+O022,Pecos Care Holdings,provider,P298
+O021,Prairie Care Holdings,provider,P299
+O035,Brazos Medical Group,provider,P300
+O060,Trinity Care Holdings,facility,F001
+O057,Bluebonnet Health Partners,facility,F002
+O011,Gulf Coast Health Partners,facility,F003
+O010,Bluebonnet Care Holdings,facility,F004
+O032,Panhandle Care Holdings,facility,F005
+O003,Live Oak Physicians LLC,facility,F006
+O018,Mesquite Physicians LLC,facility,F007
+O027,Red River Health Partners,facility,F008
+O059,Trinity Health Partners,facility,F009
+O060,Trinity Care Holdings,facility,F010
+O010,Bluebonnet Care Holdings,facility,F011
+O054,Hill Country Physicians LLC,facility,F012
+O006,Red River Medical Group,facility,F013
+O045,Brazos Health Partners,facility,F014
+O051,Mesquite Medical Group,facility,F015
+O054,Hill Country Physicians LLC,facility,F016
+O014,Bluebonnet Physicians LLC,facility,F017
+O054,Hill Country Physicians LLC,facility,F018
+O007,Rio Care Holdings,facility,F019
+O032,Panhandle Care Holdings,facility,F020
+O029,Lone Star Care Holdings,facility,F021
+O019,Lone Star Physicians LLC,facility,F022
+O002,Trinity Physicians LLC,facility,F023
+O047,Pecos Medical Group,facility,F024
+O021,Prairie Care Holdings,facility,F025
+O040,Live Oak Health Partners,facility,F026
+O025,Lone Star Medical Group,facility,F027
+O023,Alamo Health Partners,facility,F028
+O054,Hill Country Physicians LLC,facility,F029
+O006,Red River Medical Group,facility,F030
+O045,Brazos Health Partners,facility,F031
+O045,Brazos Health Partners,facility,F032
+O023,Alamo Health Partners,facility,F033
+O016,Brazos Care Holdings,facility,F034
+O001,Gulf Coast Physicians LLC,facility,F035
+O057,Bluebonnet Health Partners,facility,F036
+O057,Bluebonnet Health Partners,facility,F037
+O015,Panhandle Physicians LLC,facility,F038
+O002,Trinity Physicians LLC,facility,F039
+O008,Live Oak Medical Group,facility,F040

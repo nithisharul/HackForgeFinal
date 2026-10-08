@@ -1,0 +1,301 @@
+provider_id,name,specialty,facility_id,owner_id,city,lat,lon
+P001,Dr. Maria Ellis,Family Medicine,F001,O022,Houston,29.787,-95.3854
+P002,Bluebonnet Medical Supply,DME Supplier,F012,O004,Austin,30.3192,-97.7827
+P003,Dr. Samuel Quinn,Internal Medicine,F034,O053,Houston,29.8148,-95.4027
+P004,Dr. Kevin Foster,Behavioral Health,F037,O050,Houston,29.8189,-95.3325
+P005,Dr. Samuel Quinn,Family Medicine,F017,O028,Houston,29.7224,-95.3943
+P006,Dr. Linh Ellis,Family Medicine,F040,O016,Lubbock,33.5408,-101.8568
+P007,Dr. Nadia Jensen,Behavioral Health,F010,O044,Dallas,32.7405,-96.6804
+P008,Dr. Kevin Reyes,Cardiology,F017,O012,Houston,29.7224,-95.3943
+P009,Live Oak EMS,Ambulance,F019,O047,Dallas,32.8103,-96.7544
+P010,Dr. Daniel Khan,Internal Medicine,F009,O053,Fort Worth,32.7715,-97.2509
+P011,Trinity Home Care,Home Health,F016,O011,Fort Worth,32.7473,-97.3474
+P012,Dr. Maria Delgado,Cardiology,F020,O032,Corpus Christi,27.7315,-97.3901
+P013,Dr. David Shah,Family Medicine,F028,O010,Austin,30.2681,-97.7038
+P014,Dr. Samuel Morris,Family Medicine,F020,O037,Corpus Christi,27.7315,-97.3901
+P015,Dr. Linh Patel,Physical Therapy,F005,O041,Fort Worth,32.688,-97.3896
+P016,Alamo Diagnostics Lab,Laboratory,F019,O001,Dallas,32.8103,-96.7544
+P017,Dr. Rosa Khan,Family Medicine,F034,O057,Houston,29.8148,-95.4027
+P018,Dr. Elena Ibarra,Internal Medicine,F001,O016,Houston,29.787,-95.3854
+P019,Dr. Robert Ortiz,Cardiology,F040,O028,Lubbock,33.5408,-101.8568
+P020,Dr. Aisha Brooks,Behavioral Health,F006,O016,El Paso,31.704,-106.5256
+P021,Dr. Thomas Turner,Behavioral Health,F001,O055,Houston,29.787,-95.3854
+P022,Hill Country Diagnostics Lab,Laboratory,F006,O046,El Paso,31.704,-106.5256
+P023,Dr. Ines Alvarez,Internal Medicine,F011,O060,El Paso,31.7468,-106.4684
+P024,Dr. Aisha Alvarez,Family Medicine,F015,O024,Fort Worth,32.7182,-97.3633
+P025,Dr. Robert Morris,Family Medicine,F034,O034,Houston,29.8148,-95.4027
+P026,Cypress Medical Supply,DME Supplier,F024,O035,Houston,29.7026,-95.3893
+P027,Dr. Ines Shah,Orthopedics,F026,O014,Houston,29.7392,-95.2991
+P028,Dr. Victor Hayes,Family Medicine,F036,O056,Houston,29.7747,-95.4059
+P029,Prairie Diagnostics Lab,Laboratory,F006,O052,El Paso,31.704,-106.5256
+P030,Dr. James Quinn,Orthopedics,F009,O060,Fort Worth,32.7715,-97.2509
+P031,Dr. Daniel Alvarez,Internal Medicine,F039,O028,Fort Worth,32.7299,-97.3371
+P032,Dr. Victor Reyes,Family Medicine,F031,O008,Lubbock,33.537,-101.8938
+P033,Mesquite Diagnostics Lab,Laboratory,F003,O010,San Antonio,29.4072,-98.4682
+P034,Dr. Daniel Foster,Physical Therapy,F010,O034,Dallas,32.7405,-96.6804
+P035,Dr. Grace Quinn,Internal Medicine,F015,O050,Fort Worth,32.7182,-97.3633
+P036,Dr. James Lopez,Internal Medicine,F002,O042,Dallas,32.7728,-96.8521
+P037,Dr. Daniel Jensen,Internal Medicine,F024,O044,Houston,29.7026,-95.3893
+P038,Dr. Ines Ortiz,Behavioral Health,F026,O047,Houston,29.7392,-95.2991
+P039,Dr. Samuel Hayes,Internal Medicine,F014,O051,Lubbock,33.6074,-101.8445
+P040,Dr. Carlos Ibarra,Internal Medicine,F009,O056,Fort Worth,32.7715,-97.2509
+P041,Dr. Omar Nguyen,Internal Medicine,F018,O022,San Antonio,29.4105,-98.4992
+P042,Pecos EMS,Ambulance,F037,O044,Houston,29.8189,-95.3325
+P043,Dr. Grace Nguyen,Cardiology,F029,O017,Fort Worth,32.8196,-97.3508
+P044,Dr. Daniel Quinn,Internal Medicine,F038,O042,Austin,30.2196,-97.7277
+P045,Dr. Omar Delgado,Cardiology,F023,O004,San Antonio,29.4003,-98.5606
+P046,Dr. Aisha Gupta,Physical Therapy,F005,O004,Fort Worth,32.688,-97.3896
+P047,Red River Home Care,Home Health,F003,O012,San Antonio,29.4072,-98.4682
+P048,Cypress EMS,Ambulance,F008,O033,Lubbock,33.538,-101.8217
+P049,Dr. Hannah Turner,Cardiology,F021,O055,Austin,30.2846,-97.7494
+P050,Dr. Priya Ortiz,Cardiology,F009,O036,Fort Worth,32.7715,-97.2509
+P051,Dr. Omar Patel,Internal Medicine,F013,O034,Houston,29.7461,-95.4551
+P052,Dr. Robert Khan,Physical Therapy,F037,O042,Houston,29.8189,-95.3325
+P053,Dr. Robert Nguyen,Behavioral Health,F002,O054,Dallas,32.7728,-96.8521
+P054,Dr. David Nguyen,Internal Medicine,F004,O036,Austin,30.264,-97.752
+P055,Dr. Carlos Patel,Cardiology,F017,O061,Houston,29.7224,-95.3943
+P056,Dr. Maria Delgado,Family Medicine,F031,O025,Lubbock,33.537,-101.8938
+P057,Dr. Grace Hayes,Behavioral Health,F033,O060,Fort Worth,32.7643,-97.2457
+P058,Dr. Samuel Shah,Internal Medicine,F012,O030,Austin,30.3192,-97.7827
+P059,Dr. Rosa Brooks,Internal Medicine,F012,O054,Austin,30.3192,-97.7827
+P060,Dr. Hannah Nguyen,Family Medicine,F024,O059,Houston,29.7026,-95.3893
+P061,Dr. Thomas Ellis,Family Medicine,F035,O053,San Antonio,29.4575,-98.4601
+P062,Dr. Kevin Nguyen,Family Medicine,F034,O061,Houston,29.8148,-95.4027
+P063,Dr. Kevin Nguyen,Physical Therapy,F036,O023,Houston,29.7747,-95.4059
+P064,Dr. Kevin Alvarez,Behavioral Health,F033,O048,Fort Worth,32.7643,-97.2457
+P065,Dr. Elena Khan,Orthopedics,F011,O056,El Paso,31.7468,-106.4684
+P066,Dr. Aisha Delgado,Internal Medicine,F027,O037,Fort Worth,32.7648,-97.3256
+P067,Mesquite Home Care,Home Health,F026,O047,Houston,29.7392,-95.2991
+P068,Cypress Home Care,Home Health,F001,O027,Houston,29.787,-95.3854
+P069,Dr. Hannah Morris,Behavioral Health,F017,O052,Houston,29.7224,-95.3943
+P070,Dr. Grace Ibarra,Behavioral Health,F010,O025,Dallas,32.7405,-96.6804
+P071,Mesquite Diagnostics Lab,Laboratory,F003,O038,San Antonio,29.4072,-98.4682
+P072,Dr. Ines Chen,Physical Therapy,F019,O033,Dallas,32.8103,-96.7544
+P073,Dr. Samuel Delgado,Family Medicine,F029,O051,Fort Worth,32.8196,-97.3508
+P074,Dr. Thomas Morris,Cardiology,F022,O048,Fort Worth,32.765,-97.3722
+P075,Dr. Victor Morris,Family Medicine,F004,O051,Austin,30.264,-97.752
+P076,Brazos Diagnostics Lab,Laboratory,F034,O008,Houston,29.8148,-95.4027
+P077,Dr. Ines Delgado,Behavioral Health,F003,O015,San Antonio,29.4072,-98.4682
+P078,Mesquite EMS,Ambulance,F016,O055,Fort Worth,32.7473,-97.3474
+P079,Dr. Ines Ellis,Family Medicine,F023,O008,San Antonio,29.4003,-98.5606
+P080,Dr. Nadia Brooks,Cardiology,F038,O047,Austin,30.2196,-97.7277
+P081,Dr. David Hayes,Physical Therapy,F026,O061,Houston,29.7392,-95.2991
+P082,Cypress Home Care,Home Health,F008,O021,Lubbock,33.538,-101.8217
+P083,Alamo Home Care,Home Health,F018,O003,San Antonio,29.4105,-98.4992
+P084,Dr. Linh Patel,Family Medicine,F035,O001,San Antonio,29.4575,-98.4601
+P085,Live Oak EMS,Ambulance,F010,O054,Dallas,32.7405,-96.6804
+P086,Mesquite EMS,Ambulance,F037,O007,Houston,29.8189,-95.3325
+P087,Lone Star EMS,Ambulance,F022,O045,Fort Worth,32.765,-97.3722
+P088,Dr. Kevin Foster,Behavioral Health,F026,O009,Houston,29.7392,-95.2991
+P089,Brazos Diagnostics Lab,Laboratory,F027,O024,Fort Worth,32.7648,-97.3256
+P090,Dr. Nadia Foster,Family Medicine,F039,O007,Fort Worth,32.7299,-97.3371
+P091,Dr. Victor Khan,Internal Medicine,F028,O039,Austin,30.2681,-97.7038
+P092,Dr. David Ellis,Family Medicine,F017,O007,Houston,29.7224,-95.3943
+P093,Dr. Thomas Brooks,Cardiology,F024,O038,Houston,29.7026,-95.3893
+P094,Alamo EMS,Ambulance,F028,O058,Austin,30.2681,-97.7038
+P095,Dr. Carlos Hayes,Behavioral Health,F024,O045,Houston,29.7026,-95.3893
+P096,Dr. Linh Turner,Cardiology,F001,O040,Houston,29.787,-95.3854
+P097,Lone Star Diagnostics Lab,Laboratory,F037,O055,Houston,29.8189,-95.3325
+P098,Dr. Daniel Ortiz,Orthopedics,F011,O050,El Paso,31.7468,-106.4684
+P099,Dr. Rosa Morris,Cardiology,F027,O044,Fort Worth,32.7648,-97.3256
+P100,Dr. Rosa Brooks,Behavioral Health,F023,O034,San Antonio,29.4003,-98.5606
+P101,Dr. Nadia Ortiz,Cardiology,F005,O024,Fort Worth,32.688,-97.3896
+P102,Dr. Rosa Brooks,Behavioral Health,F036,O038,Houston,29.7747,-95.4059
+P103,Brazos Diagnostics Lab,Laboratory,F004,O007,Austin,30.264,-97.752
+P104,Dr. Hannah Brooks,Cardiology,F039,O053,Fort Worth,32.7299,-97.3371
+P105,Dr. Grace Jensen,Internal Medicine,F037,O054,Houston,29.8189,-95.3325
+P106,Dr. Carlos Nguyen,Orthopedics,F024,O016,Houston,29.7026,-95.3893
+P107,Live Oak Home Care,Home Health,F039,O046,Fort Worth,32.7299,-97.3371
+P108,Dr. Victor Hayes,Internal Medicine,F035,O042,San Antonio,29.4575,-98.4601
+P109,Cypress Diagnostics Lab,Laboratory,F036,O052,Houston,29.7747,-95.4059
+P110,Dr. Elena Gupta,Behavioral Health,F032,O054,El Paso,31.7691,-106.514
+P111,Dr. Carlos Gupta,Family Medicine,F038,O045,Austin,30.2196,-97.7277
+P112,Dr. Aisha Shah,Cardiology,F031,O057,Lubbock,33.537,-101.8938
+P113,Dr. David Khan,Family Medicine,F036,O020,Houston,29.7747,-95.4059
+P114,Dr. Carlos Brooks,Family Medicine,F005,O027,Fort Worth,32.688,-97.3896
+P115,Dr. Elena Foster,Family Medicine,F018,O009,San Antonio,29.4105,-98.4992
+P116,Dr. Carlos Ibarra,Physical Therapy,F020,O052,Corpus Christi,27.7315,-97.3901
+P117,Dr. Omar Hayes,Behavioral Health,F037,O017,Houston,29.8189,-95.3325
+P118,Dr. Thomas Hayes,Orthopedics,F020,O031,Corpus Christi,27.7315,-97.3901
+P119,Dr. Kevin Turner,Cardiology,F018,O010,San Antonio,29.4105,-98.4992
+P120,Dr. Victor Chen,Internal Medicine,F032,O016,El Paso,31.7691,-106.514
+P121,Prairie Home Care,Home Health,F027,O041,Fort Worth,32.7648,-97.3256
+P122,Rio Medical Supply,DME Supplier,F024,O016,Houston,29.7026,-95.3893
+P123,Dr. Omar Gupta,Physical Therapy,F037,O031,Houston,29.8189,-95.3325
+P124,Dr. Nadia Morris,Internal Medicine,F033,O028,Fort Worth,32.7643,-97.2457
+P125,Live Oak Medical Supply,DME Supplier,F029,O037,Fort Worth,32.8196,-97.3508
+P126,Panhandle Diagnostics Lab,Laboratory,F039,O016,Fort Worth,32.7299,-97.3371
+P127,Dr. Ines Turner,Family Medicine,F002,O030,Dallas,32.7728,-96.8521
+P128,Dr. Thomas Gupta,Internal Medicine,F023,O002,San Antonio,29.4003,-98.5606
+P129,Dr. Rosa Quinn,Internal Medicine,F002,O032,Dallas,32.7728,-96.8521
+P130,Dr. Carlos Brooks,Physical Therapy,F032,O007,El Paso,31.7691,-106.514
+P131,Dr. Daniel Khan,Cardiology,F006,O044,El Paso,31.704,-106.5256
+P132,Dr. Linh Morris,Internal Medicine,F023,O051,San Antonio,29.4003,-98.5606
+P133,Dr. James Quinn,Family Medicine,F032,O025,El Paso,31.7691,-106.514
+P134,Dr. David Foster,Cardiology,F026,O053,Houston,29.7392,-95.2991
+P135,Dr. Omar Nguyen,Behavioral Health,F003,O024,San Antonio,29.4072,-98.4682
+P136,Dr. Maria Lopez,Cardiology,F020,O053,Corpus Christi,27.7315,-97.3901
+P137,Dr. David Turner,Internal Medicine,F032,O032,El Paso,31.7691,-106.514
+P138,Dr. Robert Jensen,Behavioral Health,F039,O034,Fort Worth,32.7299,-97.3371
+P139,Panhandle EMS,Ambulance,F036,O025,Houston,29.7747,-95.4059
+P140,Dr. David Delgado,Family Medicine,F033,O057,Fort Worth,32.7643,-97.2457
+P141,Dr. Daniel Lopez,Cardiology,F013,O043,Houston,29.7461,-95.4551
+P142,Dr. Elena Nguyen,Internal Medicine,F031,O030,Lubbock,33.537,-101.8938
+P143,Dr. Kevin Patel,Family Medicine,F007,O048,Corpus Christi,27.7477,-97.3839
+P144,Pecos Home Care,Home Health,F014,O028,Lubbock,33.6074,-101.8445
+P145,Panhandle Medical Supply,DME Supplier,F012,O053,Austin,30.3192,-97.7827
+P146,Dr. Kevin Foster,Internal Medicine,F020,O029,Corpus Christi,27.7315,-97.3901
+P147,Dr. Thomas Turner,Internal Medicine,F036,O049,Houston,29.7747,-95.4059
+P148,Dr. Aisha Reyes,Family Medicine,F035,O016,San Antonio,29.4575,-98.4601
+P149,Dr. Maria Hayes,Behavioral Health,F036,O034,Houston,29.7747,-95.4059
+P150,Dr. Samuel Alvarez,Family Medicine,F038,O037,Austin,30.2196,-97.7277
+P151,Dr. Grace Khan,Cardiology,F002,O032,Dallas,32.7728,-96.8521
+P152,Dr. Robert Reyes,Family Medicine,F040,O027,Lubbock,33.5408,-101.8568
+P153,Dr. Elena Quinn,Behavioral Health,F036,O001,Houston,29.7747,-95.4059
+P154,Panhandle Medical Supply,DME Supplier,F030,O059,Dallas,32.7671,-96.8444
+P155,Dr. Kevin Alvarez,Family Medicine,F004,O013,Austin,30.264,-97.752
+P156,Dr. Daniel Alvarez,Physical Therapy,F030,O011,Dallas,32.7671,-96.8444
+P157,Mesquite Diagnostics Lab,Laboratory,F028,O049,Austin,30.2681,-97.7038
+P158,Dr. Thomas Delgado,Family Medicine,F004,O005,Austin,30.264,-97.752
+P159,Lone Star Medical Supply,DME Supplier,F009,O046,Fort Worth,32.7715,-97.2509
+P160,Dr. Maria Chen,Behavioral Health,F031,O022,Lubbock,33.537,-101.8938
+P161,Dr. David Turner,Orthopedics,F007,O044,Corpus Christi,27.7477,-97.3839
+P162,Dr. Elena Quinn,Behavioral Health,F014,O013,Lubbock,33.6074,-101.8445
+P163,Dr. James Nguyen,Internal Medicine,F025,O043,San Antonio,29.427,-98.4958
+P164,Dr. Carlos Khan,Family Medicine,F035,O060,San Antonio,29.4575,-98.4601
+P165,Dr. Thomas Ellis,Internal Medicine,F012,O031,Austin,30.3192,-97.7827
+P166,Dr. Maria Ellis,Physical Therapy,F001,O034,Houston,29.787,-95.3854
+P167,Rio Medical Supply,DME Supplier,F035,O037,San Antonio,29.4575,-98.4601
+P168,Dr. Omar Shah,Internal Medicine,F038,O022,Austin,30.2196,-97.7277
+P169,Dr. Ines Delgado,Internal Medicine,F035,O034,San Antonio,29.4575,-98.4601
+P170,Dr. James Alvarez,Family Medicine,F020,O039,Corpus Christi,27.7315,-97.3901
+P171,Gulf Coast Medical Supply,DME Supplier,F029,O002,Fort Worth,32.8196,-97.3508
+P172,Dr. Carlos Alvarez,Family Medicine,F006,O028,El Paso,31.704,-106.5256
+P173,Prairie Medical Supply,DME Supplier,F026,O032,Houston,29.7392,-95.2991
+P174,Dr. Carlos Ortiz,Family Medicine,F025,O013,San Antonio,29.427,-98.4958
+P175,Dr. Kevin Alvarez,Family Medicine,F026,O029,Houston,29.7392,-95.2991
+P176,Dr. Linh Nguyen,Family Medicine,F028,O024,Austin,30.2681,-97.7038
+P177,Dr. Daniel Quinn,Cardiology,F036,O034,Houston,29.7747,-95.4059
+P178,Dr. Elena Foster,Internal Medicine,F032,O018,El Paso,31.7691,-106.514
+P179,Live Oak Home Care,Home Health,F002,O054,Dallas,32.7728,-96.8521
+P180,Dr. Victor Ellis,Orthopedics,F029,O039,Fort Worth,32.8196,-97.3508
+P181,Dr. Carlos Shah,Family Medicine,F030,O038,Dallas,32.7671,-96.8444
+P182,Dr. Elena Gupta,Behavioral Health,F023,O049,San Antonio,29.4003,-98.5606
+P183,Dr. Rosa Nguyen,Internal Medicine,F025,O002,San Antonio,29.427,-98.4958
+P184,Dr. Elena Foster,Behavioral Health,F004,O016,Austin,30.264,-97.752
+P185,Rio Diagnostics Lab,Laboratory,F011,O011,El Paso,31.7468,-106.4684
+P186,Red River EMS,Ambulance,F035,O038,San Antonio,29.4575,-98.4601
+P187,Dr. Nadia Jensen,Orthopedics,F001,O021,Houston,29.787,-95.3854
+P188,Dr. Elena Hayes,Internal Medicine,F040,O043,Lubbock,33.5408,-101.8568
+P189,Dr. Nadia Quinn,Internal Medicine,F009,O057,Fort Worth,32.7715,-97.2509
+P190,Dr. Maria Shah,Internal Medicine,F032,O023,El Paso,31.7691,-106.514
+P191,Dr. Elena Morris,Cardiology,F009,O020,Fort Worth,32.7715,-97.2509
+P192,Dr. Samuel Foster,Family Medicine,F002,O030,Dallas,32.7728,-96.8521
+P193,Dr. Kevin Ortiz,Family Medicine,F025,O030,San Antonio,29.427,-98.4958
+P194,Prairie EMS,Ambulance,F031,O022,Lubbock,33.537,-101.8938
+P195,Lone Star Medical Supply,DME Supplier,F004,O021,Austin,30.264,-97.752
+P196,Dr. Samuel Alvarez,Family Medicine,F011,O023,El Paso,31.7468,-106.4684
+P197,Brazos EMS,Ambulance,F013,O030,Houston,29.7461,-95.4551
+P198,Pecos Diagnostics Lab,Laboratory,F039,O027,Fort Worth,32.7299,-97.3371
+P199,Dr. Daniel Ellis,Family Medicine,F013,O028,Houston,29.7461,-95.4551
+P200,Panhandle Medical Supply,DME Supplier,F003,O018,San Antonio,29.4072,-98.4682
+P201,Cypress EMS,Ambulance,F040,O039,Lubbock,33.5408,-101.8568
+P202,Dr. James Ibarra,Behavioral Health,F004,O030,Austin,30.264,-97.752
+P203,Alamo Diagnostics Lab,Laboratory,F020,O014,Corpus Christi,27.7315,-97.3901
+P204,Dr. Maria Ibarra,Internal Medicine,F008,O046,Lubbock,33.538,-101.8217
+P205,Dr. Samuel Gupta,Orthopedics,F011,O053,El Paso,31.7468,-106.4684
+P206,Dr. Elena Khan,Physical Therapy,F031,O024,Lubbock,33.537,-101.8938
+P207,Dr. Robert Ortiz,Orthopedics,F006,O032,El Paso,31.704,-106.5256
+P208,Dr. Robert Nguyen,Internal Medicine,F027,O057,Fort Worth,32.7648,-97.3256
+P209,Dr. Hannah Hayes,Behavioral Health,F023,O019,San Antonio,29.4003,-98.5606
+P210,Rio Diagnostics Lab,Laboratory,F030,O014,Dallas,32.7671,-96.8444
+P211,Live Oak Diagnostics Lab,Laboratory,F007,O021,Corpus Christi,27.7477,-97.3839
+P212,Dr. Hannah Khan,Family Medicine,F015,O027,Fort Worth,32.7182,-97.3633
+P213,Dr. Thomas Patel,Internal Medicine,F001,O027,Houston,29.787,-95.3854
+P214,Dr. Nadia Chen,Family Medicine,F036,O037,Houston,29.7747,-95.4059
+P215,Dr. Elena Ibarra,Behavioral Health,F040,O017,Lubbock,33.5408,-101.8568
+P216,Dr. Omar Hayes,Family Medicine,F018,O033,San Antonio,29.4105,-98.4992
+P217,Rio Medical Supply,DME Supplier,F022,O007,Fort Worth,32.765,-97.3722
+P218,Dr. Robert Khan,Behavioral Health,F006,O057,El Paso,31.704,-106.5256
+P219,Dr. Victor Hayes,Internal Medicine,F036,O018,Houston,29.7747,-95.4059
+P220,Dr. Omar Ortiz,Physical Therapy,F031,O020,Lubbock,33.537,-101.8938
+P221,Dr. Robert Turner,Family Medicine,F005,O010,Fort Worth,32.688,-97.3896
+P222,Dr. Hannah Patel,Family Medicine,F022,O023,Fort Worth,32.765,-97.3722
+P223,Dr. Nadia Quinn,Family Medicine,F007,O059,Corpus Christi,27.7477,-97.3839
+P224,Dr. Victor Khan,Orthopedics,F024,O036,Houston,29.7026,-95.3893
+P225,Live Oak Home Care,Home Health,F027,O041,Fort Worth,32.7648,-97.3256
+P226,Dr. Carlos Reyes,Family Medicine,F016,O036,Fort Worth,32.7473,-97.3474
+P227,Dr. Hannah Ortiz,Physical Therapy,F018,O021,San Antonio,29.4105,-98.4992
+P228,Dr. Elena Delgado,Family Medicine,F029,O048,Fort Worth,32.8196,-97.3508
+P229,Dr. Omar Quinn,Internal Medicine,F007,O021,Corpus Christi,27.7477,-97.3839
+P230,Dr. Nadia Gupta,Behavioral Health,F002,O048,Dallas,32.7728,-96.8521
+P231,Rio Diagnostics Lab,Laboratory,F017,O060,Houston,29.7224,-95.3943
+P232,Panhandle Medical Supply,DME Supplier,F020,O001,Corpus Christi,27.7315,-97.3901
+P233,Dr. Omar Turner,Behavioral Health,F012,O011,Austin,30.3192,-97.7827
+P234,Dr. Thomas Foster,Cardiology,F018,O046,San Antonio,29.4105,-98.4992
+P235,Dr. James Foster,Family Medicine,F005,O008,Fort Worth,32.688,-97.3896
+P236,Dr. David Delgado,Internal Medicine,F030,O044,Dallas,32.7671,-96.8444
+P237,Brazos Medical Supply,DME Supplier,F031,O015,Lubbock,33.537,-101.8938
+P238,Dr. Daniel Morris,Orthopedics,F011,O036,El Paso,31.7468,-106.4684
+P239,Dr. Linh Ellis,Internal Medicine,F027,O040,Fort Worth,32.7648,-97.3256
+P240,Dr. Thomas Khan,Family Medicine,F010,O020,Dallas,32.7405,-96.6804
+P241,Dr. Maria Jensen,Family Medicine,F016,O052,Fort Worth,32.7473,-97.3474
+P242,Dr. David Jensen,Physical Therapy,F013,O055,Houston,29.7461,-95.4551
+P243,Dr. James Ellis,Internal Medicine,F039,O014,Fort Worth,32.7299,-97.3371
+P244,Rio Medical Supply,DME Supplier,F020,O045,Corpus Christi,27.7315,-97.3901
+P245,Dr. David Chen,Cardiology,F026,O041,Houston,29.7392,-95.2991
+P246,Hill Country Diagnostics Lab,Laboratory,F009,O016,Fort Worth,32.7715,-97.2509
+P247,Dr. Rosa Shah,Family Medicine,F038,O049,Austin,30.2196,-97.7277
+P248,Dr. Victor Patel,Family Medicine,F028,O019,Austin,30.2681,-97.7038
+P249,Dr. Rosa Foster,Internal Medicine,F005,O016,Fort Worth,32.688,-97.3896
+P250,Dr. Linh Alvarez,Family Medicine,F026,O061,Houston,29.7392,-95.2991
+P251,Brazos EMS,Ambulance,F021,O008,Austin,30.2846,-97.7494
+P252,Prairie Diagnostics Lab,Laboratory,F017,O056,Houston,29.7224,-95.3943
+P253,Dr. Maria Ortiz,Internal Medicine,F033,O024,Fort Worth,32.7643,-97.2457
+P254,Dr. Carlos Turner,Cardiology,F023,O030,San Antonio,29.4003,-98.5606
+P255,Dr. Omar Ibarra,Orthopedics,F023,O041,San Antonio,29.4003,-98.5606
+P256,Dr. Priya Lopez,Behavioral Health,F016,O053,Fort Worth,32.7473,-97.3474
+P257,Dr. Daniel Alvarez,Family Medicine,F034,O047,Houston,29.8148,-95.4027
+P258,Dr. Maria Reyes,Internal Medicine,F029,O023,Fort Worth,32.8196,-97.3508
+P259,Dr. Samuel Morris,Family Medicine,F029,O045,Fort Worth,32.8196,-97.3508
+P260,Panhandle Medical Supply,DME Supplier,F027,O024,Fort Worth,32.7648,-97.3256
+P261,Dr. Carlos Jensen,Internal Medicine,F027,O031,Fort Worth,32.7648,-97.3256
+P262,Dr. Victor Ellis,Physical Therapy,F031,O042,Lubbock,33.537,-101.8938
+P263,Gulf Coast Medical Supply,DME Supplier,F013,O061,Houston,29.7461,-95.4551
+P264,Dr. Daniel Alvarez,Internal Medicine,F021,O004,Austin,30.2846,-97.7494
+P265,Dr. David Ortiz,Family Medicine,F006,O003,El Paso,31.704,-106.5256
+P266,Dr. Omar Gupta,Internal Medicine,F015,O009,Fort Worth,32.7182,-97.3633
+P267,Dr. Priya Hayes,Behavioral Health,F012,O006,Austin,30.3192,-97.7827
+P268,Dr. James Lopez,Cardiology,F009,O044,Fort Worth,32.7715,-97.2509
+P269,Dr. Carlos Shah,Family Medicine,F022,O012,Fort Worth,32.765,-97.3722
+P270,Dr. Ines Jensen,Family Medicine,F018,O015,San Antonio,29.4105,-98.4992
+P271,Dr. Hannah Nguyen,Behavioral Health,F019,O019,Dallas,32.8103,-96.7544
+P272,Dr. Samuel Morris,Physical Therapy,F035,O011,San Antonio,29.4575,-98.4601
+P273,Dr. Maria Shah,Family Medicine,F015,O053,Fort Worth,32.7182,-97.3633
+P274,Cypress Diagnostics Lab,Laboratory,F017,O061,Houston,29.7224,-95.3943
+P275,Dr. Kevin Ellis,Internal Medicine,F032,O012,El Paso,31.7691,-106.514
+P276,Dr. Thomas Lopez,Family Medicine,F009,O014,Fort Worth,32.7715,-97.2509
+P277,Dr. Daniel Alvarez,Internal Medicine,F039,O006,Fort Worth,32.7299,-97.3371
+P278,Dr. Robert Brooks,Physical Therapy,F027,O016,Fort Worth,32.7648,-97.3256
+P279,Dr. Rosa Delgado,Behavioral Health,F011,O012,El Paso,31.7468,-106.4684
+P280,Dr. Maria Chen,Cardiology,F023,O021,San Antonio,29.4003,-98.5606
+P281,Dr. Daniel Khan,Internal Medicine,F038,O010,Austin,30.2196,-97.7277
+P282,Dr. Priya Hayes,Internal Medicine,F037,O057,Houston,29.8189,-95.3325
+P283,Dr. Linh Quinn,Internal Medicine,F016,O048,Fort Worth,32.7473,-97.3474
+P284,Dr. Elena Chen,Internal Medicine,F002,O039,Dallas,32.7728,-96.8521
+P285,Dr. Nadia Ibarra,Cardiology,F004,O036,Austin,30.264,-97.752
+P286,Dr. Priya Ibarra,Cardiology,F036,O042,Houston,29.7747,-95.4059
+P287,Dr. Linh Ellis,Family Medicine,F027,O057,Fort Worth,32.7648,-97.3256
+P288,Dr. Elena Brooks,Internal Medicine,F030,O008,Dallas,32.7671,-96.8444
+P289,Dr. Ines Alvarez,Family Medicine,F029,O032,Fort Worth,32.8196,-97.3508
+P290,Dr. Hannah Alvarez,Behavioral Health,F032,O012,El Paso,31.7691,-106.514
+P291,Dr. Ines Hayes,Internal Medicine,F021,O028,Austin,30.2846,-97.7494
+P292,Dr. Daniel Brooks,Behavioral Health,F016,O054,Fort Worth,32.7473,-97.3474
+P293,Dr. Aisha Hayes,Family Medicine,F010,O038,Dallas,32.7405,-96.6804
+P294,Dr. James Ibarra,Internal Medicine,F013,O039,Houston,29.7461,-95.4551
+P295,Dr. Carlos Ibarra,Family Medicine,F031,O006,Lubbock,33.537,-101.8938
+P296,Dr. Hannah Delgado,Family Medicine,F001,O049,Houston,29.787,-95.3854
+P297,Dr. Elena Jensen,Physical Therapy,F006,O043,El Paso,31.704,-106.5256
+P298,Dr. Grace Hayes,Family Medicine,F032,O022,El Paso,31.7691,-106.514
+P299,Dr. Carlos Turner,Family Medicine,F026,O021,Houston,29.7392,-95.2991
+P300,Dr. Grace Alvarez,Internal Medicine,F007,O035,Corpus Christi,27.7477,-97.3839

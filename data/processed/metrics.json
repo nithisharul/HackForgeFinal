@@ -1,0 +1,65 @@
+{
+ "note": "Evaluated against injected synthetic scenarios. Not evidence of performance on real claims.",
+ "funnel": {
+  "claims": 80452,
+  "raw_alerts": 846,
+  "providers_with_any_alert": 51,
+  "cases": 34
+ },
+ "provider_level": {
+  "fwa_providers": 25,
+  "fwa_in_queue": 25,
+  "recall": 1.0,
+  "queue_precision": 0.735,
+  "legit_outliers_in_queue": 1
+ },
+ "claim_level": {
+  "flag_precision": 0.866,
+  "recall_by_pattern": {
+   "duplicate_billing": 1.0,
+   "upcoding": 0.543,
+   "impossible_timing": 0.976,
+   "unbundling": 1.0
+  }
+ },
+ "anomaly": {
+  "anomaly_auc": 0.792,
+  "anomaly_brier_calibrated_cv": 0.0555,
+  "anomaly_brier_base_rate": 0.0764
+ },
+ "prediction": {
+  "training_snapshots": [
+   "2026-01-01",
+   "2026-02-01",
+   "2026-03-01",
+   "2026-04-01",
+   "2026-05-01",
+   "2026-06-01",
+   "2026-07-01"
+  ],
+  "training_rows": 2100,
+  "30d": {
+   "positives": 76,
+   "auc_cv": 0.893,
+   "avg_precision_cv": 0.66
+  },
+  "60d": {
+   "positives": 103,
+   "auc_cv": 0.883,
+   "avg_precision_cv": 0.705
+  },
+  "90d": {
+   "positives": 119,
+   "auc_cv": 0.876,
+   "avg_precision_cv": 0.708
+  }
+ },
+ "rule_tables": {
+  "bundling_pairs": "500 official CMS NCCI pairs (v32.3, file 1) plus 137 pairs derived from code definitions, which are not from the CMS table",
+  "unit_limits": "237 official CMS practitioner MUE values (effective 2026-10-01) plus 3 illustrative limits for equipment codes"
+ },
+ "network": {
+  "clusters": 1,
+  "method": "leiden"
+ }
+}

@@ -24,6 +24,7 @@ export default function CaseDetail({ caseId, horizon }) {
         </div>
         <div className="case-actions">
           {c.status === 'open' ? <Tier tier={conf.tier} /> : <Status status={c.status} />}
+          <a className="btn" href={`/api/cases/${c.case_id}/fhir`} target="_blank" rel="noreferrer">Export FHIR JSON</a>
           {c.status === 'open' && (
             <button type="button" className="btn primary"
               onClick={() => document.getElementById('verdict')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })}>

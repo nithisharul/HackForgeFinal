@@ -1,79 +1,92 @@
 
-function ClinicalAuditCard({ caseId }) {
-  const [auditData, setAuditData] = React.useState(null);
+
+function ClinicalAuditCard({ caseId, pattern }) {
+  const [data, setData] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     if (!caseId) return;
     setLoading(true);
     fetch(`http://127.0.0.1:8000/api/cases/${caseId}/clinical-audit`)
-      .then((res) => {
-        if (!res.ok) throw new Error("Fallback to proxy");
-        return res.json();
-      })
-      .catch(() => fetch(`/api/cases/${caseId}/clinical-audit`).then((r) => r.json()))
-      .then((data) => {
-        setAuditData(data);
+      .then((r) => r.json())
+      .then((d) => {
+        if (d && d.artifact) setData(d);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => {
+        fetch(`/api/cases/${caseId}/clinical-audit`)
+          .then((r) => r.json())
+          .then((d) => {
+            if (d && d.artifact) setData(d);
+            setLoading(false);
+          })
+          .catch(() => setLoading(false));
+      });
   }, [caseId]);
 
-  if (loading || !auditData || !auditData.artifact) return null;
-  const art = auditData.artifact;
+  if (loading) {
+    return (
+      <div style={{ marginTop: "16px", padding: "12px", background: "#f8fafc", borderRadius: "8px", border: "1px solid #e2e8f0", fontSize: "12px", color: "#64748b" }}>
+        Auditing clinical records via Llama 3.2 RAG...
+      </div>
+    );
+  }
+
+  if (!data || !data.artifact) return null;
+  const art = data.artifact;
 
   return (
     <div style={{
       marginTop: "16px",
       background: "#ffffff",
-      border: "1px solid #e2e8f0",
+      border: "1px solid #cbd5e1",
       borderRadius: "8px",
       padding: "16px",
-      boxShadow: "0 1px 3px rgba(0,0,0,0.04)"
+      boxShadow: "0 1px 3px rgba(0,0,0,0.05)"
     }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "10px" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "12px" }}>
         <div>
-          <h4 style={{ margin: 0, fontSize: "13px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.04em", color: "#334155" }}>
-            Clinical Chart & ADR Documentation Audit
-          </h4>
-          <span style={{ fontSize: "11px", color: "#64748b" }}>
-            Source: {art.author} · DOS: {art.date_of_service}
-          </span>
+          <div style={{ fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em", color: "#1e293b" }}>
+            Clinical Chart & ADR Documentation Audit (RAG)
+          </div>
+          <div style={{ fontSize: "11px", color: "#64748b" }}>
+            Source: {art.author} · Service Date: {art.date_of_service} · File: {data.source_file}
+          </div>
         </div>
         <span style={{
-          padding: "3px 8px",
+          padding: "3px 10px",
           borderRadius: "12px",
           fontSize: "11px",
           fontWeight: "700",
           background: art.discrepancy_found ? "#fef2f2" : "#f0fdf4",
-          color: art.discrepancy_found ? "#dc2626" : "#16a34a",
+          color: art.discrepancy_found ? "#b91c1c" : "#15803d",
           border: art.discrepancy_found ? "1px solid #fecaca" : "1px solid #bbf7d0"
         }}>
-          {art.discrepancy_found ? "⚠️ Documentation Discrepancy" : "✓ Medical Record Substantiated"}
+          {art.discrepancy_found ? "⚠️ Documentation Discrepancy" : "✓ Records Substantiated"}
         </span>
       </div>
 
       <div style={{
         background: "#0f172a",
-        color: "#94a3b8",
+        color: "#cbd5e1",
         padding: "12px",
         borderRadius: "6px",
         fontSize: "12px",
         fontFamily: "ui-monospace, monospace",
-        lineHeight: "1.55",
+        lineHeight: "1.6",
         whiteSpace: "pre-wrap",
         maxHeight: "160px",
         overflowY: "auto",
-        marginBottom: "10px",
-        border: "1px solid #1e293b"
+        marginBottom: "12px",
+        border: "1px solid #334155"
       }}>
         {art.text_content}
       </div>
 
       <div style={{
-        background: art.discrepancy_found ? "#fffbeb" : "#f8fafc",
-        borderLeft: art.discrepancy_found ? "3.5px solid #d97706" : "3.5px solid #16a34a",
-        padding: "8px 12px",
+        background: art.discrepancy_found ? "#fffbeb" : "#f0fdf4",
+        borderLeft: art.discrepancy_found ? "4px solid #d97706" : "4px solid #16a34a",
+        padding: "10px 14px",
         borderRadius: "4px",
         fontSize: "12px",
         color: "#1e293b"
@@ -81,14 +94,15 @@ function ClinicalAuditCard({ caseId }) {
         <div style={{ fontWeight: "700", color: art.discrepancy_found ? "#b45309" : "#15803d", marginBottom: "2px" }}>
           {art.discrepancy_type}
         </div>
-        <div>{art.finding}</div>
-        <div style={{ fontSize: "11px", color: "#64748b", marginTop: "4px" }}>
-          <strong>Statutory Authority:</strong> {art.statute}
+        <div style={{ lineHeight: "1.5" }}>{art.finding}</div>
+        <div style={{ fontSize: "11px", color: "#64748b", marginTop: "6px" }}>
+          <strong>Statutory Authority:</strong> {art.statute} · <strong>Audited by:</strong> {art.model_auditor}
         </div>
       </div>
     </div>
   );
 }
+
 
 
 function CopilotPlaybook({ text }) {

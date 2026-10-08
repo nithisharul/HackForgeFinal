@@ -19,7 +19,7 @@ export default function CaseDetail({ caseId, horizon }) {
       <a className="back" href="#/">← Back to queue</a>
       <header className="case-head">
         <div>
-          <h1>{c.provider_id} {c.provider_name}</h1>
+          <h1>{c.provider_id} {c.provider_name} <a className="btn" href={`http://127.0.0.1:8000/api/cases/${c.case_id}/fhir`} target="_blank" rel="noreferrer" style={{float: "right", fontSize: "14px", background: "#005a9c", color: "white"}}>Export FHIR JSON</a></h1>
           <p>{c.specialty} · {c.city} · owner {c.owner_id} {c.owner_name} · {c.case_id}</p>
         </div>
         {c.status === 'open' ? <Tier tier={conf.tier} /> : <Status status={c.status} />}

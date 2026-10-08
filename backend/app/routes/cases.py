@@ -48,3 +48,23 @@ def preview_verdict(case_id: str, v: Verdict):
 def post_verdict(case_id: str, v: Verdict):
     """Human-approved writeback: the verdict becomes a case page and updates the linked pages."""
     return {"case_id": case_id, "written": True, **_write(case_id, v, dry_run=False), "status": store.status_of(case_id)}
+
+@router.get("/cases/{case_id}/fhir")
+def export_fhir(case_id: str):
+    case = _case(case_id)
+    from datetime import datetime
+    return {
+        "resourceType": "ExplanationOfBenefit",
+        "id": f"eob-{case_id.lower()}",
+        "status": "active",
+        "type": {"coding": [{"system": "http://terminology.hl7.org/CodeSystem/claim-type", "code": "institutional"}]},
+        "use": "claim",
+        "patient": {"reference": "Patient/TOKENIZED-MEMBER-MASKED"},
+        "created": datetime.utcnow().isoformat() + "Z",
+        "insurer": {"display": "State Medicaid Agency (CMS-Aligned)"},
+        "provider": {"reference": f"Practitioner/{case.get('provider_id', 'UNKNOWN')}"},
+        "outcome": "complete",
+        "extension": [
+            {"url": "http://acentra.com/fhir/StructureDefinition/nist-governance", "valueString": "Aligned with NIST AI RMF: Probabilistic score for human review only."}
+        ]
+    }

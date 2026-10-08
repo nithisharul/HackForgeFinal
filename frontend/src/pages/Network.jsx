@@ -85,6 +85,122 @@ export default function Network({ providerId }) {
   )
 }
 
+export function RingShieldPanel({ providerId }) {
+  const [result, setResult] = useState(null)
+  const [error, setError] = useState(null)
+  const [attempt, setAttempt] = useState(0)
+
+  useEffect(() => {
+    const controller = new AbortController()
+    setResult(null)
+    setError(null)
+    api.ringShield(providerId, { signal: controller.signal })
+      .then((data) => { if (!controller.signal.aborted) setResult(data) })
+      .catch((err) => { if (!controller.signal.aborted) setError(err.message) })
+    return () => controller.abort()
+  }, [providerId, attempt])
+
+  if (error) {
+    return (
+      <section className="card ringshield" aria-labelledby="ringshield-title">
+        <h3 id="ringshield-title">RingShield / Network robustness</h3>
+        <div className="notice error" role="alert">
+          <p>Network robustness could not be loaded. {error}</p>
+          <button type="button" className="btn" onClick={() => setAttempt((value) => value + 1)}>Retry analysis</button>
+        </div>
+      </section>
+    )
+  }
+  if (!result) {
+    return (
+      <section className="card ringshield" aria-labelledby="ringshield-title">
+        <h3 id="ringshield-title">RingShield / Network robustness</h3>
+        <div className="sk rs-sk" role="status" aria-label="Loading network robustness" />
+      </section>
+    )
+  }
+
+  const supporting = result.evidence_family_contributions.filter((family) => family.relationship_type !== 'shared_beneficiaries')
+  const sensitivity = result.exclusion_sensitivity
+  const label = result.robustness_score >= 75 ? 'Strong under stress' : result.robustness_score >= 50 ? 'Mixed resilience' : 'Sensitive to removal'
+
+  return (
+    <section className="card ringshield" aria-labelledby="ringshield-title">
+      <h3 id="ringshield-title">RingShield / Network robustness <small>{result.network_id} · read-only analysis</small></h3>
+      <div className="rs-overview">
+        <div className="rs-score">
+          <strong>{result.robustness_score}</strong><span>/100</span>
+          <small>{label}</small>
+        </div>
+        <div>
+          <p>{result.recommendation}</p>
+          <p className="rs-caution">This result tests an investigative lead. It never labels a network as proven fraud.</p>
+        </div>
+      </div>
+      <p className="rs-members"><b>Member hospitals:</b> {result.member_hospital_details.map((hospital) => `${hospital.provider_id} ${hospital.name}`).join('; ')}</p>
+
+      <h4>Membership under shared-beneficiary edge removal</h4>
+      <div className="rs-levels">
+        <div className="rs-level baseline">
+          <span>Original network</span>
+          <meter min="0" max="100" value="100" aria-label="Original network membership: 100 percent reference" />
+          <b>100%</b>
+          <small>detector reference</small>
+        </div>
+        {result.stability.perturbations.map((level) => {
+          const value = Math.round(level.mean_stability * 100)
+          return (
+            <div className="rs-level" key={level.removal_fraction}>
+              <span>{Math.round(level.removal_fraction * 100)}% removed</span>
+              <meter min="0" max="100" value={value} aria-label={`${Math.round(level.removal_fraction * 100)} percent edge removal: ${value} percent membership stability`} />
+              <b>{value}%</b>
+              <small>{level.trials} deterministic trials</small>
+            </div>
+          )
+        })}
+      </div>
+
+      <h4>Independent supporting evidence</h4>
+      <ul className="rs-evidence">
+        {supporting.map((family) => (
+          <li key={family.relationship_type} className={family.available && family.score > 0 ? 'survives' : 'weak'}>
+            <span aria-hidden="true">{family.available && family.score > 0 ? '✓' : '–'}</span>
+            <div><b>{family.label}</b><small>{family.detail}</small></div>
+          </li>
+        ))}
+      </ul>
+      {result.strongest_supporting_relationship && (
+        <p className="rs-extremes">
+          <b>Strongest:</b> {result.strongest_supporting_relationship.label}.{' '}
+          <b>Weakest:</b> {result.weakest_supporting_relationship.label}.
+        </p>
+      )}
+
+      <h4>Exclude one relationship</h4>
+      <div className="table-wrap rs-table">
+        <table>
+          <thead><tr><th scope="col">Excluded</th><th scope="col">Detector topology</th><th scope="col" className="num">Result</th></tr></thead>
+          <tbody>
+            {sensitivity.map((row) => (
+              <tr key={row.relationship_type}>
+                <td>{row.label}<small>{row.sensitivity_points} point sensitivity</small></td>
+                <td>{row.topology_affected ? 'Membership changes' : 'Unchanged; evidence only'}</td>
+                <td className="num"><b>{row.resulting_robustness_score}/100</b></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <details className="rs-notes">
+        <summary>Method and limitations</summary>
+        <p>Original membership is {Math.round(result.stability.original_membership_stability * 100)}%. The stress score uses maximum Jaccard overlap after repeated seeded edge removals. Ownership, agents, and referrals do not alter the detector topology.</p>
+        <ul>{result.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}</ul>
+      </details>
+    </section>
+  )
+}
+
 // Hero version: only the ring itself. Members sit on a circle in referral order, so the
 // closed loop reads at a glance; the shared owner sits in the middle. The drawing is wider
 // than the ring so each member's name fits beside it.

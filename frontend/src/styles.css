@@ -285,6 +285,37 @@ tr:last-child td { border-bottom: 0; }
 .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; vertical-align: middle; margin-right: 4px; }
 .dot-flagged { background: #f2aaa3; } .dot-plain { background: #d5dbe3; }
 
+/* RingShield: a compact stress-test report, visually tied to the existing network evidence card. */
+.ringshield { box-shadow: var(--shadow), inset 0 3px 0 var(--link-agent); }
+.rs-sk { min-height: 280px; }
+.rs-overview { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; padding: 14px; background: var(--surface-2); border-radius: var(--r); }
+.rs-overview > div:last-child { display: flex; flex-direction: column; gap: 5px; }
+.rs-score { display: grid; grid-template-columns: auto auto; align-items: baseline; min-width: 96px; font-variant-numeric: tabular-nums; }
+.rs-score strong { font-family: var(--display); font-size: 34px; line-height: 1; letter-spacing: -0.04em; }
+.rs-score > span { color: var(--faint); }
+.rs-score small { grid-column: 1 / -1; color: var(--ok); font-weight: 700; }
+.rs-caution { color: var(--muted); font-size: 12px; }
+.rs-members { margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.rs-members b { color: var(--ink); }
+.rs-levels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.rs-level { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; padding: 9px 10px; border: 1px solid var(--line); border-radius: var(--r-sm); font-size: 12px; }
+.rs-level meter { grid-column: 1 / -1; width: 100%; height: 8px; accent-color: var(--link-agent); }
+.rs-level b { font-variant-numeric: tabular-nums; }
+.rs-level small { grid-column: 1 / -1; color: var(--faint); }
+.rs-evidence { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0; padding: 0; }
+.rs-evidence li { display: grid; grid-template-columns: 22px 1fr; gap: 6px; padding: 9px 10px; border-radius: var(--r-sm); background: var(--surface-2); }
+.rs-evidence li > span { color: var(--ok); font-weight: 800; }
+.rs-evidence li.weak > span { color: var(--faint); }
+.rs-evidence b, .rs-evidence small { display: block; }
+.rs-extremes { margin-top: 8px; color: var(--muted); font-size: 12px; }
+.rs-extremes b { color: var(--ink); }
+.rs-table td { font-size: 12px; }
+.rs-table td small { display: block; margin-top: 2px; color: var(--faint); }
+.rs-notes { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.rs-notes summary { color: var(--accent); font-weight: 600; cursor: pointer; }
+.rs-notes p { margin-top: 8px; }
+.rs-notes ul { margin: 6px 0 0; padding-left: 18px; }
+
 /* Second Brain */
 .wiki { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 16px; align-items: start; }
 .wiki aside { display: flex; flex-direction: column; gap: 1px; background: var(--surface); border-radius: var(--r); padding: 12px; box-shadow: var(--shadow);
@@ -379,6 +410,8 @@ tr:last-child td { border-bottom: 0; }
   .stat strong { font-size: 19px; }
   .card { padding: 16px; }
   .card > h3 { flex-wrap: wrap; }
+  .rs-overview { grid-template-columns: 1fr; }
+  .rs-levels, .rs-evidence { grid-template-columns: 1fr; }
   .evidence li { grid-template-columns: 1fr; gap: 4px; }
   .kind { justify-self: start; }
   .ask { flex-wrap: wrap; }

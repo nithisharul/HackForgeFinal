@@ -38,6 +38,7 @@ export const api = {
   getCase: (id, horizon) => request(`/cases/${id}?horizon=${horizon}`),
   fhirUrl: (id) => BASE + withRegion(`/cases/${id}/fhir`),
   graph: (providerId) => request(`/graph/${providerId}`),
+  ringShield: (providerId, options = {}) => request(`/graph/${providerId}/ringshield`, options),
   previewVerdict: (id, body) => post(`/cases/${id}/verdict/preview`, body),
   submitVerdict: (id, body) => post(`/cases/${id}/verdict`, body),
   wikiPages: () => request('/wiki'),

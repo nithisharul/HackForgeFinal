@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { api, getSession } from '../api/client.js'
 import SignIn from '../components/SignIn.jsx'
 import { Loading, Status, Tier, money, pct, words } from '../components/bits.jsx'
-import Network from './Network.jsx'
+import Network, { RingShieldPanel } from './Network.jsx'
 import { terms } from '../region.js'
 
 export default function CaseDetail({ caseId, horizon }) {
@@ -126,6 +126,8 @@ export default function CaseDetail({ caseId, horizon }) {
             <p>{b.network_context}</p>
             <Network providerId={c.provider_id} />
           </Card>
+
+          {c.network && <RingShieldPanel providerId={c.provider_id} />}
 
           <Card title="Confidence and routing">
             <p className="route"><strong>{conf.label}:</strong> {conf.route}. Owner: {conf.owner}.</p>

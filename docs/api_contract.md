@@ -18,6 +18,7 @@ models and Second Brain; a case or page from one region is a 404 in the other.
 | POST | `/cases/{case_id}/verdict/preview` | Show which Second Brain pages would change; writes nothing |
 | POST | `/cases/{case_id}/verdict` | Save the investigator's verdict to the Second Brain |
 | GET | `/graph/{provider_id}` | Nodes and links around one provider |
+| GET | `/graph/{provider_id}/ringshield` | Read-only robustness analysis for the provider's detected network |
 | GET | `/wiki` | List of Second Brain pages by type |
 | GET | `/wiki/page/{name}` | One page: header fields, markdown body, backlinks |
 | GET | `/wiki/lint` | Second Brain health check |

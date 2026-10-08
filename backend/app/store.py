@@ -10,6 +10,7 @@ import pandas as pd
 
 from backend import region
 from backend.brain import brief, confidence, retrieve, wiki
+from backend.pipeline import ringshield
 
 CASES_PER_INVESTIGATOR = 5
 AGENT_LINK = 30  # India: admissions two hospitals received from the same agents before the pair is drawn as linked
@@ -17,6 +18,7 @@ AGENT_LINK = 30  # India: admissions two hospitals received from the same agents
 
 class Data:
     def __init__(self, r):
+        self.REGION = r
         self.CASES = {c["case_id"]: c for c in json.loads((r.proc / "cases.json").read_text(encoding="utf-8"))}
         self.METRICS = json.loads((r.proc / "metrics.json").read_text(encoding="utf-8"))
         self.EDGES = pd.read_csv(r.proc / "edges.csv")
@@ -24,6 +26,12 @@ class Data:
         self.FAC = pd.read_csv(r.raw / "facilities.csv").set_index("facility_id").to_dict("index")
         self.OWNERS = pd.read_csv(r.raw / "ownership.csv").drop_duplicates("owner_id").set_index("owner_id").owner_name.to_dict()
         self.SCORES = pd.read_csv(r.proc / "provider_scores.csv").set_index("provider_id")
+        # RingShield relationship tables are lazy so existing queue/case requests keep their
+        # original startup cost. Loading them does not re-score or write any case.
+        self.PROVIDERS = None
+        self.RELATIONSHIP_CLAIMS = None
+        self.REFERRALS = None
+        self.RINGSHIELD = {}
         self.MAX_DOLLARS = max(c["potential_dollars"] for c in self.CASES.values()) or 1
         self.MAX_MEMBERS = max(c["member_impact"] for c in self.CASES.values()) or 1
 
@@ -150,4 +158,33 @@ def graph(provider_id, limit=12):
             if P[p]["facility_id"] in facs:
                 links.append({"source": p, "target": P[p]["facility_id"], "type": "facility", "weight": 1, "label": "bills at"})
     return {"provider_id": provider_id, "nodes": nodes, "links": links}
+
+
+def ring_shield(provider_id):
+    """Robustness analysis for the detected network containing ``provider_id``.
+
+    Results are cached per region and never written back to cases, scores, models, or the wiki.
+    """
+    d = data()
+    cluster_id = d.SCORES.cluster_id.get(provider_id)
+    if not isinstance(cluster_id, str) or not cluster_id:
+        return None
+    if cluster_id not in d.RINGSHIELD:
+        if d.RELATIONSHIP_CLAIMS is None:
+            raw = d.REGION.raw
+            d.PROVIDERS = pd.read_csv(raw / "providers.csv")
+            claim_columns = pd.read_csv(raw / "claims.csv", nrows=0).columns
+            relationship_columns = [c for c in ("provider_id", "member_id", "referred_by_agent_id") if c in claim_columns]
+            d.RELATIONSHIP_CLAIMS = pd.read_csv(raw / "claims.csv", usecols=relationship_columns)
+            d.REFERRALS = pd.read_csv(raw / "referrals.csv")
+        members = d.SCORES.index[d.SCORES.cluster_id == cluster_id].astype(str).tolist()
+        d.RINGSHIELD[cluster_id] = ringshield.evaluate_network(
+            cluster_id,
+            members,
+            d.EDGES,
+            d.RELATIONSHIP_CLAIMS,
+            d.PROVIDERS,
+            d.REFERRALS,
+        )
+    return d.RINGSHIELD[cluster_id]
 

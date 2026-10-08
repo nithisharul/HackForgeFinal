@@ -21,7 +21,7 @@ import re
 
 from backend import region
 
-from . import llm
+from . import confidence, llm
 
 LINK = re.compile(r"\[\[([^\]|#]+)")
 TOKEN = re.compile(r"\bC\d{6}\b|\bP\d{3}\b|\bINV\d{3}\b|\$[\d,]+(?:\.\d+)?|₹[\d,]+(?:\.\d+)?")
@@ -519,12 +519,21 @@ def ingest(case, verdict, reasoning, investigator, info, pattern=None, lesson=No
     meta = {"type": "case", "id": case["case_id"], "provider": case["provider_id"], "specialty": case["specialty"],
             "pattern": pattern, "verdict": verdict, "closed": str(dt.date.today()),
             "exposure": case["potential_dollars"], "source": "live", "investigator": investigator,
-            "network": (case.get("network") or {}).get("cluster_id", "")}
+            "network": (case.get("network") or {}).get("cluster_id", ""),
+            "evidence": "|".join(sorted(confidence.evidence_keys(case)))}
     text = case_page(meta, reasoning, [e["text"] for e in case["evidence"]], lesson)
     changes = _apply({_wiki() / "cases" / f"{meta['id']}.md": text}, info, dry_run,
                      ("ingest", f"{meta['id']} {verdict}",
                       f"Approved by {investigator}. Pattern [[{pattern}]], provider [[{meta['provider']}]]."))
     return {"changes": changes, "lesson": lesson, "lesson_by": "llm" if lesson else "none"}
+
+
+def revoke(case_id, reason, investigator, info):
+    """Withdraw a verdict as precedent. The page stays for the audit trail; retrieval skips it from now on."""
+    meta, body = read(case_id)
+    meta |= {"revoked": str(dt.date.today()), "revoked_by": investigator, "revoke_reason": " ".join(reason.split())}
+    return _apply({_wiki() / "cases" / f"{case_id}.md": render(meta, body)}, info, False,
+                  ("revoke", f"{case_id} revoked", f"By {investigator}: {meta['revoke_reason']}"))
 
 
 # ------------------------------------------------------ ingest: documents ---

@@ -25,10 +25,10 @@ def similarity(case, prec):
     return min(score, 1.0), why
 
 
-def precedents(case, k=3):
+def precedents(case, k=3, exclude=()):
     out = []
     for p in wiki.case_metas():
-        if p["id"] == case["case_id"]:
+        if p["id"] == case["case_id"] or p.get("revoked") or p["id"] in exclude:
             continue
         s, why = similarity(case, p)
         if p["pattern"] != case["pattern"] and p["provider"] != case["provider_id"]:
@@ -36,6 +36,7 @@ def precedents(case, k=3):
         out.append({"case_id": p["id"], "provider_id": p["provider"], "specialty": p.get("specialty", ""),
                     "pattern": p["pattern"], "verdict": p["verdict"], "closed": p.get("closed", ""),
                     "source": p.get("source", ""), "network": p.get("network", ""),
+                    "evidence": p["evidence"].split("|") if "evidence" in p else None,
                     "similarity": round(s, 2), "why": why, "reasoning": wiki.reasoning_of(p)})
     out.sort(key=lambda p: (p["similarity"], p["source"] == "live", p["closed"]), reverse=True)
     return out[:k]

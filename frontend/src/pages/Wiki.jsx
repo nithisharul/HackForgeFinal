@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { api } from '../api/client.js'
+import { api, getSession } from '../api/client.js'
+import SignIn from '../components/SignIn.jsx'
 import { Loading, Markdown } from '../components/bits.jsx'
 import { terms } from '../region.js'
 
@@ -85,8 +86,8 @@ function Ask({ onFiled }) {
   const [busy, setBusy] = useState(false)
   const [res, setRes] = useState(null)
   const [error, setError] = useState(null)
-  const [who, setWho] = useState('')
   const [filed, setFiled] = useState(null)
+  const [, setAuthTick] = useState(0)
 
   const submit = (e) => {
     e.preventDefault()
@@ -95,7 +96,7 @@ function Ask({ onFiled }) {
     api.ask(q).then(setRes).catch((err) => setError(err.message)).finally(() => setBusy(false))
   }
   const keep = () =>
-    api.fileNote({ question: res.question, answer: res.answer, approved_by: who })
+    api.fileNote({ question: res.question, answer: res.answer })
       .then((r) => { setFiled(r.note_id); onFiled() }).catch((err) => setError(err.message))
 
   return (
@@ -117,8 +118,8 @@ function Ask({ onFiled }) {
           </p>
           {res.mode === 'llm' && !filed && (
             <div className="ask">
-              <input value={who} onChange={(e) => setWho(e.target.value)} placeholder="Your name" />
-              <button className="btn" disabled={who.trim().length < 2} onClick={keep}>Keep this answer as a page</button>
+              <SignIn onChange={() => setAuthTick((n) => n + 1)} />
+              <button className="btn" disabled={!getSession()} onClick={keep}>Keep this answer as a page</button>
             </div>
           )}
           {filed && <p>Saved as <a className="wikilink" href={`#/brain/${filed}`}>{filed}</a>.</p>}
@@ -132,12 +133,12 @@ function AddSource({ onSaved }) {
   const [open, setOpen] = useState(false)
   const [title, setTitle] = useState('')
   const [text, setText] = useState('')
-  const [who, setWho] = useState('')
   const [preview, setPreview] = useState(null)
   const [saved, setSaved] = useState(null)
+  const [, setAuthTick] = useState(0)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState(null)
-  const body = { title, text, approved_by: who }
+  const body = { title, text }
   const ready = title.trim().length >= 3 && text.trim().length >= 40
 
   const run = (fn, payload, then) => {
@@ -173,10 +174,8 @@ function AddSource({ onSaved }) {
               </ul>
               <h4>Pages that will change</h4>
               <p>{preview.changes.map((c) => `${c.action} ${c.page}`).join(', ')}</p>
-              <label className="field">Approved by
-                <input value={who} onChange={(e) => setWho(e.target.value)} />
-              </label>
-              <button className="btn primary" disabled={who.trim().length < 2 || busy}
+              <SignIn onChange={() => setAuthTick((n) => n + 1)} />
+              <button className="btn primary" disabled={!getSession() || busy}
                 onClick={() => run(api.addSource, { ...body, proposal: preview.proposal }, (r) => { setSaved(r); onSaved() })}>Approve and save</button>
               <button className="btn" onClick={() => setPreview(null)}>Edit</button>
             </div>

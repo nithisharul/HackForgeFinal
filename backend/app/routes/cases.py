@@ -1,12 +1,12 @@
 from typing import Literal, Optional
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel, Field
 
 from backend.brain import wiki
 from backend.region import Code, use
 
-from .. import store
+from .. import auth, store
 
 router = APIRouter(tags=["cases"])
 
@@ -49,8 +49,10 @@ def preview_verdict(case_id: str, v: Verdict, region: Code = "us"):
 
 
 @router.post("/cases/{case_id}/verdict")
-def post_verdict(case_id: str, v: Verdict, region: Code = "us"):
-    """Human-approved writeback: the verdict becomes a case page and updates the linked pages."""
+def post_verdict(case_id: str, v: Verdict, region: Code = "us", who: str = Depends(auth.require_investigator)):
+    """Human-approved writeback: the verdict becomes a case page and updates the linked pages.
+    Needs a signed-in investigator, whose name is recorded whatever the body says."""
+    v = v.model_copy(update={"investigator": who})
     with use(region):
         return {"case_id": case_id, "written": True, **_write(case_id, v, dry_run=False), "status": store.status_of(case_id)}
 

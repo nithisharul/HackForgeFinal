@@ -36,6 +36,20 @@ python -m backend.pipeline.run_all --region in [--retrain]   # the India region 
 
 If the saved models fail to load, your scikit-learn version differs from the pinned one; run with `--retrain`.
 
+## Sign-in for writes
+
+Reading, previews and questions are open. Saving a verdict, a kept answer or a source document needs a
+signed-in investigator; the server checks every write, so requests sent straight to the API or tunnel
+are refused too, and the signed-in name is what gets recorded. Investigators live only in the
+git-ignored `.env` (a signing key and PBKDF2 passcode hashes), never in the frontend or Cloudflare:
+
+```
+python -m backend.app.auth add "Investigator Name"   # prompts for a passcode (12+ characters); restart the API
+```
+
+With no investigator configured every write is refused. Sessions last 8 hours; 5 wrong passcodes lock
+that name for 5 minutes.
+
 ## Deploy (Cloudflare, free plan)
 
 `cloudflare/` holds a Worker that serves the React build and forwards `/api/*` to the API on the host

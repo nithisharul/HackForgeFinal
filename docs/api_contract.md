@@ -8,6 +8,9 @@ models and Second Brain; a case or page from one region is a 404 in the other.
 
 | Method | Path | Purpose |
 |---|---|---|
+| POST | `/auth/login` | `{investigator, passcode}` -> `{token, investigator, expires}` (8-hour session) |
+| GET | `/auth/session` | Who the bearer token belongs to; 401 if missing, forged or expired |
+| GET | `/auth/status` | `{writes_enabled}`: whether an investigator is configured |
 | GET | `/queue?horizon=90&investigators=3` | Ranked SIU queue plus the alert funnel summary (horizon is 30, 60 or 90) |
 | GET | `/metrics` | Evaluation against injected scenarios and model cross-validation scores |
 | GET | `/cases/{case_id}?horizon=90` | Full case: scores, evidence, sample claims, timeline, network, brief |
@@ -22,6 +25,10 @@ models and Second Brain; a case or page from one region is a 404 in the other.
 | POST | `/wiki/notes` | `{question, answer, approved_by}` -> keep an answer as a page |
 | POST | `/wiki/sources/preview` | `{title, text}` -> proposed summary, pattern notes and page changes; writes nothing |
 | POST | `/wiki/sources` | `{title, text, approved_by, proposal}` -> save the document and update pages |
+
+The three writes (`POST /cases/{id}/verdict`, `/wiki/notes`, `/wiki/sources`) need
+`Authorization: Bearer <token>` and record the signed-in investigator; without it they answer 401
+(503 when no investigator is configured). Previews, `/wiki/ask` and every GET stay open.
 
 ## Verdict body
 

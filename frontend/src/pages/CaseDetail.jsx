@@ -1,3 +1,4 @@
+import ClinicalAuditCard from "../components/ClinicalAuditCard";
 
 function CopilotPlaybook({ text }) {
   if (!text) return null;
@@ -152,6 +153,7 @@ export default function CaseDetail({ caseId, horizon }) {
             </p>
             <h4>Recommended action</h4>
             <CopilotPlaybook text={b.recommended_action} />
+            <ClinicalAuditCard caseId={caseId} />
           </Card>
 
           <Card title="Evidence">

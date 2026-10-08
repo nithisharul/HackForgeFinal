@@ -7,6 +7,9 @@ becomes precedent for the next case.
 
 All data is synthetic. The system produces leads for human review; it never decides fraud.
 
+How the team branches were combined, plus demo steps for PrecedentGuard, the clinical audit and
+AuditNext: [docs/final_integration.md](docs/final_integration.md).
+
 ## Run it
 
 Two terminals, both starting in this folder. Python 3.11+ and Node 18+.
@@ -172,4 +175,8 @@ wherever a case relies on them.
 - Isotonic calibration uses the injected labels as a stand-in for audited SIU outcomes.
 - The prediction model's target is future rule flags, so it predicts repeat detection, not proven fraud.
 - The LLM paths were tested against a local stand-in server, not against a live provider.
-- No clinical records are used and no medical-necessity judgment is made.
+- The clinical record audit reads three synthetic notes; only CASE-P209 matches a case, and its log is not
+  corroborated by the claims data. No medical-necessity judgment is made, and the optional local model's
+  reading never sets the audit status. India has no clinical records yet.
+- AuditNext costs and accuracies are illustrative assumptions; its prior is the confidence score, not a
+  calibrated probability.

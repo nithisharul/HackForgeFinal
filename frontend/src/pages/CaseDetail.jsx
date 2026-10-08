@@ -1,103 +1,5 @@
+import CopilotPlaybook from "../components/CopilotPlaybook";
 import ClinicalAuditCard from "../components/ClinicalAuditCard";
-
-function CopilotPlaybook({ text }) {
-  if (!text) return null;
-
-  let directive = "";
-  const dirMatch = text.match(/Primary Directive:\s*([\s\S]*?)(?=Targeted Investigation Steps:|1\.|$)/i);
-  if (dirMatch) directive = dirMatch[1].trim();
-
-  const steps = [];
-  const stepRegex = /(\d+)\.\s*([^:\n]+):\s*([\s\S]*?)(?=(?:\d+\.|$|Statutory Basis:))/gi;
-  let match;
-  while ((match = stepRegex.exec(text)) !== null) {
-    steps.push({ num: match[1], title: match[2].trim(), desc: match[3].trim() });
-  }
-
-  let statutory = "";
-  const statMatch = text.match(/Statutory Basis:\s*([\s\S]*?)$/i);
-  if (statMatch) statutory = statMatch[1].trim();
-
-  if (!directive && steps.length === 0) {
-    return <p style={{ fontSize: "13px", lineHeight: "1.6", color: "#334155", margin: "6px 0 0" }}>{text}</p>;
-  }
-
-  return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "10px" }}>
-      {directive && (
-        <div style={{
-          background: "#f0f7ff",
-          borderLeft: "3.5px solid #2563eb",
-          borderRadius: "4px",
-          padding: "8px 12px",
-          fontSize: "12.5px",
-          color: "#1e3a8a",
-          lineHeight: "1.45"
-        }}>
-          <div style={{ fontWeight: "700", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.04em", color: "#2563eb", marginBottom: "2px" }}>
-            Primary Directive
-          </div>
-          {directive}
-        </div>
-      )}
-
-      {steps.length > 0 && (
-        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-          <div style={{ fontSize: "10.5px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em", color: "#64748b" }}>
-            Recommended Investigation Steps
-          </div>
-          {steps.map((s, idx) => (
-            <div key={idx} style={{
-              display: "flex",
-              alignItems: "flex-start",
-              gap: "10px",
-              background: "#f8fafc",
-              border: "1px solid #e2e8f0",
-              borderRadius: "6px",
-              padding: "8px 10px",
-              fontSize: "12.5px",
-              lineHeight: "1.4"
-            }}>
-              <span style={{
-                minWidth: "20px",
-                height: "20px",
-                borderRadius: "50%",
-                background: "#2563eb",
-                color: "#ffffff",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "11px",
-                fontWeight: "700",
-                marginTop: "1px",
-                flexShrink: 0
-              }}>
-                {s.num}
-              </span>
-              <div>
-                <strong style={{ color: "#0f172a" }}>{s.title}:</strong>{" "}
-                <span style={{ color: "#334155" }}>{s.desc}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {statutory && (
-        <div style={{
-          fontSize: "11px",
-          color: "#64748b",
-          background: "#f1f5f9",
-          padding: "6px 10px",
-          borderRadius: "4px",
-          border: "1px solid #e2e8f0"
-        }}>
-          <strong style={{ color: "#475569" }}>Statutory Authority:</strong> {statutory}
-        </div>
-      )}
-    </div>
-  );
-}
 
 import { useEffect, useState } from 'react'
 import { api } from '../api/client.js'
@@ -152,7 +54,7 @@ export default function CaseDetail({ caseId, horizon }) {
               {b.grounding.verified} of {b.grounding.tokens_checked} IDs, codes and dollar figures match the claims data.
             </p>
             <h4>Recommended action</h4>
-            <CopilotPlaybook text={b.recommended_action} />
+            <CopilotPlaybook text={b.recommended_action} caseId={caseId} />
             <ClinicalAuditCard caseId={caseId} />
           </Card>
 

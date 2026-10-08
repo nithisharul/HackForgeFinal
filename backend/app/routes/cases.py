@@ -92,3 +92,50 @@ def get_case_clinical_audit(case_id: str):
 
     return audit_case_clinical_chart(pattern=pattern, provider_id=provider_id, case_id=case_id)
 
+# --- AuditNext Engine Integration ---
+from backend.brain import auditnext
+
+def _safe_get_case(case_id: str):
+    candidates = [
+        case_id,
+        f"CASE-{case_id}",
+        case_id.replace("CASE-", ""),
+        case_id.upper(),
+        f"CASE-{case_id.upper()}"
+    ]
+    for cid in candidates:
+        try:
+            c = store.detail(cid)
+            if c:
+                return c
+        except KeyError:
+            continue
+        except Exception:
+            pass
+    try:
+        for k, v in getattr(store, "CASES", {}).items():
+            if case_id.lower() in k.lower():
+                return v
+    except Exception:
+        pass
+    return None
+
+@router.get("/cases/{case_id}/audit-plan")
+def get_audit_plan(case_id: str):
+    prob = 0.95
+    pattern = "impossible_timing"
+    c = _safe_get_case(case_id)
+    if isinstance(c, dict):
+        if "anomaly_prob" in c and c["anomaly_prob"] is not None:
+            try:
+                prob = float(c["anomaly_prob"])
+            except Exception:
+                pass
+        elif "ml_anomaly" in c and isinstance(c["ml_anomaly"], dict):
+            try:
+                prob = float(c["ml_anomaly"].get("score", 0.95))
+            except Exception:
+                pass
+        pattern = c.get("pattern_type") or c.get("pattern") or "impossible_timing"
+
+    return auditnext.plan_investigation(prob, pattern, case_id=case_id)

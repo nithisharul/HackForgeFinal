@@ -72,7 +72,9 @@ def queue(horizon=90, investigators=3):
             "severity": c["severity"], "evidence_strength": c["evidence_strength"],
             "confidence": conf["score"], "tier": conf["tier"], "route": conf["route"], **extra,
         })
-    rows.sort(key=lambda r: (r["status"] != "open", -r["priority"]))
+    india = region.current().code == "in"
+    # India lists actionable cases first and the weak-evidence watch list after them; the US order is unchanged
+    rows.sort(key=lambda r: (r["status"] != "open", india and r["tier"] == "low", -r["priority"]))
     capacity, used = investigators * CASES_PER_INVESTIGATOR, 0
     for i, r in enumerate(rows, start=1):
         r["rank"] = i
@@ -88,6 +90,9 @@ def queue(horizon=90, investigators=3):
         "capacity": capacity, "cases_per_investigator": CASES_PER_INVESTIGATOR,
         "dollars_in_capacity": round(sum(r["potential_dollars"] for r in rows if r["in_capacity"]), 2),
     }
+    if india:
+        summary["actionable"] = summary["fast_track"] + summary["review"]
+        summary["watch_list"] = summary["not_enough_evidence"]
     return {"summary": summary, "cases": rows}
 
 

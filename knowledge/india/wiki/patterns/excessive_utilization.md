@@ -10,7 +10,7 @@ policy: POL-IN-011
 Admissions, stay lengths or amounts far above hospitals of the same type without a documented reason.
 
 ## Detection signals
-- Rule IN6a: stay more than twice the package norm plus 3 days
+- Rule IN6a: stay more than twice the typical stay assumed for the package plus 3 days (an assumption, not a published PM-JAY norm)
 - Anomaly model: Isolation Forest score with drivers such as admissions per beneficiary or total paid
 
 ## Policy basis

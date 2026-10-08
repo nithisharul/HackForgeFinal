@@ -132,7 +132,7 @@ PATTERNS_IN = {
     "opd_to_ipd": {
         "title": "OPD-to-IPD conversion", "policy": "POL-IN-003", "policy_title": "Admission criteria for conditions treatable as outpatients",
         "definition": "Conditions usually treated as outpatients (fever, gastroenteritis, urinary infection) are admitted for a day or less so that an inpatient package can be claimed.",
-        "signals": ["Rule IN6b: 0-1 day stays are half or more of a hospital's fever, gastroenteritis and UTI admissions in a month", "Anomaly model: share of 0-1 day medical stays far above hospital-type peers", "Several members of one family admitted on the same day"],
+        "signals": ["Rule IN6b: 0-1 day stays are half or more of a hospital's fever, gastroenteritis and UTI admissions in a month (a prototype threshold; PM-JAY publishes none)", "Anomaly model: share of 0-1 day medical stays far above hospital-type peers", "Several members of one family admitted on the same day"],
         "policy_text": "Admission is payable only when the condition required inpatient care, documented with admission vitals, investigations and treatment notes. Short admissions for outpatient-treatable conditions trigger a medical audit.",
         "public_basis": "NHA anti-fraud triggers (OPD-to-IPD conversion is an official trigger; no threshold is published)",
         "innocent": ["Severe dehydration or high fever needing an overnight stay, recorded in the vitals chart", "An outbreak such as dengue driving genuine short admissions in one area"],
@@ -164,9 +164,9 @@ PATTERNS_IN = {
     "package_upcoding": {
         "title": "Package upcoding and mismatch", "policy": "POL-IN-007", "policy_title": "Package, ward and rate selection",
         "definition": "A higher-paying package, ward or rate is claimed than the diagnosis, patient or hospital supports: ICU rates for general-ward care, a package that does not fit the diagnosis or sex, or incentives the hospital is not entitled to.",
-        "signals": ["Rule IN5: ICU or ventilator share of medical admissions far above all hospitals in a month", "Rule IN4a: diagnosis or sex the package does not fit, or an amount above the hospital's entitled rate", "Anomaly model: ICU share far above hospital-type peers"],
+        "signals": ["Rule IN5: ICU or ventilator share of medical admissions far above all hospitals in a month or over the whole period (prototype thresholds)", "Rule IN4a: diagnosis or sex the package does not fit, or an amount above the hospital's entitled rate", "Anomaly model: ICU share far above hospital-type peers"],
         "policy_text": "The package, ward and rate claimed must match the documented diagnosis, the patient and the hospital's own tier and accreditation. ICU days must be supported by the ICU register and vitals charts. A first upcoding offence can be penalised up to 10 times the excess claimed.",
-        "public_basis": "NHA Anti-Fraud Framework Practitioners' Guidebook (2020) on upcoding penalties; HBP 2.0 and HBP 2.2 package, ward and incentive rates",
+        "public_basis": "NHA Anti-Fraud Framework Practitioners' Guidebook (2020) on upcoding penalties; HBP 2.0 and HBP 2.2 package, ward and incentive rates (5 of the 45 package rates used here are estimates, not verified HBP rates)",
         "innocent": ["A hospital with a genuine critical-care unit taking referred sick patients, supported by ICU registers", "A new NABH accreditation not yet updated in the hospital registry"],
     },
     "overlapping_admission": {
@@ -196,7 +196,7 @@ PATTERNS_IN = {
     "excessive_utilization": {
         "title": "Excessive utilisation", "policy": "POL-IN-011", "policy_title": "Utilisation and length-of-stay review",
         "definition": "Admissions, stay lengths or amounts far above hospitals of the same type without a documented reason.",
-        "signals": ["Rule IN6a: stay more than twice the package norm plus 3 days", "Anomaly model: Isolation Forest score with drivers such as admissions per beneficiary or total paid"],
+        "signals": ["Rule IN6a: stay more than twice the typical stay assumed for the package plus 3 days (an assumption, not a published PM-JAY norm)", "Anomaly model: Isolation Forest score with drivers such as admissions per beneficiary or total paid"],
         "policy_text": "Utilisation far above hospitals of the same type, or stays far beyond the package norm, triggers a review of case sheets. High volume alone is not evidence of fraud.",
         "public_basis": "NHA Field Investigation and Medical Audit Manual (2020): stay not matching the package; typical stays here are assumed, not published",
         "innocent": ["A high-volume dialysis or eye centre with normal use per beneficiary", "A complicated case with a documented reason for a long stay"],

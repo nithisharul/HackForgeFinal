@@ -10,13 +10,13 @@ policy: POL-IN-007
 A higher-paying package, ward or rate is claimed than the diagnosis, patient or hospital supports: ICU rates for general-ward care, a package that does not fit the diagnosis or sex, or incentives the hospital is not entitled to.
 
 ## Detection signals
-- Rule IN5: ICU or ventilator share of medical admissions far above all hospitals in a month
+- Rule IN5: ICU or ventilator share of medical admissions far above all hospitals in a month or over the whole period (prototype thresholds)
 - Rule IN4a: diagnosis or sex the package does not fit, or an amount above the hospital's entitled rate
 - Anomaly model: ICU share far above hospital-type peers
 
 ## Policy basis
 - POL-IN-007 Package, ward and rate selection (`knowledge/india/sources/policies/POL-IN-007.md`)
-- Public basis: NHA Anti-Fraud Framework Practitioners' Guidebook (2020) on upcoding penalties; HBP 2.0 and HBP 2.2 package, ward and incentive rates
+- Public basis: NHA Anti-Fraud Framework Practitioners' Guidebook (2020) on upcoding penalties; HBP 2.0 and HBP 2.2 package, ward and incentive rates (5 of the 45 package rates used here are estimates, not verified HBP rates)
 
 ## Known innocent explanations
 - A hospital with a genuine critical-care unit taking referred sick patients, supported by ICU registers

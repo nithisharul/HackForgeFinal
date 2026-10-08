@@ -6,6 +6,7 @@ follow the triggers in the NHA anti-fraud guidebook and audit manual and the val
 (Report 11 of 2023) found missing. Every hit is a lead for audit, never a finding of fraud.
 """
 import pandas as pd
+from scipy.stats import binom
 
 from backend.region import inr
 
@@ -19,7 +20,7 @@ RULES = {
     "package_mismatch": "IN4a package mismatch",
     "age_audit": "IN4b age audit trigger",
     "ward_upcoding": "IN5 ICU/ventilator rate drift",
-    "long_stay": "IN6a stay above package norm",
+    "long_stay": "IN6a stay above assumed package norm",
     "opd_to_ipd": "IN6b OPD-to-IPD short stays",
     "suspicious_identity": "IN7 suspicious beneficiary identity",
     "duplicate_document": "IN8 document reused across beneficiaries",
@@ -33,7 +34,7 @@ SOURCE = {
     "claim_after_death": "claims.csv service_datetime; members.csv death_date",
     "package_mismatch": "claims.csv: procedure_code, diagnosis_icd10, billed_amount; members.csv gender; package_master.csv; providers.csv tier, NABH, teaching",
     "age_audit": "claims.csv procedure_code; members.csv age, gender",
-    "ward_upcoding": "claims.csv: ward_type, claim_type, service_datetime",
+    "ward_upcoding": "claims.csv: ward_type, claim_type, service_datetime, provider_id",
     "long_stay": "claims.csv los_days; package_master.csv typical_los_days_assumed",
     "opd_to_ipd": "claims.csv: procedure_code, los_days, service_datetime",
     "suspicious_identity": "members.csv: card_created_date, mobile_token; claims.csv service_datetime",
@@ -52,6 +53,83 @@ def _rows(ids, rule, details):
 
 def _dt(x):
     return x.strftime("%d %b %Y %H:%M")
+
+
+def package_mismatch(c, prov):
+    """IN4a: an unknown package code, a diagnosis outside the package's ICD-10 category, a female-only package
+    for a man, or an amount above what the hospital's tier and accreditation entitle it to. ICD-10 is compared
+    by category (first three characters), so a more specific code such as J18.0 fits a J18.9 package."""
+    pk = ref.PACKAGES.reindex(c.procedure_code)
+    known = pk.icd10.notna().values
+    out = []
+    m = ~known
+    out.append(_rows(c.claim_id[m], "package_mismatch", [f"Package code {code} is not in the package master" for code in c.procedure_code[m]]))
+    dx = c.diagnosis_icd10.fillna("").astype(str).str.strip().str.upper()
+    pkg_dx = pk.icd10.fillna("").astype(str).str.upper()
+    m = known & (dx != "").values & (dx.str[:3].values != pkg_dx.str[:3].values)
+    out.append(_rows(c.claim_id[m], "package_mismatch", [
+        f"Diagnosis {d} is outside the ICD-10 category of package {code} ({e})"
+        for d, code, e in zip(dx[m], c.procedure_code[m], pkg_dx.values[m])]))
+    m = c.procedure_code.isin(ref.FEMALE_ONLY) & c.gender.eq("M")
+    out.append(_rows(c.claim_id[m], "package_mismatch", [
+        f"Package {code} ({ref.FEMALE_ONLY[code]}) billed for a male beneficiary" for code in c.procedure_code[m]]))
+    entitled = ref.entitled_amount(c, prov)
+    m = c.billed_amount > entitled + 1
+    basis = pk.rate_source.map({"verified": "a published HBP rate"}).fillna("an ESTIMATED package rate, not a verified HBP rate")
+    out.append(_rows(c.claim_id[m], "package_mismatch", [
+        f"Claimed {inr(b)} for {code}; the hospital's tier and accreditation entitle it to {inr(e)}, using {r}"
+        for b, code, e, r in zip(c.billed_amount[m], c.procedure_code[m], entitled[m], basis.values[m])]))
+    return out
+
+
+def ward_drift(c):
+    """IN5: ICU or ventilator billed for far more of a hospital's medical per-day admissions than across all
+    hospitals. Monthly: 35% or more in a month with 8+ such admissions. Whole period: a binomial test against
+    the all-hospital rate, significant after a Bonferroni correction for the hospitals tested (30+ admissions),
+    which catches drift at hospitals too small to reach 8 a month. The 35%, 8 and 30 are prototype choices;
+    PM-JAY publishes no threshold for this trigger."""
+    md = c[c.claim_type == "medical_per_day"].copy()
+    if md.empty:
+        return []
+    md["month"] = md.service_datetime.dt.strftime("%Y-%m")
+    md["high"] = md.ward_type.isin(ref.HIGH_WARDS).astype(float)
+    peer = md.high.mean()
+    sh = md.groupby(["provider_id", "month"]).high.agg(n="size", share="mean").reset_index()
+    hit = md.merge(sh[(sh.n >= 8) & (sh.share >= 0.35)], on=["provider_id", "month"])
+    hit = hit[hit.high == 1]
+    out = [_rows(hit.claim_id, "ward_upcoding", [
+        f"{WARD[w]} rate billed; ICU or ventilator was {s:.0%} of "
+        f"medical admissions in {mo} vs {peer:.0%} for all hospitals" for w, s, mo in zip(hit.ward_type, hit.share, hit.month)])]
+    yr = md.groupby("provider_id").high.agg(n="size", k="sum")
+    yr = yr[yr.n >= 30]
+    if len(yr) and 0 < peer < 1:
+        yr["p"] = binom.sf(yr.k - 1, yr.n, peer)
+        sig = yr[yr.p < 0.05 / len(yr)]
+        hit = md[md.provider_id.isin(sig.index) & (md.high == 1)]
+        out.append(_rows(hit.claim_id, "ward_upcoding", [
+            f"{WARD[w]} rate billed; ICU or ventilator was {sig.k[pid] / sig.n[pid]:.0%} of this hospital's "
+            f"{sig.n[pid]:.0f} medical admissions over the period vs {peer:.0%} for all hospitals (binomial p = {sig.p[pid]:.0e})"
+            for w, pid in zip(hit.ward_type, hit.provider_id)]))
+    return out
+
+
+def empanelment(c, prov):
+    """IN9b: a package specialty the hospital is not empanelled for, or an admission before its empanelment date.
+    Names are compared ignoring case and spacing. A hospital with no specialty list, or a claim with no specialty,
+    is skipped: missing registry data is not a violation."""
+    P = prov.set_index("provider_id")
+    norm = lambda v: " ".join(str(v).split()).casefold()  # noqa: E731
+    lists = P.empanelled_specialties.dropna().map(lambda v: {norm(x) for x in str(v).split("|") if x.strip()})
+    lists = lists[lists.map(len) > 0]
+    outside = pd.Series([pid in lists.index and pd.notna(sp) and norm(sp) not in lists[pid]
+                         for sp, pid in zip(c.specialty, c.provider_id)], index=c.index, dtype=bool)
+    start = c.provider_id.map(P.empanelment_date)
+    early = (c.service_datetime < start).fillna(False).astype(bool)
+    return [
+        _rows(c.claim_id[outside], "not_empanelled", [f"{sp} package at a hospital not empanelled for {sp}" for sp in c.specialty[outside]]),
+        _rows(c.claim_id[early], "not_empanelled", [
+            f"Admitted {_dt(a)}, before the hospital's empanelment on {e:%d %b %Y}" for a, e in zip(c.service_datetime[early], start[early])]),
+    ]
 
 
 def run(claims, prov, members):
@@ -88,43 +166,21 @@ def run(claims, prov, members):
         f"Admitted {_dt(a)}, {(a.normalize() - d).days} days after the beneficiary's recorded death on {d:%d %b %Y}"
         for a, d in zip(c.service_datetime[m], c.death_date[m])]))
 
-    # IN4 package mismatch: diagnosis or sex the package does not fit, or an amount above the entitled rate;
-    # IN4b an age below the audit threshold for the package
-    pk = ref.PACKAGES.reindex(c.procedure_code)
-    diag = c.diagnosis_icd10.values != pk.icd10.values
-    out.append(_rows(c.claim_id[diag], "package_mismatch", [
-        f"Diagnosis {d} does not match package {code} ({e})" for d, code, e in zip(c.diagnosis_icd10[diag], c.procedure_code[diag], pk.icd10.values[diag])]))
-    m = c.procedure_code.isin(ref.FEMALE_ONLY) & c.gender.eq("M")
-    out.append(_rows(c.claim_id[m], "package_mismatch", [
-        f"Package {code} ({ref.FEMALE_ONLY[code]}) billed for a male beneficiary" for code in c.procedure_code[m]]))
+    # IN4a package mismatch, IN4b age audit trigger, IN5 ICU/ventilator drift
+    out += package_mismatch(c, prov)
     lim = c.procedure_code.map(ref.AGE_AUDIT)
     m = lim.notna() & c.gender.eq("F") & (c.age < lim)
     out.append(_rows(c.claim_id[m], "age_audit", [
         f"{ref.PACKAGES.procedure_name[code]} for a woman aged {a:.0f}; under {l:.0f} is a mandatory audit trigger"
         for code, a, l in zip(c.procedure_code[m], c.age[m], lim[m])]))
-    entitled = ref.entitled_amount(c, prov)
-    m = c.billed_amount > entitled + 1
-    out.append(_rows(c.claim_id[m], "package_mismatch", [
-        f"Claimed {inr(b)} for {code}; the hospital's tier and accreditation entitle it to {inr(e)}"
-        for b, code, e in zip(c.billed_amount[m], c.procedure_code[m], entitled[m])]))
+    out += ward_drift(c)
 
-    # IN5 ICU/ventilator drift: ICU or ventilator share of medical per-day admissions >= 35% in a month with 8+
-    md = c[c.claim_type == "medical_per_day"].copy()
-    md["month"] = md.service_datetime.dt.strftime("%Y-%m")
-    md["high"] = md.ward_type.isin(ref.HIGH_WARDS).astype(float)
-    peer = md.high.mean()
-    sh = md.groupby(["provider_id", "month"]).high.agg(n="size", share="mean").reset_index()
-    hit = md.merge(sh[(sh.n >= 8) & (sh.share >= 0.35)], on=["provider_id", "month"])
-    hit = hit[hit.high == 1]
-    out.append(_rows(hit.claim_id, "ward_upcoding", [
-        f"{WARD[w]} rate billed; ICU or ventilator was {s:.0%} of "
-        f"medical admissions in {mo} vs {peer:.0%} for all hospitals" for w, s, mo in zip(hit.ward_type, hit.share, hit.month)]))
-
-    # IN6a stay above package norm: more than twice the assumed typical stay plus 3 days (per-day packages)
-    typ = pk.typical_los_days_assumed.values
+    # IN6a stay above the assumed norm: more than twice the typical stay assumed for the package, plus 3 days
+    typ = ref.PACKAGES.typical_los_days_assumed.reindex(c.procedure_code).values
     m = c.claim_type.isin(ref.PER_DAY).values & (typ > 0) & (c.los_days.values > 2 * typ + 3)
     out.append(_rows(c.claim_id[m], "long_stay", [
-        f"{los} days billed for {code}; the assumed norm is {t:.0f} days" for los, code, t in zip(c.los_days[m], c.procedure_code[m], typ[m])]))
+        f"{los} days billed for {code}; the typical stay assumed by this prototype is {t:.0f} days "
+        "(PM-JAY publishes no length-of-stay norm)" for los, code, t in zip(c.los_days[m], c.procedure_code[m], typ[m])]))
 
     # IN6b OPD-to-IPD: 0-1 day admissions are >= 50% of a hospital's fever / gastroenteritis / UTI admissions in a month with 8+
     o = c[c.procedure_code.isin(ref.OPD_TREATABLE)].copy()
@@ -166,13 +222,8 @@ def run(claims, prov, members):
     out.append(_rows(c.claim_id[m], "bed_overrun", [
         f"{n} admissions on {d:%d %b %Y} at a hospital with {b} beds" for n, d, b in zip(per_day[m], day[m], beds[m])]))
 
-    # IN9b empanelment: package specialty the hospital is not empanelled for, or a claim before empanelment
-    emp = P.empanelled_specialties.fillna("").str.split("|")
-    outside = pd.Series([s not in emp[p] for s, p in zip(c.specialty, c.provider_id)], index=c.index)
-    early = c.service_datetime < c.provider_id.map(P.empanelment_date)
-    out.append(_rows(c.claim_id[outside], "not_empanelled", [f"{s} package at a hospital not empanelled for {s}" for s in c.specialty[outside]]))
-    out.append(_rows(c.claim_id[early], "not_empanelled", [
-        f"Admitted {_dt(a)}, before the hospital's empanelment on {e:%d %b %Y}" for a, e in zip(c.service_datetime[early], c.provider_id[early].map(P.empanelment_date))]))
+    # IN9b empanelment
+    out += empanelment(c, prov)
 
     # IN10 camp cluster: 3+ agent-referred surgeries for one package from one village, same hospital, same week
     s = c[c.referred_by_agent_id.notna() & (c.claim_type == "surgical")].copy()

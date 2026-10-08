@@ -239,12 +239,33 @@ def _run(train):
 
     # 7 second brain
     wiki.seed(inv, prov)
+    if india:  # triage as the API serves it: tiers include the precedents just seeded into the Second Brain
+        from backend.app import store
+        store._DATA.pop(R.code, None)
+        metrics["triage"] = _triage(store.queue(90, 3)["cases"], fwa)
+        (PROC / "metrics.json").write_text(json.dumps(metrics, indent=1, default=_j))
     print(json.dumps({k: metrics[k] for k in ("funnel", "provider_level", "claim_level", "anomaly", "network")}, indent=1))
     print("prediction:", {k: v for k, v in m_pred.items() if k.endswith("d")})
 
 
 def _package(code, india):
-    return {"package": reference_in.PACKAGES.procedure_name.get(code, code)} if india else {}
+    if not india:
+        return {}
+    pk = reference_in.PACKAGES
+    name = pk.procedure_name.get(code, code)
+    return {"package": name if pk.rate_source.get(code) == "verified" else f"{name} (estimated rate)"}
+
+
+def _triage(rows, fwa):
+    """Precision and recall of what investigators see: actionable cases (high and medium tiers), the watch list
+    (low tier: weak evidence, monitored, not opened) and the cases that fit 3 investigators' capacity."""
+    def pr(sel):
+        hit = sum(r["provider_id"] in fwa for r in sel)
+        return {"cases": len(sel), "planted": hit, "precision": round(hit / len(sel), 3) if sel else None,
+                "recall": round(hit / len(fwa), 3)}
+    open_ = [r for r in rows if r["status"] == "open"]
+    return {"actionable": pr([r for r in open_ if r["tier"] != "low"]), "watch_list": pr([r for r in open_ if r["tier"] == "low"]),
+            "at_capacity_3_investigators": pr([r for r in rows if r["in_capacity"]]), "all_candidates": pr(open_)}
 
 
 def _j(o):

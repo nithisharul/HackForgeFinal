@@ -2,7 +2,7 @@
  "note": "Evaluated against injected synthetic scenarios. Not evidence of performance on real claims.",
  "funnel": {
   "claims": 75721,
-  "raw_alerts": 4440,
+  "raw_alerts": 4488,
   "providers_with_any_alert": 112,
   "cases": 62
  },
@@ -14,7 +14,7 @@
   "legit_outliers_in_queue": 2
  },
  "claim_level": {
-  "flag_precision": 0.904,
+  "flag_precision": 0.901,
   "recall_by_pattern": {
    "bed_overrun": 1.0,
    "claim_after_death": 1.0,
@@ -23,7 +23,7 @@
    "ghost_beneficiary": 1.0,
    "opd_to_ipd": 1.0,
    "overlapping_admission": 1.0,
-   "package_upcoding": 0.507,
+   "package_upcoding": 0.971,
    "unnecessary_procedure": 1.0
   }
  },
@@ -44,19 +44,19 @@
   ],
   "training_rows": 2100,
   "30d": {
-   "positives": 117,
-   "auc_cv": 0.925,
-   "avg_precision_cv": 0.668
+   "positives": 123,
+   "auc_cv": 0.919,
+   "avg_precision_cv": 0.695
   },
   "60d": {
-   "positives": 159,
-   "auc_cv": 0.902,
-   "avg_precision_cv": 0.751
+   "positives": 169,
+   "auc_cv": 0.905,
+   "avg_precision_cv": 0.752
   },
   "90d": {
-   "positives": 193,
-   "auc_cv": 0.874,
-   "avg_precision_cv": 0.747
+   "positives": 200,
+   "auc_cv": 0.871,
+   "avg_precision_cv": 0.77
   }
  },
  "rule_tables": {
@@ -68,7 +68,33 @@
  },
  "false_positives": {
   "normal_hospitals_in_queue": 32,
-  "flagged_claims_not_injected": 396,
-  "flagged_claims": 4121
+  "flagged_claims_not_injected": 412,
+  "flagged_claims": 4169
+ },
+ "triage": {
+  "actionable": {
+   "cases": 27,
+   "planted": 27,
+   "precision": 1.0,
+   "recall": 0.964
+  },
+  "watch_list": {
+   "cases": 35,
+   "planted": 1,
+   "precision": 0.029,
+   "recall": 0.036
+  },
+  "at_capacity_3_investigators": {
+   "cases": 15,
+   "planted": 15,
+   "precision": 1.0,
+   "recall": 0.536
+  },
+  "all_candidates": {
+   "cases": 62,
+   "planted": 28,
+   "precision": 0.452,
+   "recall": 1.0
+  }
  }
 }

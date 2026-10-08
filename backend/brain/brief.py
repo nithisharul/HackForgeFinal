@@ -66,6 +66,17 @@ AUDIT_BY_PATTERN = {
     "duplicate_package": ["Check whether each repeat claim is a documented readmission with a new indication."],
     "excessive_utilization": ["Review case sheets for stays far beyond the package norm."],
 }
+# Prototype assumptions behind India rules, shown in a brief whenever that rule contributed to the case
+ASSUMED_IN = {
+    "IN5": "IN5 ICU drift uses thresholds set by this prototype (35% of a month's medical admissions, or a whole-period "
+           "binomial test against all hospitals); PM-JAY publishes no threshold for this trigger.",
+    "IN6a": "IN6a compares stays with typical stays assumed by this prototype; PM-JAY publishes no length-of-stay norm, "
+            "so these flags are indicative only.",
+    "IN6b": "IN6b uses a prototype threshold (0-1 day stays at half or more of a month's fever, gastroenteritis and UTI "
+            "admissions); PM-JAY names the trigger but publishes no threshold.",
+    "IN10": "IN10 counts 3 or more agent-referred surgeries from one village in a week, a prototype threshold rather "
+            "than a published PM-JAY rule.",
+}
 # Rules that add a pattern's audit steps whatever pattern the case was given
 RULE_AUDIT = {"IN1": "overlapping_admission", "IN3": "claim_after_death", "IN4a": "package_upcoding", "IN4b": "unnecessary_procedure",
               "IN5": "package_upcoding", "IN6b": "opd_to_ipd", "IN7": "ghost_beneficiary", "IN8": "duplicate_document",
@@ -161,6 +172,7 @@ def build(case, ctx, conf, horizon=90):
         "This is a post-payment investigation aid that sits behind pre-authorisation; it does not replace TMS checks.",
         "The 30/60/90-day model predicts future rule flags, learned from 7 monthly snapshots; treat it as a ranking aid.",
         f"Package rules use {reference_in.SOURCE}.",
+        *assumption_notes(case),
     ] if india else [
         "All data is synthetic. Results show the method works on injected scenarios, not on real claims.",
         "The system flags patterns in billing data. It cannot see medical records and makes no judgment on medical necessity.",
@@ -201,6 +213,17 @@ def build(case, ctx, conf, horizon=90):
         b["field_audit_checklist"] = audit_checklist(case)
     return b
 
+
+
+def assumption_notes(case):
+    """India: which assumed norms, prototype thresholds and estimated package rates this case's evidence rests on."""
+    fired = {k.split()[0] for k in case["rule_counts"]}
+    notes = [text for rule, text in ASSUMED_IN.items() if rule in fired]
+    estimated = sorted(c for c in case["codes"] if reference_in.PACKAGES.rate_source.get(c, "verified") != "verified")
+    if estimated and "IN4a" in fired:
+        notes.append(f"Package rates for {', '.join(estimated)} are estimates, not verified HBP rates; "
+                     "amount checks on those packages are indicative.")
+    return notes
 
 
 def audit_checklist(case):

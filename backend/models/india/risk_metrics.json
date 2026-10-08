@@ -10,18 +10,18 @@
   ],
   "training_rows": 2100,
   "30d": {
-    "positives": 117,
-    "auc_cv": 0.925,
-    "avg_precision_cv": 0.668
+    "positives": 123,
+    "auc_cv": 0.919,
+    "avg_precision_cv": 0.695
   },
   "60d": {
-    "positives": 159,
-    "auc_cv": 0.902,
-    "avg_precision_cv": 0.751
+    "positives": 169,
+    "auc_cv": 0.905,
+    "avg_precision_cv": 0.752
   },
   "90d": {
-    "positives": 193,
-    "auc_cv": 0.874,
-    "avg_precision_cv": 0.747
+    "positives": 200,
+    "auc_cv": 0.871,
+    "avg_precision_cv": 0.77
   }
 }

@@ -48,6 +48,8 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
   const s = data.summary
   const rows = data.cases.filter((r) => tier === 'all' || r.tier === tier)
   const lastIn = Math.max(...rows.map((r, i) => (r.in_capacity ? i : -1)))
+  // Regions that report a watch list (India) list it after the actionable cases, behind a divider.
+  const watchAt = s.watch_list != null ? rows.findIndex((r) => r.status === 'open' && r.tier === 'low') : -1
   const open = data.cases.filter((r) => r.status === 'open')
   const demo = open.find((r) => r.case_id === DEMO_CASE[getRegion()]) || open.find((r) => r.network) || open[0]
   const pickTier = (t) => {
@@ -63,7 +65,7 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
             <h1 id="hero-title">
-              {s.claims.toLocaleString('en-US')} claims, narrowed to the {s.open_cases} worth an investigator’s time.
+              {s.claims.toLocaleString('en-US')} claims, narrowed to the {s.actionable ?? s.open_cases} worth an investigator’s time.
             </h1>
             <p>
               ClaimShield ranks {t.providers} by fraud risk, writes a fact-checked brief for each case, and gets
@@ -150,6 +152,13 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
           <tbody>
             {rows.map((r, i) => (
               <Fragment key={r.case_id}>
+                {i === watchAt && (
+                  <tr className="cutoff watch-line">
+                    <td colSpan="10">
+                      <span>Watch list</span> {s.watch_list} {terms().providers} with weak evidence: monitored and re-scored each month, not opened as cases
+                    </td>
+                  </tr>
+                )}
                 <tr className={[r.in_capacity ? '' : 'out', moved[r.case_id] ? 'moved' : ''].join(' ')}
                   onClick={() => (window.location.hash = `#/case/${r.case_id}`)}>
                   <td className="num rank">{r.rank}</td>
@@ -208,6 +217,7 @@ function Funnel({ s, tier, onPick, metrics, strip }) {
   ]
   const open = Math.max(1, s.fast_track + s.review + s.not_enough_evidence)
   const pl = metrics?.provider_level
+  const tr = metrics?.triage
   return (
     <figure className={strip ? 'funnel strip' : 'funnel'} aria-label="How claims narrow into cases">
       <div className="f-rows">
@@ -220,8 +230,9 @@ function Funnel({ s, tier, onPick, metrics, strip }) {
         <strong>{s.raw_alerts.toLocaleString('en-US')}</strong><span>raw alerts from rules, anomaly model and network</span>
       </div>
       <div className="f-row f-cases">
-        <span className="f-bar" style={{ '--w': w(s.open_cases) }} />
-        <strong>{s.open_cases}</strong><span>open cases with evidence</span>
+        <span className="f-bar" style={{ '--w': w(s.actionable ?? s.open_cases) }} />
+        <strong>{s.actionable ?? s.open_cases}</strong>
+        <span>{s.watch_list != null ? `cases for investigators, plus ${s.watch_list} on the watch list` : 'open cases with evidence'}</span>
       </div>
       <div className="f-row f-split">
         <span className="f-bar" style={{ '--w': w(s.open_cases) }}>
@@ -236,7 +247,13 @@ function Funnel({ s, tier, onPick, metrics, strip }) {
         </div>
       </div>
       </div>
-      {pl && (
+      {tr ? (
+        <figcaption className="f-proof">
+          On injected test scenarios, <b>{tr.actionable.planted} of {pl.fwa_providers}</b> planted fraud {terms().providers} are actionable
+          cases and {tr.watch_list.planted} {tr.watch_list.planted === 1 ? 'is' : 'are'} on the watch list. {pct(tr.actionable.precision)} of actionable cases
+          and {pct(tr.at_capacity_3_investigators.precision)} of the first {tr.at_capacity_3_investigators.cases} were planted ones. Synthetic data, not real claims.
+        </figcaption>
+      ) : pl && (
         <figcaption className="f-proof">
           On injected test scenarios, <b>{pl.fwa_in_queue} of {pl.fwa_providers}</b> planted fraud {terms().providers} made the queue,
           and {pct(pl.queue_precision)} of queued {terms().providers} were planted ones. Synthetic data, not real claims.

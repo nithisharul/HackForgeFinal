@@ -111,12 +111,27 @@ India data, models (`backend/models/india/`), outputs (`data/india/processed/`),
 investigation history (`knowledge/india/`) are kept apart from the US ones. Identifiers are tokens;
 no name, Aadhaar or mobile number is written to the wiki.
 
-On the injected India scenarios all 28 planted hospitals reach the 62-case queue and the 5-hospital
-ring is recovered as one network; 90% of flagged claims are injected ones. Queue precision is 0.45:
-32 normal hospitals are queued, most on weak evidence (the hysterectomy audit trigger or the anomaly
-model alone) and routed to "not enough evidence". As with the US, these numbers measure recovery of
-scenarios the dataset injected itself. Rules for diagnosis-package mismatch and empanelment fire 0
-times on this data; typical stays per package are assumed, not published.
+The India queue separates actionable cases (fast-track and review) from a watch list (weak evidence:
+monitored and re-scored, not opened); a precedent can move a hospital from one to the other. On the
+injected India scenarios, measured as the API serves the queue:
+
+| | Cases | Precision | Recall |
+|---|---|---|---|
+| Actionable cases | 27 | 1.00 | 0.96 |
+| At capacity (3 investigators) | 15 | 1.00 | 0.54 |
+| At capacity (5 investigators) | 25 | 1.00 | 0.89 |
+| All candidates, actionable + watch list | 62 | 0.45 | 1.00 |
+
+The one planted hospital on the watch list (P104) has 2 upcoded claims in 23 medical admissions, which
+is within the normal range. The 5-hospital ring is recovered as one network and 90% of flagged claims are
+injected ones. As with the US, these numbers measure recovery of scenarios the dataset injected itself.
+
+Diagnosis-package mismatch and empanelment checks fire 0 times here because the generator copies each
+claim's diagnosis from the package master and draws packages only from each hospital's empanelled
+specialties; `backend/tests/test_rules_in.py` covers them with positive and negative cases
+(`python -m unittest discover -s backend/tests -t .`). Typical stays per package and the ICU, short-stay
+and camp thresholds are prototype assumptions, and 5 of the 45 package rates are estimates; briefs say so
+wherever a case relies on them.
 
 ## Honest limits
 

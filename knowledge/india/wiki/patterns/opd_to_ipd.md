@@ -10,7 +10,7 @@ policy: POL-IN-003
 Conditions usually treated as outpatients (fever, gastroenteritis, urinary infection) are admitted for a day or less so that an inpatient package can be claimed.
 
 ## Detection signals
-- Rule IN6b: 0-1 day stays are half or more of a hospital's fever, gastroenteritis and UTI admissions in a month
+- Rule IN6b: 0-1 day stays are half or more of a hospital's fever, gastroenteritis and UTI admissions in a month (a prototype threshold; PM-JAY publishes none)
 - Anomaly model: share of 0-1 day medical stays far above hospital-type peers
 - Several members of one family admitted on the same day
 

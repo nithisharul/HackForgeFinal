@@ -13,15 +13,15 @@
    "rules": 1.0,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.2377,
+   "birank": 0.2378,
    "families_agreeing": 1
   },
   "evidence_strength": 0.516,
   "severity": 0.85,
   "prediction": {
-   "p30": 0.4725,
-   "p60": 0.8932,
-   "p90": 0.9816,
+   "p30": 0.5633,
+   "p60": 0.7882,
+   "p90": 0.9824,
    "volume_velocity": 0.53,
    "flag_velocity": 0.08
   },
@@ -287,9 +287,9 @@
   "evidence_strength": 0.16,
   "severity": 0.7,
   "prediction": {
-   "p30": 0.0063,
-   "p60": 0.009,
-   "p90": 0.0117,
+   "p30": 0.006,
+   "p60": 0.0072,
+   "p90": 0.0094,
    "volume_velocity": 1.36,
    "flag_velocity": 1.0
   },
@@ -429,15 +429,15 @@
    "rules": 0.1,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.0764,
+   "birank": 0.0767,
    "families_agreeing": 0
   },
   "evidence_strength": 0.066,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.0081,
-   "p60": 0.0086,
-   "p90": 0.0205,
+   "p30": 0.0066,
+   "p60": 0.0098,
+   "p90": 0.0169,
    "volume_velocity": 1.08,
    "flag_velocity": 1.0
   },
@@ -480,7 +480,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 32; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C002078",
@@ -491,7 +491,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 28; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C044424",
@@ -502,7 +502,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 32; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    }
   ],
   "timeline": [
@@ -651,15 +651,15 @@
    "rules": 0.095,
    "ml": 0.4,
    "graph": 0.0,
-   "birank": 0.0797,
+   "birank": 0.08,
    "families_agreeing": 1
   },
   "evidence_strength": 0.207,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.006,
-   "p60": 0.0086,
-   "p90": 0.0176,
+   "p30": 0.0084,
+   "p60": 0.01,
+   "p90": 0.0668,
    "volume_velocity": 0.93,
    "flag_velocity": 2.0
   },
@@ -711,7 +711,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 30; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C049427",
@@ -722,7 +722,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 28; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C072475",
@@ -883,15 +883,15 @@
    "rules": 0.88,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.2326,
+   "birank": 0.2382,
    "families_agreeing": 1
   },
   "evidence_strength": 0.456,
   "severity": 1.0,
   "prediction": {
-   "p30": 0.403,
-   "p60": 0.7521,
-   "p90": 0.966,
+   "p30": 0.4135,
+   "p60": 0.8277,
+   "p90": 0.9768,
    "volume_velocity": 0.72,
    "flag_velocity": 0.5
   },
@@ -958,7 +958,7 @@
     "paid_amount": 20000.0,
     "rule": "IN3 claim after recorded death",
     "detail": "Admitted 26 May 2026 04:43, 28 days after the beneficiary's recorded death on 28 Apr 2026",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C073336",
@@ -1013,7 +1013,7 @@
     "paid_amount": 11500.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    },
    {
     "claim_id": "C020195",
@@ -1024,7 +1024,7 @@
     "paid_amount": 11500.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    }
   ],
   "timeline": [
@@ -1165,9 +1165,9 @@
   "evidence_strength": 1.0,
   "severity": 1.0,
   "prediction": {
-   "p30": 0.8863,
-   "p60": 0.8863,
-   "p90": 0.9726,
+   "p30": 0.7386,
+   "p60": 0.8227,
+   "p90": 0.9788,
    "volume_velocity": 1.09,
    "flag_velocity": 1.25
   },
@@ -1524,15 +1524,15 @@
    "rules": 1.0,
    "ml": 1.0,
    "graph": 0.0,
-   "birank": 0.6579,
+   "birank": 0.658,
    "families_agreeing": 2
   },
   "evidence_strength": 0.85,
   "severity": 0.6,
   "prediction": {
-   "p30": 0.9116,
-   "p60": 0.9886,
-   "p90": 0.9969,
+   "p30": 0.9615,
+   "p60": 0.9839,
+   "p90": 0.9949,
    "volume_velocity": 1.1,
    "flag_velocity": 1.12
   },
@@ -1819,15 +1819,15 @@
    "rules": 1.0,
    "ml": 0.4,
    "graph": 0.0,
-   "birank": 0.4482,
+   "birank": 0.4483,
    "families_agreeing": 2
   },
   "evidence_strength": 0.81,
   "severity": 0.8,
   "prediction": {
-   "p30": 0.2016,
-   "p60": 0.9187,
-   "p90": 0.9764,
+   "p30": 0.1428,
+   "p60": 0.9624,
+   "p90": 0.9758,
    "volume_velocity": 0.42,
    "flag_velocity": 0.01
   },
@@ -1879,7 +1879,7 @@
     "paid_amount": 7500.0,
     "rule": "IN9a admissions above bed strength",
     "detail": "52 admissions on 17 Aug 2026 at a hospital with 12 beds",
-    "package": "Cataract surgery - phaco with foldable IOL"
+    "package": "Cataract surgery - phaco with foldable IOL (estimated rate)"
    },
    {
     "claim_id": "C066219",
@@ -1890,7 +1890,7 @@
     "paid_amount": 7500.0,
     "rule": "IN9a admissions above bed strength",
     "detail": "52 admissions on 17 Aug 2026 at a hospital with 12 beds",
-    "package": "Cataract surgery - phaco with foldable IOL"
+    "package": "Cataract surgery - phaco with foldable IOL (estimated rate)"
    },
    {
     "claim_id": "C066216",
@@ -1901,7 +1901,7 @@
     "paid_amount": 7500.0,
     "rule": "IN9a admissions above bed strength",
     "detail": "52 admissions on 17 Aug 2026 at a hospital with 12 beds",
-    "package": "Cataract surgery - phaco with foldable IOL"
+    "package": "Cataract surgery - phaco with foldable IOL (estimated rate)"
    },
    {
     "claim_id": "C030245",
@@ -1912,7 +1912,7 @@
     "paid_amount": 7500.0,
     "rule": "IN9a admissions above bed strength",
     "detail": "93 admissions on 01 Mar 2026 at a hospital with 12 beds",
-    "package": "Cataract surgery - phaco with foldable IOL"
+    "package": "Cataract surgery - phaco with foldable IOL (estimated rate)"
    },
    {
     "claim_id": "C030247",
@@ -1923,7 +1923,7 @@
     "paid_amount": 7500.0,
     "rule": "IN9a admissions above bed strength",
     "detail": "93 admissions on 01 Mar 2026 at a hospital with 12 beds",
-    "package": "Cataract surgery - phaco with foldable IOL"
+    "package": "Cataract surgery - phaco with foldable IOL (estimated rate)"
    },
    {
     "claim_id": "C030249",
@@ -1934,7 +1934,7 @@
     "paid_amount": 7500.0,
     "rule": "IN9a admissions above bed strength",
     "detail": "93 admissions on 01 Mar 2026 at a hospital with 12 beds",
-    "package": "Cataract surgery - phaco with foldable IOL"
+    "package": "Cataract surgery - phaco with foldable IOL (estimated rate)"
    },
    {
     "claim_id": "C030252",
@@ -1945,7 +1945,7 @@
     "paid_amount": 7500.0,
     "rule": "IN9a admissions above bed strength",
     "detail": "93 admissions on 01 Mar 2026 at a hospital with 12 beds",
-    "package": "Cataract surgery - phaco with foldable IOL"
+    "package": "Cataract surgery - phaco with foldable IOL (estimated rate)"
    },
    {
     "claim_id": "C030253",
@@ -1956,7 +1956,7 @@
     "paid_amount": 7500.0,
     "rule": "IN9a admissions above bed strength",
     "detail": "93 admissions on 01 Mar 2026 at a hospital with 12 beds",
-    "package": "Cataract surgery - phaco with foldable IOL"
+    "package": "Cataract surgery - phaco with foldable IOL (estimated rate)"
    }
   ],
   "timeline": [
@@ -2072,15 +2072,15 @@
    "rules": 1.0,
    "ml": 0.667,
    "graph": 0.0,
-   "birank": 0.6086,
+   "birank": 0.6084,
    "families_agreeing": 2
   },
   "evidence_strength": 0.85,
   "severity": 0.95,
   "prediction": {
-   "p30": 0.9775,
-   "p60": 0.9919,
-   "p90": 0.9919,
+   "p30": 0.9794,
+   "p60": 0.9794,
+   "p90": 0.9843,
    "volume_velocity": 1.03,
    "flag_velocity": 1.15
   },
@@ -2347,15 +2347,15 @@
    "rules": 0.171,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.1361,
+   "birank": 0.1363,
    "families_agreeing": 0
   },
   "evidence_strength": 0.101,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.0059,
-   "p60": 0.0084,
-   "p90": 0.0188,
+   "p30": 0.0066,
+   "p60": 0.0091,
+   "p90": 0.0131,
    "volume_velocity": 0.97,
    "flag_velocity": 0.5
   },
@@ -2419,7 +2419,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 31; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C001961",
@@ -2430,7 +2430,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 30; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C045878",
@@ -2441,7 +2441,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 29; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C058465",
@@ -2452,7 +2452,7 @@
     "paid_amount": 12650.0,
     "rule": "IN2 duplicate package",
     "detail": "Package SO057 billed again 6.9 days after C057068 for the same beneficiary at the same hospital",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    },
    {
     "claim_id": "C050867",
@@ -2463,7 +2463,7 @@
     "paid_amount": 12650.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    },
    {
     "claim_id": "C022417",
@@ -2474,7 +2474,7 @@
     "paid_amount": 10555.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    }
   ],
   "timeline": [
@@ -2624,15 +2624,15 @@
    "rules": 1.0,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.2375,
+   "birank": 0.2376,
    "families_agreeing": 1
   },
   "evidence_strength": 0.516,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.9561,
-   "p60": 0.9661,
-   "p90": 0.9858,
+   "p30": 0.9384,
+   "p60": 0.9384,
+   "p90": 0.9842,
    "volume_velocity": 1.11,
    "flag_velocity": 1.32
   },
@@ -2885,15 +2885,15 @@
    "rules": 0.952,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.4184,
+   "birank": 0.4195,
    "families_agreeing": 1
   },
   "evidence_strength": 0.492,
   "severity": 1.0,
   "prediction": {
-   "p30": 0.7975,
-   "p60": 0.8794,
-   "p90": 0.9813,
+   "p30": 0.6908,
+   "p60": 0.9272,
+   "p90": 0.9841,
    "volume_velocity": 1.0,
    "flag_velocity": 1.78
   },
@@ -2976,7 +2976,7 @@
     "paid_amount": 20000.0,
     "rule": "IN3 claim after recorded death",
     "detail": "Admitted 11 Jul 2026 14:52, 63 days after the beneficiary's recorded death on 09 May 2026",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C038896",
@@ -2987,7 +2987,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 32; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C069214",
@@ -2998,7 +2998,7 @@
     "paid_amount": 18724.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO010 (hysterectomy) billed for a male beneficiary",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C017853",
@@ -3042,7 +3042,7 @@
     "paid_amount": 11500.0,
     "rule": "IN3 claim after recorded death",
     "detail": "Admitted 05 Jan 2026 09:27, 18 days after the beneficiary's recorded death on 18 Dec 2025",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    }
   ],
   "timeline": [
@@ -3193,15 +3193,15 @@
    "rules": 1.0,
    "ml": 0.667,
    "graph": 1.0,
-   "birank": 0.7158,
+   "birank": 0.7157,
    "families_agreeing": 3
   },
   "evidence_strength": 1.0,
   "severity": 1.0,
   "prediction": {
-   "p30": 0.1348,
-   "p60": 0.5829,
-   "p90": 0.993,
+   "p30": 0.2528,
+   "p60": 0.334,
+   "p90": 0.9939,
    "volume_velocity": 1.13,
    "flag_velocity": 1.13
   },
@@ -3303,7 +3303,7 @@
     "facility_id": "F059",
     "paid_amount": 54450.0,
     "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b954,450 for MG049C; the hospital's tier and accreditation entitle it to \u20b949,500",
+    "detail": "Claimed \u20b954,450 for MG049C; the hospital's tier and accreditation entitle it to \u20b949,500, using a published HBP rate",
     "package": "Acute ischemic stroke"
    },
    {
@@ -3314,7 +3314,7 @@
     "facility_id": "F059",
     "paid_amount": 47520.0,
     "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b947,520 for MG045A; the hospital's tier and accreditation entitle it to \u20b943,200",
+    "detail": "Claimed \u20b947,520 for MG045A; the hospital's tier and accreditation entitle it to \u20b943,200, using a published HBP rate",
     "package": "AKI / renal failure"
    },
    {
@@ -3325,7 +3325,7 @@
     "facility_id": "F059",
     "paid_amount": 29700.0,
     "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b929,700 for MG006A; the hospital's tier and accreditation entitle it to \u20b927,000",
+    "detail": "Claimed \u20b929,700 for MG006A; the hospital's tier and accreditation entitle it to \u20b927,000, using a published HBP rate",
     "package": "Enteric fever"
    },
    {
@@ -3336,7 +3336,7 @@
     "facility_id": "F059",
     "paid_amount": 29700.0,
     "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b929,700 for MG009A; the hospital's tier and accreditation entitle it to \u20b927,000",
+    "detail": "Claimed \u20b929,700 for MG009A; the hospital's tier and accreditation entitle it to \u20b927,000, using a published HBP rate",
     "package": "Acute gastroenteritis with moderate dehydration"
    },
    {
@@ -3347,7 +3347,7 @@
     "facility_id": "F059",
     "paid_amount": 25740.0,
     "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b925,740 for MG071A; the hospital's tier and accreditation entitle it to \u20b923,400",
+    "detail": "Claimed \u20b925,740 for MG071A; the hospital's tier and accreditation entitle it to \u20b923,400, using a published HBP rate",
     "package": "Acute organophosphorus poisoning"
    },
    {
@@ -3358,18 +3358,7 @@
     "facility_id": "F059",
     "paid_amount": 25080.0,
     "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b925,080 for SG039C; the hospital's tier and accreditation entitle it to \u20b922,800",
-    "package": "Cholecystectomy - laparoscopic"
-   },
-   {
-    "claim_id": "C053336",
-    "date": "2026-06-19 08:40",
-    "member_id": "M002588",
-    "procedure_code": "SG039C",
-    "facility_id": "F059",
-    "paid_amount": 25080.0,
-    "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b925,080 for SG039C; the hospital's tier and accreditation entitle it to \u20b922,800",
+    "detail": "Claimed \u20b925,080 for SG039C; the hospital's tier and accreditation entitle it to \u20b922,800, using a published HBP rate",
     "package": "Cholecystectomy - laparoscopic"
    },
    {
@@ -3380,7 +3369,18 @@
     "facility_id": "F059",
     "paid_amount": 25080.0,
     "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b925,080 for SG039C; the hospital's tier and accreditation entitle it to \u20b922,800",
+    "detail": "Claimed \u20b925,080 for SG039C; the hospital's tier and accreditation entitle it to \u20b922,800, using a published HBP rate",
+    "package": "Cholecystectomy - laparoscopic"
+   },
+   {
+    "claim_id": "C053336",
+    "date": "2026-06-19 08:40",
+    "member_id": "M002588",
+    "procedure_code": "SG039C",
+    "facility_id": "F059",
+    "paid_amount": 25080.0,
+    "rule": "IN4a package mismatch",
+    "detail": "Claimed \u20b925,080 for SG039C; the hospital's tier and accreditation entitle it to \u20b922,800, using a published HBP rate",
     "package": "Cholecystectomy - laparoscopic"
    }
   ],
@@ -3547,15 +3547,15 @@
    "rules": 0.11,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.0827,
+   "birank": 0.0834,
    "families_agreeing": 0
   },
   "evidence_strength": 0.071,
   "severity": 0.7,
   "prediction": {
-   "p30": 0.006,
-   "p60": 0.0088,
-   "p90": 0.0195,
+   "p30": 0.0066,
+   "p60": 0.0096,
+   "p90": 0.0154,
    "volume_velocity": 0.81,
    "flag_velocity": 1.0
   },
@@ -3617,7 +3617,7 @@
     "paid_amount": 25300.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 32; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C001897",
@@ -3628,7 +3628,7 @@
     "paid_amount": 14547.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    },
    {
     "claim_id": "C024371",
@@ -3639,7 +3639,7 @@
     "paid_amount": 14547.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    },
    {
     "claim_id": "C052418",
@@ -3650,7 +3650,7 @@
     "paid_amount": 12930.0,
     "rule": "IN2 duplicate package",
     "detail": "Package SO057 billed again 3.9 days after C051642 for the same beneficiary at the same hospital",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    }
   ],
   "timeline": [
@@ -3809,15 +3809,15 @@
    "rules": 0.152,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.1221,
+   "birank": 0.1222,
    "families_agreeing": 0
   },
   "evidence_strength": 0.092,
   "severity": 0.6,
   "prediction": {
-   "p30": 0.0134,
-   "p60": 0.0338,
-   "p90": 0.0661,
+   "p30": 0.0078,
+   "p60": 0.0157,
+   "p90": 0.025,
    "volume_velocity": 0.88,
    "flag_velocity": 1.0
   },
@@ -4054,15 +4054,15 @@
    "rules": 0.0,
    "ml": 0.4,
    "graph": 0.0,
-   "birank": 0.0992,
+   "birank": 0.0993,
    "families_agreeing": 1
   },
   "evidence_strength": 0.16,
   "severity": 0.95,
   "prediction": {
-   "p30": 0.0102,
+   "p30": 0.0093,
    "p60": 0.0105,
-   "p90": 0.0201,
+   "p90": 0.0162,
    "volume_velocity": 1.22,
    "flag_velocity": 1.0
   },
@@ -4205,15 +4205,15 @@
    "rules": 0.168,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.1994,
+   "birank": 0.2088,
    "families_agreeing": 0
   },
   "evidence_strength": 0.1,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.572,
-   "p60": 0.572,
-   "p90": 0.572,
+   "p30": 0.7069,
+   "p60": 0.7069,
+   "p90": 0.7069,
    "volume_velocity": 1.1,
    "flag_velocity": 2.0
   },
@@ -4288,7 +4288,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 30; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C011516",
@@ -4447,15 +4447,15 @@
    "rules": 0.0,
    "ml": 0.667,
    "graph": 0.0,
-   "birank": 0.0107,
+   "birank": 0.0108,
    "families_agreeing": 1
   },
   "evidence_strength": 0.2,
   "severity": 0.7,
   "prediction": {
-   "p30": 0.005,
-   "p60": 0.0083,
-   "p90": 0.0131,
+   "p30": 0.0052,
+   "p60": 0.0074,
+   "p90": 0.0078,
    "volume_velocity": 0.67,
    "flag_velocity": 1.0
   },
@@ -4589,9 +4589,9 @@
   "evidence_strength": 0.196,
   "severity": 0.5,
   "prediction": {
-   "p30": 0.0071,
-   "p60": 0.0095,
-   "p90": 0.0124,
+   "p30": 0.0072,
+   "p60": 0.0082,
+   "p90": 0.0088,
    "volume_velocity": 1.04,
    "flag_velocity": 1.0
   },
@@ -4632,7 +4632,7 @@
     "paid_amount": 15067.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 31; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    }
   ],
   "timeline": [
@@ -4776,15 +4776,15 @@
    "rules": 0.088,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.2572,
+   "birank": 0.2573,
    "families_agreeing": 0
   },
   "evidence_strength": 0.06,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.006,
-   "p60": 0.0088,
-   "p90": 0.0195,
+   "p30": 0.0066,
+   "p60": 0.0078,
+   "p90": 0.0094,
    "volume_velocity": 0.91,
    "flag_velocity": 1.0
   },
@@ -4843,7 +4843,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 33; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C050130",
@@ -4854,7 +4854,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 32; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C018559",
@@ -4865,7 +4865,7 @@
     "paid_amount": 8923.0,
     "rule": "IN2 duplicate package",
     "detail": "Package SO057 billed again 4.3 days after C017675 for the same beneficiary at the same hospital",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    }
   ],
   "timeline": [
@@ -5018,15 +5018,15 @@
    "rules": 0.059,
    "ml": 0.667,
    "graph": 0.0,
-   "birank": 0.0549,
+   "birank": 0.0603,
    "families_agreeing": 1
   },
   "evidence_strength": 0.23,
   "severity": 0.95,
   "prediction": {
-   "p30": 0.0091,
-   "p60": 0.0126,
-   "p90": 0.0159,
+   "p30": 0.0075,
+   "p60": 0.0136,
+   "p90": 0.017,
    "volume_velocity": 0.88,
    "flag_velocity": 1.0
   },
@@ -5074,7 +5074,7 @@
     "paid_amount": 23000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 31; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    }
   ],
   "timeline": [
@@ -5224,15 +5224,15 @@
    "rules": 1.0,
    "ml": 1.0,
    "graph": 0.0,
-   "birank": 0.5332,
+   "birank": 0.5334,
    "families_agreeing": 2
   },
   "evidence_strength": 0.85,
   "severity": 0.6,
   "prediction": {
-   "p30": 0.4419,
-   "p60": 0.7071,
-   "p90": 0.9925,
+   "p30": 0.8181,
+   "p60": 0.8181,
+   "p90": 0.9851,
    "volume_velocity": 1.08,
    "flag_velocity": 1.11
   },
@@ -5519,15 +5519,15 @@
    "rules": 0.157,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.1775,
+   "birank": 0.262,
    "families_agreeing": 0
   },
   "evidence_strength": 0.095,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.0092,
-   "p60": 0.0092,
-   "p90": 0.0416,
+   "p30": 0.0079,
+   "p60": 0.0119,
+   "p90": 0.0421,
    "volume_velocity": 1.11,
    "flag_velocity": 1.33
   },
@@ -5590,7 +5590,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 28; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C067236",
@@ -5601,7 +5601,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 28; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C041878",
@@ -5612,7 +5612,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 34; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C071602",
@@ -5623,7 +5623,7 @@
     "paid_amount": 13915.0,
     "rule": "IN1 overlapping admission",
     "detail": "Admitted 11 Sep 2026 08:29 while an inpatient at P135 under C070961 (admitted 08 Sep 2026 08:33, discharged 14 Sep 2026 12:00); stays overlap by 76 h",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    },
    {
     "claim_id": "C027556",
@@ -5634,7 +5634,7 @@
     "paid_amount": 13915.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    }
   ],
   "timeline": [
@@ -5790,9 +5790,9 @@
   "evidence_strength": 0.059,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.006,
-   "p60": 0.0088,
-   "p90": 0.0195,
+   "p30": 0.0066,
+   "p60": 0.0096,
+   "p90": 0.0154,
    "volume_velocity": 1.03,
    "flag_velocity": 1.0
   },
@@ -5844,7 +5844,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 34; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C040344",
@@ -5855,7 +5855,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 31; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C051054",
@@ -5866,7 +5866,7 @@
     "paid_amount": 12650.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    }
   ],
   "timeline": [
@@ -6016,15 +6016,15 @@
    "rules": 1.0,
    "ml": 0.5,
    "graph": 0.0,
-   "birank": 0.4504,
+   "birank": 0.4833,
    "families_agreeing": 2
   },
   "evidence_strength": 0.85,
   "severity": 0.95,
   "prediction": {
-   "p30": 0.9848,
-   "p60": 0.9895,
-   "p90": 0.9895,
+   "p30": 0.9772,
+   "p60": 0.9822,
+   "p90": 0.9822,
    "volume_velocity": 1.12,
    "flag_velocity": 1.09
   },
@@ -6061,7 +6061,7 @@
    {
     "type": "graph",
     "rule": "BiRank propagation",
-    "text": "Network risk 0.45 of 1.00, propagated from flagged hospitals through shared beneficiaries",
+    "text": "Network risk 0.48 of 1.00, propagated from flagged hospitals through shared beneficiaries",
     "source": "claims.csv provider-member graph",
     "claim_ids": []
    }
@@ -6288,28 +6288,28 @@
   "owner_name": "Olvira Health Trust",
   "pattern": "package_upcoding",
   "signals": {
-   "rules": 0.503,
+   "rules": 0.881,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.2498,
+   "birank": 0.3169,
    "families_agreeing": 1
   },
-  "evidence_strength": 0.268,
+  "evidence_strength": 0.456,
   "severity": 0.7,
   "prediction": {
-   "p30": 0.9852,
-   "p60": 0.9852,
-   "p90": 0.9852,
+   "p30": 0.7719,
+   "p60": 0.9823,
+   "p90": 0.9953,
    "volume_velocity": 1.26,
-   "flag_velocity": 1.33
+   "flag_velocity": 1.23
   },
-  "potential_dollars": 243832.0,
-  "member_impact": 12,
+  "potential_dollars": 418252.0,
+  "member_impact": 20,
   "n_claims": 223,
-  "n_flagged": 12,
+  "n_flagged": 21,
   "total_paid": 2899139.0,
   "rule_counts": {
-   "IN5 ICU/ventilator rate drift": 11,
+   "IN5 ICU/ventilator rate drift": 20,
    "IN4b age audit trigger": 1
   },
   "anomaly_drivers": "share of ICU or ventilator stays +2.6 SD vs hospital-type peers; 90-day volume growth +1.9 SD vs hospital-type peers",
@@ -6317,8 +6317,8 @@
    {
     "type": "rule",
     "rule": "IN5 ICU/ventilator rate drift",
-    "text": "11 claims flagged by IN5 ICU/ventilator rate drift, \u20b92,21,832 paid",
-    "source": "claims.csv: ward_type, claim_type, service_datetime",
+    "text": "20 claims flagged by IN5 ICU/ventilator rate drift, \u20b93,96,252 paid",
+    "source": "claims.csv: ward_type, claim_type, service_datetime, provider_id",
     "claim_ids": [
      "C063784",
      "C064299",
@@ -6342,6 +6342,13 @@
     "text": "Anomaly probability 4%; drivers: share of ICU or ventilator stays +2.6 SD vs hospital-type peers; 90-day volume growth +1.9 SD vs hospital-type peers",
     "source": "hospital features from claims.csv and members.csv, compared with hospitals of the same type",
     "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.32 of 1.00, propagated from flagged hospitals through shared beneficiaries",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
    }
   ],
   "sample_claims": [
@@ -6357,6 +6364,17 @@
     "package": "Enteric fever"
    },
    {
+    "claim_id": "C025099",
+    "date": "2026-02-03 10:53",
+    "member_id": "M013034",
+    "procedure_code": "MG049C",
+    "facility_id": "F139",
+    "paid_amount": 29700.0,
+    "rule": "IN5 ICU/ventilator rate drift",
+    "detail": "ICU with ventilator rate billed; ICU or ventilator was 31% of this hospital's 64 medical admissions over the period vs 9% for all hospitals (binomial p = 3e-07)",
+    "package": "Acute ischemic stroke"
+   },
+   {
     "claim_id": "C064299",
     "date": "2026-08-09 17:43",
     "member_id": "M018150",
@@ -6366,6 +6384,17 @@
     "rule": "IN5 ICU/ventilator rate drift",
     "detail": "ICU with ventilator rate billed; ICU or ventilator was 75% of medical admissions in 2026-08 vs 9% for all hospitals",
     "package": "Severe anemia"
+   },
+   {
+    "claim_id": "C021478",
+    "date": "2026-01-16 09:11",
+    "member_id": "M012636",
+    "procedure_code": "MG016A",
+    "facility_id": "F139",
+    "paid_amount": 27720.0,
+    "rule": "IN5 ICU/ventilator rate drift",
+    "detail": "ICU rate billed; ICU or ventilator was 31% of this hospital's 64 medical admissions over the period vs 9% for all hospitals (binomial p = 3e-07)",
+    "package": "Pneumonia"
    },
    {
     "claim_id": "C063784",
@@ -6379,6 +6408,17 @@
     "package": "Acute ischemic stroke"
    },
    {
+    "claim_id": "C015180",
+    "date": "2025-12-15 12:48",
+    "member_id": "M014498",
+    "procedure_code": "MG029A",
+    "facility_id": "F139",
+    "paid_amount": 23760.0,
+    "rule": "IN5 ICU/ventilator rate drift",
+    "detail": "ICU rate billed; ICU or ventilator was 31% of this hospital's 64 medical admissions over the period vs 9% for all hospitals (binomial p = 3e-07)",
+    "package": "Acute exacerbation of COPD"
+   },
+   {
     "claim_id": "C026020",
     "date": "2026-02-07 20:22",
     "member_id": "M018759",
@@ -6387,50 +6427,17 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 30; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
-    "claim_id": "C071026",
-    "date": "2026-09-08 13:54",
-    "member_id": "M012212",
-    "procedure_code": "MG064A",
-    "facility_id": "F139",
-    "paid_amount": 19800.0,
-    "rule": "IN5 ICU/ventilator rate drift",
-    "detail": "ICU with ventilator rate billed; ICU or ventilator was 56% of medical admissions in 2026-09 vs 9% for all hospitals",
-    "package": "Severe anemia"
-   },
-   {
-    "claim_id": "C065836",
-    "date": "2026-08-16 08:09",
-    "member_id": "M015273",
-    "procedure_code": "MG001A",
-    "facility_id": "F139",
-    "paid_amount": 19800.0,
-    "rule": "IN5 ICU/ventilator rate drift",
-    "detail": "ICU rate billed; ICU or ventilator was 75% of medical admissions in 2026-08 vs 9% for all hospitals",
-    "package": "Acute febrile illness"
-   },
-   {
-    "claim_id": "C072688",
-    "date": "2026-09-15 22:33",
-    "member_id": "M011052",
-    "procedure_code": "MG004A",
-    "facility_id": "F139",
-    "paid_amount": 19800.0,
-    "rule": "IN5 ICU/ventilator rate drift",
-    "detail": "ICU with ventilator rate billed; ICU or ventilator was 56% of medical admissions in 2026-09 vs 9% for all hospitals",
-    "package": "Dengue fever"
-   },
-   {
-    "claim_id": "C065431",
-    "date": "2026-08-14 09:35",
-    "member_id": "M016286",
+    "claim_id": "C054458",
+    "date": "2026-06-24 10:38",
+    "member_id": "M023980",
     "procedure_code": "MG021A",
     "facility_id": "F139",
-    "paid_amount": 15840.0,
+    "paid_amount": 19980.0,
     "rule": "IN5 ICU/ventilator rate drift",
-    "detail": "ICU rate billed; ICU or ventilator was 75% of medical admissions in 2026-08 vs 9% for all hospitals",
+    "detail": "ICU with ventilator rate billed; ICU or ventilator was 31% of this hospital's 64 medical admissions over the period vs 9% for all hospitals (binomial p = 3e-07)",
     "package": "Urinary tract infection"
    }
   ],
@@ -6451,19 +6458,19 @@
     "month": "2025-12",
     "claims": 26,
     "paid": 342493.0,
-    "flagged": 0
+    "flagged": 1
    },
    {
     "month": "2026-01",
     "claims": 26,
     "paid": 495753.0,
-    "flagged": 0
+    "flagged": 2
    },
    {
     "month": "2026-02",
     "claims": 21,
     "paid": 287944.0,
-    "flagged": 1
+    "flagged": 2
    },
    {
     "month": "2026-03",
@@ -6481,19 +6488,19 @@
     "month": "2026-05",
     "claims": 11,
     "paid": 101695.0,
-    "flagged": 0
+    "flagged": 1
    },
    {
     "month": "2026-06",
     "claims": 15,
     "paid": 221798.0,
-    "flagged": 0
+    "flagged": 3
    },
    {
     "month": "2026-07",
     "claims": 12,
     "paid": 112530.0,
-    "flagged": 0
+    "flagged": 1
    },
    {
     "month": "2026-08",
@@ -6510,7 +6517,7 @@
   ],
   "events": [
    {
-    "date": "2026-02-07",
+    "date": "2025-12-15",
     "event": "First rule flag"
    },
    {
@@ -6580,15 +6587,15 @@
    "rules": 0.108,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.0832,
+   "birank": 0.0834,
    "families_agreeing": 0
   },
   "evidence_strength": 0.07,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.0134,
-   "p60": 0.0414,
-   "p90": 0.0744,
+   "p30": 0.0078,
+   "p60": 0.0134,
+   "p90": 0.0134,
    "volume_velocity": 0.57,
    "flag_velocity": 1.0
   },
@@ -6631,7 +6638,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 30; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C030073",
@@ -6642,7 +6649,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 29; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C050664",
@@ -6653,7 +6660,7 @@
     "paid_amount": 16633.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 33; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    }
   ],
   "timeline": [
@@ -6803,15 +6810,15 @@
    "rules": 1.0,
    "ml": 1.0,
    "graph": 1.0,
-   "birank": 0.77,
+   "birank": 0.7699,
    "families_agreeing": 3
   },
   "evidence_strength": 1.0,
   "severity": 1.0,
   "prediction": {
-   "p30": 0.9981,
-   "p60": 0.9981,
-   "p90": 0.9981,
+   "p30": 0.9917,
+   "p60": 0.9917,
+   "p90": 0.9917,
    "volume_velocity": 1.1,
    "flag_velocity": 1.46
   },
@@ -6825,7 +6832,7 @@
    "IN4a package mismatch": 19,
    "IN2 duplicate package": 1,
    "IN4b age audit trigger": 1,
-   "IN6a stay above package norm": 1
+   "IN6a stay above assumed package norm": 1
   },
   "anomaly_drivers": "share of agent-referred admissions +4.3 SD vs hospital-type peers; admissions per beneficiary +4.1 SD vs hospital-type peers",
   "evidence": [
@@ -6875,8 +6882,8 @@
    },
    {
     "type": "rule",
-    "rule": "IN6a stay above package norm",
-    "text": "1 claims flagged by IN6a stay above package norm, \u20b925,200 paid",
+    "rule": "IN6a stay above assumed package norm",
+    "text": "1 claims flagged by IN6a stay above assumed package norm, \u20b925,200 paid",
     "source": "claims.csv los_days; package_master.csv typical_los_days_assumed",
     "claim_ids": [
      "C035008"
@@ -6907,7 +6914,7 @@
     "paid_amount": 80000.0,
     "rule": "IN1 overlapping admission",
     "detail": "Admitted 19 Sep 2026 17:44 while an inpatient at P152 under C073198 (admitted 18 Sep 2026 09:46, discharged 23 Sep 2026 16:24); stays overlap by 95 h",
-    "package": "Total knee replacement (primary)"
+    "package": "Total knee replacement (primary) (estimated rate)"
    },
    {
     "claim_id": "C070263",
@@ -6929,7 +6936,7 @@
     "paid_amount": 60193.0,
     "rule": "IN1 overlapping admission",
     "detail": "Admitted 10 Jun 2026 11:16 while an inpatient at P022 under C051486 (admitted 10 Jun 2026 06:26, discharged 15 Jun 2026 16:23); stays overlap by 125 h",
-    "package": "Total knee replacement (primary)"
+    "package": "Total knee replacement (primary) (estimated rate)"
    },
    {
     "claim_id": "C056576",
@@ -6960,8 +6967,8 @@
     "procedure_code": "MG016A",
     "facility_id": "F148",
     "paid_amount": 25200.0,
-    "rule": "IN6a stay above package norm",
-    "detail": "14 days billed for MG016A; the assumed norm is 5 days",
+    "rule": "IN6a stay above assumed package norm",
+    "detail": "14 days billed for MG016A; the typical stay assumed by this prototype is 5 days (PM-JAY publishes no length-of-stay norm)",
     "package": "Pneumonia"
    },
    {
@@ -7168,9 +7175,9 @@
   "evidence_strength": 1.0,
   "severity": 1.0,
   "prediction": {
-   "p30": 0.9182,
-   "p60": 0.9182,
-   "p90": 0.9933,
+   "p30": 0.8104,
+   "p60": 0.8968,
+   "p90": 0.9939,
    "volume_velocity": 1.12,
    "flag_velocity": 1.3
   },
@@ -7350,7 +7357,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO010 (hysterectomy) billed for a male beneficiary",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    }
   ],
   "timeline": [
@@ -7516,15 +7523,15 @@
    "rules": 1.0,
    "ml": 1.0,
    "graph": 0.0,
-   "birank": 0.5223,
+   "birank": 0.5224,
    "families_agreeing": 2
   },
   "evidence_strength": 0.85,
   "severity": 0.6,
   "prediction": {
-   "p30": 0.9995,
-   "p60": 0.9995,
-   "p90": 0.9995,
+   "p30": 0.9993,
+   "p60": 0.9993,
+   "p90": 0.9993,
    "volume_velocity": 1.1,
    "flag_velocity": 1.12
   },
@@ -7808,36 +7815,36 @@
   "owner_name": "Tavora Healthcare Pvt Ltd",
   "pattern": "package_upcoding",
   "signals": {
-   "rules": 0.331,
+   "rules": 1.0,
    "ml": 0.4,
    "graph": 0.0,
-   "birank": 0.1716,
+   "birank": 0.3656,
    "families_agreeing": 2
   },
-  "evidence_strength": 0.476,
+  "evidence_strength": 0.81,
   "severity": 0.7,
   "prediction": {
-   "p30": 0.0172,
-   "p60": 0.6055,
-   "p90": 0.6055,
+   "p30": 0.5652,
+   "p60": 0.9686,
+   "p90": 0.9936,
    "volume_velocity": 1.04,
    "flag_velocity": 1.0
   },
-  "potential_dollars": 175329.0,
-  "member_impact": 8,
+  "potential_dollars": 608254.0,
+  "member_impact": 30,
   "n_claims": 230,
-  "n_flagged": 8,
+  "n_flagged": 30,
   "total_paid": 4158589.0,
   "rule_counts": {
-   "IN5 ICU/ventilator rate drift": 8
+   "IN5 ICU/ventilator rate drift": 30
   },
   "anomaly_drivers": "average paid per admission +3.5 SD vs hospital-type peers; share of ICU or ventilator stays +3.3 SD vs hospital-type peers",
   "evidence": [
    {
     "type": "rule",
     "rule": "IN5 ICU/ventilator rate drift",
-    "text": "8 claims flagged by IN5 ICU/ventilator rate drift, \u20b91,75,329 paid",
-    "source": "claims.csv: ward_type, claim_type, service_datetime",
+    "text": "30 claims flagged by IN5 ICU/ventilator rate drift, \u20b96,08,254 paid",
+    "source": "claims.csv: ward_type, claim_type, service_datetime, provider_id",
     "claim_ids": [
      "C037584",
      "C040808",
@@ -7851,6 +7858,13 @@
     "rule": "Isolation Forest + isotonic calibration",
     "text": "Anomaly probability 40%; drivers: average paid per admission +3.5 SD vs hospital-type peers; share of ICU or ventilator stays +3.3 SD vs hospital-type peers",
     "source": "hospital features from claims.csv and members.csv, compared with hospitals of the same type",
+    "claim_ids": []
+   },
+   {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.37 of 1.00, propagated from flagged hospitals through shared beneficiaries",
+    "source": "claims.csv provider-member graph",
     "claim_ids": []
    }
   ],
@@ -7867,6 +7881,39 @@
     "package": "Acute organophosphorus poisoning"
    },
    {
+    "claim_id": "C059818",
+    "date": "2026-07-19 19:19",
+    "member_id": "M016942",
+    "procedure_code": "MG038A",
+    "facility_id": "F158",
+    "paid_amount": 38133.0,
+    "rule": "IN5 ICU/ventilator rate drift",
+    "detail": "ICU rate billed; ICU or ventilator was 37% of this hospital's 81 medical admissions over the period vs 9% for all hospitals (binomial p = 3e-12)",
+    "package": "Congestive heart failure"
+   },
+   {
+    "claim_id": "C062172",
+    "date": "2026-07-31 07:16",
+    "member_id": "M001317",
+    "procedure_code": "MG049C",
+    "facility_id": "F158",
+    "paid_amount": 34848.0,
+    "rule": "IN5 ICU/ventilator rate drift",
+    "detail": "ICU rate billed; ICU or ventilator was 37% of this hospital's 81 medical admissions over the period vs 9% for all hospitals (binomial p = 3e-12)",
+    "package": "Acute ischemic stroke"
+   },
+   {
+    "claim_id": "C020311",
+    "date": "2026-01-10 13:15",
+    "member_id": "M012073",
+    "procedure_code": "MG017A",
+    "facility_id": "F158",
+    "paid_amount": 34848.0,
+    "rule": "IN5 ICU/ventilator rate drift",
+    "detail": "ICU rate billed; ICU or ventilator was 37% of this hospital's 81 medical admissions over the period vs 9% for all hospitals (binomial p = 3e-12)",
+    "package": "Severe pneumonia"
+   },
+   {
     "claim_id": "C043708",
     "date": "2026-05-04 10:43",
     "member_id": "M025326",
@@ -7878,70 +7925,37 @@
     "package": "Diabetic ketoacidosis"
    },
    {
-    "claim_id": "C040808",
-    "date": "2026-04-21 13:27",
-    "member_id": "M007818",
-    "procedure_code": "MG049C",
+    "claim_id": "C053904",
+    "date": "2026-06-21 17:29",
+    "member_id": "M011223",
+    "procedure_code": "MG006A",
     "facility_id": "F158",
-    "paid_amount": 26136.0,
+    "paid_amount": 27225.0,
     "rule": "IN5 ICU/ventilator rate drift",
-    "detail": "ICU rate billed; ICU or ventilator was 50% of medical admissions in 2026-04 vs 9% for all hospitals",
-    "package": "Acute ischemic stroke"
+    "detail": "ICU with ventilator rate billed; ICU or ventilator was 37% of this hospital's 81 medical admissions over the period vs 9% for all hospitals (binomial p = 3e-12)",
+    "package": "Enteric fever"
    },
    {
-    "claim_id": "C037584",
-    "date": "2026-04-05 19:08",
-    "member_id": "M025327",
-    "procedure_code": "MG021A",
+    "claim_id": "C034409",
+    "date": "2026-03-20 16:42",
+    "member_id": "M021135",
+    "procedure_code": "MG070A",
     "facility_id": "F158",
-    "paid_amount": 21780.0,
+    "paid_amount": 27225.0,
     "rule": "IN5 ICU/ventilator rate drift",
-    "detail": "ICU with ventilator rate billed; ICU or ventilator was 50% of medical admissions in 2026-04 vs 9% for all hospitals",
-    "package": "Urinary tract infection"
+    "detail": "ICU with ventilator rate billed; ICU or ventilator was 37% of this hospital's 81 medical admissions over the period vs 9% for all hospitals (binomial p = 3e-12)",
+    "package": "Snake bite"
    },
    {
-    "claim_id": "C047898",
-    "date": "2026-05-24 09:24",
-    "member_id": "M015920",
-    "procedure_code": "MG009A",
-    "facility_id": "F158",
-    "paid_amount": 21780.0,
-    "rule": "IN5 ICU/ventilator rate drift",
-    "detail": "ICU rate billed; ICU or ventilator was 44% of medical admissions in 2026-05 vs 9% for all hospitals",
-    "package": "Acute gastroenteritis with moderate dehydration"
-   },
-   {
-    "claim_id": "C041763",
-    "date": "2026-04-26 11:11",
-    "member_id": "M007081",
-    "procedure_code": "MG004A",
-    "facility_id": "F158",
-    "paid_amount": 17424.0,
-    "rule": "IN5 ICU/ventilator rate drift",
-    "detail": "ICU rate billed; ICU or ventilator was 50% of medical admissions in 2026-04 vs 9% for all hospitals",
-    "package": "Dengue fever"
-   },
-   {
-    "claim_id": "C048123",
-    "date": "2026-05-25 10:27",
-    "member_id": "M011027",
+    "claim_id": "C060085",
+    "date": "2026-07-21 04:10",
+    "member_id": "M010290",
     "procedure_code": "MG003A",
     "facility_id": "F158",
-    "paid_amount": 13068.0,
+    "paid_amount": 27225.0,
     "rule": "IN5 ICU/ventilator rate drift",
-    "detail": "ICU rate billed; ICU or ventilator was 44% of medical admissions in 2026-05 vs 9% for all hospitals",
+    "detail": "ICU with ventilator rate billed; ICU or ventilator was 37% of this hospital's 81 medical admissions over the period vs 9% for all hospitals (binomial p = 3e-12)",
     "package": "Malaria"
-   },
-   {
-    "claim_id": "C044718",
-    "date": "2026-05-08 23:12",
-    "member_id": "M008623",
-    "procedure_code": "MG016A",
-    "facility_id": "F158",
-    "paid_amount": 8712.0,
-    "rule": "IN5 ICU/ventilator rate drift",
-    "detail": "ICU rate billed; ICU or ventilator was 44% of medical admissions in 2026-05 vs 9% for all hospitals",
-    "package": "Pneumonia"
    }
   ],
   "timeline": [
@@ -7949,7 +7963,7 @@
     "month": "2025-10",
     "claims": 19,
     "paid": 257468.0,
-    "flagged": 0
+    "flagged": 1
    },
    {
     "month": "2025-11",
@@ -7967,19 +7981,19 @@
     "month": "2026-01",
     "claims": 22,
     "paid": 442758.0,
-    "flagged": 0
+    "flagged": 3
    },
    {
     "month": "2026-02",
     "claims": 15,
     "paid": 325187.0,
-    "flagged": 0
+    "flagged": 2
    },
    {
     "month": "2026-03",
     "claims": 22,
     "paid": 389604.0,
-    "flagged": 0
+    "flagged": 3
    },
    {
     "month": "2026-04",
@@ -7997,34 +8011,34 @@
     "month": "2026-06",
     "claims": 15,
     "paid": 278077.0,
-    "flagged": 0
+    "flagged": 1
    },
    {
     "month": "2026-07",
     "claims": 14,
     "paid": 329460.0,
-    "flagged": 0
+    "flagged": 4
    },
    {
     "month": "2026-08",
     "claims": 21,
     "paid": 316231.0,
-    "flagged": 0
+    "flagged": 4
    },
    {
     "month": "2026-09",
     "claims": 17,
     "paid": 302311.0,
-    "flagged": 0
+    "flagged": 4
    }
   ],
   "events": [
    {
-    "date": "2026-04-05",
+    "date": "2025-10-06",
     "event": "First rule flag"
    },
    {
-    "date": "2026-05-25",
+    "date": "2026-09-29",
     "event": "Most recent rule flag"
    }
   ],
@@ -8092,15 +8106,15 @@
    "rules": 1.0,
    "ml": 0.4,
    "graph": 0.0,
-   "birank": 0.1952,
+   "birank": 0.1953,
    "families_agreeing": 2
   },
   "evidence_strength": 0.81,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.1497,
-   "p60": 0.8285,
-   "p90": 0.9854,
+   "p30": 0.3291,
+   "p60": 0.8904,
+   "p90": 0.9823,
    "volume_velocity": 1.12,
    "flag_velocity": 1.33
   },
@@ -8187,7 +8201,7 @@
     "paid_amount": 20000.0,
     "rule": "IN1 overlapping admission",
     "detail": "Admitted 17 Apr 2026 08:03 while an inpatient at P273 under C038971 (admitted 12 Apr 2026 15:14, discharged 19 Apr 2026 10:15); stays overlap by 50 h",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C041330",
@@ -8198,7 +8212,7 @@
     "paid_amount": 20000.0,
     "rule": "IN2 duplicate package",
     "detail": "Package SO010 billed again 6.9 days after C039944 for the same beneficiary at the same hospital",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C014122",
@@ -8209,7 +8223,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 34; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C014168",
@@ -8220,7 +8234,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 32; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C014131",
@@ -8231,7 +8245,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 23; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C014165",
@@ -8242,7 +8256,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 24; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C014148",
@@ -8253,7 +8267,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 24; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C014170",
@@ -8264,7 +8278,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 23; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    }
   ],
   "timeline": [
@@ -8400,15 +8414,15 @@
    "rules": 0.162,
    "ml": 0.4,
    "graph": 0.0,
-   "birank": 0.1167,
+   "birank": 0.1168,
    "families_agreeing": 1
   },
   "evidence_strength": 0.241,
   "severity": 0.7,
   "prediction": {
-   "p30": 0.0045,
-   "p60": 0.0077,
-   "p90": 0.0111,
+   "p30": 0.0105,
+   "p60": 0.0116,
+   "p90": 0.0243,
    "volume_velocity": 0.4,
    "flag_velocity": 0.5
   },
@@ -8558,15 +8572,15 @@
    "rules": 0.63,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.9062,
+   "birank": 0.9484,
    "families_agreeing": 1
   },
   "evidence_strength": 0.331,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.788,
-   "p60": 0.8928,
-   "p90": 0.9124,
+   "p30": 0.6483,
+   "p60": 0.9743,
+   "p90": 0.9743,
    "volume_velocity": 0.95,
    "flag_velocity": 1.36
   },
@@ -8645,7 +8659,7 @@
    {
     "type": "graph",
     "rule": "BiRank propagation",
-    "text": "Network risk 0.91 of 1.00, propagated from flagged hospitals through shared beneficiaries",
+    "text": "Network risk 0.95 of 1.00, propagated from flagged hospitals through shared beneficiaries",
     "source": "claims.csv provider-member graph",
     "claim_ids": []
    },
@@ -8678,7 +8692,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 31; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C057299",
@@ -8689,7 +8703,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 33; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C048584",
@@ -8700,7 +8714,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 33; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C058471",
@@ -8711,7 +8725,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 32; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C047747",
@@ -8722,7 +8736,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 29; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C020628",
@@ -8733,7 +8747,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 29; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C025795",
@@ -8744,7 +8758,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 33; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    }
   ],
   "timeline": [
@@ -8907,15 +8921,15 @@
    "rules": 1.0,
    "ml": 0.4,
    "graph": 0.0,
-   "birank": 0.5544,
+   "birank": 0.5542,
    "families_agreeing": 2
   },
   "evidence_strength": 0.81,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.9625,
-   "p60": 0.9849,
-   "p90": 0.9906,
+   "p30": 0.9335,
+   "p60": 0.987,
+   "p90": 0.9911,
    "volume_velocity": 1.22,
    "flag_velocity": 2.08
   },
@@ -9214,9 +9228,9 @@
   "evidence_strength": 0.85,
   "severity": 0.8,
   "prediction": {
-   "p30": 0.3286,
-   "p60": 0.6793,
-   "p90": 0.9933,
+   "p30": 0.8585,
+   "p60": 0.8585,
+   "p90": 0.991,
    "volume_velocity": 1.02,
    "flag_velocity": 1.01
   },
@@ -9512,15 +9526,15 @@
    "rules": 0.235,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.2813,
+   "birank": 0.2814,
    "families_agreeing": 0
   },
   "evidence_strength": 0.134,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.0086,
-   "p60": 0.0091,
-   "p90": 0.0136,
+   "p30": 0.025,
+   "p60": 0.025,
+   "p90": 0.025,
    "volume_velocity": 0.96,
    "flag_velocity": 0.5
   },
@@ -9566,7 +9580,7 @@
     "paid_amount": 14338.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 32; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C050448",
@@ -9755,9 +9769,9 @@
   "evidence_strength": 1.0,
   "severity": 1.0,
   "prediction": {
-   "p30": 0.1905,
-   "p60": 0.5858,
-   "p90": 0.9933,
+   "p30": 0.3099,
+   "p60": 0.3507,
+   "p90": 0.9942,
    "volume_velocity": 1.1,
    "flag_velocity": 1.1
   },
@@ -9846,7 +9860,7 @@
     "facility_id": "F203",
     "paid_amount": 34650.0,
     "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b934,650 for MG003A; the hospital's tier and accreditation entitle it to \u20b931,500",
+    "detail": "Claimed \u20b934,650 for MG003A; the hospital's tier and accreditation entitle it to \u20b931,500, using a published HBP rate",
     "package": "Malaria"
    },
    {
@@ -9857,7 +9871,7 @@
     "facility_id": "F203",
     "paid_amount": 27720.0,
     "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b927,720 for MG016A; the hospital's tier and accreditation entitle it to \u20b925,200",
+    "detail": "Claimed \u20b927,720 for MG016A; the hospital's tier and accreditation entitle it to \u20b925,200, using a published HBP rate",
     "package": "Pneumonia"
    },
    {
@@ -9868,7 +9882,7 @@
     "facility_id": "F203",
     "paid_amount": 27720.0,
     "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b927,720 for MG016A; the hospital's tier and accreditation entitle it to \u20b925,200",
+    "detail": "Claimed \u20b927,720 for MG016A; the hospital's tier and accreditation entitle it to \u20b925,200, using a published HBP rate",
     "package": "Pneumonia"
    },
    {
@@ -9879,40 +9893,18 @@
     "facility_id": "F203",
     "paid_amount": 26730.0,
     "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b926,730 for MG029A; the hospital's tier and accreditation entitle it to \u20b924,300",
+    "detail": "Claimed \u20b926,730 for MG029A; the hospital's tier and accreditation entitle it to \u20b924,300, using a published HBP rate",
     "package": "Acute exacerbation of COPD"
    },
    {
-    "claim_id": "C060328",
-    "date": "2026-07-22 09:14",
-    "member_id": "M001136",
-    "procedure_code": "SG039C",
-    "facility_id": "F203",
-    "paid_amount": 25080.0,
-    "rule": "IN1 overlapping admission",
-    "detail": "Admitted 22 Jul 2026 09:14 while an inpatient at P152 under C059448 (admitted 18 Jul 2026 09:07, discharged 23 Jul 2026 13:50); stays overlap by 29 h",
-    "package": "Cholecystectomy - laparoscopic"
-   },
-   {
-    "claim_id": "C052173",
-    "date": "2026-06-13 12:12",
-    "member_id": "M004892",
+    "claim_id": "C074713",
+    "date": "2026-09-25 11:00",
+    "member_id": "M009580",
     "procedure_code": "SG039C",
     "facility_id": "F203",
     "paid_amount": 25080.0,
     "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b925,080 for SG039C; the hospital's tier and accreditation entitle it to \u20b922,800",
-    "package": "Cholecystectomy - laparoscopic"
-   },
-   {
-    "claim_id": "C052089",
-    "date": "2026-06-13 01:51",
-    "member_id": "M008000",
-    "procedure_code": "SG039C",
-    "facility_id": "F203",
-    "paid_amount": 25080.0,
-    "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b925,080 for SG039C; the hospital's tier and accreditation entitle it to \u20b922,800",
+    "detail": "Claimed \u20b925,080 for SG039C; the hospital's tier and accreditation entitle it to \u20b922,800, using a published HBP rate",
     "package": "Cholecystectomy - laparoscopic"
    },
    {
@@ -9922,8 +9914,30 @@
     "procedure_code": "SG039C",
     "facility_id": "F203",
     "paid_amount": 25080.0,
+    "rule": "IN1 overlapping admission",
+    "detail": "Admitted 11 Jul 2026 14:31 while an inpatient at P148 under C057516 (admitted 08 Jul 2026 23:39, discharged 16 Jul 2026 14:56); stays overlap by 120 h",
+    "package": "Cholecystectomy - laparoscopic"
+   },
+   {
+    "claim_id": "C072838",
+    "date": "2026-09-16 15:50",
+    "member_id": "M004372",
+    "procedure_code": "SG039C",
+    "facility_id": "F203",
+    "paid_amount": 25080.0,
     "rule": "IN4a package mismatch",
-    "detail": "Claimed \u20b925,080 for SG039C; the hospital's tier and accreditation entitle it to \u20b922,800",
+    "detail": "Claimed \u20b925,080 for SG039C; the hospital's tier and accreditation entitle it to \u20b922,800, using a published HBP rate",
+    "package": "Cholecystectomy - laparoscopic"
+   },
+   {
+    "claim_id": "C073382",
+    "date": "2026-09-19 04:51",
+    "member_id": "M000919",
+    "procedure_code": "SG039C",
+    "facility_id": "F203",
+    "paid_amount": 25080.0,
+    "rule": "IN4a package mismatch",
+    "detail": "Claimed \u20b925,080 for SG039C; the hospital's tier and accreditation entitle it to \u20b922,800, using a published HBP rate",
     "package": "Cholecystectomy - laparoscopic"
    }
   ],
@@ -10090,15 +10104,15 @@
    "rules": 0.149,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.1759,
+   "birank": 0.1761,
    "families_agreeing": 0
   },
   "evidence_strength": 0.091,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.1406,
-   "p60": 0.2252,
-   "p90": 0.245,
+   "p30": 0.1655,
+   "p60": 0.8517,
+   "p90": 0.8517,
    "volume_velocity": 1.04,
    "flag_velocity": 1.75
   },
@@ -10161,7 +10175,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 32; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C073426",
@@ -10172,7 +10186,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 32; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C067180",
@@ -10183,7 +10197,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 29; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C072268",
@@ -10194,7 +10208,7 @@
     "paid_amount": 11500.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    },
    {
     "claim_id": "C017935",
@@ -10354,15 +10368,15 @@
    "rules": 1.0,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.412,
+   "birank": 0.4121,
    "families_agreeing": 1
   },
   "evidence_strength": 0.516,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.6823,
-   "p60": 0.949,
-   "p90": 0.9861,
+   "p30": 0.6689,
+   "p60": 0.9603,
+   "p90": 0.9855,
    "volume_velocity": 1.1,
    "flag_velocity": 0.87
   },
@@ -10394,7 +10408,7 @@
     "type": "rule",
     "rule": "IN5 ICU/ventilator rate drift",
     "text": "4 claims flagged by IN5 ICU/ventilator rate drift, \u20b982,800 paid",
-    "source": "claims.csv: ward_type, claim_type, service_datetime",
+    "source": "claims.csv: ward_type, claim_type, service_datetime, provider_id",
     "claim_ids": [
      "C044049",
      "C044167",
@@ -10650,9 +10664,9 @@
   "evidence_strength": 0.16,
   "severity": 0.5,
   "prediction": {
-   "p30": 0.0095,
-   "p60": 0.0126,
-   "p90": 0.0187,
+   "p30": 0.007,
+   "p60": 0.0112,
+   "p90": 0.015,
    "volume_velocity": 0.78,
    "flag_velocity": 1.0
   },
@@ -10787,9 +10801,9 @@
   "evidence_strength": 0.507,
   "severity": 0.85,
   "prediction": {
-   "p30": 0.2362,
-   "p60": 0.8059,
-   "p90": 0.965,
+   "p30": 0.2783,
+   "p60": 0.8362,
+   "p90": 0.971,
    "volume_velocity": 0.71,
    "flag_velocity": 1.67
   },
@@ -10834,7 +10848,7 @@
     "paid_amount": 88000.0,
     "rule": "IN8 document reused across beneficiaries",
     "detail": "Document DOC67d8d5b8dc also attached to claims for 1 other beneficiary",
-    "package": "Total knee replacement (primary)"
+    "package": "Total knee replacement (primary) (estimated rate)"
    },
    {
     "claim_id": "C008532",
@@ -11048,15 +11062,15 @@
    "rules": 0.16,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.227,
+   "birank": 0.2275,
    "families_agreeing": 0
   },
   "evidence_strength": 0.096,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.0092,
-   "p60": 0.0092,
-   "p90": 0.0339,
+   "p30": 0.0079,
+   "p60": 0.0097,
+   "p90": 0.0525,
    "volume_velocity": 1.13,
    "flag_velocity": 1.33
   },
@@ -11127,7 +11141,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 30; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C003240",
@@ -11138,7 +11152,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 28; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C072103",
@@ -11149,7 +11163,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 28; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C021994",
@@ -11160,7 +11174,7 @@
     "paid_amount": 19416.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 31; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C064956",
@@ -11171,7 +11185,7 @@
     "paid_amount": 13915.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    },
    {
     "claim_id": "C004095",
@@ -11345,15 +11359,15 @@
    "rules": 0.097,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.3465,
+   "birank": 0.3469,
    "families_agreeing": 0
   },
   "evidence_strength": 0.064,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.0102,
-   "p60": 0.0102,
-   "p90": 0.0193,
+   "p30": 0.0093,
+   "p60": 0.0107,
+   "p90": 0.0151,
    "volume_velocity": 1.22,
    "flag_velocity": 1.0
   },
@@ -11403,7 +11417,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 30; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C015509",
@@ -11414,7 +11428,7 @@
     "paid_amount": 18802.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 32; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C035690",
@@ -11425,7 +11439,7 @@
     "paid_amount": 16039.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 28; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    }
   ],
   "timeline": [
@@ -11581,9 +11595,9 @@
   "evidence_strength": 0.108,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.0054,
-   "p60": 0.0073,
-   "p90": 0.0108,
+   "p30": 0.0109,
+   "p60": 0.0188,
+   "p90": 0.0305,
    "volume_velocity": 0.48,
    "flag_velocity": 2.0
   },
@@ -11619,7 +11633,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 32; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C014544",
@@ -11630,7 +11644,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 29; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C074377",
@@ -11641,7 +11655,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 31; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    }
   ],
   "timeline": [
@@ -11776,15 +11790,15 @@
    "rules": 0.0,
    "ml": 0.4,
    "graph": 0.0,
-   "birank": 0.0049,
+   "birank": 0.0051,
    "families_agreeing": 1
   },
   "evidence_strength": 0.16,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.0057,
-   "p60": 0.0095,
-   "p90": 0.0124,
+   "p30": 0.0072,
+   "p60": 0.0082,
+   "p90": 0.0088,
    "volume_velocity": 0.86,
    "flag_velocity": 1.0
   },
@@ -11916,15 +11930,15 @@
    "rules": 1.0,
    "ml": 0.4,
    "graph": 0.0,
-   "birank": 0.5439,
+   "birank": 0.5557,
    "families_agreeing": 2
   },
   "evidence_strength": 0.81,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.8191,
-   "p60": 0.9817,
-   "p90": 0.9882,
+   "p30": 0.9156,
+   "p60": 0.9799,
+   "p90": 0.9905,
    "volume_velocity": 0.93,
    "flag_velocity": 0.56
   },
@@ -12003,7 +12017,7 @@
    {
     "type": "graph",
     "rule": "BiRank propagation",
-    "text": "Network risk 0.54 of 1.00, propagated from flagged hospitals through shared beneficiaries",
+    "text": "Network risk 0.56 of 1.00, propagated from flagged hospitals through shared beneficiaries",
     "source": "claims.csv provider-member graph",
     "claim_ids": []
    },
@@ -12025,7 +12039,7 @@
     "paid_amount": 22000.0,
     "rule": "IN1 overlapping admission",
     "detail": "Admitted 23 May 2026 08:48 while an inpatient at P184 under C047310 (admitted 21 May 2026 11:57, discharged 27 May 2026 14:54); stays overlap by 102 h",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C074703",
@@ -12036,7 +12050,7 @@
     "paid_amount": 22000.0,
     "rule": "IN1 overlapping admission",
     "detail": "Admitted 25 Sep 2026 10:22 while an inpatient at P184 under C074686 (admitted 25 Sep 2026 09:48, discharged 28 Sep 2026 15:48); stays overlap by 77 h",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C067246",
@@ -12047,7 +12061,7 @@
     "paid_amount": 22000.0,
     "rule": "IN1 overlapping admission",
     "detail": "Admitted 22 Aug 2026 12:03 while an inpatient at P184 under C066921 (admitted 21 Aug 2026 00:49, discharged 27 Aug 2026 13:24); stays overlap by 121 h",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C054235",
@@ -12058,7 +12072,7 @@
     "paid_amount": 22000.0,
     "rule": "IN1 overlapping admission",
     "detail": "Admitted 23 Jun 2026 10:46 while an inpatient at P184 under C053704 (admitted 20 Jun 2026 22:03, discharged 24 Jun 2026 14:11); stays overlap by 27 h",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C047726",
@@ -12069,7 +12083,7 @@
     "paid_amount": 22000.0,
     "rule": "IN1 overlapping admission",
     "detail": "Admitted 23 May 2026 12:30 while an inpatient at P184 under C046864 (admitted 19 May 2026 11:00, discharged 01 Jun 2026 11:41); stays overlap by 215 h",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C068117",
@@ -12080,7 +12094,7 @@
     "paid_amount": 22000.0,
     "rule": "IN2 duplicate package",
     "detail": "Package SO010 billed again 4.0 days after C067223 for the same beneficiary at the same hospital",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C054635",
@@ -12091,7 +12105,7 @@
     "paid_amount": 22000.0,
     "rule": "IN2 duplicate package",
     "detail": "Package SO010 billed again 1.9 days after C054226 for the same beneficiary at the same hospital",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C065452",
@@ -12102,7 +12116,7 @@
     "paid_amount": 22000.0,
     "rule": "IN2 duplicate package",
     "detail": "Package SO010 billed again 6.0 days after C064012 for the same beneficiary at the same hospital",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    }
   ],
   "timeline": [
@@ -12256,15 +12270,15 @@
    "rules": 0.0,
    "ml": 0.4,
    "graph": 0.0,
-   "birank": 0.0202,
+   "birank": 0.021,
    "families_agreeing": 1
   },
   "evidence_strength": 0.16,
   "severity": 0.5,
   "prediction": {
-   "p30": 0.0134,
-   "p60": 0.0595,
-   "p90": 0.0626,
+   "p30": 0.0096,
+   "p60": 0.0429,
+   "p90": 0.0536,
    "volume_velocity": 0.94,
    "flag_velocity": 1.0
   },
@@ -12419,15 +12433,15 @@
    "rules": 0.08,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.2385,
+   "birank": 0.2389,
    "families_agreeing": 0
   },
   "evidence_strength": 0.056,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.006,
-   "p60": 0.0088,
-   "p90": 0.1339,
+   "p30": 0.0067,
+   "p60": 0.0096,
+   "p90": 0.0563,
    "volume_velocity": 1.0,
    "flag_velocity": 1.33
   },
@@ -12439,7 +12453,7 @@
   "rule_counts": {
    "IN1 overlapping admission": 1,
    "IN4a package mismatch": 1,
-   "IN6a stay above package norm": 1
+   "IN6a stay above assumed package norm": 1
   },
   "anomaly_drivers": "",
   "evidence": [
@@ -12463,8 +12477,8 @@
    },
    {
     "type": "rule",
-    "rule": "IN6a stay above package norm",
-    "text": "1 claims flagged by IN6a stay above package norm, \u20b923,760 paid",
+    "rule": "IN6a stay above assumed package norm",
+    "text": "1 claims flagged by IN6a stay above assumed package norm, \u20b923,760 paid",
     "source": "claims.csv los_days; package_master.csv typical_los_days_assumed",
     "claim_ids": [
      "C009389"
@@ -12479,8 +12493,8 @@
     "procedure_code": "MG003A",
     "facility_id": "F243",
     "paid_amount": 23760.0,
-    "rule": "IN6a stay above package norm",
-    "detail": "12 days billed for MG003A; the assumed norm is 4 days",
+    "rule": "IN6a stay above assumed package norm",
+    "detail": "12 days billed for MG003A; the typical stay assumed by this prototype is 4 days (PM-JAY publishes no length-of-stay norm)",
     "package": "Malaria"
    },
    {
@@ -12503,7 +12517,7 @@
     "paid_amount": 12650.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    }
   ],
   "timeline": [
@@ -12668,9 +12682,9 @@
   "evidence_strength": 0.135,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.0116,
-   "p60": 0.0116,
-   "p90": 0.0165,
+   "p30": 0.0167,
+   "p60": 0.0167,
+   "p90": 0.0171,
    "volume_velocity": 1.33,
    "flag_velocity": 0.5
   },
@@ -12722,7 +12736,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO010 (hysterectomy) billed for a male beneficiary",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C004242",
@@ -12733,7 +12747,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 30; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C058861",
@@ -12744,7 +12758,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 30; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    }
   ],
   "timeline": [
@@ -12878,15 +12892,15 @@
    "rules": 0.16,
    "ml": 0.077,
    "graph": 0.0,
-   "birank": 0.1704,
+   "birank": 0.1705,
    "families_agreeing": 0
   },
   "evidence_strength": 0.111,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.0059,
-   "p60": 0.0088,
-   "p90": 0.0315,
+   "p30": 0.0066,
+   "p60": 0.0096,
+   "p90": 0.054,
    "volume_velocity": 0.91,
    "flag_velocity": 0.5
   },
@@ -12950,7 +12964,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 28; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C001549",
@@ -12961,7 +12975,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 28; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C026822",
@@ -12972,7 +12986,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 34; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C031182",
@@ -12983,7 +12997,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 30; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C064168",
@@ -13005,7 +13019,7 @@
     "paid_amount": 13915.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    }
   ],
   "timeline": [
@@ -13170,9 +13184,9 @@
   "evidence_strength": 0.281,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.006,
-   "p60": 0.0084,
-   "p90": 0.0195,
+   "p30": 0.0066,
+   "p60": 0.0098,
+   "p90": 0.0163,
    "volume_velocity": 1.06,
    "flag_velocity": 1.0
   },
@@ -13245,7 +13259,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 29; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C038875",
@@ -13256,7 +13270,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 34; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C020477",
@@ -13267,7 +13281,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 31; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C040471",
@@ -13278,7 +13292,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 34; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C035023",
@@ -13289,7 +13303,7 @@
     "paid_amount": 11500.0,
     "rule": "IN2 duplicate package",
     "detail": "Package SO057 billed again 2.3 days after C034552 for the same beneficiary at the same hospital",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    }
   ],
   "timeline": [
@@ -13439,15 +13453,15 @@
    "rules": 0.303,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.2499,
+   "birank": 0.2503,
    "families_agreeing": 1
   },
   "evidence_strength": 0.168,
   "severity": 0.7,
   "prediction": {
-   "p30": 0.3062,
-   "p60": 0.5427,
-   "p90": 0.8235,
+   "p30": 0.2378,
+   "p60": 0.7343,
+   "p90": 0.9212,
    "volume_velocity": 1.01,
    "flag_velocity": 1.11
   },
@@ -13460,7 +13474,7 @@
    "IN4a package mismatch": 5,
    "IN4b age audit trigger": 5,
    "IN2 duplicate package": 1,
-   "IN6a stay above package norm": 1
+   "IN6a stay above assumed package norm": 1
   },
   "anomaly_drivers": "admissions per bed +1.5 SD vs hospital-type peers; admissions per beneficiary +1.3 SD vs hospital-type peers",
   "evidence": [
@@ -13501,8 +13515,8 @@
    },
    {
     "type": "rule",
-    "rule": "IN6a stay above package norm",
-    "text": "1 claims flagged by IN6a stay above package norm, \u20b923,760 paid",
+    "rule": "IN6a stay above assumed package norm",
+    "text": "1 claims flagged by IN6a stay above assumed package norm, \u20b923,760 paid",
     "source": "claims.csv los_days; package_master.csv typical_los_days_assumed",
     "claim_ids": [
      "C072642"
@@ -13531,8 +13545,8 @@
     "procedure_code": "MG064A",
     "facility_id": "F259",
     "paid_amount": 23760.0,
-    "rule": "IN6a stay above package norm",
-    "detail": "12 days billed for MG064A; the assumed norm is 4 days",
+    "rule": "IN6a stay above assumed package norm",
+    "detail": "12 days billed for MG064A; the typical stay assumed by this prototype is 4 days (PM-JAY publishes no length-of-stay norm)",
     "package": "Severe anemia"
    },
    {
@@ -13544,7 +13558,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO010 (hysterectomy) billed for a male beneficiary",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C004216",
@@ -13555,7 +13569,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 29; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C065906",
@@ -13566,7 +13580,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 28; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C071207",
@@ -13577,7 +13591,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 33; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C068264",
@@ -13588,7 +13602,7 @@
     "paid_amount": 22000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 30; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C037888",
@@ -13599,7 +13613,7 @@
     "paid_amount": 15860.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 31; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C071816",
@@ -13610,7 +13624,7 @@
     "paid_amount": 12650.0,
     "rule": "IN2 duplicate package",
     "detail": "Package SO057 billed again 6.9 days after C070354 for the same beneficiary at the same hospital",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    }
   ],
   "timeline": [
@@ -13773,15 +13787,15 @@
    "rules": 0.233,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.1965,
+   "birank": 0.1969,
    "families_agreeing": 0
   },
   "evidence_strength": 0.133,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.0059,
-   "p60": 0.0086,
-   "p90": 0.0278,
+   "p30": 0.0066,
+   "p60": 0.0091,
+   "p90": 0.0574,
    "volume_velocity": 1.05,
    "flag_velocity": 0.5
   },
@@ -13859,7 +13873,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 30; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C055811",
@@ -13870,7 +13884,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 31; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C022978",
@@ -13881,7 +13895,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 34; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C006579",
@@ -13892,7 +13906,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 30; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C018349",
@@ -13903,7 +13917,7 @@
     "paid_amount": 21079.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 34; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C019282",
@@ -13914,7 +13928,7 @@
     "paid_amount": 13915.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    },
    {
     "claim_id": "C067422",
@@ -13925,7 +13939,7 @@
     "paid_amount": 13915.0,
     "rule": "IN2 duplicate package",
     "detail": "Package SO057 billed again 3.0 days after C066777 for the same beneficiary at the same hospital",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    }
   ],
   "timeline": [
@@ -14084,15 +14098,15 @@
    "rules": 1.0,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.2881,
+   "birank": 0.288,
    "families_agreeing": 1
   },
   "evidence_strength": 0.516,
   "severity": 0.85,
   "prediction": {
-   "p30": 0.8524,
-   "p60": 0.9857,
-   "p90": 0.9857,
+   "p30": 0.9003,
+   "p60": 0.9874,
+   "p90": 0.9874,
    "volume_velocity": 0.93,
    "flag_velocity": 1.39
   },
@@ -14130,7 +14144,7 @@
     "paid_amount": 80000.0,
     "rule": "IN8 document reused across beneficiaries",
     "detail": "Document DOC0a139d7abc also attached to claims for 6 other beneficiaries",
-    "package": "Total knee replacement (primary)"
+    "package": "Total knee replacement (primary) (estimated rate)"
    },
    {
     "claim_id": "C046729",
@@ -14356,15 +14370,15 @@
    "rules": 0.0,
    "ml": 0.4,
    "graph": 0.0,
-   "birank": 0.0214,
+   "birank": 0.0242,
    "families_agreeing": 1
   },
   "evidence_strength": 0.16,
   "severity": 0.5,
   "prediction": {
-   "p30": 0.005,
-   "p60": 0.0089,
-   "p90": 0.0117,
+   "p30": 0.0052,
+   "p60": 0.0092,
+   "p90": 0.0138,
    "volume_velocity": 1.0,
    "flag_velocity": 1.0
   },
@@ -14488,15 +14502,15 @@
    "rules": 0.111,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.1578,
+   "birank": 0.1758,
    "families_agreeing": 0
   },
   "evidence_strength": 0.072,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.0063,
-   "p60": 0.0093,
-   "p90": 0.0288,
+   "p30": 0.0067,
+   "p60": 0.0119,
+   "p90": 0.0291,
    "volume_velocity": 1.0,
    "flag_velocity": 1.33
   },
@@ -14549,7 +14563,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 29; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C027496",
@@ -14560,7 +14574,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 34; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C062107",
@@ -14571,7 +14585,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 33; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C069796",
@@ -14582,7 +14596,7 @@
     "paid_amount": 11500.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    }
   ],
   "timeline": [
@@ -14732,15 +14746,15 @@
    "rules": 1.0,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.2855,
+   "birank": 0.2857,
    "families_agreeing": 1
   },
   "evidence_strength": 0.516,
   "severity": 0.9,
   "prediction": {
-   "p30": 0.9477,
-   "p60": 0.9792,
-   "p90": 0.9838,
+   "p30": 0.9176,
+   "p60": 0.9657,
+   "p90": 0.9842,
    "volume_velocity": 1.24,
    "flag_velocity": 1.27
   },
@@ -15005,15 +15019,15 @@
    "rules": 0.056,
    "ml": 0.4,
    "graph": 0.0,
-   "birank": 0.105,
+   "birank": 0.1052,
    "families_agreeing": 1
   },
   "evidence_strength": 0.188,
   "severity": 0.7,
   "prediction": {
-   "p30": 0.006,
-   "p60": 0.0086,
-   "p90": 0.0205,
+   "p30": 0.0084,
+   "p60": 0.01,
+   "p90": 0.1964,
    "volume_velocity": 1.09,
    "flag_velocity": 2.0
   },
@@ -15064,7 +15078,7 @@
     "paid_amount": 24200.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 30; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C073130",
@@ -15075,7 +15089,7 @@
     "paid_amount": 13915.0,
     "rule": "IN4a package mismatch",
     "detail": "Package SO057 (caesarean delivery) billed for a male beneficiary",
-    "package": "Caesarean delivery"
+    "package": "Caesarean delivery (estimated rate)"
    }
   ],
   "timeline": [
@@ -15231,36 +15245,36 @@
   "owner_name": "Daruna Healthcare Pvt Ltd",
   "pattern": "package_upcoding",
   "signals": {
-   "rules": 0.827,
+   "rules": 1.0,
    "ml": 0.04,
    "graph": 0.0,
-   "birank": 0.2555,
+   "birank": 0.3035,
    "families_agreeing": 1
   },
-  "evidence_strength": 0.43,
+  "evidence_strength": 0.516,
   "severity": 0.7,
   "prediction": {
-   "p30": 0.4485,
-   "p60": 0.8422,
-   "p90": 0.9124,
+   "p30": 0.3631,
+   "p60": 0.9671,
+   "p90": 0.9962,
    "volume_velocity": 0.77,
    "flag_velocity": 1.0
   },
-  "potential_dollars": 315266.0,
-  "member_impact": 22,
+  "potential_dollars": 571255.0,
+  "member_impact": 39,
   "n_claims": 294,
-  "n_flagged": 22,
+  "n_flagged": 39,
   "total_paid": 3748774.0,
   "rule_counts": {
-   "IN5 ICU/ventilator rate drift": 22
+   "IN5 ICU/ventilator rate drift": 39
   },
   "anomaly_drivers": "share of ICU or ventilator stays +3.3 SD vs hospital-type peers",
   "evidence": [
    {
     "type": "rule",
     "rule": "IN5 ICU/ventilator rate drift",
-    "text": "22 claims flagged by IN5 ICU/ventilator rate drift, \u20b93,15,266 paid",
-    "source": "claims.csv: ward_type, claim_type, service_datetime",
+    "text": "39 claims flagged by IN5 ICU/ventilator rate drift, \u20b95,71,255 paid",
+    "source": "claims.csv: ward_type, claim_type, service_datetime, provider_id",
     "claim_ids": [
      "C031957",
      "C033383",
@@ -15277,6 +15291,13 @@
     "claim_ids": []
    },
    {
+    "type": "graph",
+    "rule": "BiRank propagation",
+    "text": "Network risk 0.30 of 1.00, propagated from flagged hospitals through shared beneficiaries",
+    "source": "claims.csv provider-member graph",
+    "claim_ids": []
+   },
+   {
     "type": "history",
     "rule": "Prior investigation",
     "text": "Prior case INV008 (package upcoding) closed 2025-06-20: inconclusive",
@@ -15285,6 +15306,17 @@
    }
   ],
   "sample_claims": [
+   {
+    "claim_id": "C024550",
+    "date": "2026-01-31 12:14",
+    "member_id": "M014549",
+    "procedure_code": "MG059A",
+    "facility_id": "F292",
+    "paid_amount": 32400.0,
+    "rule": "IN5 ICU/ventilator rate drift",
+    "detail": "ICU rate billed; ICU or ventilator was 37% of this hospital's 105 medical admissions over the period vs 9% for all hospitals (binomial p = 2e-15)",
+    "package": "Diabetic ketoacidosis"
+   },
    {
     "claim_id": "C065969",
     "date": "2026-08-16 18:06",
@@ -15297,6 +15329,28 @@
     "package": "Acute ischemic stroke"
    },
    {
+    "claim_id": "C040585",
+    "date": "2026-04-20 11:05",
+    "member_id": "M019176",
+    "procedure_code": "MG038A",
+    "facility_id": "F292",
+    "paid_amount": 25200.0,
+    "rule": "IN5 ICU/ventilator rate drift",
+    "detail": "ICU rate billed; ICU or ventilator was 37% of this hospital's 105 medical admissions over the period vs 9% for all hospitals (binomial p = 2e-15)",
+    "package": "Congestive heart failure"
+   },
+   {
+    "claim_id": "C022694",
+    "date": "2026-01-22 10:54",
+    "member_id": "M001097",
+    "procedure_code": "MG021A",
+    "facility_id": "F292",
+    "paid_amount": 23240.0,
+    "rule": "IN5 ICU/ventilator rate drift",
+    "detail": "ICU with ventilator rate billed; ICU or ventilator was 37% of this hospital's 105 medical admissions over the period vs 9% for all hospitals (binomial p = 2e-15)",
+    "package": "Urinary tract infection"
+   },
+   {
     "claim_id": "C073691",
     "date": "2026-09-20 14:10",
     "member_id": "M016345",
@@ -15305,6 +15359,17 @@
     "paid_amount": 23190.0,
     "rule": "IN5 ICU/ventilator rate drift",
     "detail": "ICU with ventilator rate billed; ICU or ventilator was 62% of medical admissions in 2026-09 vs 9% for all hospitals",
+    "package": "Severe pneumonia"
+   },
+   {
+    "claim_id": "C065888",
+    "date": "2026-08-16 11:55",
+    "member_id": "M018464",
+    "procedure_code": "MG017A",
+    "facility_id": "F292",
+    "paid_amount": 21600.0,
+    "rule": "IN5 ICU/ventilator rate drift",
+    "detail": "ICU rate billed; ICU or ventilator was 42% of medical admissions in 2026-08 vs 9% for all hospitals",
     "package": "Severe pneumonia"
    },
    {
@@ -15319,17 +15384,6 @@
     "package": "Acute febrile illness"
    },
    {
-    "claim_id": "C060232",
-    "date": "2026-07-21 16:24",
-    "member_id": "M001961",
-    "procedure_code": "MG004A",
-    "facility_id": "F292",
-    "paid_amount": 21600.0,
-    "rule": "IN5 ICU/ventilator rate drift",
-    "detail": "ICU rate billed; ICU or ventilator was 73% of medical admissions in 2026-07 vs 9% for all hospitals",
-    "package": "Dengue fever"
-   },
-   {
     "claim_id": "C075649",
     "date": "2026-09-29 15:51",
     "member_id": "M025231",
@@ -15339,39 +15393,6 @@
     "rule": "IN5 ICU/ventilator rate drift",
     "detail": "ICU rate billed; ICU or ventilator was 62% of medical admissions in 2026-09 vs 9% for all hospitals",
     "package": "Snake bite"
-   },
-   {
-    "claim_id": "C065888",
-    "date": "2026-08-16 11:55",
-    "member_id": "M018464",
-    "procedure_code": "MG017A",
-    "facility_id": "F292",
-    "paid_amount": 21600.0,
-    "rule": "IN5 ICU/ventilator rate drift",
-    "detail": "ICU rate billed; ICU or ventilator was 42% of medical admissions in 2026-08 vs 9% for all hospitals",
-    "package": "Severe pneumonia"
-   },
-   {
-    "claim_id": "C034467",
-    "date": "2026-03-20 23:37",
-    "member_id": "M015796",
-    "procedure_code": "MG029A",
-    "facility_id": "F292",
-    "paid_amount": 18994.0,
-    "rule": "IN5 ICU/ventilator rate drift",
-    "detail": "ICU rate billed; ICU or ventilator was 50% of medical admissions in 2026-03 vs 9% for all hospitals",
-    "package": "Acute exacerbation of COPD"
-   },
-   {
-    "claim_id": "C056321",
-    "date": "2026-07-03 09:47",
-    "member_id": "M009101",
-    "procedure_code": "MG021A",
-    "facility_id": "F292",
-    "paid_amount": 14400.0,
-    "rule": "IN5 ICU/ventilator rate drift",
-    "detail": "ICU rate billed; ICU or ventilator was 73% of medical admissions in 2026-07 vs 9% for all hospitals",
-    "package": "Urinary tract infection"
    }
   ],
   "timeline": [
@@ -15379,31 +15400,31 @@
     "month": "2025-10",
     "claims": 23,
     "paid": 381652.0,
-    "flagged": 0
+    "flagged": 1
    },
    {
     "month": "2025-11",
     "claims": 16,
     "paid": 197025.0,
-    "flagged": 0
+    "flagged": 2
    },
    {
     "month": "2025-12",
     "claims": 23,
     "paid": 176904.0,
-    "flagged": 0
+    "flagged": 1
    },
    {
     "month": "2026-01",
     "claims": 33,
     "paid": 381710.0,
-    "flagged": 0
+    "flagged": 3
    },
    {
     "month": "2026-02",
     "claims": 27,
     "paid": 341490.0,
-    "flagged": 0
+    "flagged": 1
    },
    {
     "month": "2026-03",
@@ -15415,19 +15436,19 @@
     "month": "2026-04",
     "claims": 26,
     "paid": 474092.0,
-    "flagged": 0
+    "flagged": 4
    },
    {
     "month": "2026-05",
     "claims": 29,
     "paid": 345917.0,
-    "flagged": 0
+    "flagged": 2
    },
    {
     "month": "2026-06",
     "claims": 17,
     "paid": 195077.0,
-    "flagged": 0
+    "flagged": 3
    },
    {
     "month": "2026-07",
@@ -15454,7 +15475,7 @@
     "event": "Prior case INV008 closed: inconclusive"
    },
    {
-    "date": "2026-03-09",
+    "date": "2025-10-06",
     "event": "First rule flag"
    },
    {
@@ -15526,15 +15547,15 @@
    "rules": 1.0,
    "ml": 0.667,
    "graph": 0.0,
-   "birank": 0.9496,
+   "birank": 0.9493,
    "families_agreeing": 2
   },
   "evidence_strength": 0.85,
   "severity": 0.95,
   "prediction": {
-   "p30": 0.9757,
-   "p60": 0.9768,
-   "p90": 0.9925,
+   "p30": 0.9729,
+   "p60": 0.9729,
+   "p90": 0.9943,
    "volume_velocity": 1.2,
    "flag_velocity": 1.25
   },
@@ -15636,7 +15657,7 @@
     "paid_amount": 20000.0,
     "rule": "IN4b age audit trigger",
     "detail": "Hysterectomy - abdominal for a woman aged 34; under 35 is a mandatory audit trigger",
-    "package": "Hysterectomy - abdominal"
+    "package": "Hysterectomy - abdominal (estimated rate)"
    },
    {
     "claim_id": "C060950",
@@ -15823,9 +15844,9 @@
   "evidence_strength": 0.2,
   "severity": 0.6,
   "prediction": {
-   "p30": 0.0124,
-   "p60": 0.021,
-   "p90": 0.0279,
+   "p30": 0.0127,
+   "p60": 0.0165,
+   "p90": 0.0273,
    "volume_velocity": 1.12,
    "flag_velocity": 1.0
   },

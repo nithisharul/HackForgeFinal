@@ -1,0 +1,20 @@
+﻿=== METHODIST HEALTHCARE SYSTEM - SAN ANTONIO ===
+DEPARTMENT OF INFORMATION SECURITY & EHR AUDIT TRAIL LOG
+PATIENT PRIVILEGED & CONFIDENTIAL WORK PRODUCT
+
+PROVIDER: Hayes, Hannah MD (NPI: 1942048810)
+AUDIT DATE OF SERVICE: 2026-03-14
+AUDIT TRIGGER: CMS SIU Automated Documentation Request (ADR)
+
+[08:45:12 CST] BADGE ACCESS: Physical turnstile swipe detected at West Physician Parking Garage, San Antonio, TX.
+[08:52:04 CST] BADGE ACCESS: Entry to Physicians Executive Lounge (San Antonio campus).
+[09:12:30 CST] EHR LOGIN: Session started on Workstation ID #WS-SA-402 (Static IP: 10.240.12.88, Subnet: Methodist SA Inpatient Wing).
+[10:15:00 CST] CLINICAL ACTION: Progress note drafted and cryptographically e-signed for Inpatient Bed 412 (MRN: 994120).
+[11:30:22 CST] EHR LOGOUT: Workstation session closed.
+[12:15:40 CST] CAFETERIA ACCESS: Physician badge point-of-sale swipe at Methodist San Antonio Cafeteria.
+[13:30:00 CST] CONCURRENT BILLED CLAIM ENCOUNTER: Outpatient office visit (CPT 99214, POS 11 - Office) billed as rendered in-person at North Austin Wellness Clinic (Austin, TX - approx. 80.4 miles away via I-35).
+[14:10:15 CST] BADGE ACCESS: Re-entry to Methodist Hospital San Antonio West Physician Entrance.
+[15:30:00 CST] BADGE ACCESS: Vehicle exit swipe at West Parking Garage, San Antonio, TX.
+
+SECURITY OFFICER AUDIT SUMMARY:
+Provider physical presence in San Antonio is confirmed continuously between 08:45 CST and 15:30 CST on 2026-03-14. Physical travel to the Austin clinic facility for in-person outpatient care during this window was physically impossible.

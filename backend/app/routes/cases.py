@@ -3,7 +3,7 @@ from typing import Literal, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel, Field
 
-from backend.brain import wiki
+from backend.brain import clinical_audit, wiki
 from backend.region import Code, use
 
 from .. import auth, store
@@ -84,6 +84,18 @@ def revoke_precedent(case_id: str, r: Revoke, region: Code = "us", who: str = De
         affected = store.influence(case_id)
         changes = wiki.revoke(case_id, r.reason, who, store.data().PROV_INFO)
         return {"case_id": case_id, "revoked_by": who, "changes": changes, "restored": affected}
+
+
+@router.get("/cases/{case_id}/clinical-audit")
+def clinical_audit_route(case_id: str, region: Code = "us", llm: bool = True):
+    """Read-only audit of this case's own clinical record. The status comes from deterministic checks;
+    a local model's reading (if one is running) is returned separately and never changes it."""
+    with use(region):
+        case = _case(case_id)
+        try:
+            return clinical_audit.audit(case, run_llm=llm)
+        except clinical_audit.InvalidCaseId as e:
+            raise HTTPException(400, str(e))
 
 
 @router.get("/cases/{case_id}/fhir")

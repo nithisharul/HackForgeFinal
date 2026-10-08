@@ -12,6 +12,7 @@ export const getSession = () => (session && session.expires * 1000 > Date.now() 
 function setSession(s) {
   session = s
   try { s ? sessionStorage.setItem(SESSION_KEY, JSON.stringify(s)) : sessionStorage.removeItem(SESSION_KEY) } catch { /* ignore */ }
+  window.dispatchEvent(new Event('csn-session')) // header chip and approve buttons re-render (see useSession)
 }
 
 async function request(path, options = {}) {

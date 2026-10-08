@@ -1,0 +1,20 @@
+=== SYNTHETIC RECORD - WRITTEN FOR THIS PROTOTYPE - NOT A REAL DOCUMENT ===
+SAN ANTONIO RED RIVER HOSPITAL OUTPATIENT (F023) - BUILDING ACCESS AND RECORD-SYSTEM LOG
+Returned in response to a records request for case CASE-P209
+
+PROVIDER: Dr. Hannah Hayes (P209)
+AUDIT DATE OF SERVICE: 2026-01-06
+REQUESTED FOR: claims C020765 and C020779
+
+[12:02:10 CST] BADGE ACCESS: Staff entrance, San Antonio Red River Hospital Outpatient (F023).
+[12:09:44 CST] EHR LOGIN: Session started on a workstation in the F023 behavioral health suite.
+[13:05:00 CST] CLINICAL ACTION: Session note signed for a 45-minute psychotherapy visit at F023.
+[14:10:00 CST] CLINICAL ACTION: Session note signed for a 45-minute psychotherapy visit at F023.
+[15:20:00 CST] CLINICAL ACTION: Psychotherapy visit started at F023 (claim C020765, code 90834).
+[15:48:00 CST] CONCURRENT BILLED CLAIM: Claim C020779 (code 90837, 60-minute psychotherapy) billed as delivered in person at Dallas Mesquite Medical Office (F030), 408 km away.
+[16:12:31 CST] CLINICAL ACTION: Session note for the 15:20 visit signed at F023.
+[17:31:05 CST] EHR LOGOUT: Workstation session closed at F023.
+[17:36:48 CST] BADGE ACCESS: Staff exit, San Antonio Red River Hospital Outpatient (F023).
+
+AUDIT SUMMARY:
+The access log places the provider at F023 in San Antonio from 12:02 to 17:36 on 2026-01-06. No telehealth session is recorded for 15:48. The log does not show who delivered the service billed at F030.

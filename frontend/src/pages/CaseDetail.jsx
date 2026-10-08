@@ -103,6 +103,8 @@ import { api, getSession } from '../api/client.js'
 import SignIn from '../components/SignIn.jsx'
 import { Loading, Status, Tier, money, pct, words } from '../components/bits.jsx'
 import Network from './Network.jsx'
+import ClinicalAuditCard from '../components/ClinicalAuditCard.jsx'
+import AuditNext from '../components/AuditNext.jsx'
 
 export default function CaseDetail({ caseId, horizon }) {
   const [c, setC] = useState(null)
@@ -152,7 +154,10 @@ export default function CaseDetail({ caseId, horizon }) {
               {b.grounding.verified} of {b.grounding.tokens_checked} IDs, codes and dollar figures match the claims data.
             </p>
             <h4>Recommended action</h4>
-            <CopilotPlaybook text={b.recommended_action} />
+            <AuditNext caseId={caseId}>
+              <CopilotPlaybook text={b.recommended_action} />
+            </AuditNext>
+            <ClinicalAuditCard caseId={caseId} />
           </Card>
 
           <Card title="Evidence">

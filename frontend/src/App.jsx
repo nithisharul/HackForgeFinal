@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Queue from './pages/Queue.jsx'
 import CaseDetail from './pages/CaseDetail.jsx'
 import Wiki from './pages/Wiki.jsx'
+import { api } from './api/client.js'
 
 function useHash() {
   const [hash, setHash] = useState(window.location.hash || '#/')
@@ -18,6 +19,10 @@ export default function App() {
   const [, section, arg] = hash.split('/')
   const [horizon, setHorizon] = useState(90)
   const [investigators, setInvestigators] = useState(3)
+  const [health, setHealth] = useState(null)
+
+  // The app keeps working when a detector, the LLM or a page check is down; this says what it is working without.
+  useEffect(() => { api.health().then(setHealth).catch(() => setHealth(null)) }, [section, arg])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -49,6 +54,11 @@ export default function App() {
         </nav>
         <span className="synthetic">Synthetic data only</span>
       </header>
+      {health && health.notes.length > 0 && (
+        <div className="degraded" role="status">
+          <strong>Running in degraded mode.</strong> {health.notes.join(' ')}
+        </div>
+      )}
       <main id="main" tabIndex="-1">{page}</main>
     </div>
   )

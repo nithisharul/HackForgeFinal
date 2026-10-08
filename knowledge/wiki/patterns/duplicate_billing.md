@@ -23,6 +23,15 @@ The same service for the same member is billed more than once without a correcte
 <!-- auto:learned -->
 <!-- /auto -->
 
+## Detected by
+- [[R1]] | R1 Duplicate claim
+- [[R4]] | R4 Unit limit (MUE)
+- What to request from the provider: [[runbook_evidence]]
+
+## Regulatory background
+- [[REG-CLAIMS]] | Medicare claims processing rules (duplicates, place of service)
+- [[REG-FCA]] | False Claims Act
+
 ## Lessons from closed cases
 <!-- auto:lessons -->
 <!-- /auto -->

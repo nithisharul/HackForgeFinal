@@ -4,3 +4,5 @@ __pycache__/
 *.pyc
 .env
 venv/
+data/app.db
+data/processed/recommendations.json

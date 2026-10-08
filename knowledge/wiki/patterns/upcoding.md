@@ -23,6 +23,14 @@ Office visits are billed at a higher level (99214, 99215) than the documented co
 <!-- auto:learned -->
 <!-- /auto -->
 
+## Detected by
+- [[R5]] | R5 Visit-level drift
+- What to request from the provider: [[runbook_evidence]]
+
+## Regulatory background
+- [[REG-EM]] | Evaluation and management (office visit) coding guidance
+- [[REG-FCA]] | False Claims Act
+
 ## Lessons from closed cases
 <!-- auto:lessons -->
 <!-- /auto -->

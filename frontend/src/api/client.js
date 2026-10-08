@@ -9,11 +9,12 @@ export const getSession = () => (session && session.expires * 1000 > Date.now() 
 function setSession(s) {
   session = s
   try { s ? sessionStorage.setItem(SESSION_KEY, JSON.stringify(s)) : sessionStorage.removeItem(SESSION_KEY) } catch { /* ignore */ }
+  try { window.dispatchEvent(new Event('csn-session')) } catch { /* not in a browser */ }
 }
 
 async function request(path, options = {}) {
   const s = getSession()
-  const auth = s && options.method === 'POST' ? { Authorization: `Bearer ${s.token}` } : {}
+  const auth = s && (options.method === 'POST' || options.auth) ? { Authorization: `Bearer ${s.token}` } : {}
   const res = await fetch(BASE + path, { ...options, headers: { ...options.headers, ...auth } })
   if (!res.ok) {
     if (res.status === 401 && s) setSession(null) // expired or revoked: the next write asks to sign in again
@@ -30,6 +31,16 @@ const post = (path, body) =>
 export const api = {
   login: (investigator, passcode) => post('/auth/login', { investigator, passcode }).then((s) => { setSession(s); return s }),
   logout: () => setSession(null),
+  register: (investigator, passcode) => post('/auth/register', { investigator, passcode }),
+  // The server decides what a role may do; this only keeps the label on screen current.
+  refreshRole: () => request('/auth/session', { auth: true }).then((r) => { const cur = getSession(); if (cur) setSession({ ...cur, role: r.role }); return r }),
+  users: () => request('/auth/users', { auth: true }),
+  securityStatus: () => request('/security/status'),
+  health: () => request('/health'),
+  auditTrail: () => request('/security/audit', { auth: true }),
+  securityEvents: () => request('/security/events', { auth: true }),
+  reseal: (reason) => post('/security/reseal', { reason }),
+  setRole: (investigator, role) => post('/auth/users/role', { investigator, role }),
   queue: (horizon, investigators) => request(`/queue?horizon=${horizon}&investigators=${investigators}`),
   metrics: () => request('/metrics'),
   getCase: (id, horizon) => request(`/cases/${id}?horizon=${horizon}`),

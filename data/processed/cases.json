@@ -521,7 +521,7 @@
    },
    {
     "type": "graph",
-    "rule": "Leiden community + referral cycles",
+    "rule": "Louvain community + referral cycles",
     "text": "Member of network N01: 6 providers sharing 72 members; 100% share owner O061; referrals form a closed loop",
     "source": "claims.csv member overlap, referrals.csv, ownership.csv",
     "claim_ids": []
@@ -707,7 +707,7 @@
     "P274"
    ],
    "size": 6,
-   "method": "leiden",
+   "method": "louvain",
    "top_owner": "O061",
    "owner_share": 1.0,
    "referral_cycle": true,
@@ -778,7 +778,7 @@
    },
    {
     "type": "graph",
-    "rule": "Leiden community + referral cycles",
+    "rule": "Louvain community + referral cycles",
     "text": "Member of network N01: 6 providers sharing 72 members; 100% share owner O061; referrals form a closed loop",
     "source": "claims.csv member overlap, referrals.csv, ownership.csv",
     "claim_ids": []
@@ -891,7 +891,7 @@
     "P274"
    ],
    "size": 6,
-   "method": "leiden",
+   "method": "louvain",
    "top_owner": "O061",
    "owner_share": 1.0,
    "referral_cycle": true,
@@ -964,7 +964,7 @@
    },
    {
     "type": "graph",
-    "rule": "Leiden community + referral cycles",
+    "rule": "Louvain community + referral cycles",
     "text": "Member of network N01: 6 providers sharing 72 members; 100% share owner O061; referrals form a closed loop",
     "source": "claims.csv member overlap, referrals.csv, ownership.csv",
     "claim_ids": []
@@ -1077,7 +1077,7 @@
     "P274"
    ],
    "size": 6,
-   "method": "leiden",
+   "method": "louvain",
    "top_owner": "O061",
    "owner_share": 1.0,
    "referral_cycle": true,
@@ -5922,7 +5922,7 @@
    },
    {
     "type": "graph",
-    "rule": "Leiden community + referral cycles",
+    "rule": "Louvain community + referral cycles",
     "text": "Member of network N01: 6 providers sharing 72 members; 100% share owner O061; referrals form a closed loop",
     "source": "claims.csv member overlap, referrals.csv, ownership.csv",
     "claim_ids": []
@@ -6096,7 +6096,7 @@
     "P274"
    ],
    "size": 6,
-   "method": "leiden",
+   "method": "louvain",
    "top_owner": "O061",
    "owner_share": 1.0,
    "referral_cycle": true,
@@ -6429,7 +6429,7 @@
    },
    {
     "type": "graph",
-    "rule": "Leiden community + referral cycles",
+    "rule": "Louvain community + referral cycles",
     "text": "Member of network N01: 6 providers sharing 72 members; 100% share owner O061; referrals form a closed loop",
     "source": "claims.csv member overlap, referrals.csv, ownership.csv",
     "claim_ids": []
@@ -6593,7 +6593,7 @@
     "P274"
    ],
    "size": 6,
-   "method": "leiden",
+   "method": "louvain",
    "top_owner": "O061",
    "owner_share": 1.0,
    "referral_cycle": true,
@@ -6867,7 +6867,7 @@
    },
    {
     "type": "graph",
-    "rule": "Leiden community + referral cycles",
+    "rule": "Louvain community + referral cycles",
     "text": "Member of network N01: 6 providers sharing 72 members; 100% share owner O061; referrals form a closed loop",
     "source": "claims.csv member overlap, referrals.csv, ownership.csv",
     "claim_ids": []
@@ -6990,7 +6990,7 @@
     "P274"
    ],
    "size": 6,
-   "method": "leiden",
+   "method": "louvain",
    "top_owner": "O061",
    "owner_share": 1.0,
    "referral_cycle": true,

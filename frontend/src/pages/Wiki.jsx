@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react'
 import { api, getSession } from '../api/client.js'
 import SignIn from '../components/SignIn.jsx'
+import Accounts from '../components/Accounts.jsx'
+import Security from '../components/Security.jsx'
 import { Loading, Markdown } from '../components/bits.jsx'
+
+const REF_GROUPS = [['rules', 'Business rules'], ['data', 'Data definitions'], ['process', 'Runbooks'],
+  ['system', 'Technical docs'], ['regulatory', 'Regulatory material']]
 
 export default function Wiki({ name }) {
   const [pages, setPages] = useState(null)
@@ -9,6 +14,7 @@ export default function Wiki({ name }) {
   const [lint, setLint] = useState(null)
   const [error, setError] = useState(null)
   const [tick, setTick] = useState(0)
+  const [openRef, setOpenRef] = useState({})
   const refresh = () => setTick((t) => t + 1)
 
   useEffect(() => {
@@ -34,6 +40,18 @@ export default function Wiki({ name }) {
         {link('log', 'Change log')}
         <h4>Patterns</h4>
         {pages.patterns.map((p) => link(p, p.replace(/_/g, ' ')))}
+        {REF_GROUPS.map(([g, label]) => {
+          const list = pages[g] || []
+          if (list.length === 0) return null
+          const isOpen = openRef[g] ?? list.includes(name)
+          return [
+            <h4 key={g}>
+              <button type="button" aria-expanded={isOpen} onClick={() => setOpenRef((o) => ({ ...o, [g]: !isOpen }))}
+                style={{ all: 'unset', cursor: 'pointer' }}>{isOpen ? '▾' : '▸'} {label} ({list.length})</button>
+            </h4>,
+            ...(isOpen ? list.map((p) => link(p, p.replace(/^(data|runbook|system)_/, '').replace(/_/g, ' '))) : []),
+          ]
+        })}
         <h4>Networks</h4>
         {pages.networks.map((p) => link(p))}
         <h4>Sources ({pages.sources.length})</h4>
@@ -58,8 +76,10 @@ export default function Wiki({ name }) {
         )}
       </aside>
       <div className="col">
+        <Accounts />
+        <Security tick={tick} />
         <Ask onFiled={refresh} />
-        <AddSource onSaved={refresh} />
+        <AddSource onSaved={refresh} patterns={pages.patterns} />
         <article className="card">
           {page.meta && Object.keys(page.meta).length > 0 && (
             <p className="meta">
@@ -128,7 +148,7 @@ function Ask({ onFiled }) {
   )
 }
 
-function AddSource({ onSaved }) {
+function AddSource({ onSaved, patterns = [] }) {
   const [open, setOpen] = useState(false)
   const [title, setTitle] = useState('')
   const [text, setText] = useState('')
@@ -137,12 +157,32 @@ function AddSource({ onSaved }) {
   const [, setAuthTick] = useState(0)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState(null)
+  const [choice, setChoice] = useState('new') // new | existing | none
+  const [target, setTarget] = useState('')
   const body = { title, text }
   const ready = title.trim().length >= 3 && text.trim().length >= 40
 
   const run = (fn, payload, then) => {
     setBusy(true); setError(null)
     fn(payload).then(then).catch((e) => setError(e.message)).finally(() => setBusy(false))
+  }
+  const np = preview?.proposal.new_pattern
+  const notes = preview ? preview.proposal.pattern_notes.filter((n) => (n.note || '').trim()) : []
+  const existing = patterns.filter((p) => !np || p !== np.id)
+  const addTo = target || existing[0] || ''
+  const merged = np && choice === 'existing' && addTo
+    ? { pattern: addTo, note: `Related scheme, ${np.title}: ${np.definition}${np.signals.length ? ` Signals: ${np.signals.join('; ')}` : ''}` }
+    : null
+  const finalProposal = () => ({
+    ...preview.proposal,
+    pattern_notes: merged ? [...notes, merged] : notes,
+    new_pattern: np && choice === 'new' ? np : null,
+  })
+  const changeList = () => {
+    let list = preview.changes.map((c) => `${c.action} ${c.page}`)
+    if (np && choice !== 'new') list = list.filter((x) => !x.endsWith(` ${np.id}`))
+    if (merged && !list.some((x) => x.endsWith(` ${addTo}`))) list.push(`update ${addTo}`)
+    return list.join(', ')
   }
   if (!open) return <button className="btn add" onClick={() => setOpen(true)}>+ Add a source document</button>
 
@@ -151,7 +191,8 @@ function AddSource({ onSaved }) {
       <h3>Add a source document<small>the brain reads it and proposes page updates</small></h3>
       {saved ? (
         <p>Saved as <a className="wikilink" href={`#/brain/${saved.source_id}`}>{saved.source_id}</a>. Pages updated:{' '}
-          {saved.changes.map((c) => c.page).join(', ')}.</p>
+          {saved.changes.map((c) => c.page).join(', ')}.
+          {saved.new_pattern_id && <> New pattern created: <a className="wikilink" href={`#/brain/${saved.new_pattern_id}`}>{saved.new_pattern_id}</a>.</>}</p>
       ) : (
         <>
           <label className="field">Title
@@ -167,15 +208,53 @@ function AddSource({ onSaved }) {
               <h4>Proposed by {preview.proposal.written_by === 'llm' ? 'the LLM' : 'template (no LLM connected)'}</h4>
               <p>{preview.proposal.summary}</p>
               <ul className="plain">
-                {preview.proposal.pattern_notes.map((n, i) => (
+                {notes.map((n, i) => (
                   <li key={i}><a className="wikilink" href={`#/brain/${n.pattern}`}>{n.pattern}</a>: {n.note}</li>
                 ))}
               </ul>
+              {preview.proposal.new_pattern && (
+                <div className="newpattern">
+                  <h4>New pattern proposed</h4>
+                  <p>This document describes a scheme that is not in the library.</p>
+                  <p><strong>{preview.proposal.new_pattern.title}</strong> ({preview.proposal.new_pattern.id}): {preview.proposal.new_pattern.definition}</p>
+                  {preview.proposal.new_pattern.signals.length > 0 && (
+                    <ul className="plain">
+                      {preview.proposal.new_pattern.signals.map((x, i) => <li key={i}>Possible signal: {x}</li>)}
+                    </ul>
+                  )}
+                  <label className="check">
+                    <input type="radio" name="np" checked={choice === 'new'} onChange={() => setChoice('new')} />
+                    Create this as a new pattern page
+                  </label>
+                  <label className="check">
+                    <input type="radio" name="np" checked={choice === 'existing'} onChange={() => setChoice('existing')} />
+                    Add it to an existing pattern instead:
+                    <select value={addTo} onChange={(e) => { setTarget(e.target.value); setChoice('existing') }}>
+                      {existing.map((p) => <option key={p} value={p}>{p.replace(/_/g, ' ')}</option>)}
+                    </select>
+                  </label>
+                  <label className="check">
+                    <input type="radio" name="np" checked={choice === 'none'} onChange={() => setChoice('none')} />
+                    Neither: only save the document
+                  </label>
+                  {choice === 'new' && <small>It will be marked "knowledge only" until a detection rule is written for it.</small>}
+                  {choice === 'existing' && <small>No new pattern is created. The scheme is added as a note on the {addTo.replace(/_/g, ' ')} page, citing this document.</small>}
+                </div>
+              )}
+              {preview.security && preview.security.findings.length > 0 && (
+                <div className="notice error" role="alert">
+                  <strong>Document scanner: review before approving.</strong>
+                  <ul className="plain">
+                    {preview.security.findings.map((f, i) => <li key={i}>This text {f.message}: "{f.excerpt}"</li>)}
+                  </ul>
+                </div>
+              )}
+              {preview.security && preview.security.findings.length === 0 && <p className="sec-ok">Document scanner: no instruction-like text found.</p>}
               <h4>Pages that will change</h4>
-              <p>{preview.changes.map((c) => `${c.action} ${c.page}`).join(', ')}</p>
+              <p>{changeList()}</p>
               <SignIn onChange={() => setAuthTick((n) => n + 1)} />
               <button className="btn primary" disabled={!getSession() || busy}
-                onClick={() => run(api.addSource, { ...body, proposal: preview.proposal }, (r) => { setSaved(r); onSaved() })}>Approve and save</button>
+                onClick={() => run(api.addSource, { ...body, proposal: finalProposal() }, (r) => { setSaved(r); onSaved() })}>Approve and save</button>
               <button className="btn" onClick={() => setPreview(null)}>Edit</button>
             </div>
           )}

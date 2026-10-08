@@ -5,10 +5,12 @@ from pydantic import BaseModel, Field
 
 from backend.brain import llm, wiki
 
+from backend.security import log_integrity, prompt_scanner, security_events
+
 from .. import auth, store
 
 router = APIRouter(tags=["second brain"])
-GROUPS = ("patterns", "networks", "sources", "notes", "providers", "cases")
+GROUPS = ("patterns", "networks", "sources", "notes", "providers", "cases", "rules", "data", "process", "system", "regulatory")
 
 
 class Question(BaseModel):
@@ -62,17 +64,38 @@ def ask(q: Question):
 @router.post("/wiki/notes")
 def file_note(n: Note, who: str = Depends(auth.require_investigator)):
     """Keep an answer as a page so later questions can build on it. Needs a signed-in investigator."""
-    return wiki.file_note(n.question.strip(), n.answer, who, store.PROV_INFO)
+    result = wiki.file_note(n.question.strip(), n.answer, who, store.PROV_INFO)
+    log_integrity.record_change(who, "kept_answer", result["note_id"], result["changes"], detail=n.question.strip())
+    return result
+
+
+def _screen(title, text, actor, proposal=None):
+    """Scan a document (and any proposal sent back with it) before the LLM or the wiki sees it. HIGH findings block."""
+    extra = ""
+    if proposal:
+        np = proposal.get("new_pattern") or {}
+        extra = " ".join([str(proposal.get("summary", ""))] + [str(k) for k in proposal.get("key_points", [])]
+                         + [str(x.get("note", "")) for x in proposal.get("pattern_notes", []) if isinstance(x, dict)]
+                         + [str(np.get(k, "")) for k in ("title", "definition", "signals", "innocent_explanations")])
+    report = prompt_scanner.scan(title, f"{text}\n{extra}")
+    if report["blocked"]:
+        worst = next(f for f in report["findings"] if f["severity"] == "HIGH")
+        event = security_events.record("PROMPT_INJECTION_DETECTED", "HIGH", "Document scanner",
+                                       f"'{title}': {worst['message']}. Excerpt: {worst['excerpt']}", "BLOCKED", actor=actor)
+        raise HTTPException(422, f"Blocked by the document scanner: this text {worst['message']} (\"{worst['excerpt']}\"). "
+                                 f"Nothing was sent to the LLM or saved. Security event {event} recorded.")
+    return report
 
 
 @router.post("/wiki/sources/preview")
 def preview_source(s: Source):
     """Ingest, step 1: read a document and show the pages it would create or change. Writes nothing."""
-    return wiki.ingest_source(s.title.strip(), s.text, s.approved_by, store.PROV_INFO, dry_run=True)
+    report = _screen(s.title.strip(), s.text, actor="")
+    return wiki.ingest_source(s.title.strip(), s.text, s.approved_by, store.PROV_INFO, dry_run=True) | {"security": report}
 
 
 @router.post("/wiki/sources")
-def add_source(s: Source, who: str = Depends(auth.require_investigator)):
+def add_source(s: Source, who: str = Depends(auth.require_lead)):
     """Ingest, step 2: a signed-in investigator approves; the raw file, summary page and linked pages are saved."""
     proposal = s.proposal
     if proposal is not None:
@@ -83,4 +106,12 @@ def add_source(s: Source, who: str = Depends(auth.require_investigator)):
         proposal.setdefault("pattern_notes", [])
         if proposal.get("new_pattern") is not None and not isinstance(proposal["new_pattern"], dict):
             raise HTTPException(422, "new_pattern must be an object or null")
-    return wiki.ingest_source(s.title.strip(), s.text, who, store.PROV_INFO, proposal=proposal)
+    report = _screen(s.title.strip(), s.text, who, proposal)
+    result = wiki.ingest_source(s.title.strip(), s.text, who, store.PROV_INFO, proposal=proposal)
+    if report["findings"]:
+        security_events.record("SUSPICIOUS_DOCUMENT_APPROVED", "MEDIUM", "Document scanner",
+                               f"{result['source_id']} '{s.title.strip()}': " + "; ".join(f["message"] for f in report["findings"]),
+                               "ALLOWED BY APPROVER", actor=who)
+    log_integrity.record_change(who, "new_pattern" if result.get("new_pattern_id") else "source_document", result["source_id"],
+                                result["changes"], extra=[f"sources/documents/{result['source_id']}.md"], detail=s.title.strip())
+    return result | {"security": report}

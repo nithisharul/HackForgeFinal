@@ -5,6 +5,8 @@ from pydantic import BaseModel, Field
 
 from backend.brain import wiki
 
+from backend.security import log_integrity
+
 from .. import auth, store
 
 router = APIRouter(tags=["cases"])
@@ -49,7 +51,25 @@ def post_verdict(case_id: str, v: Verdict, who: str = Depends(auth.require_inves
     """Human-approved writeback: the verdict becomes a case page and updates the linked pages.
     Needs a signed-in investigator, whose name is recorded whatever the body says."""
     v = v.model_copy(update={"investigator": who})
-    return {"case_id": case_id, "written": True, **_write(case_id, v, dry_run=False), "status": store.status_of(case_id)}
+    result = _write(case_id, v, dry_run=False)
+    log_integrity.record_change(who, "verdict", case_id, result["changes"], detail=f"{v.verdict}: {v.reasoning.strip()}")
+    return {"case_id": case_id, "written": True, **result, "status": store.status_of(case_id)}
+
+@router.get("/cases/{case_id}/audit-plan")
+def audit_plan(case_id: str, horizon: int = Query(90, enum=[30, 60, 90])):
+    """AuditNext: candidate checks ranked by expected information gain per hour. Read-only."""
+    from backend.brain import auditnext
+    case = _case(case_id)
+    _, conf, _ = store.enrich(case, horizon)
+    return auditnext.plan(case, conf)
+
+
+@router.get("/cases/{case_id}/clinical-audit")
+def clinical_audit(case_id: str):
+    """Provider record review: the LLM compares a returned record with the flagged claims. Read-only."""
+    from backend.brain.clinical_audit import audit_case_clinical_chart
+    return audit_case_clinical_chart(_case(case_id))
+
 
 @router.get("/cases/{case_id}/fhir")
 def export_fhir(case_id: str):

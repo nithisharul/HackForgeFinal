@@ -1,0 +1,46 @@
+package_code,procedure_name,specialty,package_type,base_rate_inr,implant_addon_inr,typical_los_days_assumed,icd10,rate_source,hbp_version
+MG001A,Acute febrile illness,General Medicine,medical_per_day,1800,0,3,R50.9,verified,HBP 2.0
+MG003A,Malaria,General Medicine,medical_per_day,1800,0,4,B54,verified,HBP 2.0
+MG004A,Dengue fever,General Medicine,medical_per_day,1800,0,4,A90,verified,HBP 2.0
+MG006A,Enteric fever,General Medicine,medical_per_day,1800,0,5,A01.0,verified,HBP 2.0
+MG009A,Acute gastroenteritis with moderate dehydration,General Medicine,medical_per_day,1800,0,3,A09,verified,HBP 2.0
+MG016A,Pneumonia,General Medicine,medical_per_day,1800,0,5,J18.9,verified,HBP 2.0
+MG017A,Severe pneumonia,General Medicine,medical_per_day,1800,0,7,J18.9,verified,HBP 2.0
+MG021A,Urinary tract infection,General Medicine,medical_per_day,1800,0,4,N39.0,verified,HBP 2.0
+MG029A,Acute exacerbation of COPD,General Medicine,medical_per_day,1800,0,5,J44.1,verified,HBP 2.0
+MG038A,Congestive heart failure,General Medicine,medical_per_day,1800,0,6,I50.0,verified,HBP 2.0
+MG045A,AKI / renal failure,General Medicine,medical_per_day,1800,0,6,N17.9,verified,HBP 2.0
+MG049C,Acute ischemic stroke,General Medicine,medical_per_day,1800,0,7,I63.9,verified,HBP 2.0
+MG059A,Diabetic ketoacidosis,General Medicine,medical_per_day,1800,0,5,E10.1,verified,HBP 2.0
+MG064A,Severe anemia,General Medicine,medical_per_day,1800,0,4,D64.9,verified,HBP 2.0
+MG070A,Snake bite,General Medicine,medical_per_day,1800,0,5,T63.0,verified,HBP 2.0
+MG071A,Acute organophosphorus poisoning,General Medicine,medical_per_day,1800,0,6,T60.0,verified,HBP 2.0
+MG072D,Chronic haemodialysis (per session),General Medicine,daycare,2000,0,0,N18.5,verified,HBP 2022
+ER003A,Animal bites (excluding snake bite),Emergency Room Packages,daycare,1700,0,0,W54,verified,HBP 2.0
+ER001A,Laceration - suturing / dressing,Emergency Room Packages,daycare,2000,0,0,T14.1,verified,HBP 2.0
+SG017A,Appendicectomy - open,General Surgery,surgical,11000,0,3,K35.8,verified,HBP 2.0
+SG039C,Cholecystectomy - laparoscopic,General Surgery,surgical,22800,0,3,K80.2,verified,HBP 2.0
+SG050A,Groin hernia repair - inguinal - open,General Surgery,surgical,14200,0,3,K40.9,verified,HBP 2.0
+SG051B,Hernia - ventral - umbilical,General Surgery,surgical,17400,0,3,K42.9,verified,HBP 2.0
+SG032A,Haemorrhoidectomy - without stapler,General Surgery,surgical,15000,0,2,K64.9,verified,HBP 2.0
+SB010A,Fixation of diaphyseal fracture - long bone - ORIF,Orthopaedics,surgical,14900,0,5,S72.3,verified,HBP 2.0
+SB019B,Fracture neck femur - dynamic hip screw,Orthopaedics,surgical,15800,0,6,S72.1,verified,HBP 2.0
+SB014A,Fracture both bones forearm - ORIF,Orthopaedics,surgical,12700,0,3,S52.4,verified,HBP 2.0
+SB020A,Ankle fracture - ORIF,Orthopaedics,surgical,14000,0,4,S82.6,verified,HBP 2.0
+SB039,Total knee replacement (primary),Orthopaedics,surgical,80000,0,6,M17.9,approximate,"HBP 2.0 code, estimated rate"
+MC011A,"PTCA, inclusive of diagnostic angiogram",Cardiology,surgical,40600,31600,3,I25.1,verified,HBP 2.0
+MC015A,Permanent pacemaker - single chamber,Cardiology,surgical,24500,45000,3,I44.2,verified,HBP 2.0
+MC020A,Systemic thrombolysis (for MI),Cardiology,surgical,17900,0,4,I21.9,verified,HBP 2.0
+MC001B,Left heart catheterization,Cardiology,surgical,5000,0,1,I25.1,verified,HBP 2.0
+SE020,Cataract surgery - phaco with foldable IOL,Ophthalmology,daycare,7500,0,0,H25.9,approximate,"HBP 2.0 code, estimated rate"
+SE027B,Glaucoma surgery (trabeculectomy),Ophthalmology,surgical,11000,0,1,H40.1,verified,HBP 2.0
+SO010,Hysterectomy - abdominal,Obstetrics & Gynaecology,surgical,20000,0,5,D25.9,approximate,"HBP 2.0 code, estimated rate"
+SO057,Caesarean delivery,Obstetrics & Gynaecology,surgical,11500,0,4,O82,approximate,"HBP 2.0 code, estimated rate"
+MO001I,Chemotherapy CA breast - carboplatin + paclitaxel,Medical Oncology,daycare,14900,0,0,C50.9,verified,HBP 2.0
+MO001L,Chemotherapy CA breast - cyclophosphamide + adriamycin,Medical Oncology,daycare,4500,0,0,C50.9,verified,HBP 2.0
+MO003G,Chemotherapy CA ovary - carboplatin + paclitaxel,Medical Oncology,daycare,14700,0,0,C56,verified,HBP 2.0
+MO006B,Chemotherapy cervical cancer - cisplatin,Medical Oncology,daycare,2200,0,0,C53.9,verified,HBP 2.0
+MN002A,Special neonatal care package (per day),Neo-natal Care,neonatal_per_day,3000,0,5,P07.3,verified,HBP 2.0
+MN003A,Intensive neonatal care package (per day),Neo-natal Care,neonatal_per_day,5000,0,8,P22.0,verified,HBP 2.0
+BM001B,Thermal burns - up to 40% TBSA,Burns Management,surgical,40000,0,10,T30.2,verified,HBP 2.0
+SL016,Tonsillectomy,ENT,surgical,7500,0,1,J35.0,approximate,"HBP 2.0 code, estimated rate"

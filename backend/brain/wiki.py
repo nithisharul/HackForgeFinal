@@ -19,14 +19,12 @@ import datetime as dt
 import json
 import re
 
-from backend.pipeline.common import KNOW, PROC
+from backend import region
 
 from . import llm
 
-WIKI = KNOW / "wiki"
-SRC = KNOW / "sources"
 LINK = re.compile(r"\[\[([^\]|#]+)")
-TOKEN = re.compile(r"\bC\d{6}\b|\bP\d{3}\b|\bINV\d{3}\b|\$[\d,]+(?:\.\d+)?")
+TOKEN = re.compile(r"\bC\d{6}\b|\bP\d{3}\b|\bINV\d{3}\b|\$[\d,]+(?:\.\d+)?|₹[\d,]+(?:\.\d+)?")
 _PENDING = {}
 
 PATTERNS = {
@@ -107,11 +105,118 @@ Pages link to each other with `[[PageName]]`; the name is the file name without 
 7. The system proposes; it never states that fraud occurred. Wording is "flagged", "consistent with".
 8. Text written by the LLM may only use IDs and dollar figures that appear in its input.
 """
+SCHEMA_IN = SCHEMA + ("9. India region: a provider is a hospital, a member is a PM-JAY beneficiary and amounts are rupees.\n"
+                      "10. Never write a beneficiary's name, Aadhaar number or mobile number into a page; IDs are tokens.\n")
+
+# India (PM-JAY). Policies are synthetic, written for this prototype; the public basis names the real documents.
+PATTERNS_IN = {
+    "collusive_ring": {
+        "title": "Collusive hospital network", "policy": "POL-IN-001", "policy_title": "Agents, camps and referrals among linked hospitals",
+        "definition": "A group of hospitals, often under one owner and fed by one agent, repeatedly admits the same small pool of beneficiaries and refers them to each other.",
+        "signals": ["Graph: Leiden community of hospitals with beneficiary overlap far above chance", "Graph: one agent brings most of the network's admissions", "Ownership: most hospitals share one private owner", "Graph: referrals form a closed loop", "BiRank: risk propagated through shared beneficiaries"],
+        "policy_text": "Hospitals may not pay agents or camp organisers for referrals. Repeated admission of the same beneficiaries across commonly owned hospitals, or a network fed by one agent, triggers a network-level field investigation by the State Anti-Fraud Unit.",
+        "public_basis": "NHA Anti-Fraud Framework Practitioners' Guidebook (2020); NHA Field Investigation and Medical Audit Manual (2020); the Khyati Hospital case (Ahmedabad, 2024) as background",
+        "innocent": ["A referral chain where district hospitals send patients to one teaching hospital, with documented referral letters", "Beneficiaries from one area who use the nearest group of empanelled hospitals"],
+    },
+    "bed_overrun": {
+        "title": "Capacity and empanelment violations", "policy": "POL-IN-002", "policy_title": "Bed strength and scope of empanelment",
+        "definition": "A hospital admits more patients than its sanctioned beds can hold, or bills packages outside the specialties and dates it is empanelled for.",
+        "signals": ["Rule IN9a: admissions on one day above bed strength", "Rule IN9b: package specialty not empanelled, or a claim before empanelment", "Anomaly model: busiest day's admissions per bed far above hospital-type peers"],
+        "policy_text": "Admissions are payable only within the hospital's registered bed strength and empanelled specialties. Admissions above bed strength trigger an unannounced field visit with a bed count and an inpatient register check.",
+        "public_basis": "NHA Field Investigation and Medical Audit Manual (2020): fewer patients on site than shown in TMS; PM-JAY hospital empanelment guidelines",
+        "innocent": ["A government medical college running above sanctioned beds, recorded in its inpatient register", "Day-care volume such as cataract or dialysis sessions counted against inpatient beds"],
+    },
+    "opd_to_ipd": {
+        "title": "OPD-to-IPD conversion", "policy": "POL-IN-003", "policy_title": "Admission criteria for conditions treatable as outpatients",
+        "definition": "Conditions usually treated as outpatients (fever, gastroenteritis, urinary infection) are admitted for a day or less so that an inpatient package can be claimed.",
+        "signals": ["Rule IN6b: 0-1 day stays are half or more of a hospital's fever, gastroenteritis and UTI admissions in a month", "Anomaly model: share of 0-1 day medical stays far above hospital-type peers", "Several members of one family admitted on the same day"],
+        "policy_text": "Admission is payable only when the condition required inpatient care, documented with admission vitals, investigations and treatment notes. Short admissions for outpatient-treatable conditions trigger a medical audit.",
+        "public_basis": "NHA anti-fraud triggers (OPD-to-IPD conversion is an official trigger; no threshold is published)",
+        "innocent": ["Severe dehydration or high fever needing an overnight stay, recorded in the vitals chart", "An outbreak such as dengue driving genuine short admissions in one area"],
+    },
+    "ghost_beneficiary": {
+        "title": "Ghost or impersonated beneficiaries", "policy": "POL-IN-004", "policy_title": "Beneficiary identity verification",
+        "definition": "Claims for beneficiaries whose identity is doubtful: cards created days before a claim, or mobile numbers shared far beyond one household.",
+        "signals": ["Rule IN7: beneficiary card created 7 days or less before admission", "Rule IN7: mobile number registered to more beneficiaries than a household", "Anomaly model: share of new cards far above hospital-type peers"],
+        "policy_text": "Every admission requires Aadhaar-based beneficiary authentication and a patient photograph at admission and discharge. Cards created shortly before a claim and shared contact details trigger beneficiary verification by phone or home visit.",
+        "public_basis": "CAG Report 11 of 2023 (lakhs of beneficiaries on one placeholder mobile number); NHA Anti-Fraud Framework Practitioners' Guidebook (2020)",
+        "innocent": ["A newly eligible family enrolled at the hospital help desk on the day of an emergency", "A placeholder mobile number typed at enrolment, which is a data-quality issue rather than a flag on its own"],
+    },
+    "unnecessary_procedure": {
+        "title": "Unnecessary procedures", "policy": "POL-IN-005", "policy_title": "Medical necessity for elective surgery",
+        "definition": "Surgery without a documented indication, often on patients brought in groups from camps by agents, such as hysterectomy in young women or angioplasty without cardiac history.",
+        "signals": ["Rule IN10: 3 or more agent-referred surgeries for one package from one village in one week", "Rule IN4b: hysterectomy for a woman under 35 (mandatory audit trigger)", "Anomaly model: share of agent-referred admissions far above hospital-type peers"],
+        "policy_text": "Elective surgery requires a documented indication and prior investigations; hysterectomy under 35 also needs a second opinion before pre-authorisation. Camp-sourced surgical clusters trigger a medical audit of case sheets and histopathology.",
+        "public_basis": "Health Ministry audit guidance on hysterectomy in women under 35; NHA Field Investigation and Medical Audit Manual (2020); the Khyati Hospital case (2024) as background",
+        "innocent": ["A visiting surgeon's fixed operating days concentrating surgery on certain dates", "Hysterectomy under 35 for a documented indication, confirmed by histopathology"],
+    },
+    "duplicate_document": {
+        "title": "Reused documents", "policy": "POL-IN-006", "policy_title": "Uniqueness of clinical documents and images",
+        "definition": "The same document, image or report is attached to claims for different beneficiaries.",
+        "signals": ["Rule IN8: the same document hash on claims for different beneficiaries"],
+        "policy_text": "Every claim document must belong to the patient named on it. A document or image reused across beneficiaries puts every claim it supports on hold pending a desk audit.",
+        "public_basis": "NHA anti-fraud triggers (the same image or document reused across claims)",
+        "innocent": ["A blank consent form or template scanned identically for several patients", "A family document such as a ration card legitimately attached for two members"],
+    },
+    "package_upcoding": {
+        "title": "Package upcoding and mismatch", "policy": "POL-IN-007", "policy_title": "Package, ward and rate selection",
+        "definition": "A higher-paying package, ward or rate is claimed than the diagnosis, patient or hospital supports: ICU rates for general-ward care, a package that does not fit the diagnosis or sex, or incentives the hospital is not entitled to.",
+        "signals": ["Rule IN5: ICU or ventilator share of medical admissions far above all hospitals in a month", "Rule IN4a: diagnosis or sex the package does not fit, or an amount above the hospital's entitled rate", "Anomaly model: ICU share far above hospital-type peers"],
+        "policy_text": "The package, ward and rate claimed must match the documented diagnosis, the patient and the hospital's own tier and accreditation. ICU days must be supported by the ICU register and vitals charts. A first upcoding offence can be penalised up to 10 times the excess claimed.",
+        "public_basis": "NHA Anti-Fraud Framework Practitioners' Guidebook (2020) on upcoding penalties; HBP 2.0 and HBP 2.2 package, ward and incentive rates",
+        "innocent": ["A hospital with a genuine critical-care unit taking referred sick patients, supported by ICU registers", "A new NABH accreditation not yet updated in the hospital registry"],
+    },
+    "overlapping_admission": {
+        "title": "Overlapping admissions", "policy": "POL-IN-008", "policy_title": "One beneficiary, one admission at a time",
+        "definition": "A beneficiary is claimed as an inpatient at two hospitals at the same time.",
+        "signals": ["Rule IN1: admitted while an inpatient at another hospital, with an overlap of 24 hours or more"],
+        "policy_text": "A beneficiary can be an inpatient at only one hospital at a time, except for a documented transfer with discharge from the first hospital. Overlapping stays are checked against both hospitals' registers.",
+        "public_basis": "CAG Report 11 of 2023 (claims with overlapping admissions)",
+        "innocent": ["A transfer where the first hospital recorded the discharge late", "A data-entry error in the discharge date, corrected at audit"],
+    },
+    "claim_after_death": {
+        "title": "Claims after recorded death", "policy": "POL-IN-009", "policy_title": "Claims for deceased beneficiaries",
+        "definition": "A claim is made for a beneficiary after the date of death recorded against their card.",
+        "signals": ["Rule IN3: admission after the beneficiary's recorded date of death"],
+        "policy_text": "No claim is payable for an admission after the beneficiary's recorded death. Every such claim is audited, as are all in-hospital deaths.",
+        "public_basis": "CAG Report 11 of 2023 (claims for patients already recorded as dead); NHA audit norm of auditing every death case",
+        "innocent": ["A wrong date of death in the beneficiary database, corrected with the death certificate"],
+    },
+    "duplicate_package": {
+        "title": "Duplicate package claims", "policy": "POL-IN-010", "policy_title": "One package per episode of care",
+        "definition": "The same inpatient package is claimed again for the same beneficiary at the same hospital within days.",
+        "signals": ["Rule IN2: same inpatient package, beneficiary and hospital within 7 days"],
+        "policy_text": "A package is payable once per episode of care. A repeat claim within 7 days needs a documented readmission with a new indication.",
+        "public_basis": "NHA anti-fraud triggers on repeat claims",
+        "innocent": ["A genuine readmission for a complication, documented with new investigations", "A resubmission after a rejection where the first claim was never paid"],
+    },
+    "excessive_utilization": {
+        "title": "Excessive utilisation", "policy": "POL-IN-011", "policy_title": "Utilisation and length-of-stay review",
+        "definition": "Admissions, stay lengths or amounts far above hospitals of the same type without a documented reason.",
+        "signals": ["Rule IN6a: stay more than twice the package norm plus 3 days", "Anomaly model: Isolation Forest score with drivers such as admissions per beneficiary or total paid"],
+        "policy_text": "Utilisation far above hospitals of the same type, or stays far beyond the package norm, triggers a review of case sheets. High volume alone is not evidence of fraud.",
+        "public_basis": "NHA Field Investigation and Medical Audit Manual (2020): stay not matching the package; typical stays here are assumed, not published",
+        "innocent": ["A high-volume dialysis or eye centre with normal use per beneficiary", "A complicated case with a documented reason for a long stay"],
+    },
+}
+
+
+def patterns():
+    """The active region's pattern catalogue."""
+    return PATTERNS_IN if region.current().code == "in" else PATTERNS
+
+
+def _wiki():
+    return region.current().know / "wiki"
+
+
+def _src():
+    return region.current().know / "sources"
 
 
 # ---------------------------------------------------------------- page io ---
 def pages():
-    return {p.stem: p for p in WIKI.rglob("*.md")}
+    return {p.stem: p for p in _wiki().rglob("*.md")}
 
 
 def parse(text):
@@ -140,7 +245,7 @@ def section(body, heading):
 
 def metas(sub):
     """Header fields (+ body) of every page in a wiki sub-folder, including pages pending approval."""
-    d = WIKI / sub
+    d = _wiki() / sub
     texts = {p: p.read_text(encoding="utf-8") for p in sorted(d.glob("*.md"))} if d.exists() else {}
     texts.update({p: t for p, t in _PENDING.items() if p.parent == d})
     out = []
@@ -159,12 +264,22 @@ def reasoning_of(case):
 
 
 def clusters():
-    path = PROC / "clusters.json"
+    path = region.current().proc / "clusters.json"
     return json.loads(path.read_text()) if path.exists() else {}
 
 
 def next_id(prefix, sub):
-    return f"{prefix}-{len(list((WIKI / sub).glob('*.md'))) + 1:03d}" if (WIKI / sub).exists() else f"{prefix}-001"
+    d = _wiki() / sub
+    return f"{prefix}-{len(list(d.glob('*.md'))) + 1:03d}" if d.exists() else f"{prefix}-001"
+
+
+def source_path(*parts):
+    """Repository path of a raw source, e.g. knowledge/india/sources/policies/POL-IN-001.md."""
+    return "/".join((_src() / "/".join(parts)).relative_to(region.ROOT).parts)
+
+
+def policy_path(policy_id):
+    return source_path("policies", f"{policy_id}.md")
 
 
 def grounded(text, allowed_text):
@@ -184,7 +299,7 @@ def _auto(name, lines):
 
 
 def pattern_page(pid, cases, sources):
-    p = PATTERNS[pid]
+    p = patterns()[pid]
     mine = [c for c in cases if c["pattern"] == pid]
     n = {v: sum(c["verdict"] == v for c in mine) for v in ("confirmed", "cleared", "inconclusive")}
     learned = [f"- {reasoning_of(c)} (learned from [[{c['id']}]])" for c in mine
@@ -198,7 +313,7 @@ def pattern_page(pid, cases, sources):
                 notes.append(f"- {m.group(1)} (from [[{s['id']}]])")
     body = f"# {p['title']}\n\n## Definition\n{p['definition']}\n\n## Detection signals\n"
     body += "\n".join(f"- {s}" for s in p["signals"])
-    body += (f"\n\n## Policy basis\n- {p['policy']} {p['policy_title']} (`knowledge/sources/policies/{p['policy']}.md`)\n"
+    body += (f"\n\n## Policy basis\n- {p['policy']} {p['policy_title']} (`{policy_path(p['policy'])}`)\n"
              f"- Public basis: {p['public_basis']}\n\n## Known innocent explanations\n")
     body += "\n".join(f"- {s}" for s in p["innocent"]) + "\n" + _auto("learned", learned)
     body += "\n## Lessons from closed cases\n" + _auto("lessons", lessons)
@@ -211,8 +326,13 @@ def pattern_page(pid, cases, sources):
 
 def provider_page(pid, cases, info, net):
     mine = [c for c in cases if c["provider"] == pid]
-    body = (f"# {pid} {info.get('name', '')}\n\nSpecialty: {info.get('specialty', '')} | City: {info.get('city', '')} | "
-            f"Owner: {info.get('owner_id', '')}" + (f" | Network: [[{net}]]" if net else "") + "\n\n## Investigation history\n")
+    if region.current().code == "in":
+        line = (f"Hospital type: {info.get('specialty', '')} | {info.get('city', '')}, {info.get('state', '')} | "
+                f"{info.get('beds', '')} beds | Tier {info.get('city_tier', '')} | NABH: {info.get('nabh_status', '')} | "
+                f"{info.get('sector', '')} | Owner: {info.get('owner_id', '')}")
+    else:
+        line = f"Specialty: {info.get('specialty', '')} | City: {info.get('city', '')} | Owner: {info.get('owner_id', '')}"
+    body = (f"# {pid} {info.get('name', '')}\n\n{line}" + (f" | Network: [[{net}]]" if net else "") + "\n\n## Investigation history\n")
     body += _auto("cases", [_case_line(c, link_provider=False) for c in mine])
     return render({"type": "provider", "id": pid, "name": info.get("name", ""), "specialty": info.get("specialty", "")}, body)
 
@@ -220,19 +340,30 @@ def provider_page(pid, cases, info, net):
 def network_page(cl, cases, info):
     cid = cl["cluster_id"]
     mine = [c for c in cases if c["provider"] in cl["providers"]]
-    body = (f"# Network {cid}\n\nPattern: [[collusive_ring]]\n\n## What links these providers\n"
-            f"- {cl['size']} providers found as one community ({cl['method']})\n"
-            f"- {cl['shared_members']} members are billed by 3 or more of them\n"
-            f"- {round(cl['owner_share'] * 100)}% share owner {cl['top_owner']}\n"
-            f"- Referrals {'form a closed loop' if cl['referral_cycle'] else 'do not form a closed loop'}\n"
-            f"- ${cl['paid_on_shared_members']:,.0f} paid on the shared members\n\n## Members\n")
+    if region.current().code == "in":
+        body = (f"# Network {cid}\n\nPattern: [[collusive_ring]]\n\n## What links these hospitals\n"
+                f"- {cl['size']} hospitals found as one community ({cl['method']})\n"
+                f"- {cl['shared_members']} beneficiaries are admitted by 3 or more of them\n"
+                + (f"- {round(cl['owner_share'] * 100)}% share private owner {cl['top_owner']}\n" if cl.get('top_owner') else "")
+                + (f"- Agent {cl['top_agent']} brought {round(cl['agent_share'] * 100)}% of their admissions\n" if cl.get('top_agent') else "")
+                + (f"- {round(cl['village_share'] * 100)}% of shared beneficiaries live in {', '.join(cl['top_villages'])}\n" if cl.get('top_villages') else "")
+                + (f"- {round(cl['operator_share'] * 100)}% of their cards were created by operator {cl['top_card_operator']}\n" if cl.get('top_card_operator') else "")
+                + f"- Referrals {'form a closed loop' if cl['referral_cycle'] else 'do not form a closed loop'}\n"
+                f"- {region.current().money(cl['paid_on_shared_members'])} paid on the shared beneficiaries\n\n## Members\n")
+    else:
+        body = (f"# Network {cid}\n\nPattern: [[collusive_ring]]\n\n## What links these providers\n"
+                f"- {cl['size']} providers found as one community ({cl['method']})\n"
+                f"- {cl['shared_members']} members are billed by 3 or more of them\n"
+                f"- {round(cl['owner_share'] * 100)}% share owner {cl['top_owner']}\n"
+                f"- Referrals {'form a closed loop' if cl['referral_cycle'] else 'do not form a closed loop'}\n"
+                f"- ${cl['paid_on_shared_members']:,.0f} paid on the shared members\n\n## Members\n")
     body += _auto("members", [f"- [[{p}]] | {info.get(p, {}).get('specialty', '')}" for p in cl["providers"]])
     body += "\n## Cases involving members\n" + _auto("cases", [_case_line(c) for c in mine])
     return render({"type": "network", "id": cid, "size": cl["size"], "owner": cl["top_owner"]}, body)
 
 
 def case_page(meta, reasoning, evidence, lesson=""):
-    body = (f"# {meta['id']} | {PATTERNS[meta['pattern']]['title']} | {meta['verdict']}\n\n"
+    body = (f"# {meta['id']} | {patterns()[meta['pattern']]['title']} | {meta['verdict']}\n\n"
             f"Provider: [[{meta['provider']}]] | Pattern: [[{meta['pattern']}]]"
             + (f" | Network: [[{meta['network']}]]" if meta.get("network") else "") + f"\n\n## Reasoning\n{reasoning}\n")
     if lesson:
@@ -244,14 +375,14 @@ def case_page(meta, reasoning, evidence, lesson=""):
 
 def index_page(cases, sources, notes, nets):
     lines = ["# Second Brain index", "", "Read this page first. Every page in the wiki is listed here.", "", "## Patterns"]
-    for pid, p in PATTERNS.items():
+    for pid, p in patterns().items():
         mine = [c for c in cases if c["pattern"] == pid]
         lines.append(f"- [[{pid}]] | {p['title']} | {len(mine)} cases, {sum(c['verdict'] == 'confirmed' for c in mine)} confirmed")
     lines += ["", "## Networks"] + [f"- [[{c['cluster_id']}]] | {c['size']} providers, owner {c['top_owner']}" for c in nets.values()]
     lines += ["", "## Sources"] + [f"- [[{s['id']}]] | {s.get('title', '')} | added {s.get('added', '')}" for s in sources]
     lines += ["", "## Notes"] + [f"- [[{n['id']}]] | {n.get('title', '')}" for n in notes]
     prov = sorted({c["provider"] for c in cases} | {p for c in nets.values() for p in c["providers"]})
-    lines += ["", "## Providers"] + [f"- [[{p}]]" for p in prov]
+    lines += ["", "## Hospitals" if region.current().code == "in" else "## Providers"] + [f"- [[{p}]]" for p in prov]
     lines += ["", "## Cases"] + [f"- [[{c['id']}]] | {c['pattern']} | {c['verdict']} | {c['closed']}" for c in cases]
     return "\n".join(lines) + "\n"
 
@@ -260,18 +391,19 @@ def build_all(info):
     """Every derived page, regenerated from the case, source and note pages."""
     cases, sources, notes, nets = case_metas(), metas("sources"), metas("notes"), clusters()
     net_of = {p: c["cluster_id"] for c in nets.values() for p in c["providers"]}
-    out = {WIKI / "index.md": index_page(cases, sources, notes, nets)}
-    for pid in PATTERNS:
-        out[WIKI / "patterns" / f"{pid}.md"] = pattern_page(pid, cases, sources)
+    wiki = _wiki()
+    out = {wiki / "index.md": index_page(cases, sources, notes, nets)}
+    for pid in patterns():
+        out[wiki / "patterns" / f"{pid}.md"] = pattern_page(pid, cases, sources)
     for p in sorted({c["provider"] for c in cases} | set(net_of)):
-        out[WIKI / "providers" / f"{p}.md"] = provider_page(p, cases, info.get(p, {}), net_of.get(p))
+        out[wiki / "providers" / f"{p}.md"] = provider_page(p, cases, info.get(p, {}), net_of.get(p))
     for c in nets.values():
-        out[WIKI / "networks" / f"{c['cluster_id']}.md"] = network_page(c, cases, info)
+        out[wiki / "networks" / f"{c['cluster_id']}.md"] = network_page(c, cases, info)
     return out
 
 
 def log(kind, title, detail=""):
-    path = WIKI / "log.md"
+    path = _wiki() / "log.md"
     if not path.exists():
         path.write_text("# Change log\n\nAppend-only. Newest entries last.\n", encoding="utf-8")
     with path.open("a", encoding="utf-8") as f:
@@ -293,7 +425,7 @@ def _apply(pending, info, dry_run, log_entry):
         if old != content:
             seen = set(old.splitlines())
             added = [l for l in content.splitlines() if l.strip() and l not in seen]
-            changes.append({"page": path.stem, "path": str(path.relative_to(KNOW)).replace("\\", "/"),
+            changes.append({"page": path.stem, "path": str(path.relative_to(region.current().know)).replace("\\", "/"),
                             "action": "update" if old else "create", "added": added[:12]})
     if not dry_run:
         for path, content in new.items():
@@ -307,14 +439,16 @@ def _apply(pending, info, dry_run, log_entry):
 # ---------------------------------------------------------------- seeding ---
 def seed(inv, prov):
     """Create the wiki from the raw sources. Existing live pages are kept."""
+    WIKI, SRC, india = _wiki(), _src(), region.current().code == "in"
     for d in ("patterns", "providers", "cases", "networks", "sources", "notes"):
         (WIKI / d).mkdir(parents=True, exist_ok=True)
     (SRC / "policies").mkdir(parents=True, exist_ok=True)
     (SRC / "documents").mkdir(parents=True, exist_ok=True)
-    (KNOW / "SCHEMA.md").write_text(SCHEMA, encoding="utf-8")
-    for p in PATTERNS.values():
+    (region.current().know / "SCHEMA.md").write_text(SCHEMA_IN if india else SCHEMA, encoding="utf-8")
+    for p in patterns().values():
         (SRC / "policies" / f"{p['policy']}.md").write_text(
-            f"# {p['policy']} {p['policy_title']}\n\n> Synthetic policy written for this prototype. Not a real payer policy.\n\n"
+            f"# {p['policy']} {p['policy_title']}\n\n> Synthetic policy written for this prototype. Not a real "
+            f"{'scheme or insurer' if india else 'payer'} policy.\n\n"
             f"{p['policy_text']}\n\nPublic basis to verify: {p['public_basis']}\n", encoding="utf-8")
     inv.to_csv(SRC / "investigations.csv", index=False)
     fresh = not (WIKI / "index.md").exists()
@@ -324,13 +458,13 @@ def seed(inv, prov):
             meta = {"type": "case", "id": r.case_id, "provider": r.provider_id, "specialty": r.specialty,
                     "pattern": r.pattern, "verdict": r.verdict, "closed": r.closed_date,
                     "exposure": r.exposure_amount, "source": "seed", "investigator": "historical record"}
-            path.write_text(case_page(meta, r.reasoning, [f"Source record: knowledge/sources/investigations.csv, row {r.case_id}"]), encoding="utf-8")
+            path.write_text(case_page(meta, r.reasoning, [f"Source record: {source_path('investigations.csv')}, row {r.case_id}"]), encoding="utf-8")
     info = prov.set_index("provider_id").to_dict("index")
     for path, text in build_all(info).items():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
     if fresh:
-        log("seed", "wiki created", f"{len(inv)} historical cases ingested from knowledge/sources/investigations.csv.")
+        log("seed", "wiki created", f"{len(inv)} historical cases ingested from {source_path('investigations.csv')}.")
 
 
 # ------------------------------------------------------- ingest: verdicts ---
@@ -341,7 +475,7 @@ def write_lesson(case, verdict, reasoning, pattern):
         "You maintain a fraud investigation wiki. Write the reusable lesson from a closed case in one or two plain "
         "sentences for future investigators. Use only the facts given. Never state that fraud occurred. "
         "Do not invent IDs or dollar figures. Reply with the lesson only.",
-        f"Pattern: {PATTERNS[pattern]['title']}\nProvider specialty: {case['specialty']}\nVerdict: {verdict}\n"
+        f"Pattern: {patterns()[pattern]['title']}\nProvider specialty: {case['specialty']}\nVerdict: {verdict}\n"
         f"Investigator reasoning: {reasoning}\nEvidence at decision time:\n{facts}", max_tokens=160)
     if not text:
         return ""
@@ -359,7 +493,7 @@ def ingest(case, verdict, reasoning, investigator, info, pattern=None, lesson=No
             "exposure": case["potential_dollars"], "source": "live", "investigator": investigator,
             "network": (case.get("network") or {}).get("cluster_id", "")}
     text = case_page(meta, reasoning, [e["text"] for e in case["evidence"]], lesson)
-    changes = _apply({WIKI / "cases" / f"{meta['id']}.md": text}, info, dry_run,
+    changes = _apply({_wiki() / "cases" / f"{meta['id']}.md": text}, info, dry_run,
                      ("ingest", f"{meta['id']} {verdict}",
                       f"Approved by {investigator}. Pattern [[{pattern}]], provider [[{meta['provider']}]]."))
     return {"changes": changes, "lesson": lesson, "lesson_by": "llm" if lesson else "none"}
@@ -368,7 +502,7 @@ def ingest(case, verdict, reasoning, investigator, info, pattern=None, lesson=No
 # ------------------------------------------------------ ingest: documents ---
 def read_source(title, text):
     """Read a raw document and propose what it adds to the wiki."""
-    catalog = "\n".join(f"- {pid}: {p['definition']}" for pid, p in PATTERNS.items())
+    catalog = "\n".join(f"- {pid}: {p['definition']}" for pid, p in patterns().items())
     out = llm.chat_json(
         "You maintain a fraud, waste and abuse investigation wiki. Read the document and return JSON with keys: "
         '"summary" (2-3 sentences), "key_points" (3-6 short strings), "pattern_notes" (list of objects with '
@@ -378,31 +512,31 @@ def read_source(title, text):
         f"Title: {title}\n\n{text[:12000]}")
     if out and isinstance(out.get("summary"), str):
         notes = [{"pattern": n["pattern"], "note": " ".join(str(n["note"]).split())}
-                 for n in out.get("pattern_notes", []) if isinstance(n, dict) and n.get("pattern") in PATTERNS and n.get("note")]
+                 for n in out.get("pattern_notes", []) if isinstance(n, dict) and n.get("pattern") in patterns() and n.get("note")]
         return {"summary": out["summary"].strip(), "key_points": [str(k) for k in out.get("key_points", [])][:6],
                 "pattern_notes": notes, "written_by": "llm"}
     sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", " ".join(text.split())) if len(s.strip()) > 20]
     low = text.lower()
     notes = [{"pattern": pid, "note": "This document mentions the pattern; review it for changes to detection or policy."}
-             for pid, p in PATTERNS.items() if pid.replace("_", " ") in low or p["title"].lower() in low]
+             for pid, p in patterns().items() if pid.replace("_", " ") in low or p["title"].lower() in low]
     return {"summary": " ".join(sentences[:2]), "key_points": sentences[2:6], "pattern_notes": notes, "written_by": "template"}
 
 
 def ingest_source(title, text, approved_by, info, proposal=None, dry_run=False):
     proposal = proposal or read_source(title, text)
     sid = next_id("SRC", "sources")
-    body = f"# {title}\n\nRaw document: `knowledge/sources/documents/{sid}.md`\n\n## Summary\n{proposal['summary']}\n"
+    body = f"# {title}\n\nRaw document: `{source_path('documents', sid)}`\n\n## Summary\n{proposal['summary']}\n"
     if proposal["key_points"]:
         body += "\n## Key points\n" + "\n".join(f"- {k}" for k in proposal["key_points"]) + "\n"
     if proposal["pattern_notes"]:
         body += "\n## What this changes\n" + "\n".join(f"- [[{n['pattern']}]]: {n['note']}" for n in proposal["pattern_notes"]) + "\n"
     meta = {"type": "source", "id": sid, "title": title, "added": str(dt.date.today()),
             "approved_by": approved_by, "written_by": proposal.get("written_by", "template")}
-    changes = _apply({WIKI / "sources" / f"{sid}.md": render(meta, body)}, info, dry_run,
+    changes = _apply({_wiki() / "sources" / f"{sid}.md": render(meta, body)}, info, dry_run,
                      ("ingest", f"{sid} {title}", f"Source document approved by {approved_by}."))
     if not dry_run:
-        (SRC / "documents").mkdir(parents=True, exist_ok=True)
-        (SRC / "documents" / f"{sid}.md").write_text(f"# {title}\n\n{text}\n", encoding="utf-8")
+        (_src() / "documents").mkdir(parents=True, exist_ok=True)
+        (_src() / "documents" / f"{sid}.md").write_text(f"# {title}\n\n{text}\n", encoding="utf-8")
     return {"source_id": sid, "proposal": proposal, "changes": changes}
 
 
@@ -462,7 +596,7 @@ def file_note(question, answer, approved_by, info, dry_run=False):
     nid = next_id("NOTE", "notes")
     body = f"# {question}\n\n## Answer\n{answer.strip()}\n"
     meta = {"type": "note", "id": nid, "title": question[:90], "added": str(dt.date.today()), "approved_by": approved_by}
-    changes = _apply({WIKI / "notes" / f"{nid}.md": render(meta, body)}, info, dry_run,
+    changes = _apply({_wiki() / "notes" / f"{nid}.md": render(meta, body)}, info, dry_run,
                      ("query", f"{nid} filed", f"Answer kept by {approved_by}: {question[:90]}"))
     return {"note_id": nid, "changes": changes}
 
@@ -481,13 +615,13 @@ def lint():
         if n == 0 and name not in ("index", "log"):
             issues.append({"level": "warning", "page": name, "issue": "orphan page: nothing links here"})
     cases = case_metas()
-    for pid in PATTERNS:
+    for pid in patterns():
         mine = [c for c in cases if c["pattern"] == pid]
         cleared, confirmed = (sum(c["verdict"] == v for c in mine) for v in ("cleared", "confirmed"))
         if len(mine) >= 4 and cleared > 2 * max(confirmed, 1):
             issues.append({"level": "review", "page": pid,
                            "issue": f"{cleared} of {len(mine)} cases were cleared; the detection rule may be too loose"})
     for c in cases:
-        if c["pattern"] not in PATTERNS:
+        if c["pattern"] not in patterns():
             issues.append({"level": "error", "page": c["id"], "issue": f"unknown pattern {c['pattern']}"})
     return {"pages": len(pg), "cases": len(cases), "issues": issues}

@@ -1,0 +1,301 @@
+facility_id,name,type,city,lat,lon,state,district,beds
+F001,"Hridaya Nursing Home, Hisar",Nursing Home,Hisar,29.1405,75.695,Haryana,Hisar,21
+F002,"Zentara Community Health Centre, Chennai",Community Health Centre,Chennai,13.1145,80.2447,Tamil Nadu,Chennai,31
+F003,"Niramay Eye Hospital, Madurai",Eye Hospital,Madurai,9.9,78.1234,Tamil Nadu,Madurai,12
+F004,"Ketaya Multispecialty Hospital, Ludhiana",Multispecialty Hospital,Ludhiana,30.9234,75.8806,Punjab,Ludhiana,130
+F005,"Tavora Multispecialty Hospital, Ahmedabad",Multispecialty Hospital,Ahmedabad,23.0273,72.5902,Gujarat,Ahmedabad,159
+F006,"Udayam Community Health Centre, Gurugram",Community Health Centre,Gurugram,28.4865,76.9928,Haryana,Gurugram,27
+F007,"Rivaan District Hospital, Azamgarh",District Hospital,Azamgarh,26.055,83.1752,Uttar Pradesh,Azamgarh,263
+F008,"Ishvara Nursing Home, Dumka",Nursing Home,Dumka,24.2822,87.2314,Jharkhand,Dumka,11
+F009,"Tejora Community Health Centre, Prayagraj",Community Health Centre,Prayagraj,25.4161,81.8655,Uttar Pradesh,Prayagraj,27
+F010,"Charvi Nursing Home, Kalaburagi",Nursing Home,Kalaburagi,17.3188,76.8509,Karnataka,Kalaburagi,23
+F011,"Devanta District Hospital, Azamgarh",District Hospital,Azamgarh,26.0621,83.1618,Uttar Pradesh,Azamgarh,274
+F012,"Prayana District Hospital, Ahmedabad",District Hospital,Ahmedabad,23.0014,72.544,Gujarat,Ahmedabad,168
+F013,"Sorinda Community Health Centre, Lucknow",Community Health Centre,Lucknow,26.8349,80.957,Uttar Pradesh,Lucknow,24
+F014,"Ishvara Community Health Centre, Kozhikode",Community Health Centre,Kozhikode,11.2229,75.7718,Kerala,Kozhikode,37
+F015,"Tavora Dialysis Centre, Bhavnagar",Dialysis Centre,Bhavnagar,21.7558,72.1253,Gujarat,Bhavnagar,12
+F016,"Ketaya Community Health Centre, Lucknow",Community Health Centre,Lucknow,26.893,80.9348,Uttar Pradesh,Lucknow,24
+F017,"Navira Eye Hospital, Dumka",Eye Hospital,Dumka,24.3547,87.2665,Jharkhand,Dumka,25
+F018,"Jivanta Nursing Home, Bhopal",Nursing Home,Bhopal,23.2345,77.3978,Madhya Pradesh,Bhopal,12
+F019,"Olvira Nursing Home, Ranchi",Nursing Home,Ranchi,23.3169,85.3048,Jharkhand,Ranchi,27
+F020,"Lumora Nursing Home, Bengaluru",Nursing Home,Bengaluru,12.9796,77.5652,Karnataka,Bengaluru Urban,21
+F021,"Navira Dialysis Centre, Barmer",Dialysis Centre,Barmer,25.7646,71.4063,Rajasthan,Barmer,21
+F022,"Yantara Multispecialty Hospital, Lucknow",Multispecialty Hospital,Lucknow,26.7767,80.9766,Uttar Pradesh,Lucknow,142
+F023,"Niramay Community Health Centre, Prayagraj",Community Health Centre,Prayagraj,25.3706,81.8563,Uttar Pradesh,Prayagraj,27
+F024,"Olvira Nursing Home, Jagdalpur",Nursing Home,Jagdalpur,19.0874,82.0235,Chhattisgarh,Bastar,16
+F025,"Ketaya Eye Hospital, Amroha",Eye Hospital,Amroha,28.9397,78.4568,Uttar Pradesh,Amroha,12
+F026,"Charvi Multispecialty Hospital, Barmer",Multispecialty Hospital,Barmer,25.7923,71.3634,Rajasthan,Barmer,126
+F027,"Velora Nursing Home, Chennai",Nursing Home,Chennai,13.0795,80.2661,Tamil Nadu,Chennai,20
+F028,"Kelvane Cancer Centre, Balaghat",Cancer Centre,Balaghat,21.8514,80.1792,Madhya Pradesh,Balaghat,102
+F029,"Tavora Multispecialty Hospital, Madurai",Multispecialty Hospital,Madurai,9.9246,78.1489,Tamil Nadu,Madurai,128
+F030,"Sorinda Nursing Home, Jaipur",Nursing Home,Jaipur,26.8679,75.763,Rajasthan,Jaipur,34
+F031,"Ekanta Nursing Home, Madurai",Nursing Home,Madurai,9.9257,78.1412,Tamil Nadu,Madurai,31
+F032,"Zentara Community Health Centre, Nagpur",Community Health Centre,Nagpur,21.1807,79.1248,Maharashtra,Nagpur,38
+F033,"Varenya Community Health Centre, Ranchi",Community Health Centre,Ranchi,23.3436,85.3283,Jharkhand,Ranchi,38
+F034,"Udayam Cancer Centre, Kochi",Cancer Centre,Kochi,9.9128,76.2909,Kerala,Ernakulam,111
+F035,"Ondira Multispecialty Hospital, Kozhikode",Multispecialty Hospital,Kozhikode,11.2614,75.7711,Kerala,Kozhikode,159
+F036,"Varenya District Hospital, Chennai",District Hospital,Chennai,13.0898,80.2823,Tamil Nadu,Chennai,183
+F037,"Mirava Orthopaedic Hospital, Bengaluru",Orthopaedic Hospital,Bengaluru,12.9739,77.6026,Karnataka,Bengaluru Urban,29
+F038,"Sorinda Multispecialty Hospital, Kochi",Multispecialty Hospital,Kochi,9.9388,76.2206,Kerala,Ernakulam,111
+F039,"Udayam District Hospital, Kozhikode",District Hospital,Kozhikode,11.2711,75.7692,Kerala,Kozhikode,284
+F040,"Tejora Nursing Home, Kalaburagi",Nursing Home,Kalaburagi,17.3618,76.7928,Karnataka,Kalaburagi,14
+F041,"Mirava Community Health Centre, Jagdalpur",Community Health Centre,Jagdalpur,19.0837,81.9632,Chhattisgarh,Bastar,39
+F042,"Zentara Nursing Home, Ludhiana",Nursing Home,Ludhiana,30.8952,75.8485,Punjab,Ludhiana,17
+F043,"Niramay Nursing Home, Chennai",Nursing Home,Chennai,13.0905,80.2824,Tamil Nadu,Chennai,16
+F044,"Ambara Community Health Centre, Dumka",Community Health Centre,Dumka,24.2875,87.2293,Jharkhand,Dumka,27
+F045,"Sorinda Nursing Home, Kozhikode",Nursing Home,Kozhikode,11.2076,75.7948,Kerala,Kozhikode,10
+F046,"Udayam Dialysis Centre, Raipur",Dialysis Centre,Raipur,21.2842,81.6465,Chhattisgarh,Raipur,14
+F047,"Yantara Heart Institute, Jaipur",Heart Institute,Jaipur,26.9607,75.7923,Rajasthan,Jaipur,55
+F048,"Velora Nursing Home, Kozhikode",Nursing Home,Kozhikode,11.2606,75.7647,Kerala,Kozhikode,30
+F049,"Olvira Community Health Centre, Patna",Community Health Centre,Patna,25.6082,85.1597,Bihar,Patna,35
+F050,"Zentara Orthopaedic Hospital, Bhopal",Orthopaedic Hospital,Bhopal,23.2377,77.4625,Madhya Pradesh,Bhopal,43
+F051,"Mirava Community Health Centre, Ranchi",Community Health Centre,Ranchi,23.36,85.2482,Jharkhand,Ranchi,36
+F052,"Ekanta Multispecialty Hospital, Raipur",Multispecialty Hospital,Raipur,21.2243,81.6516,Chhattisgarh,Raipur,59
+F053,"Hridaya Multispecialty Hospital, Chennai",Multispecialty Hospital,Chennai,13.0852,80.2351,Tamil Nadu,Chennai,71
+F054,"Rivaan Dialysis Centre, Bhavnagar",Dialysis Centre,Bhavnagar,21.7771,72.1751,Gujarat,Bhavnagar,22
+F055,"Zentara Eye Hospital, Madurai",Eye Hospital,Madurai,9.9063,78.1496,Tamil Nadu,Madurai,28
+F056,"Shubhra Community Health Centre, Chennai",Community Health Centre,Chennai,13.0466,80.2577,Tamil Nadu,Chennai,25
+F057,"Sukhada Heart Institute, Azamgarh",Heart Institute,Azamgarh,26.0595,83.1769,Uttar Pradesh,Azamgarh,66
+F058,"Zentara Multispecialty Hospital, Gurugram",Multispecialty Hospital,Gurugram,28.4429,77.0293,Haryana,Gurugram,53
+F059,"Olvira Nursing Home, Lucknow",Nursing Home,Lucknow,26.8502,80.9538,Uttar Pradesh,Lucknow,28
+F060,"Shubhra Community Health Centre, Hisar",Community Health Centre,Hisar,29.1169,75.7139,Haryana,Hisar,33
+F061,"Tavora Dialysis Centre, Kochi",Dialysis Centre,Kochi,9.9623,76.3041,Kerala,Ernakulam,11
+F062,"Ishvara Nursing Home, Hisar",Nursing Home,Hisar,29.1417,75.6729,Haryana,Hisar,25
+F063,"Ketaya Dialysis Centre, Kozhikode",Dialysis Centre,Kozhikode,11.2731,75.7649,Kerala,Kozhikode,20
+F064,"Udayam Nursing Home, Azamgarh",Nursing Home,Azamgarh,26.0211,83.2095,Uttar Pradesh,Azamgarh,17
+F065,"Niramay District Hospital, Chennai",District Hospital,Chennai,13.0622,80.2614,Tamil Nadu,Chennai,111
+F066,"Niramay Government Medical College, Jaipur",Government Medical College,Jaipur,26.9577,75.7825,Rajasthan,Jaipur,560
+F067,"Prayana Nursing Home, Bathinda",Nursing Home,Bathinda,30.1835,74.9409,Punjab,Bathinda,24
+F068,"Prayana Multispecialty Hospital, Jagdalpur",Multispecialty Hospital,Jagdalpur,19.0883,82.0485,Chhattisgarh,Bastar,102
+F069,"Rivaan Community Health Centre, Patna",Community Health Centre,Patna,25.6525,85.1608,Bihar,Patna,26
+F070,"Ekanta Nursing Home, Chennai",Nursing Home,Chennai,13.0797,80.2302,Tamil Nadu,Chennai,23
+F071,"Zentara Orthopaedic Hospital, Bhavnagar",Orthopaedic Hospital,Bhavnagar,21.8049,72.1159,Gujarat,Bhavnagar,44
+F072,"Daruna Multispecialty Hospital, Bathinda",Multispecialty Hospital,Bathinda,30.1829,74.9376,Punjab,Bathinda,154
+F073,"Prayana Community Health Centre, Jagdalpur",Community Health Centre,Jagdalpur,19.0654,82.0159,Chhattisgarh,Bastar,37
+F074,"Sukhada District Hospital, Chennai",District Hospital,Chennai,13.078,80.2972,Tamil Nadu,Chennai,250
+F075,"Navira District Hospital, Ludhiana",District Hospital,Ludhiana,30.8836,75.8465,Punjab,Ludhiana,170
+F076,"Shubhra Community Health Centre, Amroha",Community Health Centre,Amroha,28.91,78.5096,Uttar Pradesh,Amroha,27
+F077,"Hridaya Nursing Home, Azamgarh",Nursing Home,Azamgarh,26.0165,83.246,Uttar Pradesh,Azamgarh,33
+F078,"Sukhada District Hospital, Kochi",District Hospital,Kochi,9.8979,76.244,Kerala,Ernakulam,172
+F079,"Yantara Nursing Home, Chennai",Nursing Home,Chennai,13.119,80.2752,Tamil Nadu,Chennai,21
+F080,"Devanta Nursing Home, Raipur",Nursing Home,Raipur,21.2533,81.661,Chhattisgarh,Raipur,34
+F081,"Hridaya Nursing Home, Bathinda",Nursing Home,Bathinda,30.2243,74.9571,Punjab,Bathinda,19
+F082,"Devanta Community Health Centre, Kozhikode",Community Health Centre,Kozhikode,11.3102,75.7905,Kerala,Kozhikode,35
+F083,"Charvi Eye Hospital, Kozhikode",Eye Hospital,Kozhikode,11.2074,75.7664,Kerala,Kozhikode,12
+F084,"Niramay Nursing Home, Madurai",Nursing Home,Madurai,9.8402,78.1036,Tamil Nadu,Madurai,19
+F085,"Jivanta Nursing Home, Ranchi",Nursing Home,Ranchi,23.3928,85.3163,Jharkhand,Ranchi,11
+F086,"Zentara Cancer Centre, Gurugram",Cancer Centre,Gurugram,28.4186,77.0601,Haryana,Gurugram,105
+F087,"Ondira Dialysis Centre, Balaghat",Dialysis Centre,Balaghat,21.812,80.1587,Madhya Pradesh,Balaghat,9
+F088,"Niramay Cancer Centre, Barmer",Cancer Centre,Barmer,25.7008,71.386,Rajasthan,Barmer,104
+F089,"Udayam Orthopaedic Hospital, Kalaburagi",Orthopaedic Hospital,Kalaburagi,17.2528,76.8843,Karnataka,Kalaburagi,53
+F090,"Mirava District Hospital, Bhavnagar",District Hospital,Bhavnagar,21.7571,72.1444,Gujarat,Bhavnagar,135
+F091,"Olvira District Hospital, Lucknow",District Hospital,Lucknow,26.8634,80.9553,Uttar Pradesh,Lucknow,101
+F092,"Udayam Nursing Home, Lucknow",Nursing Home,Lucknow,26.8246,80.9743,Uttar Pradesh,Lucknow,34
+F093,"Prayana District Hospital, Lucknow",District Hospital,Lucknow,26.7732,80.9675,Uttar Pradesh,Lucknow,242
+F094,"Charvi Community Health Centre, Dibrugarh",Community Health Centre,Dibrugarh,27.4785,94.9057,Assam,Dibrugarh,31
+F095,"Tejora Community Health Centre, Prayagraj",Community Health Centre,Prayagraj,25.4962,81.8438,Uttar Pradesh,Prayagraj,32
+F096,"Ekanta Community Health Centre, Bathinda",Community Health Centre,Bathinda,30.1574,74.9961,Punjab,Bathinda,35
+F097,"Lumora Orthopaedic Hospital, Madurai",Orthopaedic Hospital,Madurai,9.9521,78.092,Tamil Nadu,Madurai,41
+F098,"Ketaya District Hospital, Ranchi",District Hospital,Ranchi,23.3475,85.2698,Jharkhand,Ranchi,267
+F099,"Daruna Nursing Home, Sidhi",Nursing Home,Sidhi,24.3637,81.9138,Madhya Pradesh,Sidhi,21
+F100,"Udayam Cancer Centre, Kochi",Cancer Centre,Kochi,9.9595,76.3083,Kerala,Ernakulam,32
+F101,"Sorinda Community Health Centre, Jaipur",Community Health Centre,Jaipur,26.9147,75.7615,Rajasthan,Jaipur,21
+F102,"Ishvara Nursing Home, Bhavnagar",Nursing Home,Bhavnagar,21.755,72.177,Gujarat,Bhavnagar,28
+F103,"Sukhada Community Health Centre, Prayagraj",Community Health Centre,Prayagraj,25.4775,81.8616,Uttar Pradesh,Prayagraj,23
+F104,"Ekanta Multispecialty Hospital, Sidhi",Multispecialty Hospital,Sidhi,24.4202,81.8774,Madhya Pradesh,Sidhi,52
+F105,"Charvi Community Health Centre, Barmer",Community Health Centre,Barmer,25.7876,71.3941,Rajasthan,Barmer,33
+F106,"Velora Nursing Home, Bhavnagar",Nursing Home,Bhavnagar,21.8379,72.2064,Gujarat,Bhavnagar,13
+F107,"Hridaya Cancer Centre, Bengaluru",Cancer Centre,Bengaluru,12.9758,77.6134,Karnataka,Bengaluru Urban,110
+F108,"Hridaya Community Health Centre, Balaghat",Community Health Centre,Balaghat,21.8226,80.2088,Madhya Pradesh,Balaghat,26
+F109,"Niramay Community Health Centre, Hisar",Community Health Centre,Hisar,29.1324,75.7369,Haryana,Hisar,29
+F110,"Yantara Nursing Home, Sidhi",Nursing Home,Sidhi,24.4656,81.8634,Madhya Pradesh,Sidhi,20
+F111,"Ondira Community Health Centre, Azamgarh",Community Health Centre,Azamgarh,26.0328,83.1818,Uttar Pradesh,Azamgarh,27
+F112,"Prayana Nursing Home, Jagdalpur",Nursing Home,Jagdalpur,19.0644,82.017,Chhattisgarh,Bastar,25
+F113,"Prayana Community Health Centre, Madurai",Community Health Centre,Madurai,9.9281,78.0949,Tamil Nadu,Madurai,36
+F114,"Ekanta Nursing Home, Jagdalpur",Nursing Home,Jagdalpur,19.0745,82.0372,Chhattisgarh,Bastar,16
+F115,"Ketaya Nursing Home, Ahmedabad",Nursing Home,Ahmedabad,22.9986,72.6059,Gujarat,Ahmedabad,11
+F116,"Samvedra Nursing Home, Kalaburagi",Nursing Home,Kalaburagi,17.3563,76.8285,Karnataka,Kalaburagi,28
+F117,"Varenya Nursing Home, Bhavnagar",Nursing Home,Bhavnagar,21.7507,72.1268,Gujarat,Bhavnagar,24
+F118,"Sorinda Orthopaedic Hospital, Raipur",Orthopaedic Hospital,Raipur,21.1854,81.6077,Chhattisgarh,Raipur,35
+F119,"Mirava Nursing Home, Patna",Nursing Home,Patna,25.6248,85.1892,Bihar,Patna,34
+F120,"Ishvara Dialysis Centre, Chennai",Dialysis Centre,Chennai,13.1319,80.2538,Tamil Nadu,Chennai,13
+F121,"Tavora Community Health Centre, Nagpur",Community Health Centre,Nagpur,21.1333,79.0547,Maharashtra,Nagpur,28
+F122,"Shubhra District Hospital, Bhopal",District Hospital,Bhopal,23.3007,77.3667,Madhya Pradesh,Bhopal,289
+F123,"Jivanta Multispecialty Hospital, Madurai",Multispecialty Hospital,Madurai,9.914,78.1072,Tamil Nadu,Madurai,76
+F124,"Rivaan Nursing Home, Lucknow",Nursing Home,Lucknow,26.8202,80.9878,Uttar Pradesh,Lucknow,34
+F125,"Kelvane Nursing Home, Prayagraj",Nursing Home,Prayagraj,25.4123,81.8889,Uttar Pradesh,Prayagraj,19
+F126,"Tejora Nursing Home, Kalaburagi",Nursing Home,Kalaburagi,17.3791,76.8491,Karnataka,Kalaburagi,28
+F127,"Niramay Community Health Centre, Mumbai",Community Health Centre,Mumbai,19.121,72.8592,Maharashtra,Mumbai Suburban,31
+F128,"Yantara Community Health Centre, Ahmedabad",Community Health Centre,Ahmedabad,23.0409,72.5962,Gujarat,Ahmedabad,35
+F129,"Ishvara Eye Hospital, Jaipur",Eye Hospital,Jaipur,26.8796,75.7856,Rajasthan,Jaipur,27
+F130,"Hridaya Orthopaedic Hospital, Bhavnagar",Orthopaedic Hospital,Bhavnagar,21.784,72.1698,Gujarat,Bhavnagar,21
+F131,"Charvi District Hospital, Mumbai",District Hospital,Mumbai,19.0474,72.9469,Maharashtra,Mumbai Suburban,260
+F132,"Sorinda Community Health Centre, Bhopal",Community Health Centre,Bhopal,23.2788,77.4048,Madhya Pradesh,Bhopal,28
+F133,"Mirava Community Health Centre, Bhopal",Community Health Centre,Bhopal,23.2436,77.3708,Madhya Pradesh,Bhopal,26
+F134,"Samvedra District Hospital, Bhopal",District Hospital,Bhopal,23.2429,77.469,Madhya Pradesh,Bhopal,268
+F135,"Sukhada Nursing Home, Mumbai",Nursing Home,Mumbai,19.0643,72.877,Maharashtra,Mumbai Suburban,19
+F136,"Ketaya Community Health Centre, Dumka",Community Health Centre,Dumka,24.2078,87.2464,Jharkhand,Dumka,23
+F137,"Jivanta Community Health Centre, Bengaluru",Community Health Centre,Bengaluru,12.9173,77.5427,Karnataka,Bengaluru Urban,32
+F138,"Ishvara Community Health Centre, Ahmedabad",Community Health Centre,Ahmedabad,23.0155,72.5944,Gujarat,Ahmedabad,38
+F139,"Niramay Multispecialty Hospital, Ranchi",Multispecialty Hospital,Ranchi,23.3078,85.3436,Jharkhand,Ranchi,115
+F140,"Hridaya Community Health Centre, Nagpur",Community Health Centre,Nagpur,21.1747,79.0997,Maharashtra,Nagpur,26
+F141,"Olvira Cancer Centre, Prayagraj",Cancer Centre,Prayagraj,25.4752,81.885,Uttar Pradesh,Prayagraj,40
+F142,"Niramay Multispecialty Hospital, Raipur",Multispecialty Hospital,Raipur,21.2032,81.6203,Chhattisgarh,Raipur,71
+F143,"Shubhra Nursing Home, Raipur",Nursing Home,Raipur,21.2048,81.6728,Chhattisgarh,Raipur,24
+F144,"Tejora Multispecialty Hospital, Ranchi",Multispecialty Hospital,Ranchi,23.3349,85.3356,Jharkhand,Ranchi,72
+F145,"Tejora District Hospital, Kozhikode",District Hospital,Kozhikode,11.3183,75.8353,Kerala,Kozhikode,264
+F146,"Rivaan Nursing Home, Chennai",Nursing Home,Chennai,13.0563,80.2223,Tamil Nadu,Chennai,19
+F147,"Hridaya Nursing Home, Chennai",Nursing Home,Chennai,13.0948,80.2349,Tamil Nadu,Chennai,13
+F148,"Jivanta Multispecialty Hospital, Lucknow",Multispecialty Hospital,Lucknow,26.823,81.023,Uttar Pradesh,Lucknow,117
+F149,"Navira Nursing Home, Kalaburagi",Nursing Home,Kalaburagi,17.3025,76.8438,Karnataka,Kalaburagi,29
+F150,"Charvi Nursing Home, Kalaburagi",Nursing Home,Kalaburagi,17.3442,76.805,Karnataka,Kalaburagi,32
+F151,"Sukhada District Hospital, Mumbai",District Hospital,Mumbai,19.0723,72.8854,Maharashtra,Mumbai Suburban,132
+F152,"Lumora Nursing Home, Lucknow",Nursing Home,Lucknow,26.8025,80.9394,Uttar Pradesh,Lucknow,30
+F153,"Devanta Heart Institute, Ranchi",Heart Institute,Ranchi,23.3432,85.3469,Jharkhand,Ranchi,49
+F154,"Rivaan Nursing Home, Ahmedabad",Nursing Home,Ahmedabad,23.019,72.5808,Gujarat,Ahmedabad,33
+F155,"Udayam Community Health Centre, Lucknow",Community Health Centre,Lucknow,26.8483,80.9557,Uttar Pradesh,Lucknow,31
+F156,"Prayana Nursing Home, Raipur",Nursing Home,Raipur,21.2905,81.6471,Chhattisgarh,Raipur,14
+F157,"Samvedra Community Health Centre, Amroha",Community Health Centre,Amroha,28.8974,78.4715,Uttar Pradesh,Amroha,35
+F158,"Devanta Multispecialty Hospital, Mumbai",Multispecialty Hospital,Mumbai,19.1051,72.9403,Maharashtra,Mumbai Suburban,137
+F159,"Shubhra Nursing Home, Bengaluru",Nursing Home,Bengaluru,12.9613,77.5801,Karnataka,Bengaluru Urban,25
+F160,"Ishvara Community Health Centre, Jaipur",Community Health Centre,Jaipur,26.912,75.7935,Rajasthan,Jaipur,28
+F161,"Velora Orthopaedic Hospital, Kochi",Orthopaedic Hospital,Kochi,9.897,76.2672,Kerala,Ernakulam,42
+F162,"Ekanta Multispecialty Hospital, Jaipur",Multispecialty Hospital,Jaipur,26.8462,75.8395,Rajasthan,Jaipur,131
+F163,"Prayana Nursing Home, Nagpur",Nursing Home,Nagpur,21.1363,79.0769,Maharashtra,Nagpur,12
+F164,"Udayam Community Health Centre, Ludhiana",Community Health Centre,Ludhiana,30.9019,75.8794,Punjab,Ludhiana,20
+F165,"Jivanta Multispecialty Hospital, Jaipur",Multispecialty Hospital,Jaipur,26.8946,75.7912,Rajasthan,Jaipur,109
+F166,"Kelvane Nursing Home, Kochi",Nursing Home,Kochi,9.9452,76.2592,Kerala,Ernakulam,30
+F167,"Yantara District Hospital, Lucknow",District Hospital,Lucknow,26.8249,80.8902,Uttar Pradesh,Lucknow,213
+F168,"Lumora Nursing Home, Dibrugarh",Nursing Home,Dibrugarh,27.427,94.9109,Assam,Dibrugarh,10
+F169,"Mirava Nursing Home, Chennai",Nursing Home,Chennai,13.0346,80.3231,Tamil Nadu,Chennai,10
+F170,"Charvi Eye Hospital, Kochi",Eye Hospital,Kochi,9.9484,76.2518,Kerala,Ernakulam,21
+F171,"Avanta Nursing Home, Raipur",Nursing Home,Raipur,21.2238,81.5449,Chhattisgarh,Raipur,29
+F172,"Ekanta Nursing Home, Bhavnagar",Nursing Home,Bhavnagar,21.7588,72.1614,Gujarat,Bhavnagar,23
+F173,"Shubhra Orthopaedic Hospital, Prayagraj",Orthopaedic Hospital,Prayagraj,25.3961,81.8165,Uttar Pradesh,Prayagraj,24
+F174,"Zentara District Hospital, Bengaluru",District Hospital,Bengaluru,12.9424,77.5389,Karnataka,Bengaluru Urban,157
+F175,"Devanta District Hospital, Jaipur",District Hospital,Jaipur,26.9076,75.7764,Rajasthan,Jaipur,201
+F176,"Kelvane Nursing Home, Bhavnagar",Nursing Home,Bhavnagar,21.7905,72.1118,Gujarat,Bhavnagar,13
+F177,"Prayana Community Health Centre, Kalaburagi",Community Health Centre,Kalaburagi,17.296,76.8633,Karnataka,Kalaburagi,29
+F178,"Daruna Nursing Home, Kochi",Nursing Home,Kochi,9.8845,76.278,Kerala,Ernakulam,13
+F179,"Ekanta Community Health Centre, Madurai",Community Health Centre,Madurai,9.9275,78.1401,Tamil Nadu,Madurai,33
+F180,"Prayana Nursing Home, Bengaluru",Nursing Home,Bengaluru,12.9725,77.5724,Karnataka,Bengaluru Urban,28
+F181,"Navira Community Health Centre, Lucknow",Community Health Centre,Lucknow,26.8348,80.9482,Uttar Pradesh,Lucknow,37
+F182,"Kelvane Community Health Centre, Gurugram",Community Health Centre,Gurugram,28.4943,77.0143,Haryana,Gurugram,24
+F183,"Tavora Community Health Centre, Madurai",Community Health Centre,Madurai,9.8762,78.1288,Tamil Nadu,Madurai,35
+F184,"Ondira Government Medical College, Ranchi",Government Medical College,Ranchi,23.313,85.2435,Jharkhand,Ranchi,861
+F185,"Sorinda Nursing Home, Ranchi",Nursing Home,Ranchi,23.3377,85.3092,Jharkhand,Ranchi,15
+F186,"Navira Community Health Centre, Barmer",Community Health Centre,Barmer,25.7213,71.4211,Rajasthan,Barmer,37
+F187,"Prayana Community Health Centre, Kalaburagi",Community Health Centre,Kalaburagi,17.3377,76.8812,Karnataka,Kalaburagi,24
+F188,"Shubhra Nursing Home, Dibrugarh",Nursing Home,Dibrugarh,27.4677,94.935,Assam,Dibrugarh,17
+F189,"Varenya Community Health Centre, Azamgarh",Community Health Centre,Azamgarh,26.0601,83.1944,Uttar Pradesh,Azamgarh,28
+F190,"Hridaya Nursing Home, Bengaluru",Nursing Home,Bengaluru,13.0399,77.5389,Karnataka,Bengaluru Urban,30
+F191,"Lumora Nursing Home, Gurugram",Nursing Home,Gurugram,28.4278,77.0345,Haryana,Gurugram,19
+F192,"Yantara Orthopaedic Hospital, Jaipur",Orthopaedic Hospital,Jaipur,26.8997,75.731,Rajasthan,Jaipur,51
+F193,"Tavora Eye Hospital, Chennai",Eye Hospital,Chennai,13.0923,80.243,Tamil Nadu,Chennai,23
+F194,"Niramay Heart Institute, Bhopal",Heart Institute,Bhopal,23.235,77.4036,Madhya Pradesh,Bhopal,104
+F195,"Ambara Community Health Centre, Mumbai",Community Health Centre,Mumbai,19.0816,72.8716,Maharashtra,Mumbai Suburban,30
+F196,"Avanta Dialysis Centre, Bhopal",Dialysis Centre,Bhopal,23.2832,77.4364,Madhya Pradesh,Bhopal,16
+F197,"Daruna District Hospital, Amroha",District Hospital,Amroha,28.9041,78.4613,Uttar Pradesh,Amroha,199
+F198,"Devanta Nursing Home, Lucknow",Nursing Home,Lucknow,26.8699,80.9119,Uttar Pradesh,Lucknow,17
+F199,"Kelvane Nursing Home, Madurai",Nursing Home,Madurai,9.9163,78.1051,Tamil Nadu,Madurai,25
+F200,"Yantara Multispecialty Hospital, Lucknow",Multispecialty Hospital,Lucknow,26.8397,80.9269,Uttar Pradesh,Lucknow,46
+F201,"Yantara Community Health Centre, Madurai",Community Health Centre,Madurai,9.9853,78.1522,Tamil Nadu,Madurai,27
+F202,"Ketaya Community Health Centre, Ahmedabad",Community Health Centre,Ahmedabad,23.0318,72.5255,Gujarat,Ahmedabad,28
+F203,"Velora Nursing Home, Lucknow",Nursing Home,Lucknow,26.8387,80.9823,Uttar Pradesh,Lucknow,31
+F204,"Ondira Community Health Centre, Raipur",Community Health Centre,Raipur,21.228,81.6571,Chhattisgarh,Raipur,37
+F205,"Zentara Community Health Centre, Balaghat",Community Health Centre,Balaghat,21.8011,80.1639,Madhya Pradesh,Balaghat,34
+F206,"Ketaya Community Health Centre, Bengaluru",Community Health Centre,Bengaluru,13.0026,77.6011,Karnataka,Bengaluru Urban,23
+F207,"Varenya Nursing Home, Sidhi",Nursing Home,Sidhi,24.4204,81.8805,Madhya Pradesh,Sidhi,29
+F208,"Rivaan Nursing Home, Azamgarh",Nursing Home,Azamgarh,26.0304,83.1794,Uttar Pradesh,Azamgarh,29
+F209,"Prayana District Hospital, Jaipur",District Hospital,Jaipur,26.8807,75.7369,Rajasthan,Jaipur,318
+F210,"Udayam Community Health Centre, Jaipur",Community Health Centre,Jaipur,26.9057,75.7905,Rajasthan,Jaipur,32
+F211,"Yantara Nursing Home, Ranchi",Nursing Home,Ranchi,23.3848,85.294,Jharkhand,Ranchi,27
+F212,"Lumora Orthopaedic Hospital, Kochi",Orthopaedic Hospital,Kochi,9.9438,76.2781,Kerala,Ernakulam,29
+F213,"Daruna Nursing Home, Lucknow",Nursing Home,Lucknow,26.8249,80.9059,Uttar Pradesh,Lucknow,26
+F214,"Hridaya Multispecialty Hospital, Balaghat",Multispecialty Hospital,Balaghat,21.8073,80.2054,Madhya Pradesh,Balaghat,100
+F215,"Shubhra Nursing Home, Chennai",Nursing Home,Chennai,13.0798,80.2894,Tamil Nadu,Chennai,29
+F216,"Prayana Nursing Home, Guwahati",Nursing Home,Guwahati,26.0877,91.7818,Assam,Kamrup Metropolitan,11
+F217,"Mirava Nursing Home, Bengaluru",Nursing Home,Bengaluru,12.9669,77.5752,Karnataka,Bengaluru Urban,25
+F218,"Charvi District Hospital, Ludhiana",District Hospital,Ludhiana,30.8874,75.8288,Punjab,Ludhiana,229
+F219,"Shubhra Heart Institute, Bhopal",Heart Institute,Bhopal,23.2534,77.4368,Madhya Pradesh,Bhopal,145
+F220,"Devanta Nursing Home, Guwahati",Nursing Home,Guwahati,26.1111,91.7083,Assam,Kamrup Metropolitan,34
+F221,"Hridaya Multispecialty Hospital, Raipur",Multispecialty Hospital,Raipur,21.2592,81.604,Chhattisgarh,Raipur,88
+F222,"Avanta Dialysis Centre, Bhopal",Dialysis Centre,Bhopal,23.2456,77.4005,Madhya Pradesh,Bhopal,16
+F223,"Shubhra Community Health Centre, Madurai",Community Health Centre,Madurai,9.9048,78.0857,Tamil Nadu,Madurai,27
+F224,"Lumora Orthopaedic Hospital, Kalaburagi",Orthopaedic Hospital,Kalaburagi,17.3836,76.8729,Karnataka,Kalaburagi,17
+F225,"Sorinda Multispecialty Hospital, Bengaluru",Multispecialty Hospital,Bengaluru,12.9568,77.6186,Karnataka,Bengaluru Urban,50
+F226,"Ketaya Nursing Home, Prayagraj",Nursing Home,Prayagraj,25.397,81.7846,Uttar Pradesh,Prayagraj,12
+F227,"Navira Heart Institute, Barmer",Heart Institute,Barmer,25.7846,71.3255,Rajasthan,Barmer,143
+F228,"Ondira Government Medical College, Ahmedabad",Government Medical College,Ahmedabad,23.0603,72.5504,Gujarat,Ahmedabad,656
+F229,"Ondira Orthopaedic Hospital, Kochi",Orthopaedic Hospital,Kochi,9.899,76.2849,Kerala,Ernakulam,18
+F230,"Ondira District Hospital, Raipur",District Hospital,Raipur,21.235,81.6504,Chhattisgarh,Raipur,160
+F231,"Shubhra Nursing Home, Patna",Nursing Home,Patna,25.5826,85.1822,Bihar,Patna,32
+F232,"Ambara Nursing Home, Raipur",Nursing Home,Raipur,21.2358,81.6385,Chhattisgarh,Raipur,28
+F233,"Navira Community Health Centre, Kalaburagi",Community Health Centre,Kalaburagi,17.2863,76.7979,Karnataka,Kalaburagi,27
+F234,"Ekanta Orthopaedic Hospital, Balaghat",Orthopaedic Hospital,Balaghat,21.7755,80.2025,Madhya Pradesh,Balaghat,30
+F235,"Ekanta Eye Hospital, Mumbai",Eye Hospital,Mumbai,19.142,72.8452,Maharashtra,Mumbai Suburban,29
+F236,"Navira Multispecialty Hospital, Bhopal",Multispecialty Hospital,Bhopal,23.2395,77.3848,Madhya Pradesh,Bhopal,90
+F237,"Avanta Nursing Home, Hisar",Nursing Home,Hisar,29.1318,75.6717,Haryana,Hisar,13
+F238,"Yantara Community Health Centre, Bengaluru",Community Health Centre,Bengaluru,12.991,77.5629,Karnataka,Bengaluru Urban,33
+F239,"Charvi Multispecialty Hospital, Kalaburagi",Multispecialty Hospital,Kalaburagi,17.3133,76.8112,Karnataka,Kalaburagi,69
+F240,"Ambara Multispecialty Hospital, Ranchi",Multispecialty Hospital,Ranchi,23.3176,85.2927,Jharkhand,Ranchi,116
+F241,"Avanta Community Health Centre, Bhopal",Community Health Centre,Bhopal,23.2263,77.4631,Madhya Pradesh,Bhopal,35
+F242,"Ekanta District Hospital, Nagpur",District Hospital,Nagpur,21.1636,79.0929,Maharashtra,Nagpur,224
+F243,"Zentara Government Medical College, Ludhiana",Government Medical College,Ludhiana,30.9038,75.8604,Punjab,Ludhiana,644
+F244,"Tavora Eye Hospital, Jaipur",Eye Hospital,Jaipur,26.9413,75.7947,Rajasthan,Jaipur,21
+F245,"Prayana Nursing Home, Kalaburagi",Nursing Home,Kalaburagi,17.3148,76.8775,Karnataka,Kalaburagi,21
+F246,"Ekanta Nursing Home, Kochi",Nursing Home,Kochi,9.9667,76.2415,Kerala,Ernakulam,25
+F247,"Yantara Dialysis Centre, Chennai",Dialysis Centre,Chennai,13.0822,80.2925,Tamil Nadu,Chennai,11
+F248,"Yantara Nursing Home, Sidhi",Nursing Home,Sidhi,24.4017,81.8544,Madhya Pradesh,Sidhi,29
+F249,"Ketaya Nursing Home, Kalaburagi",Nursing Home,Kalaburagi,17.3414,76.8258,Karnataka,Kalaburagi,13
+F250,"Rivaan Nursing Home, Madurai",Nursing Home,Madurai,9.9381,78.1349,Tamil Nadu,Madurai,17
+F251,"Tavora Government Medical College, Guwahati",Government Medical College,Guwahati,26.1459,91.6995,Assam,Kamrup Metropolitan,879
+F252,"Navira Nursing Home, Lucknow",Nursing Home,Lucknow,26.825,80.9384,Uttar Pradesh,Lucknow,23
+F253,"Olvira Nursing Home, Bengaluru",Nursing Home,Bengaluru,12.9647,77.5902,Karnataka,Bengaluru Urban,24
+F254,"Ishvara District Hospital, Gurugram",District Hospital,Gurugram,28.4518,77.0451,Haryana,Gurugram,251
+F255,"Ishvara Community Health Centre, Kochi",Community Health Centre,Kochi,9.9496,76.2633,Kerala,Ernakulam,35
+F256,"Shubhra Community Health Centre, Prayagraj",Community Health Centre,Prayagraj,25.4762,81.9346,Uttar Pradesh,Prayagraj,21
+F257,"Zentara Multispecialty Hospital, Ahmedabad",Multispecialty Hospital,Ahmedabad,23.0426,72.6265,Gujarat,Ahmedabad,83
+F258,"Daruna District Hospital, Purnia",District Hospital,Purnia,25.8001,87.4039,Bihar,Purnia,261
+F259,"Yantara Government Medical College, Patna",Government Medical College,Patna,25.6209,85.1435,Bihar,Patna,693
+F260,"Zentara Orthopaedic Hospital, Raipur",Orthopaedic Hospital,Raipur,21.2847,81.6466,Chhattisgarh,Raipur,35
+F261,"Ambara Government Medical College, Kalaburagi",Government Medical College,Kalaburagi,17.3161,76.8403,Karnataka,Kalaburagi,907
+F262,"Ishvara Dialysis Centre, Patna",Dialysis Centre,Patna,25.5528,85.1817,Bihar,Patna,24
+F263,"Sorinda Multispecialty Hospital, Purnia",Multispecialty Hospital,Purnia,25.7826,87.3842,Bihar,Purnia,148
+F264,"Devanta Community Health Centre, Sidhi",Community Health Centre,Sidhi,24.4631,81.8478,Madhya Pradesh,Sidhi,21
+F265,"Varenya Community Health Centre, Madurai",Community Health Centre,Madurai,9.8902,78.1663,Tamil Nadu,Madurai,31
+F266,"Olvira Nursing Home, Madurai",Nursing Home,Madurai,9.8991,78.1564,Tamil Nadu,Madurai,13
+F267,"Samvedra Dialysis Centre, Bengaluru",Dialysis Centre,Bengaluru,12.9697,77.6586,Karnataka,Bengaluru Urban,19
+F268,"Velora Nursing Home, Kozhikode",Nursing Home,Kozhikode,11.2412,75.8296,Kerala,Kozhikode,16
+F269,"Ekanta Community Health Centre, Chennai",Community Health Centre,Chennai,13.1076,80.2315,Tamil Nadu,Chennai,21
+F270,"Zentara Orthopaedic Hospital, Barmer",Orthopaedic Hospital,Barmer,25.7502,71.421,Rajasthan,Barmer,44
+F271,"Rivaan Nursing Home, Barmer",Nursing Home,Barmer,25.7731,71.3815,Rajasthan,Barmer,18
+F272,"Ekanta District Hospital, Madurai",District Hospital,Madurai,9.9368,78.1263,Tamil Nadu,Madurai,304
+F273,"Sorinda Government Medical College, Kochi",Government Medical College,Kochi,9.9401,76.2717,Kerala,Ernakulam,733
+F274,"Olvira Community Health Centre, Bhavnagar",Community Health Centre,Bhavnagar,21.7226,72.136,Gujarat,Bhavnagar,22
+F275,"Prayana Multispecialty Hospital, Ahmedabad",Multispecialty Hospital,Ahmedabad,22.9985,72.5549,Gujarat,Ahmedabad,93
+F276,"Ambara Cancer Centre, Chennai",Cancer Centre,Chennai,13.019,80.2932,Tamil Nadu,Chennai,105
+F277,"Tejora Nursing Home, Jagdalpur",Nursing Home,Jagdalpur,19.0548,82.0037,Chhattisgarh,Bastar,17
+F278,"Varenya Nursing Home, Barmer",Nursing Home,Barmer,25.7315,71.3965,Rajasthan,Barmer,26
+F279,"Daruna Nursing Home, Bengaluru",Nursing Home,Bengaluru,12.9782,77.6046,Karnataka,Bengaluru Urban,27
+F280,"Hridaya Multispecialty Hospital, Chennai",Multispecialty Hospital,Chennai,13.0434,80.254,Tamil Nadu,Chennai,75
+F281,"Jivanta Community Health Centre, Bengaluru",Community Health Centre,Bengaluru,13.0212,77.5814,Karnataka,Bengaluru Urban,24
+F282,"Samvedra Nursing Home, Chennai",Nursing Home,Chennai,13.1145,80.3045,Tamil Nadu,Chennai,28
+F283,"Navira Nursing Home, Azamgarh",Nursing Home,Azamgarh,26.0374,83.139,Uttar Pradesh,Azamgarh,32
+F284,"Tavora Community Health Centre, Balaghat",Community Health Centre,Balaghat,21.7528,80.1698,Madhya Pradesh,Balaghat,28
+F285,"Ekanta District Hospital, Jaipur",District Hospital,Jaipur,26.8599,75.7498,Rajasthan,Jaipur,145
+F286,"Ondira Community Health Centre, Kalaburagi",Community Health Centre,Kalaburagi,17.3372,76.8365,Karnataka,Kalaburagi,30
+F287,"Avanta Community Health Centre, Ahmedabad",Community Health Centre,Ahmedabad,22.9809,72.6511,Gujarat,Ahmedabad,34
+F288,"Ekanta Government Medical College, Bengaluru",Government Medical College,Bengaluru,12.9593,77.5531,Karnataka,Bengaluru Urban,747
+F289,"Tejora Dialysis Centre, Prayagraj",Dialysis Centre,Prayagraj,25.4548,81.8868,Uttar Pradesh,Prayagraj,16
+F290,"Hridaya Community Health Centre, Prayagraj",Community Health Centre,Prayagraj,25.4497,81.8926,Uttar Pradesh,Prayagraj,23
+F291,"Varenya Multispecialty Hospital, Jagdalpur",Multispecialty Hospital,Jagdalpur,19.1001,81.9559,Chhattisgarh,Bastar,127
+F292,"Prayana Multispecialty Hospital, Madurai",Multispecialty Hospital,Madurai,9.8894,78.0797,Tamil Nadu,Madurai,107
+F293,"Ekanta District Hospital, Prayagraj",District Hospital,Prayagraj,25.4578,81.8494,Uttar Pradesh,Prayagraj,189
+F294,"Yantara Multispecialty Hospital, Jagdalpur",Multispecialty Hospital,Jagdalpur,19.0988,81.9904,Chhattisgarh,Bastar,119
+F295,"Sorinda Community Health Centre, Ahmedabad",Community Health Centre,Ahmedabad,23.0465,72.5783,Gujarat,Ahmedabad,27
+F296,"Ondira Dialysis Centre, Kochi",Dialysis Centre,Kochi,9.9529,76.311,Kerala,Ernakulam,10
+F297,"Prayana Nursing Home, Jagdalpur",Nursing Home,Jagdalpur,19.0399,82.0411,Chhattisgarh,Bastar,26
+F298,"Ishvara Nursing Home, Barmer",Nursing Home,Barmer,25.6749,71.3841,Rajasthan,Barmer,16
+F299,"Ishvara Dialysis Centre, Jagdalpur",Dialysis Centre,Jagdalpur,19.0891,82.037,Chhattisgarh,Bastar,24
+F300,"Shubhra Community Health Centre, Kochi",Community Health Centre,Kochi,9.976,76.2806,Kerala,Ernakulam,26

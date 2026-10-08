@@ -1,0 +1,5 @@
+ward_type,per_day_rate_inr,source
+general,1800,HBP 2.0 / HBP 2.2 manual
+hdu,2700,HBP 2.0 / HBP 2.2 manual
+icu,3600,HBP 2.0 / HBP 2.2 manual
+icu_ventilator,4500,HBP 2.0 / HBP 2.2 manual

@@ -5,6 +5,10 @@
 2. Leiden community detection on that graph -> candidate rings.
 3. Referral cycles (strongly connected components) and shared ownership per ring.
 4. BiRank: propagate risk from seed providers through shared members.
+
+India adds the agent who brought the beneficiary (claims.referred_by_agent_id): an edge counts claims two
+hospitals received from the same agents, and a network where one agent brings most admissions scores like
+a referral loop. Villages and card operators of the shared beneficiaries are reported as ring evidence.
 """
 from collections import Counter
 from itertools import combinations
@@ -13,6 +17,8 @@ import networkx as nx
 import numpy as np
 import pandas as pd
 from scipy import sparse
+
+from backend.region import PUBLIC_OWNERS
 
 
 def communities(G):
@@ -58,18 +64,26 @@ def run(claims, prov, members, referrals, seeds):
         for a, b in combinations(sorted(ps), 2):
             shared[(a, b)] += 1
     ref = referrals.groupby(["from_provider_id", "to_provider_id"]).size().to_dict()
+    agents = "referred_by_agent_id" in claims
+    if agents:
+        ac = claims.groupby(["referred_by_agent_id", "provider_id"]).size().rename("n").reset_index()
+        j = ac.merge(ac, on="referred_by_agent_id")
+        j = j[j.provider_id_x < j.provider_id_y]
+        via_agent = (j.assign(n=np.minimum(j.n_x, j.n_y)).groupby(["provider_id_x", "provider_id_y"]).n.sum()).to_dict()
 
     pairs = {k for k, v in shared.items() if v >= 5}
     pairs |= {tuple(sorted(k)) for k, v in ref.items() if v >= 5 and k[0] != k[1]}
-    for _, grp in prov.groupby("owner_id"):
-        pairs |= set(combinations(sorted(grp.provider_id), 2))
+    for owner, grp in prov.groupby("owner_id"):
+        if owner not in PUBLIC_OWNERS:
+            pairs |= set(combinations(sorted(grp.provider_id), 2))
     rows = []
     for a, b in pairs:
         s = shared.get((a, b), 0)
         expected = nm[a] * nm[b] / city_n[P.city[a]]
         rows.append({"a": a, "b": b, "shared": s, "lift": round(s / expected, 2) if expected else 0.0,
                      "ref_ab": ref.get((a, b), 0), "ref_ba": ref.get((b, a), 0),
-                     "same_owner": int(P.owner_id[a] == P.owner_id[b])})
+                     "same_owner": int(P.owner_id[a] == P.owner_id[b] and P.owner_id[a] not in PUBLIC_OWNERS)}
+                    | ({"agent_claims": int(via_agent.get((a, b), 0))} if agents else {}))
     edges = pd.DataFrame(rows)
 
     G = nx.Graph()
@@ -87,22 +101,38 @@ def run(claims, prov, members, referrals, seeds):
     for i, comm in enumerate([c for c in comms if len(c) >= 3], start=1):
         cid = f"N{i:02d}"
         comm = sorted(comm)
-        owners = P.owner_id[comm].value_counts()
-        owner_share = float(owners.iloc[0] / len(comm))
+        owners = P.owner_id[comm][lambda o: ~o.isin(PUBLIC_OWNERS)].value_counts()
+        owner_share = float(owners.iloc[0] / len(comm)) if len(owners) else 0.0
         cyc = sum(p in in_cycle for p in comm) / len(comm)
         sub = claims[claims.provider_id.isin(comm)]
         seen = sub.groupby("member_id").provider_id.nunique()
         shared_members = set(seen[seen >= 3].index)
-        score = 0.5 + 0.25 * (owner_share >= 0.5) + 0.25 * (cyc >= 0.5)
+        extra = _ring_evidence(sub, members, shared_members) if agents else {}
+        score = 0.5 + 0.25 * (owner_share >= 0.5) + 0.25 * (cyc >= 0.5 or extra.get("agent_share", 0) >= 0.5)
         clusters[cid] = {
             "cluster_id": cid, "providers": comm, "size": len(comm), "method": method,
-            "top_owner": owners.index[0], "owner_share": round(owner_share, 2),
+            "top_owner": owners.index[0] if len(owners) else "", "owner_share": round(owner_share, 2),
             "referral_cycle": bool(cyc >= 0.5), "shared_members": len(shared_members),
             "shared_member_ids": sorted(shared_members),
             "paid_on_shared_members": round(float(sub[sub.member_id.isin(shared_members)].paid_amount.sum()), 2),
-            "score": score,
+            "score": score, **extra,
         }
         net.loc[net.provider_id.isin(comm), ["cluster_id", "cluster_score"]] = [cid, score]
 
     net["birank"] = net.provider_id.map(birank(claims, seeds)).fillna(0).round(4)
     return net, edges, clusters
+
+
+def _ring_evidence(sub, members, shared):
+    """India: who brought the network's beneficiaries and where they come from."""
+    top = sub.referred_by_agent_id.value_counts()
+    m = members.set_index("member_id").reindex(sorted(shared))
+    villages = m.village_code.value_counts()
+    ops = m.card_operator_id.value_counts()
+    return {
+        "top_agent": top.index[0] if len(top) else "", "agent_share": round(float(top.iloc[0] / len(sub)), 2) if len(top) else 0.0,
+        "top_villages": villages.head(3).index.tolist(),
+        "village_share": round(float(villages.head(3).sum() / len(m)), 2) if len(m) else 0.0,
+        "top_card_operator": ops.index[0] if len(ops) else "",
+        "operator_share": round(float(ops.iloc[0] / len(m)), 2) if len(ops) else 0.0,
+    }

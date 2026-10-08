@@ -4,6 +4,7 @@ confidence = evidence strength (rules, ML, graph agreeing)  +  precedent adjustm
 Routing follows the three-tier control model: high -> fast track with audit trail,
 medium -> investigator review, low -> "not enough evidence".
 """
+from backend import region
 
 TIERS = {
     "high": {"label": "High confidence", "route": "Fast-track to SIU with audit trail",
@@ -12,6 +13,15 @@ TIERS = {
                "owner": "SIU investigator", "threshold": 0.35},
     "low": {"label": "Low confidence", "route": "Not enough evidence: monitor, do not open a case",
             "owner": "Program integrity analyst", "threshold": 0.0},
+}
+# India: cases go to the State Anti-Fraud Unit (SAFU), which verifies by desk and field audit.
+TIERS_IN = {
+    "high": {"label": "High confidence", "route": "Fast-track to the State Anti-Fraud Unit for field audit, with audit trail",
+             "owner": "SAFU lead", "threshold": 0.70},
+    "medium": {"label": "Medium confidence", "route": "Assign to a SAFU investigator for desk audit",
+               "owner": "SAFU investigator", "threshold": 0.35},
+    "low": {"label": "Low confidence", "route": "Not enough evidence: keep on the watch list, do not open a case",
+            "owner": "SHA analytics team", "threshold": 0.0},
 }
 
 
@@ -34,7 +44,8 @@ def score(case, precs):
     adj = max(-0.35, min(0.30, adj))
     value = max(0.02, min(0.98, base + adj))
     tier = "high" if value >= 0.70 else "medium" if value >= 0.35 else "low"
-    return {"score": round(value, 3), "tier": tier, **{k: v for k, v in TIERS[tier].items() if k != "threshold"},
+    tiers = TIERS_IN if region.current().code == "in" else TIERS
+    return {"score": round(value, 3), "tier": tier, **{k: v for k, v in tiers[tier].items() if k != "threshold"},
             "evidence_strength": round(base, 3), "precedent_adjustment": round(adj, 3),
             "precedent_reasons": reasons,
             "formula": "evidence strength (rules + ML + graph agreement) + precedent adjustment; high >= 0.70, medium >= 0.35"}

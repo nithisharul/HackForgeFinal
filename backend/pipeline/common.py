@@ -3,17 +3,23 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from backend import region
+
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw"
 PROC = ROOT / "data" / "processed"
 KNOW = ROOT / "knowledge"
 MODELS = ROOT / "backend" / "models"
+DATES = ("service_datetime", "preauth_datetime", "discharge_datetime", "card_created_date", "death_date",
+         "empanelment_date")
 
 
 def load(name):
-    df = pd.read_csv(RAW / f"{name}.csv", dtype={"procedure_code": str})
-    if "service_datetime" in df:
-        df["service_datetime"] = pd.to_datetime(df["service_datetime"])
+    """Read one raw table of the active region (see backend/region.py)."""
+    df = pd.read_csv(region.current().raw / f"{name}.csv", dtype={"procedure_code": str})
+    for col in DATES:
+        if col in df:
+            df[col] = pd.to_datetime(df[col])
     return df
 
 

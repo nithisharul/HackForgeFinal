@@ -1,0 +1,5 @@
+{
+  "anomaly_auc": 0.784,
+  "anomaly_brier_calibrated_cv": 0.0599,
+  "anomaly_brier_base_rate": 0.0846
+}

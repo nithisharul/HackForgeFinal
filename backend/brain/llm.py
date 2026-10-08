@@ -1,8 +1,11 @@
 import json
 import os
 import re
-from google import genai
-from google.genai import types
+try:
+    from google import genai
+    from google.genai import types
+except ImportError:  # google-genai is optional: without it everything runs in template mode
+    genai = types = None
 from backend.pipeline.common import ROOT
 
 _loaded = False
@@ -21,7 +24,7 @@ def _env():
 
 def config():
     _env()
-    key = os.getenv("GEMINI_API_KEY", os.getenv("LLM_API_KEY", ""))
+    key = os.getenv("GEMINI_API_KEY", os.getenv("LLM_API_KEY", "")) if genai else ""
     model = os.getenv("LLM_MODEL", "gemini-2.5-flash")
     return {"key": key, "model": model}
 

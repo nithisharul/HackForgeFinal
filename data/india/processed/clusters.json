@@ -1,0 +1,30 @@
+{
+ "N01": {
+  "cluster_id": "N01",
+  "providers": [
+   "P022",
+   "P059",
+   "P148",
+   "P152",
+   "P203"
+  ],
+  "size": 5,
+  "method": "leiden",
+  "top_owner": "O071",
+  "owner_share": 1.0,
+  "referral_cycle": true,
+  "shared_members": 101,
+  "paid_on_shared_members": 22236394.0,
+  "score": 1.0,
+  "top_agent": "AG-LUC-99",
+  "agent_share": 0.76,
+  "top_villages": [
+   "VIL-LUC-06",
+   "VIL-LUC-05",
+   "VIL-LUC-07"
+  ],
+  "village_share": 0.93,
+  "top_card_operator": "OP-LUC-16",
+  "operator_share": 0.93
+ }
+}

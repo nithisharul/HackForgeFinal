@@ -1,0 +1,601 @@
+owner_id,owner_name,entity_type,entity_id
+O002,Samvedra Healthcare Pvt Ltd,provider,P001
+GOV,State Government,provider,P002
+O019,Olvira Hospitals Pvt Ltd,provider,P003
+O018,Rivaan Medicare LLP,provider,P004
+O022,Yantara Hospitals Pvt Ltd,provider,P005
+GOV,State Government,provider,P006
+GOV,State Government,provider,P007
+O048,Sukhada Medicare LLP,provider,P008
+GOV,State Government,provider,P009
+O065,Yantara Medicare LLP,provider,P010
+GOV,State Government,provider,P011
+GOV,State Government,provider,P012
+GOV,State Government,provider,P013
+GOV,State Government,provider,P014
+O052,Varenya Healthcare Pvt Ltd,provider,P015
+GOV,State Government,provider,P016
+O020,Mirava Hospitals Pvt Ltd,provider,P017
+O004,Zentara Health Trust,provider,P018
+O020,Mirava Hospitals Pvt Ltd,provider,P019
+O002,Samvedra Healthcare Pvt Ltd,provider,P020
+O032,Tejora Health Trust,provider,P021
+O071,Qorvane Lifecare Holdings Pvt Ltd,provider,P022
+GOV,State Government,provider,P023
+O059,Sorinda Hospitals Pvt Ltd,provider,P024
+O019,Olvira Hospitals Pvt Ltd,provider,P025
+O062,Velora Hospitals Pvt Ltd,provider,P026
+O046,Ambara Healthcare Pvt Ltd,provider,P027
+O046,Ambara Healthcare Pvt Ltd,provider,P028
+O020,Mirava Hospitals Pvt Ltd,provider,P029
+O063,Tavora Healthcare Pvt Ltd,provider,P030
+O049,Ambara Health Trust,provider,P031
+GOV,State Government,provider,P032
+GOV,State Government,provider,P033
+O009,Niramay Hospitals Pvt Ltd,provider,P034
+O059,Sorinda Hospitals Pvt Ltd,provider,P035
+GOV,State Government,provider,P036
+O067,Prayana Medicare LLP,provider,P037
+O059,Sorinda Hospitals Pvt Ltd,provider,P038
+GOV,State Government,provider,P039
+O032,Tejora Health Trust,provider,P040
+GOV,State Government,provider,P041
+O038,Udayam Hospitals Pvt Ltd,provider,P042
+O043,Ekanta Health Trust,provider,P043
+GOV,State Government,provider,P044
+O055,Shubhra Medicare LLP,provider,P045
+O053,Devanta Hospitals Pvt Ltd,provider,P046
+O026,Ondira Medicare LLP,provider,P047
+O059,Sorinda Hospitals Pvt Ltd,provider,P048
+GOV,State Government,provider,P049
+O017,Sorinda Healthcare Pvt Ltd,provider,P050
+GOV,State Government,provider,P051
+O032,Tejora Health Trust,provider,P052
+O035,Yantara Health Trust,provider,P053
+O058,Sorinda Medicare LLP,provider,P054
+O029,Charvi Hospitals Pvt Ltd,provider,P055
+GOV,State Government,provider,P056
+O020,Mirava Hospitals Pvt Ltd,provider,P057
+O061,Shubhra Health Trust,provider,P058
+O071,Qorvane Lifecare Holdings Pvt Ltd,provider,P059
+GOV,State Government,provider,P060
+O009,Niramay Hospitals Pvt Ltd,provider,P061
+O054,Ondira Health Trust,provider,P062
+O007,Lumora Medicare LLP,provider,P063
+O018,Rivaan Medicare LLP,provider,P064
+GOV,State Government,provider,P065
+GOV,State Government,provider,P066
+O008,Tejora Hospitals Pvt Ltd,provider,P067
+O037,Tavora Medicare LLP,provider,P068
+GOV,State Government,provider,P069
+O040,Kelvane Health Trust,provider,P070
+O013,Velora Health Trust,provider,P071
+O017,Sorinda Healthcare Pvt Ltd,provider,P072
+GOV,State Government,provider,P073
+GOV,State Government,provider,P074
+GOV,State Government,provider,P075
+GOV,State Government,provider,P076
+O029,Charvi Hospitals Pvt Ltd,provider,P077
+GOV,State Government,provider,P078
+O061,Shubhra Health Trust,provider,P079
+O005,Ketaya Health Trust,provider,P080
+O019,Olvira Hospitals Pvt Ltd,provider,P081
+GOV,State Government,provider,P082
+O068,Sukhada Healthcare Pvt Ltd,provider,P083
+O021,Samvedra Medicare LLP,provider,P084
+O032,Tejora Health Trust,provider,P085
+O019,Olvira Hospitals Pvt Ltd,provider,P086
+O047,Jivanta Healthcare Pvt Ltd,provider,P087
+O057,Navira Health Trust,provider,P088
+O023,Ketaya Healthcare Pvt Ltd,provider,P089
+GOV,State Government,provider,P090
+GOV,State Government,provider,P091
+O034,Ambara Medicare LLP,provider,P092
+GOV,State Government,provider,P093
+GOV,State Government,provider,P094
+GOV,State Government,provider,P095
+GOV,State Government,provider,P096
+O039,Kelvane Healthcare Pvt Ltd,provider,P097
+GOV,State Government,provider,P098
+O040,Kelvane Health Trust,provider,P099
+O025,Charvi Health Trust,provider,P100
+GOV,State Government,provider,P101
+O053,Devanta Hospitals Pvt Ltd,provider,P102
+GOV,State Government,provider,P103
+O056,Ishvara Healthcare Pvt Ltd,provider,P104
+GOV,State Government,provider,P105
+O004,Zentara Health Trust,provider,P106
+O044,Sukhada Hospitals Pvt Ltd,provider,P107
+GOV,State Government,provider,P108
+GOV,State Government,provider,P109
+O016,Sukhada Health Trust,provider,P110
+GOV,State Government,provider,P111
+O061,Shubhra Health Trust,provider,P112
+GOV,State Government,provider,P113
+O069,Velora Medicare LLP,provider,P114
+O041,Olvira Healthcare Pvt Ltd,provider,P115
+O011,Daruna Health Trust,provider,P116
+O008,Tejora Hospitals Pvt Ltd,provider,P117
+O033,Ondira Healthcare Pvt Ltd,provider,P118
+O033,Ondira Healthcare Pvt Ltd,provider,P119
+O032,Tejora Health Trust,provider,P120
+GOV,State Government,provider,P121
+GOV,State Government,provider,P122
+O069,Velora Medicare LLP,provider,P123
+O025,Charvi Health Trust,provider,P124
+O030,Lumora Health Trust,provider,P125
+O050,Prayana Healthcare Pvt Ltd,provider,P126
+GOV,State Government,provider,P127
+GOV,State Government,provider,P128
+O009,Niramay Hospitals Pvt Ltd,provider,P129
+O025,Charvi Health Trust,provider,P130
+GOV,State Government,provider,P131
+GOV,State Government,provider,P132
+GOV,State Government,provider,P133
+GOV,State Government,provider,P134
+O041,Olvira Healthcare Pvt Ltd,provider,P135
+GOV,State Government,provider,P136
+GOV,State Government,provider,P137
+GOV,State Government,provider,P138
+O031,Olvira Health Trust,provider,P139
+GOV,State Government,provider,P140
+O050,Prayana Healthcare Pvt Ltd,provider,P141
+O016,Sukhada Health Trust,provider,P142
+O007,Lumora Medicare LLP,provider,P143
+O016,Sukhada Health Trust,provider,P144
+GOV,State Government,provider,P145
+O067,Prayana Medicare LLP,provider,P146
+O009,Niramay Hospitals Pvt Ltd,provider,P147
+O071,Qorvane Lifecare Holdings Pvt Ltd,provider,P148
+O013,Velora Health Trust,provider,P149
+O053,Devanta Hospitals Pvt Ltd,provider,P150
+GOV,State Government,provider,P151
+O071,Qorvane Lifecare Holdings Pvt Ltd,provider,P152
+O046,Ambara Healthcare Pvt Ltd,provider,P153
+O030,Lumora Health Trust,provider,P154
+GOV,State Government,provider,P155
+O051,Shubhra Healthcare Pvt Ltd,provider,P156
+GOV,State Government,provider,P157
+O063,Tavora Healthcare Pvt Ltd,provider,P158
+O043,Ekanta Health Trust,provider,P159
+GOV,State Government,provider,P160
+O024,Mirava Medicare LLP,provider,P161
+O016,Sukhada Health Trust,provider,P162
+O060,Avanta Medicare LLP,provider,P163
+GOV,State Government,provider,P164
+O037,Tavora Medicare LLP,provider,P165
+O056,Ishvara Healthcare Pvt Ltd,provider,P166
+GOV,State Government,provider,P167
+O042,Ketaya Hospitals Pvt Ltd,provider,P168
+O056,Ishvara Healthcare Pvt Ltd,provider,P169
+O005,Ketaya Health Trust,provider,P170
+O050,Prayana Healthcare Pvt Ltd,provider,P171
+O035,Yantara Health Trust,provider,P172
+O036,Hridaya Healthcare Pvt Ltd,provider,P173
+GOV,State Government,provider,P174
+GOV,State Government,provider,P175
+O013,Velora Health Trust,provider,P176
+GOV,State Government,provider,P177
+O029,Charvi Hospitals Pvt Ltd,provider,P178
+GOV,State Government,provider,P179
+O011,Daruna Health Trust,provider,P180
+GOV,State Government,provider,P181
+GOV,State Government,provider,P182
+GOV,State Government,provider,P183
+GOV,State Government,provider,P184
+O046,Ambara Healthcare Pvt Ltd,provider,P185
+GOV,State Government,provider,P186
+GOV,State Government,provider,P187
+O010,Niramay Medicare LLP,provider,P188
+GOV,State Government,provider,P189
+O034,Ambara Medicare LLP,provider,P190
+O038,Udayam Hospitals Pvt Ltd,provider,P191
+O033,Ondira Healthcare Pvt Ltd,provider,P192
+O019,Olvira Hospitals Pvt Ltd,provider,P193
+O042,Ketaya Hospitals Pvt Ltd,provider,P194
+GOV,State Government,provider,P195
+O003,Niramay Health Trust,provider,P196
+GOV,State Government,provider,P197
+O031,Olvira Health Trust,provider,P198
+O006,Hridaya Hospitals Pvt Ltd,provider,P199
+O056,Ishvara Healthcare Pvt Ltd,provider,P200
+GOV,State Government,provider,P201
+GOV,State Government,provider,P202
+O071,Qorvane Lifecare Holdings Pvt Ltd,provider,P203
+GOV,State Government,provider,P204
+GOV,State Government,provider,P205
+GOV,State Government,provider,P206
+O039,Kelvane Healthcare Pvt Ltd,provider,P207
+O041,Olvira Healthcare Pvt Ltd,provider,P208
+GOV,State Government,provider,P209
+GOV,State Government,provider,P210
+O019,Olvira Hospitals Pvt Ltd,provider,P211
+O011,Daruna Health Trust,provider,P212
+O048,Sukhada Medicare LLP,provider,P213
+O015,Udayam Healthcare Pvt Ltd,provider,P214
+O042,Ketaya Hospitals Pvt Ltd,provider,P215
+O064,Charvi Medicare LLP,provider,P216
+O021,Samvedra Medicare LLP,provider,P217
+GOV,State Government,provider,P218
+O021,Samvedra Medicare LLP,provider,P219
+O051,Shubhra Healthcare Pvt Ltd,provider,P220
+O034,Ambara Medicare LLP,provider,P221
+O019,Olvira Hospitals Pvt Ltd,provider,P222
+GOV,State Government,provider,P223
+O012,Hridaya Medicare LLP,provider,P224
+O051,Shubhra Healthcare Pvt Ltd,provider,P225
+O030,Lumora Health Trust,provider,P226
+O065,Yantara Medicare LLP,provider,P227
+GOV,State Government,provider,P228
+O064,Charvi Medicare LLP,provider,P229
+GOV,State Government,provider,P230
+O042,Ketaya Hospitals Pvt Ltd,provider,P231
+O058,Sorinda Medicare LLP,provider,P232
+GOV,State Government,provider,P233
+O026,Ondira Medicare LLP,provider,P234
+O001,Daruna Medicare LLP,provider,P235
+O042,Ketaya Hospitals Pvt Ltd,provider,P236
+O039,Kelvane Healthcare Pvt Ltd,provider,P237
+GOV,State Government,provider,P238
+O018,Rivaan Medicare LLP,provider,P239
+O004,Zentara Health Trust,provider,P240
+GOV,State Government,provider,P241
+GOV,State Government,provider,P242
+GOV,State Government,provider,P243
+O042,Ketaya Hospitals Pvt Ltd,provider,P244
+O009,Niramay Hospitals Pvt Ltd,provider,P245
+O019,Olvira Hospitals Pvt Ltd,provider,P246
+O043,Ekanta Health Trust,provider,P247
+O059,Sorinda Hospitals Pvt Ltd,provider,P248
+O053,Devanta Hospitals Pvt Ltd,provider,P249
+O066,Tavora Health Trust,provider,P250
+GOV,State Government,provider,P251
+O037,Tavora Medicare LLP,provider,P252
+O040,Kelvane Health Trust,provider,P253
+GOV,State Government,provider,P254
+GOV,State Government,provider,P255
+GOV,State Government,provider,P256
+O031,Olvira Health Trust,provider,P257
+GOV,State Government,provider,P258
+GOV,State Government,provider,P259
+O003,Niramay Health Trust,provider,P260
+GOV,State Government,provider,P261
+O020,Mirava Hospitals Pvt Ltd,provider,P262
+O067,Prayana Medicare LLP,provider,P263
+GOV,State Government,provider,P264
+GOV,State Government,provider,P265
+O043,Ekanta Health Trust,provider,P266
+O014,Devanta Health Trust,provider,P267
+O062,Velora Hospitals Pvt Ltd,provider,P268
+GOV,State Government,provider,P269
+O017,Sorinda Healthcare Pvt Ltd,provider,P270
+O017,Sorinda Healthcare Pvt Ltd,provider,P271
+GOV,State Government,provider,P272
+GOV,State Government,provider,P273
+GOV,State Government,provider,P274
+O013,Velora Health Trust,provider,P275
+O005,Ketaya Health Trust,provider,P276
+O047,Jivanta Healthcare Pvt Ltd,provider,P277
+O070,Prayana Hospitals Pvt Ltd,provider,P278
+O065,Yantara Medicare LLP,provider,P279
+O065,Yantara Medicare LLP,provider,P280
+GOV,State Government,provider,P281
+O068,Sukhada Healthcare Pvt Ltd,provider,P282
+O038,Udayam Hospitals Pvt Ltd,provider,P283
+GOV,State Government,provider,P284
+GOV,State Government,provider,P285
+GOV,State Government,provider,P286
+GOV,State Government,provider,P287
+GOV,State Government,provider,P288
+O028,Varenya Medicare LLP,provider,P289
+GOV,State Government,provider,P290
+O048,Sukhada Medicare LLP,provider,P291
+O027,Daruna Healthcare Pvt Ltd,provider,P292
+GOV,State Government,provider,P293
+O055,Shubhra Medicare LLP,provider,P294
+GOV,State Government,provider,P295
+O043,Ekanta Health Trust,provider,P296
+O053,Devanta Hospitals Pvt Ltd,provider,P297
+O062,Velora Hospitals Pvt Ltd,provider,P298
+O040,Kelvane Health Trust,provider,P299
+GOV,State Government,provider,P300
+O002,Samvedra Healthcare Pvt Ltd,facility,F001
+GOV,State Government,facility,F002
+O019,Olvira Hospitals Pvt Ltd,facility,F003
+O018,Rivaan Medicare LLP,facility,F004
+O022,Yantara Hospitals Pvt Ltd,facility,F005
+GOV,State Government,facility,F006
+GOV,State Government,facility,F007
+O048,Sukhada Medicare LLP,facility,F008
+GOV,State Government,facility,F009
+O065,Yantara Medicare LLP,facility,F010
+GOV,State Government,facility,F011
+GOV,State Government,facility,F012
+GOV,State Government,facility,F013
+GOV,State Government,facility,F014
+O052,Varenya Healthcare Pvt Ltd,facility,F015
+GOV,State Government,facility,F016
+O020,Mirava Hospitals Pvt Ltd,facility,F017
+O004,Zentara Health Trust,facility,F018
+O020,Mirava Hospitals Pvt Ltd,facility,F019
+O002,Samvedra Healthcare Pvt Ltd,facility,F020
+O032,Tejora Health Trust,facility,F021
+O071,Qorvane Lifecare Holdings Pvt Ltd,facility,F022
+GOV,State Government,facility,F023
+O059,Sorinda Hospitals Pvt Ltd,facility,F024
+O019,Olvira Hospitals Pvt Ltd,facility,F025
+O062,Velora Hospitals Pvt Ltd,facility,F026
+O046,Ambara Healthcare Pvt Ltd,facility,F027
+O046,Ambara Healthcare Pvt Ltd,facility,F028
+O020,Mirava Hospitals Pvt Ltd,facility,F029
+O063,Tavora Healthcare Pvt Ltd,facility,F030
+O049,Ambara Health Trust,facility,F031
+GOV,State Government,facility,F032
+GOV,State Government,facility,F033
+O009,Niramay Hospitals Pvt Ltd,facility,F034
+O059,Sorinda Hospitals Pvt Ltd,facility,F035
+GOV,State Government,facility,F036
+O067,Prayana Medicare LLP,facility,F037
+O059,Sorinda Hospitals Pvt Ltd,facility,F038
+GOV,State Government,facility,F039
+O032,Tejora Health Trust,facility,F040
+GOV,State Government,facility,F041
+O038,Udayam Hospitals Pvt Ltd,facility,F042
+O043,Ekanta Health Trust,facility,F043
+GOV,State Government,facility,F044
+O055,Shubhra Medicare LLP,facility,F045
+O053,Devanta Hospitals Pvt Ltd,facility,F046
+O026,Ondira Medicare LLP,facility,F047
+O059,Sorinda Hospitals Pvt Ltd,facility,F048
+GOV,State Government,facility,F049
+O017,Sorinda Healthcare Pvt Ltd,facility,F050
+GOV,State Government,facility,F051
+O032,Tejora Health Trust,facility,F052
+O035,Yantara Health Trust,facility,F053
+O058,Sorinda Medicare LLP,facility,F054
+O029,Charvi Hospitals Pvt Ltd,facility,F055
+GOV,State Government,facility,F056
+O020,Mirava Hospitals Pvt Ltd,facility,F057
+O061,Shubhra Health Trust,facility,F058
+O071,Qorvane Lifecare Holdings Pvt Ltd,facility,F059
+GOV,State Government,facility,F060
+O009,Niramay Hospitals Pvt Ltd,facility,F061
+O054,Ondira Health Trust,facility,F062
+O007,Lumora Medicare LLP,facility,F063
+O018,Rivaan Medicare LLP,facility,F064
+GOV,State Government,facility,F065
+GOV,State Government,facility,F066
+O008,Tejora Hospitals Pvt Ltd,facility,F067
+O037,Tavora Medicare LLP,facility,F068
+GOV,State Government,facility,F069
+O040,Kelvane Health Trust,facility,F070
+O013,Velora Health Trust,facility,F071
+O017,Sorinda Healthcare Pvt Ltd,facility,F072
+GOV,State Government,facility,F073
+GOV,State Government,facility,F074
+GOV,State Government,facility,F075
+GOV,State Government,facility,F076
+O029,Charvi Hospitals Pvt Ltd,facility,F077
+GOV,State Government,facility,F078
+O061,Shubhra Health Trust,facility,F079
+O005,Ketaya Health Trust,facility,F080
+O019,Olvira Hospitals Pvt Ltd,facility,F081
+GOV,State Government,facility,F082
+O068,Sukhada Healthcare Pvt Ltd,facility,F083
+O021,Samvedra Medicare LLP,facility,F084
+O032,Tejora Health Trust,facility,F085
+O019,Olvira Hospitals Pvt Ltd,facility,F086
+O047,Jivanta Healthcare Pvt Ltd,facility,F087
+O057,Navira Health Trust,facility,F088
+O023,Ketaya Healthcare Pvt Ltd,facility,F089
+GOV,State Government,facility,F090
+GOV,State Government,facility,F091
+O034,Ambara Medicare LLP,facility,F092
+GOV,State Government,facility,F093
+GOV,State Government,facility,F094
+GOV,State Government,facility,F095
+GOV,State Government,facility,F096
+O039,Kelvane Healthcare Pvt Ltd,facility,F097
+GOV,State Government,facility,F098
+O040,Kelvane Health Trust,facility,F099
+O025,Charvi Health Trust,facility,F100
+GOV,State Government,facility,F101
+O053,Devanta Hospitals Pvt Ltd,facility,F102
+GOV,State Government,facility,F103
+O056,Ishvara Healthcare Pvt Ltd,facility,F104
+GOV,State Government,facility,F105
+O004,Zentara Health Trust,facility,F106
+O044,Sukhada Hospitals Pvt Ltd,facility,F107
+GOV,State Government,facility,F108
+GOV,State Government,facility,F109
+O016,Sukhada Health Trust,facility,F110
+GOV,State Government,facility,F111
+O061,Shubhra Health Trust,facility,F112
+GOV,State Government,facility,F113
+O069,Velora Medicare LLP,facility,F114
+O041,Olvira Healthcare Pvt Ltd,facility,F115
+O011,Daruna Health Trust,facility,F116
+O008,Tejora Hospitals Pvt Ltd,facility,F117
+O033,Ondira Healthcare Pvt Ltd,facility,F118
+O033,Ondira Healthcare Pvt Ltd,facility,F119
+O032,Tejora Health Trust,facility,F120
+GOV,State Government,facility,F121
+GOV,State Government,facility,F122
+O069,Velora Medicare LLP,facility,F123
+O025,Charvi Health Trust,facility,F124
+O030,Lumora Health Trust,facility,F125
+O050,Prayana Healthcare Pvt Ltd,facility,F126
+GOV,State Government,facility,F127
+GOV,State Government,facility,F128
+O009,Niramay Hospitals Pvt Ltd,facility,F129
+O025,Charvi Health Trust,facility,F130
+GOV,State Government,facility,F131
+GOV,State Government,facility,F132
+GOV,State Government,facility,F133
+GOV,State Government,facility,F134
+O041,Olvira Healthcare Pvt Ltd,facility,F135
+GOV,State Government,facility,F136
+GOV,State Government,facility,F137
+GOV,State Government,facility,F138
+O031,Olvira Health Trust,facility,F139
+GOV,State Government,facility,F140
+O050,Prayana Healthcare Pvt Ltd,facility,F141
+O016,Sukhada Health Trust,facility,F142
+O007,Lumora Medicare LLP,facility,F143
+O016,Sukhada Health Trust,facility,F144
+GOV,State Government,facility,F145
+O067,Prayana Medicare LLP,facility,F146
+O009,Niramay Hospitals Pvt Ltd,facility,F147
+O071,Qorvane Lifecare Holdings Pvt Ltd,facility,F148
+O013,Velora Health Trust,facility,F149
+O053,Devanta Hospitals Pvt Ltd,facility,F150
+GOV,State Government,facility,F151
+O071,Qorvane Lifecare Holdings Pvt Ltd,facility,F152
+O046,Ambara Healthcare Pvt Ltd,facility,F153
+O030,Lumora Health Trust,facility,F154
+GOV,State Government,facility,F155
+O051,Shubhra Healthcare Pvt Ltd,facility,F156
+GOV,State Government,facility,F157
+O063,Tavora Healthcare Pvt Ltd,facility,F158
+O043,Ekanta Health Trust,facility,F159
+GOV,State Government,facility,F160
+O024,Mirava Medicare LLP,facility,F161
+O016,Sukhada Health Trust,facility,F162
+O060,Avanta Medicare LLP,facility,F163
+GOV,State Government,facility,F164
+O037,Tavora Medicare LLP,facility,F165
+O056,Ishvara Healthcare Pvt Ltd,facility,F166
+GOV,State Government,facility,F167
+O042,Ketaya Hospitals Pvt Ltd,facility,F168
+O056,Ishvara Healthcare Pvt Ltd,facility,F169
+O005,Ketaya Health Trust,facility,F170
+O050,Prayana Healthcare Pvt Ltd,facility,F171
+O035,Yantara Health Trust,facility,F172
+O036,Hridaya Healthcare Pvt Ltd,facility,F173
+GOV,State Government,facility,F174
+GOV,State Government,facility,F175
+O013,Velora Health Trust,facility,F176
+GOV,State Government,facility,F177
+O029,Charvi Hospitals Pvt Ltd,facility,F178
+GOV,State Government,facility,F179
+O011,Daruna Health Trust,facility,F180
+GOV,State Government,facility,F181
+GOV,State Government,facility,F182
+GOV,State Government,facility,F183
+GOV,State Government,facility,F184
+O046,Ambara Healthcare Pvt Ltd,facility,F185
+GOV,State Government,facility,F186
+GOV,State Government,facility,F187
+O010,Niramay Medicare LLP,facility,F188
+GOV,State Government,facility,F189
+O034,Ambara Medicare LLP,facility,F190
+O038,Udayam Hospitals Pvt Ltd,facility,F191
+O033,Ondira Healthcare Pvt Ltd,facility,F192
+O019,Olvira Hospitals Pvt Ltd,facility,F193
+O042,Ketaya Hospitals Pvt Ltd,facility,F194
+GOV,State Government,facility,F195
+O003,Niramay Health Trust,facility,F196
+GOV,State Government,facility,F197
+O031,Olvira Health Trust,facility,F198
+O006,Hridaya Hospitals Pvt Ltd,facility,F199
+O056,Ishvara Healthcare Pvt Ltd,facility,F200
+GOV,State Government,facility,F201
+GOV,State Government,facility,F202
+O071,Qorvane Lifecare Holdings Pvt Ltd,facility,F203
+GOV,State Government,facility,F204
+GOV,State Government,facility,F205
+GOV,State Government,facility,F206
+O039,Kelvane Healthcare Pvt Ltd,facility,F207
+O041,Olvira Healthcare Pvt Ltd,facility,F208
+GOV,State Government,facility,F209
+GOV,State Government,facility,F210
+O019,Olvira Hospitals Pvt Ltd,facility,F211
+O011,Daruna Health Trust,facility,F212
+O048,Sukhada Medicare LLP,facility,F213
+O015,Udayam Healthcare Pvt Ltd,facility,F214
+O042,Ketaya Hospitals Pvt Ltd,facility,F215
+O064,Charvi Medicare LLP,facility,F216
+O021,Samvedra Medicare LLP,facility,F217
+GOV,State Government,facility,F218
+O021,Samvedra Medicare LLP,facility,F219
+O051,Shubhra Healthcare Pvt Ltd,facility,F220
+O034,Ambara Medicare LLP,facility,F221
+O019,Olvira Hospitals Pvt Ltd,facility,F222
+GOV,State Government,facility,F223
+O012,Hridaya Medicare LLP,facility,F224
+O051,Shubhra Healthcare Pvt Ltd,facility,F225
+O030,Lumora Health Trust,facility,F226
+O065,Yantara Medicare LLP,facility,F227
+GOV,State Government,facility,F228
+O064,Charvi Medicare LLP,facility,F229
+GOV,State Government,facility,F230
+O042,Ketaya Hospitals Pvt Ltd,facility,F231
+O058,Sorinda Medicare LLP,facility,F232
+GOV,State Government,facility,F233
+O026,Ondira Medicare LLP,facility,F234
+O001,Daruna Medicare LLP,facility,F235
+O042,Ketaya Hospitals Pvt Ltd,facility,F236
+O039,Kelvane Healthcare Pvt Ltd,facility,F237
+GOV,State Government,facility,F238
+O018,Rivaan Medicare LLP,facility,F239
+O004,Zentara Health Trust,facility,F240
+GOV,State Government,facility,F241
+GOV,State Government,facility,F242
+GOV,State Government,facility,F243
+O042,Ketaya Hospitals Pvt Ltd,facility,F244
+O009,Niramay Hospitals Pvt Ltd,facility,F245
+O019,Olvira Hospitals Pvt Ltd,facility,F246
+O043,Ekanta Health Trust,facility,F247
+O059,Sorinda Hospitals Pvt Ltd,facility,F248
+O053,Devanta Hospitals Pvt Ltd,facility,F249
+O066,Tavora Health Trust,facility,F250
+GOV,State Government,facility,F251
+O037,Tavora Medicare LLP,facility,F252
+O040,Kelvane Health Trust,facility,F253
+GOV,State Government,facility,F254
+GOV,State Government,facility,F255
+GOV,State Government,facility,F256
+O031,Olvira Health Trust,facility,F257
+GOV,State Government,facility,F258
+GOV,State Government,facility,F259
+O003,Niramay Health Trust,facility,F260
+GOV,State Government,facility,F261
+O020,Mirava Hospitals Pvt Ltd,facility,F262
+O067,Prayana Medicare LLP,facility,F263
+GOV,State Government,facility,F264
+GOV,State Government,facility,F265
+O043,Ekanta Health Trust,facility,F266
+O014,Devanta Health Trust,facility,F267
+O062,Velora Hospitals Pvt Ltd,facility,F268
+GOV,State Government,facility,F269
+O017,Sorinda Healthcare Pvt Ltd,facility,F270
+O017,Sorinda Healthcare Pvt Ltd,facility,F271
+GOV,State Government,facility,F272
+GOV,State Government,facility,F273
+GOV,State Government,facility,F274
+O013,Velora Health Trust,facility,F275
+O005,Ketaya Health Trust,facility,F276
+O047,Jivanta Healthcare Pvt Ltd,facility,F277
+O070,Prayana Hospitals Pvt Ltd,facility,F278
+O065,Yantara Medicare LLP,facility,F279
+O065,Yantara Medicare LLP,facility,F280
+GOV,State Government,facility,F281
+O068,Sukhada Healthcare Pvt Ltd,facility,F282
+O038,Udayam Hospitals Pvt Ltd,facility,F283
+GOV,State Government,facility,F284
+GOV,State Government,facility,F285
+GOV,State Government,facility,F286
+GOV,State Government,facility,F287
+GOV,State Government,facility,F288
+O028,Varenya Medicare LLP,facility,F289
+GOV,State Government,facility,F290
+O048,Sukhada Medicare LLP,facility,F291
+O027,Daruna Healthcare Pvt Ltd,facility,F292
+GOV,State Government,facility,F293
+O055,Shubhra Medicare LLP,facility,F294
+GOV,State Government,facility,F295
+O043,Ekanta Health Trust,facility,F296
+O053,Devanta Hospitals Pvt Ltd,facility,F297
+O062,Velora Hospitals Pvt Ltd,facility,F298
+O040,Kelvane Health Trust,facility,F299
+GOV,State Government,facility,F300

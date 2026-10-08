@@ -1,0 +1,74 @@
+{
+ "note": "Evaluated against injected synthetic scenarios. Not evidence of performance on real claims.",
+ "funnel": {
+  "claims": 75721,
+  "raw_alerts": 4440,
+  "providers_with_any_alert": 112,
+  "cases": 62
+ },
+ "provider_level": {
+  "fwa_providers": 28,
+  "fwa_in_queue": 28,
+  "recall": 1.0,
+  "queue_precision": 0.452,
+  "legit_outliers_in_queue": 2
+ },
+ "claim_level": {
+  "flag_precision": 0.904,
+  "recall_by_pattern": {
+   "bed_overrun": 1.0,
+   "claim_after_death": 1.0,
+   "collusive_ring": 0.528,
+   "duplicate_document": 0.99,
+   "ghost_beneficiary": 1.0,
+   "opd_to_ipd": 1.0,
+   "overlapping_admission": 1.0,
+   "package_upcoding": 0.507,
+   "unnecessary_procedure": 1.0
+  }
+ },
+ "anomaly": {
+  "anomaly_auc": 0.784,
+  "anomaly_brier_calibrated_cv": 0.0599,
+  "anomaly_brier_base_rate": 0.0846
+ },
+ "prediction": {
+  "training_snapshots": [
+   "2026-01-01",
+   "2026-02-01",
+   "2026-03-01",
+   "2026-04-01",
+   "2026-05-01",
+   "2026-06-01",
+   "2026-07-01"
+  ],
+  "training_rows": 2100,
+  "30d": {
+   "positives": 117,
+   "auc_cv": 0.925,
+   "avg_precision_cv": 0.668
+  },
+  "60d": {
+   "positives": 159,
+   "auc_cv": 0.902,
+   "avg_precision_cv": 0.751
+  },
+  "90d": {
+   "positives": 193,
+   "auc_cv": 0.874,
+   "avg_precision_cv": 0.747
+  }
+ },
+ "rule_tables": {
+  "packages": "40 package rates from NHA HBP 2.0 / HBP 2022 lists and 5 estimated; ward rates from HBP 2.0; typical length of stay per package is assumed, not published"
+ },
+ "network": {
+  "clusters": 1,
+  "method": "leiden"
+ },
+ "false_positives": {
+  "normal_hospitals_in_queue": 32,
+  "flagged_claims_not_injected": 396,
+  "flagged_claims": 4121
+ }
+}

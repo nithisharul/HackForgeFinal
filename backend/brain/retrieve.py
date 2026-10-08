@@ -45,7 +45,7 @@ def query(case):
     trail = ["index"]
     meta, body = wiki.read(case["pattern"])
     trail.append(case["pattern"])
-    pat = wiki.PATTERNS[case["pattern"]]
+    pat = wiki.patterns()[case["pattern"]]
     precs = precedents(case)
     trail += [p["case_id"] for p in precs]
     net = (case.get("network") or {}).get("cluster_id")
@@ -58,7 +58,7 @@ def query(case):
         "pattern": {"id": case["pattern"], "title": pat["title"], "definition": pat["definition"],
                     "innocent_explanations": _innocent(body, pat)},
         "policy": {"id": pat["policy"], "title": pat["policy_title"], "text": pat["policy_text"],
-                   "path": f"knowledge/sources/policies/{pat['policy']}.md", "public_basis": pat["public_basis"],
+                   "path": wiki.policy_path(pat["policy"]), "public_basis": pat["public_basis"],
                    "note": "Synthetic policy written for this prototype"},
         "precedents": precs,
         "provider_has_history": bool(pmeta),

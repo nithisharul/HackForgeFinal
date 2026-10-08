@@ -1,18 +1,22 @@
 from fastapi import APIRouter, Query
 
+from backend.region import Code, use
+
 from .. import store
 
 router = APIRouter(tags=["queue"])
 
 
 @router.get("/queue")
-def get_queue(horizon: int = Query(90, enum=[30, 60, 90]), investigators: int = Query(3, ge=0, le=50)):
+def get_queue(horizon: int = Query(90, enum=[30, 60, 90]), investigators: int = Query(3, ge=0, le=50), region: Code = "us"):
     """Ranked SIU queue. Priority blends risk, dollars, member impact, severity and confidence;
     investigators x 5 cases sets how many open cases fit this week's capacity."""
-    return store.queue(horizon, investigators)
+    with use(region):
+        return store.queue(horizon, investigators)
 
 
 @router.get("/metrics")
-def get_metrics():
+def get_metrics(region: Code = "us"):
     """Evaluation against the injected synthetic scenarios, plus model cross-validation scores."""
-    return store.METRICS
+    with use(region):
+        return store.data().METRICS

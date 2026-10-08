@@ -3,8 +3,30 @@ import Queue, { showOverviewNext } from './pages/Queue.jsx'
 import CaseDetail from './pages/CaseDetail.jsx'
 import Wiki from './pages/Wiki.jsx'
 import { getRegion, setRegion } from './region.js'
+import { AccountChip } from './components/SignIn.jsx'
+import { Toaster } from './components/bits.jsx'
 
 const REGIONS = [['us', 'US'], ['in', 'India']]
+
+// index.html sets data-theme before first paint (saved choice, else the system setting).
+function ThemeToggle() {
+  const [theme, setTheme] = useState(document.documentElement.dataset.theme || 'light')
+  const flip = () => {
+    const next = theme === 'dark' ? 'light' : 'dark'
+    document.documentElement.dataset.theme = next
+    try { localStorage.setItem('csn-theme', next) } catch { /* storage blocked: applies to this visit */ }
+    setTheme(next)
+  }
+  return (
+    <button type="button" className="top-btn icon" onClick={flip} aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'} title="Toggle theme">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        {theme === 'dark'
+          ? <><circle cx="12" cy="12" r="4.5" /><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" /></>
+          : <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />}
+      </svg>
+    </button>
+  )
+}
 
 function useHash() {
   const [hash, setHash] = useState(window.location.hash || '#/')
@@ -61,14 +83,19 @@ export default function App() {
           <a className={section !== 'brain' ? 'on' : ''} aria-current={section !== 'brain' ? 'page' : undefined} href="#/">Queue</a>
           <a className={section === 'brain' ? 'on' : ''} aria-current={section === 'brain' ? 'page' : undefined} href="#/brain/index">Second Brain</a>
         </nav>
-        <div className="region" role="group" aria-label="Region">
-          {REGIONS.map(([r, label]) => (
-            <button type="button" key={r} className={r === region ? 'on' : ''} aria-pressed={r === region} onClick={() => switchRegion(r)}>{label}</button>
-          ))}
+        <div className="top-tools">
+          <span className="synthetic" title="All claims, providers and people are synthetic"><span>Synthetic data</span></span>
+          <div className="region" role="group" aria-label="Region">
+            {REGIONS.map(([r, label]) => (
+              <button type="button" key={r} className={r === region ? 'on' : ''} aria-pressed={r === region} onClick={() => switchRegion(r)}>{label}</button>
+            ))}
+          </div>
+          <ThemeToggle />
+          <AccountChip />
         </div>
-        <span className="synthetic">Synthetic data only</span>
       </header>
       <main id="main" tabIndex="-1" key={region}>{page}</main>
+      <Toaster />
     </div>
   )
 }

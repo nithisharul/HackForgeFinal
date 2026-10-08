@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { api } from '../api/client.js'
 import { RingHero } from './Network.jsx'
 import { Loading, Meter, Status, Tier, TIER_TEXT, money, pct, words } from '../components/bits.jsx'
@@ -16,6 +16,15 @@ const DEMO_CASE = { us: 'CASE-P081' }
 // Full hero on the first queue view after a page load or a region switch; returning from a case shows the compact strip.
 let heroSeen = false
 export const showOverviewNext = () => { heroSeen = false }
+// Someone who skips the overview keeps it skipped on later visits.
+const HERO_KEY = 'csn-hero-hidden'
+const heroHidden = () => { try { return localStorage.getItem(HERO_KEY) === '1' } catch { return false } }
+const rememberHero = (hidden) => { try { hidden ? localStorage.setItem(HERO_KEY, '1') : localStorage.removeItem(HERO_KEY) } catch { /* ignore */ } }
+
+// Sortable columns; the default is the queue's own priority rank.
+const SORTS = { rank: (r) => r.rank, risk: (r) => r.risk_score, repeat: (r) => r.p_horizon, money: (r) => r.potential_dollars,
+  members: (r) => r.member_impact, severity: (r) => r.severity, confidence: (r) => r.confidence }
+const typing = (el) => el && (/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName) || el.isContentEditable)
 
 function diffRoutes(cases) {
   let seen = {}
@@ -33,24 +42,59 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
   const [tier, setTier] = useState('all')
   const [retry, setRetry] = useState(0)
   const [metrics, setMetrics] = useState(null)
-  const [fullHero, setFullHero] = useState(!heroSeen)
+  const [fullHero, setFullHero] = useState(!heroSeen && !heroHidden())
+  const [q, setQ] = useState('')
+  const [sort, setSort] = useState({ key: 'rank', desc: false })
+  const [updated, setUpdated] = useState(null)
+  const search = useRef(null)
   const t = terms()
+
+  // j / k step through cases, Enter opens one, / jumps to search.
+  useEffect(() => {
+    const on = (e) => {
+      if (e.metaKey || e.ctrlKey || e.altKey || typing(e.target)) return
+      if (e.key === '/') { e.preventDefault(); search.current?.focus(); return }
+      if (e.key !== 'j' && e.key !== 'k') return
+      const links = [...document.querySelectorAll('.queue .row-link')]
+      if (!links.length) return
+      const i = links.indexOf(document.activeElement)
+      const next = links[Math.max(0, Math.min(links.length - 1, i < 0 ? 0 : i + (e.key === 'j' ? 1 : -1)))]
+      next.focus()
+      next.closest('tr').scrollIntoView({ block: 'nearest' })
+    }
+    document.addEventListener('keydown', on)
+    return () => document.removeEventListener('keydown', on)
+  }, [])
 
   useEffect(() => { heroSeen = true; api.metrics().then(setMetrics).catch(() => {}) }, [])
 
   useEffect(() => {
     setError(null)
     api.queue(horizon, investigators)
-      .then((d) => { setMoved((m) => ({ ...m, ...diffRoutes(d.cases) })); setData(d) })
+      .then((d) => { setMoved((m) => ({ ...m, ...diffRoutes(d.cases) })); setData(d); setUpdated(new Date()) })
       .catch((e) => setError(e.message))
   }, [horizon, investigators, retry])
 
   if (!data) return <Loading error={error} what="the queue" onRetry={() => setRetry((n) => n + 1)} />
   const s = data.summary
-  const rows = data.cases.filter((r) => tier === 'all' || r.tier === tier)
-  const lastIn = Math.max(...rows.map((r, i) => (r.in_capacity ? i : -1)))
+  const needle = q.trim().toLowerCase()
+  const rows = data.cases
+    .filter((r) => tier === 'all' || r.tier === tier)
+    .filter((r) => !needle || [r.case_id, r.provider_id, r.provider_name, r.city, r.specialty, words(r.pattern), r.network].join(' ').toLowerCase().includes(needle))
+  const ranked = sort.key === 'rank' && !sort.desc
+  if (!ranked) rows.sort((a, b) => (SORTS[sort.key](a) - SORTS[sort.key](b)) * (sort.desc ? -1 : 1))
+  // The capacity line and watch-list divider only mean something in priority order.
+  const lastIn = ranked ? Math.max(...rows.map((r, i) => (r.in_capacity ? i : -1))) : -1
   // Regions that report a watch list (India) list it after the actionable cases, behind a divider.
-  const watchAt = s.watch_list != null ? rows.findIndex((r) => r.status === 'open' && r.tier === 'low') : -1
+  const watchAt = ranked && s.watch_list != null ? rows.findIndex((r) => r.status === 'open' && r.tier === 'low') : -1
+  const sortBy = (key) => setSort((cur) => (cur.key === key ? { key, desc: !cur.desc } : { key, desc: key !== 'rank' }))
+  const th = (k, label, className) => (
+    <th className={className} aria-sort={sort.key === k ? (sort.desc ? 'descending' : 'ascending') : undefined}>
+      <button type="button" className={`th-sort${sort.key === k ? ' on' : ''}`} onClick={() => sortBy(k)}>
+        {label}<i aria-hidden="true">{sort.key === k ? (sort.desc ? '↓' : '↑') : '↕'}</i>
+      </button>
+    </th>
+  )
   const open = data.cases.filter((r) => r.status === 'open')
   const demo = open.find((r) => r.case_id === DEMO_CASE[getRegion()]) || open.find((r) => r.network) || open[0]
   const pickTier = (t) => {
@@ -85,6 +129,9 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
               )}
               <a className="btn lg" href="#/brain/index">Browse the Second Brain</a>
             </div>
+            <button type="button" className="linklike hero-skip" onClick={() => { rememberHero(true); setFullHero(false) }}>
+              Skip this overview next time
+            </button>
           </div>
           {demo?.network ? <RingHero c={demo} /> : funnel}
         </section>
@@ -96,7 +143,14 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
             <b>{s.claims.toLocaleString('en-US')}</b> claims, <b>{s.raw_alerts.toLocaleString('en-US')}</b> alerts,{' '}
             <b>{s.open_cases}</b> open cases
           </p>
-          <button type="button" className="linklike" onClick={() => setFullHero(true)}>Show overview</button>
+          <div className="f-tiers" role="group" aria-label="Filter the queue by route">
+            {[['high', s.fast_track], ['medium', s.review], ['low', s.not_enough_evidence]].map(([k, n]) => (
+              <button type="button" key={k} className={tier === k ? 'on' : ''} aria-pressed={tier === k} onClick={() => pickTier(k)}>
+                <i className={`key seg-${k}`} /><b>{n}</b> {TIER_TEXT[k].toLowerCase()}
+              </button>
+            ))}
+          </div>
+          <button type="button" className="linklike" onClick={() => { rememberHero(false); setFullHero(true) }}>Show overview</button>
         </section>
       )}
 
@@ -126,28 +180,32 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
             <button type="button" aria-label="More investigators" onClick={() => setInvestigators(Math.min(50, investigators + 1))}>+</button>
           </span>
         </label>
-        <label className="control">
-          Show
-          <select value={tier} onChange={(e) => setTier(e.target.value)}>
-            <option value="all">All routes</option>
-            <option value="high">Fast-track</option>
-            <option value="medium">Review</option>
-            <option value="low">Not enough evidence</option>
-          </select>
+        <label className="control search">
+          Find a case
+          <span className="search-box">
+            <input ref={search} type="search" value={q} onChange={(e) => setQ(e.target.value)}
+              placeholder={`${t.Provider}, ID, city or pattern`} aria-keyshortcuts="/" />
+            <kbd aria-hidden="true">/</kbd>
+          </span>
         </label>
+        {tier !== 'all' && (
+          <p className="chip">Route: {TIER_TEXT[tier]}
+            <button type="button" aria-label="Clear route filter" onClick={() => setTier('all')}>×</button>
+          </p>
+        )}
         <p className="capacity">
           This week covers <strong>{s.capacity} cases</strong> and <strong>{money(s.dollars_in_capacity)}</strong> of potential exposure
           <small>{s.cases_per_investigator} cases per investigator</small>
         </p>
       </section>
 
-      <div className="table-wrap" id="queue-table">
+      <div className="table-wrap queue-wrap" id="queue-table">
         <table className="queue">
           <thead>
             <tr>
-              <th className="num">#</th><th>{t.Provider}</th><th>Pattern</th><th>Risk</th><th>{horizon}-day repeat</th>
-              <th className="num">Potential {t.currency}</th><th className="num opt">{t.Members}</th><th className="opt">Severity</th>
-              <th>Confidence</th><th>Route</th>
+              {th('rank', '#', 'num')}<th>{t.Provider}</th><th>Pattern</th>{th('risk', 'Risk')}{th('repeat', `${horizon}-day repeat`)}
+              {th('money', `Potential ${t.currency}`, 'num')}{th('members', t.Members, 'num opt')}{th('severity', 'Severity', 'opt')}
+              {th('confidence', 'Confidence')}<th>Route</th>
             </tr>
           </thead>
           <tbody>
@@ -192,15 +250,19 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
             ))}
             {rows.length === 0 && (
               <tr className="empty-row"><td colSpan="10" className="empty">
-                No open cases are routed here right now.{' '}
-                <button type="button" className="linklike" onClick={() => setTier('all')}>Show all routes</button>
+                {needle
+                  ? <>No cases match “{q.trim()}”. <button type="button" className="linklike" onClick={() => setQ('')}>Clear search</button></>
+                  : <>No open cases are routed here right now. <button type="button" className="linklike" onClick={() => setTier('all')}>Show all routes</button></>}
               </td></tr>
             )}
           </tbody>
         </table>
       </div>
       <p className="foot">
-        Ranking blends risk, potential {t.currency === '₹' ? 'rupees' : 'dollars'}, {t.member} impact, severity and confidence. Select a row to open its brief.
+        Ranking blends risk, potential {t.currency === '₹' ? 'rupees' : 'dollars'}, {t.member} impact, severity and confidence.
+        Select a row to open its brief, or use <kbd>j</kbd> <kbd>k</kbd> and <kbd>Enter</kbd>.
+        {!ranked && <> Sorted by a column, so the capacity line is hidden. <button type="button" className="linklike" onClick={() => setSort({ key: 'rank', desc: false })}>Back to priority order</button></>}
+        {updated && <span className="updated">Updated {updated.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>}
       </p>
     </>
   )

@@ -18,6 +18,7 @@ models and Second Brain; a case or page from one region is a 404 in the other.
 | POST | `/cases/{case_id}/verdict/preview` | Show which Second Brain pages would change; writes nothing |
 | POST | `/cases/{case_id}/verdict` | Save the investigator's verdict to the Second Brain |
 | GET | `/cases/{case_id}/clinical-audit?llm=true` | Read-only audit of the case's own synthetic clinical record: document facts, deterministic checks, status (`discrepancy_found`, `no_discrepancy`, `insufficient_evidence`, `unavailable`) and, if a local model is running, its unverified reading. India: always `unavailable` until Indian records exist |
+| GET | `/cases/{case_id}/audit-plan` | AuditNext: verification steps ranked by expected information gain (bits) per hour; prior = the case's confidence score; catalog costs and accuracies are illustrative assumptions. India: `unavailable` |
 | GET | `/precedents/{case_id}/influence` | PrecedentGuard: open cases this closed verdict moves, with score, tier and rank with and without it |
 | POST | `/precedents/{case_id}/revoke` | `{reason}` -> withdraw a verdict as precedent; the page and log keep the record |
 | GET | `/graph/{provider_id}` | Nodes and links around one provider |

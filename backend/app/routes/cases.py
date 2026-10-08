@@ -3,7 +3,7 @@ from typing import Literal, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel, Field
 
-from backend.brain import clinical_audit, wiki
+from backend.brain import auditnext, clinical_audit, wiki
 from backend.region import Code, use
 
 from .. import auth, store
@@ -72,7 +72,8 @@ def precedent_influence(case_id: str, region: Code = "us"):
     """Which open cases this verdict is currently moving, and where they would sit without it."""
     with use(region):
         meta = _closed(case_id)
-        return {"case_id": case_id, "revoked": meta.get("revoked", ""), "affected": store.influence(case_id)}
+        return {"case_id": case_id, "revoked": meta.get("revoked", ""), "revoked_by": meta.get("revoked_by", ""),
+                "revoke_reason": meta.get("revoke_reason", ""), "affected": store.influence(case_id)}
 
 
 @router.post("/precedents/{case_id}/revoke")
@@ -96,6 +97,18 @@ def clinical_audit_route(case_id: str, region: Code = "us", llm: bool = True):
             return clinical_audit.audit(case, run_llm=llm)
         except clinical_audit.InvalidCaseId as e:
             raise HTTPException(400, str(e))
+
+
+@router.get("/cases/{case_id}/audit-plan")
+def audit_plan(case_id: str, region: Code = "us"):
+    """AuditNext: candidate verification steps ranked by expected information per hour of audit time. Read-only."""
+    with use(region):
+        case = _case(case_id)
+        if region == "in":
+            return auditnext.unavailable(case_id, "The AuditNext catalog follows US CMS program-integrity steps; "
+                                                  "India cases use the field audit checklist instead.")
+        _, conf, _ = store.enrich(case)
+        return auditnext.plan_investigation(conf["score"], case["pattern"], case_id=case_id)
 
 
 @router.get("/cases/{case_id}/fhir")

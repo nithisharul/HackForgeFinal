@@ -269,7 +269,7 @@ def audit(case, run_llm=True):
         status, why = "insufficient_evidence", "The record does not name this case's provider, so it is not used as evidence."
     elif dated["result"] != "match":
         status = "insufficient_evidence"
-        why = ("The record names this provider but cannot be tied to a claim in this case: " + dated["detail"]
+        why = ("The record names this provider, but " + dated["detail"][0].lower() + dated["detail"][1:]
                + (" The record itself states a conflict; it needs corroboration before it counts." if conflicts else ""))
     elif not pattern_checks:
         status, why = "insufficient_evidence", "No deterministic check applies to this kind of record."

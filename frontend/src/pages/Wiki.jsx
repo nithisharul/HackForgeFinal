@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
-import { api, getSession } from '../api/client.js'
-import SignIn from '../components/SignIn.jsx'
-import { Loading, Markdown } from '../components/bits.jsx'
+import { useEffect, useRef, useState } from 'react'
+import { api } from '../api/client.js'
+import SignIn, { useSession } from '../components/SignIn.jsx'
+import { Loading, Markdown, toast } from '../components/bits.jsx'
+import { PrecedentInfluence } from '../components/PrecedentGuard.jsx'
 import { terms } from '../region.js'
 
 export default function Wiki({ name }) {
@@ -10,6 +11,9 @@ export default function Wiki({ name }) {
   const [lint, setLint] = useState(null)
   const [error, setError] = useState(null)
   const [tick, setTick] = useState(0)
+  const [filter, setFilter] = useState('')
+  const [adding, setAdding] = useState(false)
+  const ask = useRef(null)
   const refresh = () => setTick((t) => t + 1)
 
   useEffect(() => {
@@ -20,10 +24,28 @@ export default function Wiki({ name }) {
     setPage(null)
     api.wikiPage(name).then(setPage).catch((e) => setError(e.message))
   }, [name, tick])
+  // Ctrl/Cmd+K opens Ask from anywhere in the Second Brain.
+  useEffect(() => {
+    const on = (e) => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); ask.current?.showModal() } }
+    document.addEventListener('keydown', on)
+    return () => document.removeEventListener('keydown', on)
+  }, [])
 
   if (!pages || !page) return <Loading error={error} what="the Second Brain" onRetry={() => { setError(null); refresh() }} />
   const live = pages.cases.filter((c) => c.startsWith('CASE-'))
-  const link = (p, label) => <a key={p} className={name === p ? 'on' : ''} aria-current={name === p ? 'page' : undefined} href={`#/brain/${p}`}>{label || p}</a>
+  const f = filter.trim().toLowerCase()
+  const match = (p, label) => !f || `${p} ${label || ''}`.toLowerCase().includes(f)
+  const link = (p, label) => match(p, label) && (
+    <a key={p} className={name === p ? 'on' : ''} aria-current={name === p ? 'page' : undefined} href={`#/brain/${p}`}>{label || p}</a>
+  )
+  // Groups fold; short groups, the one holding the open page, and every group while filtering stay open.
+  const group = (title, items, label, empty) => (
+    <details className="nav-group" open={!!f || items.includes(name) || items.length <= 8}>
+      <summary>{title} <span>{items.length}</span></summary>
+      {items.length === 0 && <small>{empty}</small>}
+      {items.map((p) => link(p, label?.(p)))}
+    </details>
+  )
 
   return (
     <div className="wiki">
@@ -31,43 +53,43 @@ export default function Wiki({ name }) {
         <span className={`llm ${pages.llm.enabled ? 'on' : 'off'}`}>
           {pages.llm.enabled ? `LLM connected: ${pages.llm.model}` : 'No LLM connected: template mode'}
         </span>
+        <button type="button" className="ask-open" onClick={() => ask.current?.showModal()} aria-keyshortcuts="Control+K Meta+K">
+          Ask the Second Brain <kbd>Ctrl K</kbd>
+        </button>
+        <input type="search" className="nav-filter" value={filter} onChange={(e) => setFilter(e.target.value)} placeholder="Filter pages" aria-label="Filter pages" />
         {link('index', 'Index')}
         {link('log', 'Change log')}
-        <h4>Patterns</h4>
-        {pages.patterns.map((p) => link(p, p.replace(/_/g, ' ')))}
-        <h4>Networks</h4>
-        {pages.networks.map((p) => link(p))}
-        <h4>Sources ({pages.sources.length})</h4>
-        {pages.sources.length === 0 && <small>No documents added yet.</small>}
-        {pages.sources.map((p) => link(p))}
-        <h4>Kept answers ({pages.notes.length})</h4>
-        {pages.notes.map((p) => link(p))}
-        <h4>Learned from this team ({live.length})</h4>
-        {live.length === 0 && <small>No verdicts recorded yet.</small>}
-        {live.map((p) => link(p))}
-        <h4>Health check</h4>
-        {lint && (
-          <div className="lint">
-            <small>{lint.pages} pages, {lint.cases} closed cases</small>
-            {lint.issues.length === 0 && <small>No issues.</small>}
-            {lint.issues.map((i, k) => (
-              <p key={k} className={`lint-${i.level}`}>
-                <a className="wikilink" href={`#/brain/${i.page}`}>{i.page}</a>: {i.issue}
-              </p>
-            ))}
-          </div>
-        )}
+        {group('Patterns', pages.patterns, (p) => p.replace(/_/g, ' '))}
+        {group('Networks', pages.networks)}
+        {group('Sources', pages.sources, null, 'No documents added yet.')}
+        {group('Kept answers', pages.notes, null, 'None yet.')}
+        {group('Learned from this team', live, null, 'No verdicts recorded yet.')}
+        <details className="nav-group">
+          <summary>Health check {lint && <span className={lint.issues.length ? 'warn' : ''}>{lint.issues.length || 'OK'}</span>}</summary>
+          {lint && (
+            <div className="lint">
+              <small>{lint.pages} pages, {lint.cases} closed cases</small>
+              {lint.issues.length === 0 && <small>No issues.</small>}
+              {lint.issues.map((i, k) => (
+                <p key={k} className={`lint-${i.level}`}>
+                  <a className="wikilink" href={`#/brain/${i.page}`}>{i.page}</a>: {i.issue}
+                </p>
+              ))}
+            </div>
+          )}
+        </details>
+        <button type="button" className="btn add" onClick={() => setAdding(true)}>+ Add a source document</button>
       </aside>
       <div className="col">
-        <Ask onFiled={refresh} />
-        <AddSource onSaved={refresh} />
-        <article className="card">
+        {adding && <AddSource onSaved={refresh} onClose={() => setAdding(false)} />}
+        <article className="card reading">
           {page.meta && Object.keys(page.meta).length > 0 && (
             <p className="meta">
               {Object.entries(page.meta).map(([k, v]) => <span key={k}><b>{k}</b> {v}</span>)}
             </p>
           )}
           <Markdown text={page.body} />
+          {page.meta?.type === 'case' && <PrecedentInfluence caseId={page.meta.id || name} inline />}
           {page.backlinks.length > 0 && (
             <p className="trail">
               Linked from: {page.backlinks.map((b, i) => (
@@ -77,6 +99,13 @@ export default function Wiki({ name }) {
           )}
         </article>
       </div>
+      <dialog ref={ask} className="modal wide" aria-label="Ask the Second Brain"
+        onClick={(e) => (e.target === ask.current || e.target.closest('a')) && ask.current.close()}>
+        <div className="modal-body">
+          <Ask onFiled={refresh} />
+          <button type="button" className="modal-x" aria-label="Close" onClick={() => ask.current?.close()}>×</button>
+        </div>
+      </dialog>
     </div>
   )
 }
@@ -87,7 +116,7 @@ function Ask({ onFiled }) {
   const [res, setRes] = useState(null)
   const [error, setError] = useState(null)
   const [filed, setFiled] = useState(null)
-  const [, setAuthTick] = useState(0)
+  const session = useSession()
 
   const submit = (e) => {
     e.preventDefault()
@@ -97,13 +126,14 @@ function Ask({ onFiled }) {
   }
   const keep = () =>
     api.fileNote({ question: res.question, answer: res.answer })
-      .then((r) => { setFiled(r.note_id); onFiled() }).catch((err) => setError(err.message))
+      .then((r) => { setFiled(r.note_id); onFiled(); toast(`Answer kept as ${r.note_id}`) }).catch((err) => setError(err.message))
 
   return (
-    <section className="card">
-      <h3>Ask the Second Brain<small>answers come only from wiki pages, with citations</small></h3>
+    <section className="ask-panel">
+      <h3>Ask the Second Brain</h3>
+      <p className="hint">Answers come only from wiki pages, with citations.</p>
       <form className="ask" onSubmit={submit}>
-        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={`e.g. ${terms().ask}`} />
+        <input autoFocus aria-label="Question" value={q} onChange={(e) => setQ(e.target.value)} placeholder={`e.g. ${terms().ask}`} />
         <button className="btn primary" disabled={busy || q.trim().length < 5}>{busy ? 'Reading…' : 'Ask'}</button>
       </form>
       {error && <p className="notice error" role="alert">{error}</p>}
@@ -117,9 +147,9 @@ function Ask({ onFiled }) {
             {res.unknown_citations.length > 0 && `. Removed ${res.unknown_citations.length} citation(s) to pages that do not exist.`}
           </p>
           {res.mode === 'llm' && !filed && (
-            <div className="ask">
-              <SignIn onChange={() => setAuthTick((n) => n + 1)} />
-              <button className="btn" disabled={!getSession()} onClick={keep}>Keep this answer as a page</button>
+            <div className="keep">
+              <SignIn />
+              <button className="btn" disabled={!session} onClick={keep}>Keep this answer as a page</button>
             </div>
           )}
           {filed && <p>Saved as <a className="wikilink" href={`#/brain/${filed}`}>{filed}</a>.</p>}
@@ -129,13 +159,12 @@ function Ask({ onFiled }) {
   )
 }
 
-function AddSource({ onSaved }) {
-  const [open, setOpen] = useState(false)
+function AddSource({ onSaved, onClose }) {
   const [title, setTitle] = useState('')
   const [text, setText] = useState('')
   const [preview, setPreview] = useState(null)
   const [saved, setSaved] = useState(null)
-  const [, setAuthTick] = useState(0)
+  const session = useSession()
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState(null)
   const body = { title, text }
@@ -145,11 +174,11 @@ function AddSource({ onSaved }) {
     setBusy(true); setError(null)
     fn(payload).then(then).catch((e) => setError(e.message)).finally(() => setBusy(false))
   }
-  if (!open) return <button className="btn add" onClick={() => setOpen(true)}>+ Add a source document</button>
 
   return (
-    <section className="card">
+    <section className="card add-source">
       <h3>Add a source document<small>the brain reads it and proposes page updates</small></h3>
+      <button type="button" className="modal-x" aria-label="Close" onClick={onClose}>×</button>
       {saved ? (
         <p>Saved as <a className="wikilink" href={`#/brain/${saved.source_id}`}>{saved.source_id}</a>. Pages updated:{' '}
           {saved.changes.map((c) => c.page).join(', ')}.</p>
@@ -162,7 +191,7 @@ function AddSource({ onSaved }) {
             <textarea rows="5" value={text} onChange={(e) => { setText(e.target.value); setPreview(null) }} />
           </label>
           {error && <p className="notice error" role="alert">{error}</p>}
-          {!preview && <button className="btn" disabled={!ready || busy} onClick={() => run(api.previewSource, body, setPreview)}>{busy ? 'Reading…' : 'Read and preview changes'}</button>}
+          {!preview && <div className="btn-row"><button className="btn primary" disabled={!ready || busy} onClick={() => run(api.previewSource, body, setPreview)}>{busy ? 'Reading…' : 'Read and preview changes'}</button></div>}
           {preview && (
             <div className="diff">
               <h4>Proposed by {preview.proposal.written_by === 'llm' ? 'the LLM' : 'template (no LLM connected)'}</h4>
@@ -174,10 +203,12 @@ function AddSource({ onSaved }) {
               </ul>
               <h4>Pages that will change</h4>
               <p>{preview.changes.map((c) => `${c.action} ${c.page}`).join(', ')}</p>
-              <SignIn onChange={() => setAuthTick((n) => n + 1)} />
-              <button className="btn primary" disabled={!getSession() || busy}
-                onClick={() => run(api.addSource, { ...body, proposal: preview.proposal }, (r) => { setSaved(r); onSaved() })}>Approve and save</button>
-              <button className="btn" onClick={() => setPreview(null)}>Edit</button>
+              <SignIn />
+              <div className="btn-row">
+                <button className="btn primary" disabled={!session || busy}
+                  onClick={() => run(api.addSource, { ...body, proposal: preview.proposal }, (r) => { setSaved(r); onSaved(); toast(`Source saved as ${r.source_id}`) })}>Approve and save</button>
+                <button className="btn" onClick={() => setPreview(null)}>Edit</button>
+              </div>
             </div>
           )}
         </>

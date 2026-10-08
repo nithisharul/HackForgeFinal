@@ -14,8 +14,9 @@ const STYLE = {
 
 export default function Network({ providerId }) {
   const [g, setG] = useState(null)
-  const [hover, setHover] = useState(null)
-  useEffect(() => { setG(null); api.graph(providerId).then(setG).catch(() => setG({ nodes: [], links: [] })) }, [providerId])
+  const [hoverId, setHover] = useState(null)
+  const [pinned, setPinned] = useState(null)
+  useEffect(() => { setG(null); setPinned(null); api.graph(providerId).then(setG).catch(() => setG({ nodes: [], links: [] })) }, [providerId])
   if (!g) return <div className="sk sk-graph" role="status" aria-label="Loading network" />
   if (!g.nodes.length) return null
 
@@ -31,10 +32,18 @@ export default function Network({ providerId }) {
   if (owner) pos[owner.id] = [44, 28]
   facs.forEach((n, i) => { pos[n.id] = [((i + 1) * W) / (facs.length + 1), H - 22] })
   const maxW = Math.max(1, ...g.links.filter((l) => l.type === 'shared_members').map((l) => l.weight))
+  // Touch has no hover, so a click or tap pins a node; hover previews another one.
+  const hover = hoverId || pinned
+  const sel = g.nodes.find((n) => n.id === hover)
+  const selLinks = sel ? g.links.filter((l) => l.source === sel.id || l.target === sel.id) : []
+  const flaggedCount = g.nodes.filter((n) => n.type === 'provider' && n.flagged).length
+  const canOpen = (n) => n.type === 'provider' && n.flagged && !n.center
 
   return (
     <figure className="network">
-      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Relationship graph for ${providerId}`}>
+      <svg viewBox={`0 0 ${W} ${H}`} role="group"
+        aria-label={`Relationship graph for ${providerId}: ${g.nodes.length} nodes, ${g.links.length} links, ${flaggedCount} flagged ${terms().providers}. Select a node for details.`}
+        onKeyDown={(e) => e.key === 'Escape' && setPinned(null)}>
         <defs>
           <marker id="arrow" viewBox="0 0 10 10" refX="19" refY="5" markerWidth="5" markerHeight="5" orient="auto">
             <path d="M0 0 L10 5 L0 10 z" fill="var(--link-referral)" />
@@ -59,13 +68,13 @@ export default function Network({ providerId }) {
         {g.nodes.map((n) => {
           const [x, y] = pos[n.id]
           const cls = n.type === 'provider' ? (n.center ? 'center' : n.flagged ? 'flagged' : 'plain') : n.type
-          const go = n.type === 'provider' && n.flagged && !n.center ? () => (window.location.hash = `#/case/CASE-${n.id}`) : undefined
+          const pin = () => setPinned((p) => (p === n.id ? null : n.id))
           return (
-            <g key={n.id} className={`node node-${cls}`} transform={`translate(${x} ${y})`}
+            <g key={n.id} className={`node node-${cls}${pinned === n.id ? ' node-pinned' : ''}`} transform={`translate(${x} ${y})`}
               onMouseEnter={() => setHover(n.id)} onMouseLeave={() => setHover(null)}
-              onFocus={() => setHover(n.id)} onBlur={() => setHover(null)}
-              tabIndex={go ? 0 : undefined} role={go ? 'link' : undefined} aria-label={go ? `Open case for ${n.id}` : undefined}
-              onClick={go} onKeyDown={go && ((e) => e.key === 'Enter' && go())}>
+              tabIndex={0} role="button" aria-pressed={pinned === n.id}
+              aria-label={`${n.id} ${n.name || ''}${n.flagged ? ', flagged' : ''}`}
+              onClick={pin} onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), pin())}>
               {n.type === 'provider' ? <circle r={n.center ? 15 : 11} /> : <rect x="-17" y="-10" width="34" height="20" rx="4" />}
               <text textAnchor="middle" dy="4">{n.label}</text>
               <title>{n.id} {n.name}{n.specialty ? ` · ${n.specialty}` : ''}{n.city ? ` · ${n.city}` : ''}</title>
@@ -73,6 +82,15 @@ export default function Network({ providerId }) {
           )
         })}
       </svg>
+      <div className="node-panel" aria-live="polite">
+        {sel ? (
+          <>
+            <p><b>{sel.id}</b> {sel.name}{sel.specialty ? ` · ${sel.specialty}` : ''}{sel.city ? ` · ${sel.city}` : ''}</p>
+            <p className="muted">{selLinks.length} {selLinks.length === 1 ? 'link' : 'links'}: {[...new Set(selLinks.map((l) => l.label))].slice(0, 3).join('; ')}</p>
+            {canOpen(sel) && <a className="btn" href={`#/case/CASE-${sel.id}`}>Open case {sel.id} →</a>}
+          </>
+        ) : <p className="muted">Select a node to see who it is and how it connects.</p>}
+      </div>
       <figcaption>
         <span><i className="sw sw-shared" /> shared {terms().member === 'member' ? 'members' : 'beneficiaries'}</span>
         <span><i className="sw sw-referral" /> referrals</span>

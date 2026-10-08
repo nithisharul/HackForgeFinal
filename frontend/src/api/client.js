@@ -12,6 +12,7 @@ export const getSession = () => (session && session.expires * 1000 > Date.now() 
 function setSession(s) {
   session = s
   try { s ? sessionStorage.setItem(SESSION_KEY, JSON.stringify(s)) : sessionStorage.removeItem(SESSION_KEY) } catch { /* ignore */ }
+  window.dispatchEvent(new Event('csn-session')) // header chip and approve buttons re-render (see useSession)
 }
 
 async function request(path, options = {}) {
@@ -41,6 +42,10 @@ export const api = {
   ringShield: (providerId, options = {}) => request(`/graph/${providerId}/ringshield`, options),
   previewVerdict: (id, body) => post(`/cases/${id}/verdict/preview`, body),
   submitVerdict: (id, body) => post(`/cases/${id}/verdict`, body),
+  auditPlan: (id) => request(`/cases/${id}/audit-plan`),
+  clinicalAudit: (id, llm = true) => request(`/cases/${id}/clinical-audit?llm=${llm}`),
+  precedentInfluence: (id) => request(`/precedents/${id}/influence`),
+  revokePrecedent: (id, reason) => post(`/precedents/${id}/revoke`, { reason }),
   wikiPages: () => request('/wiki'),
   wikiPage: (name) => request(`/wiki/page/${name}`),
   wikiLint: () => request('/wiki/lint'),

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { getRegion } from '../region.js'
 
 const INR = new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 })
@@ -35,7 +36,8 @@ export function Loading({ error, what = 'this page', onRetry }) {
     return (
       <div className="notice error" role="alert">
         <strong>Could not load {what}.</strong> {error}
-        <p>Check that the API is running from the project root with <code>uvicorn backend.app.main:app --reload</code>, then try again.</p>
+        <p>The server did not answer. Check your connection and try again.</p>
+        {import.meta.env.DEV && <p><small>Dev: start the API from the project root with <code>uvicorn backend.app.main:app --reload</code>.</small></p>}
         <button type="button" className="btn" onClick={onRetry || (() => window.location.reload())}>Try again</button>
       </div>
     )
@@ -87,4 +89,21 @@ export function Markdown({ text }) {
   })
   flush()
   return <div className="md">{out}</div>
+}
+
+// Toasts: call toast('Saved') from anywhere; <Toaster /> in App shows them for a few seconds.
+export const toast = (text) => window.dispatchEvent(new CustomEvent('csn-toast', { detail: text }))
+
+export function Toaster() {
+  const [items, setItems] = useState([])
+  useEffect(() => {
+    const on = (e) => {
+      const id = Math.random()
+      setItems((xs) => [...xs, { id, text: e.detail }])
+      setTimeout(() => setItems((xs) => xs.filter((x) => x.id !== id)), 4000)
+    }
+    window.addEventListener('csn-toast', on)
+    return () => window.removeEventListener('csn-toast', on)
+  }, [])
+  return <div className="toasts" role="status" aria-live="polite">{items.map((x) => <p key={x.id} className="toast">{x.text}</p>)}</div>
 }

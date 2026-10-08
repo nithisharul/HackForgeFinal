@@ -14,7 +14,7 @@ export default function Network({ providerId }) {
   const [g, setG] = useState(null)
   const [hover, setHover] = useState(null)
   useEffect(() => { setG(null); api.graph(providerId).then(setG).catch(() => setG({ nodes: [], links: [] })) }, [providerId])
-  if (!g) return <p>Loading network…</p>
+  if (!g) return <div className="sk sk-graph" role="status" aria-label="Loading network" />
   if (!g.nodes.length) return null
 
   const pos = {}
@@ -57,10 +57,13 @@ export default function Network({ providerId }) {
         {g.nodes.map((n) => {
           const [x, y] = pos[n.id]
           const cls = n.type === 'provider' ? (n.center ? 'center' : n.flagged ? 'flagged' : 'plain') : n.type
+          const go = n.type === 'provider' && n.flagged && !n.center ? () => (window.location.hash = `#/case/CASE-${n.id}`) : undefined
           return (
             <g key={n.id} className={`node node-${cls}`} transform={`translate(${x} ${y})`}
               onMouseEnter={() => setHover(n.id)} onMouseLeave={() => setHover(null)}
-              onClick={() => n.type === 'provider' && n.flagged && (window.location.hash = `#/case/CASE-${n.id}`)}>
+              onFocus={() => setHover(n.id)} onBlur={() => setHover(null)}
+              tabIndex={go ? 0 : undefined} role={go ? 'link' : undefined} aria-label={go ? `Open case for ${n.id}` : undefined}
+              onClick={go} onKeyDown={go && ((e) => e.key === 'Enter' && go())}>
               {n.type === 'provider' ? <circle r={n.center ? 15 : 11} /> : <rect x="-17" y="-10" width="34" height="20" rx="4" />}
               <text textAnchor="middle" dy="4">{n.label}</text>
               <title>{n.id} {n.name}{n.specialty ? ` · ${n.specialty}` : ''}{n.city ? ` · ${n.city}` : ''}</title>

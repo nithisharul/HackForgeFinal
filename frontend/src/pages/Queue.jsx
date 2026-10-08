@@ -1,58 +1,100 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { api } from '../api/client.js'
-import { Loading, Meter, Status, Tier, money, pct, words } from '../components/bits.jsx'
+import { Loading, Meter, Status, Tier, TIER_TEXT, money, pct, words } from '../components/bits.jsx'
+
+// The queue remembers each case's route from the last visit, so a verdict that
+// re-routes similar cases shows up as a visible change rather than a silent re-rank.
+const SEEN_KEY = 'csn-routes'
+const routeOf = (r) => (r.status === 'open' ? r.tier : r.status)
+const ROUTE_TEXT = { ...TIER_TEXT, confirmed: 'Confirmed', cleared: 'Cleared', inconclusive: 'Inconclusive' }
+
+function diffRoutes(cases) {
+  let seen = {}
+  try { seen = JSON.parse(sessionStorage.getItem(SEEN_KEY)) || {} } catch { /* storage blocked: no history */ }
+  const moved = {}
+  for (const r of cases) if (seen[r.case_id] && seen[r.case_id] !== routeOf(r)) moved[r.case_id] = seen[r.case_id]
+  try { sessionStorage.setItem(SEEN_KEY, JSON.stringify(Object.fromEntries(cases.map((r) => [r.case_id, routeOf(r)])))) } catch { /* ignore */ }
+  return moved
+}
 
 export default function Queue({ horizon, setHorizon, investigators, setInvestigators }) {
   const [data, setData] = useState(null)
+  const [moved, setMoved] = useState({})
   const [error, setError] = useState(null)
   const [tier, setTier] = useState('all')
+  const [retry, setRetry] = useState(0)
 
   useEffect(() => {
-    api.queue(horizon, investigators).then(setData).catch((e) => setError(e.message))
-  }, [horizon, investigators])
+    setError(null)
+    api.queue(horizon, investigators)
+      .then((d) => { setMoved((m) => ({ ...m, ...diffRoutes(d.cases) })); setData(d) })
+      .catch((e) => setError(e.message))
+  }, [horizon, investigators, retry])
 
-  if (!data) return <Loading error={error} />
+  if (!data) return <Loading error={error} what="the queue" onRetry={() => setRetry((n) => n + 1)} />
   const s = data.summary
   const rows = data.cases.filter((r) => tier === 'all' || r.tier === tier)
   const lastIn = Math.max(...rows.map((r, i) => (r.in_capacity ? i : -1)))
+  const top = data.cases.find((r) => r.in_capacity) || data.cases.find((r) => r.status === 'open')
+  const movedIds = Object.keys(moved)
 
   return (
     <>
-      <section className="funnel">
-        <Step n={s.claims} label="claims analysed" />
-        <Step n={s.raw_alerts} label="raw alerts" />
-        <Step n={s.cases} label="evidence-backed cases" />
-        <Step n={s.fast_track} label="fast-track" tone="high" />
-        <Step n={s.review} label="investigator review" tone="medium" />
-        <Step n={s.not_enough_evidence} label="not enough evidence" tone="low" last />
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="hero-copy">
+          <h1 id="hero-title">
+            {s.claims.toLocaleString('en-US')} claims, narrowed to the {s.open_cases} worth an investigator’s time.
+          </h1>
+          <p>
+            ClaimShield ranks providers by fraud risk, writes a fact-checked brief for each case, and gets
+            sharper with every verdict your team records. It finds leads for human review; it never decides fraud.
+          </p>
+          <div className="hero-cta">
+            {top && <a className="btn primary lg" href={`#/case/${top.case_id}`}>Open the top case, {top.provider_id}</a>}
+            <a className="btn lg" href="#/brain/index">Browse what the team has learned</a>
+          </div>
+        </div>
+        <Funnel s={s} />
       </section>
 
-      <section className="controls">
-        <label>
-          Risk horizon
-          <span className="seg">
+      {movedIds.length > 0 && (
+        <p className="moved-note" role="status">
+          <strong>{movedIds.length} {movedIds.length === 1 ? 'case' : 'cases'} changed route</strong> since you last looked,
+          because a recorded verdict became precedent. They are marked below.
+        </p>
+      )}
+
+      <section className="controls" aria-label="Queue settings">
+        <div className="control">
+          <span id="horizon-label">Risk horizon</span>
+          <span className="seg" role="group" aria-labelledby="horizon-label">
             {[30, 60, 90].map((h) => (
-              <button key={h} className={h === horizon ? 'on' : ''} onClick={() => setHorizon(h)}>{h} days</button>
+              <button type="button" key={h} className={h === horizon ? 'on' : ''} aria-pressed={h === horizon}
+                onClick={() => setHorizon(h)}>{h} days</button>
             ))}
           </span>
-        </label>
-        <label>
+        </div>
+        <label className="control">
           Investigators this week
-          <input type="number" min="0" max="50" value={investigators}
-            onChange={(e) => setInvestigators(Math.max(0, Math.min(50, Number(e.target.value) || 0)))} />
+          <span className="stepper">
+            <button type="button" aria-label="Fewer investigators" onClick={() => setInvestigators(Math.max(0, investigators - 1))}>−</button>
+            <input type="number" min="0" max="50" value={investigators}
+              onChange={(e) => setInvestigators(Math.max(0, Math.min(50, Number(e.target.value) || 0)))} />
+            <button type="button" aria-label="More investigators" onClick={() => setInvestigators(Math.min(50, investigators + 1))}>+</button>
+          </span>
         </label>
-        <label>
+        <label className="control">
           Show
           <select value={tier} onChange={(e) => setTier(e.target.value)}>
-            <option value="all">All tiers</option>
+            <option value="all">All routes</option>
             <option value="high">Fast-track</option>
             <option value="medium">Review</option>
             <option value="low">Not enough evidence</option>
           </select>
         </label>
         <p className="capacity">
-          Capacity {s.capacity} cases ({s.cases_per_investigator} per investigator) covers{' '}
-          <strong>{money(s.dollars_in_capacity)}</strong> of potential exposure.
+          This week covers <strong>{s.capacity} cases</strong> and <strong>{money(s.dollars_in_capacity)}</strong> of potential exposure
+          <small>{s.cases_per_investigator} cases per investigator</small>
         </p>
       </section>
 
@@ -60,48 +102,93 @@ export default function Queue({ horizon, setHorizon, investigators, setInvestiga
         <table className="queue">
           <thead>
             <tr>
-              <th>#</th><th>Provider</th><th>Pattern</th><th>Risk</th><th>{horizon}-day repeat</th>
-              <th className="num">Potential $</th><th className="num">Members</th><th>Severity</th>
+              <th className="num">#</th><th>Provider</th><th>Pattern</th><th>Risk</th><th>{horizon}-day repeat</th>
+              <th className="num">Potential $</th><th className="num opt">Members</th><th className="opt">Severity</th>
               <th>Confidence</th><th>Route</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((r, i) => (
-              <tr key={r.case_id}
-                className={`${r.in_capacity ? '' : 'out'} ${i === lastIn ? 'cutoff' : ''}`}
-                onClick={() => (window.location.hash = `#/case/${r.case_id}`)}>
-                <td>{r.rank}</td>
-                <td>
-                  <strong>{r.provider_id}</strong> {r.provider_name}
-                  <small>{r.specialty} · {r.city}{r.network ? ` · network ${r.network}` : ''}</small>
-                </td>
-                <td>{words(r.pattern)}</td>
-                <td><Meter value={r.risk_score} /> {pct(r.risk_score)}</td>
-                <td>{pct(r.p_horizon)}</td>
-                <td className="num">{money(r.potential_dollars)}</td>
-                <td className="num">{r.member_impact}</td>
-                <td><Meter value={r.severity} tone="muted" /></td>
-                <td>{pct(r.confidence)}</td>
-                <td>{r.status === 'open' ? <Tier tier={r.tier} /> : <Status status={r.status} />}</td>
-              </tr>
+              <Fragment key={r.case_id}>
+                <tr className={[r.in_capacity ? '' : 'out', moved[r.case_id] ? 'moved' : ''].join(' ')}
+                  onClick={() => (window.location.hash = `#/case/${r.case_id}`)}>
+                  <td className="num rank">{r.rank}</td>
+                  <td className="provider">
+                    <a className="row-link" href={`#/case/${r.case_id}`} onClick={(e) => e.stopPropagation()}>
+                      <strong>{r.provider_id}</strong> {r.provider_name}
+                    </a>
+                    <small>{r.specialty}, {r.city}{r.network ? <span className="net">network {r.network}</span> : ''}</small>
+                  </td>
+                  <td className="cap">{words(r.pattern)}</td>
+                  <td data-label="Risk"><Meter value={r.risk_score} /> {pct(r.risk_score)}</td>
+                  <td data-label={`${horizon}-day repeat`}>{pct(r.p_horizon)}</td>
+                  <td className="num" data-label="Potential">{money(r.potential_dollars)}</td>
+                  <td className="num opt">{r.member_impact}</td>
+                  <td className="opt"><Meter value={r.severity} tone="muted" /></td>
+                  <td data-label="Confidence">{pct(r.confidence)}</td>
+                  <td className="route-cell">
+                    {r.status === 'open' ? <Tier tier={r.tier} /> : <Status status={r.status} />}
+                    {moved[r.case_id] && <small className="was">was {ROUTE_TEXT[moved[r.case_id]]}</small>}
+                  </td>
+                </tr>
+                {i === lastIn && i < rows.length - 1 && (
+                  <tr className="cutoff">
+                    <td colSpan="10">
+                      <span>Capacity line</span> {investigators} {investigators === 1 ? 'investigator' : 'investigators'} can take the cases above this week
+                    </td>
+                  </tr>
+                )}
+              </Fragment>
             ))}
+            {rows.length === 0 && (
+              <tr className="empty-row"><td colSpan="10" className="empty">
+                No open cases are routed here right now.{' '}
+                <button type="button" className="linklike" onClick={() => setTier('all')}>Show all routes</button>
+              </td></tr>
+            )}
           </tbody>
         </table>
       </div>
       <p className="foot">
-        Rows below the line are outside this week's capacity. Ranking blends risk, potential dollars, member impact,
-        severity and confidence. Every case is a lead for human review; the system never decides fraud.
+        Ranking blends risk, potential dollars, member impact, severity and confidence. Select a row to open its brief.
       </p>
     </>
   )
 }
 
-function Step({ n, label, tone, last }) {
+// Bar widths use a log scale so 80,452 claims and 34 cases fit on one chart;
+// the numbers carry the exact values.
+function Funnel({ s }) {
+  const max = Math.log10(s.claims)
+  const w = (n) => `${Math.max(8, (Math.log10(Math.max(n, 1)) / max) * 100)}%`
+  const tiers = [
+    ['high', s.fast_track, 'fast-track'],
+    ['medium', s.review, 'review'],
+    ['low', s.not_enough_evidence, 'not enough evidence'],
+  ]
+  const open = Math.max(1, s.fast_track + s.review + s.not_enough_evidence)
   return (
-    <div className={`step ${tone ? 'step-' + tone : ''}`}>
-      <strong>{n.toLocaleString('en-US')}</strong>
-      <span>{label}</span>
-      {!last && <i aria-hidden="true">→</i>}
-    </div>
+    <figure className="funnel" aria-label="How claims narrow into cases">
+      <div className="f-row">
+        <span className="f-bar" style={{ '--w': w(s.claims) }} />
+        <strong>{s.claims.toLocaleString('en-US')}</strong><span>claims analysed</span>
+      </div>
+      <div className="f-row">
+        <span className="f-bar" style={{ '--w': w(s.raw_alerts) }} />
+        <strong>{s.raw_alerts.toLocaleString('en-US')}</strong><span>raw alerts from rules, anomaly model and network</span>
+      </div>
+      <div className="f-row f-cases">
+        <span className="f-bar" style={{ '--w': w(s.open_cases) }} />
+        <strong>{s.open_cases}</strong><span>open cases with evidence</span>
+      </div>
+      <div className="f-row f-split">
+        <span className="f-bar" style={{ '--w': w(s.open_cases) }}>
+          {tiers.map(([t, n]) => <i key={t} className={`seg-${t}`} style={{ flexGrow: n / open }} />)}
+        </span>
+        <ul>
+          {tiers.map(([t, n, label]) => <li key={t}><i className={`key seg-${t}`} /><b>{n}</b> {label}</li>)}
+        </ul>
+      </div>
+    </figure>
   )
 }

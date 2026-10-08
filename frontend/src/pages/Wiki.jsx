@@ -19,13 +19,13 @@ export default function Wiki({ name }) {
     api.wikiPage(name).then(setPage).catch((e) => setError(e.message))
   }, [name, tick])
 
-  if (!pages || !page) return <Loading error={error} />
+  if (!pages || !page) return <Loading error={error} what="the Second Brain" onRetry={() => { setError(null); refresh() }} />
   const live = pages.cases.filter((c) => c.startsWith('CASE-'))
-  const link = (p, label) => <a key={p} className={name === p ? 'on' : ''} href={`#/brain/${p}`}>{label || p}</a>
+  const link = (p, label) => <a key={p} className={name === p ? 'on' : ''} aria-current={name === p ? 'page' : undefined} href={`#/brain/${p}`}>{label || p}</a>
 
   return (
     <div className="wiki">
-      <aside>
+      <aside aria-label="Second Brain pages">
         <span className={`llm ${pages.llm.enabled ? 'on' : 'off'}`}>
           {pages.llm.enabled ? `LLM connected: ${pages.llm.model}` : 'No LLM connected: template mode'}
         </span>
@@ -104,7 +104,7 @@ function Ask({ onFiled }) {
         <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="e.g. What have we learned about referral rings?" />
         <button className="btn primary" disabled={busy || q.trim().length < 5}>{busy ? 'Reading…' : 'Ask'}</button>
       </form>
-      {error && <p className="notice error">{error}</p>}
+      {error && <p className="notice error" role="alert">{error}</p>}
       {res && (
         <div className="answer">
           <Markdown text={res.answer} />
@@ -112,7 +112,7 @@ function Ask({ onFiled }) {
             Read: {res.pages_read.map((n, i) => (
               <span key={n}>{i > 0 && ' → '}<a className="wikilink" href={`#/brain/${n}`}>{n}</a></span>
             ))}
-            {res.unknown_citations.length > 0 && ` · ${res.unknown_citations.length} citation(s) to pages that do not exist were removed`}
+            {res.unknown_citations.length > 0 && `. Removed ${res.unknown_citations.length} citation(s) to pages that do not exist.`}
           </p>
           {res.mode === 'llm' && !filed && (
             <div className="ask">
@@ -159,7 +159,7 @@ function AddSource({ onSaved }) {
           <label className="field">Document text (policy, bulletin, audit memo)
             <textarea rows="5" value={text} onChange={(e) => { setText(e.target.value); setPreview(null) }} />
           </label>
-          {error && <p className="notice error">{error}</p>}
+          {error && <p className="notice error" role="alert">{error}</p>}
           {!preview && <button className="btn" disabled={!ready || busy} onClick={() => run(api.previewSource, body, setPreview)}>{busy ? 'Reading…' : 'Read and preview changes'}</button>}
           {preview && (
             <div className="diff">
@@ -171,7 +171,7 @@ function AddSource({ onSaved }) {
                 ))}
               </ul>
               <h4>Pages that will change</h4>
-              <p>{preview.changes.map((c) => `${c.action} ${c.page}`).join(' · ')}</p>
+              <p>{preview.changes.map((c) => `${c.action} ${c.page}`).join(', ')}</p>
               <label className="field">Approved by
                 <input value={who} onChange={(e) => setWho(e.target.value)} />
               </label>

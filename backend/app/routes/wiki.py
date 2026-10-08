@@ -91,4 +91,6 @@ def add_source(s: Source, region: Code = "us"):
             if not ok:
                 raise HTTPException(422, "proposal is malformed")
             proposal.setdefault("pattern_notes", [])
+            if proposal.get("new_pattern") is not None and not isinstance(proposal["new_pattern"], dict):
+                raise HTTPException(422, "new_pattern must be an object or null")
         return wiki.ingest_source(s.title.strip(), s.text, s.approved_by.strip(), store.data().PROV_INFO, proposal=proposal)

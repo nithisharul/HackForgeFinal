@@ -22,7 +22,10 @@ Pages link to each other with `[[PageName]]`; the name is the file name without 
 4. Every case links to exactly one pattern and one provider. Every page is reachable from the index.
 5. A cleared case adds its reasoning to the pattern's "Known innocent explanations".
 6. Verdict values: `confirmed`, `cleared`, `inconclusive`.
-7. The system proposes; it never states that fraud occurred. Wording is "flagged", "consistent with".
-8. Text written by the LLM may only use IDs and dollar figures that appear in its input.
-9. India region: a provider is a hospital, a member is a PM-JAY beneficiary and amounts are rupees.
-10. Never write a beneficiary's name, Aadhaar number or mobile number into a page; IDs are tokens.
+7. A new pattern may be proposed by the LLM when a source document describes a scheme the library
+   does not cover. It becomes a pattern page only after a named human approves it, and it is marked
+   "knowledge only" until a detection rule exists.
+8. The system proposes; it never states that fraud occurred. Wording is "flagged", "consistent with".
+9. Text written by the LLM may only use IDs and dollar figures that appear in its input.
+10. India region: a provider is a hospital, a member is a PM-JAY beneficiary and amounts are rupees.
+11. Never write a beneficiary's name, Aadhaar number or mobile number into a page; IDs are tokens.

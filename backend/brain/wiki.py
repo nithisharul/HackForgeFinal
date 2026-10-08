@@ -102,11 +102,14 @@ Pages link to each other with `[[PageName]]`; the name is the file name without 
 4. Every case links to exactly one pattern and one provider. Every page is reachable from the index.
 5. A cleared case adds its reasoning to the pattern's "Known innocent explanations".
 6. Verdict values: `confirmed`, `cleared`, `inconclusive`.
-7. The system proposes; it never states that fraud occurred. Wording is "flagged", "consistent with".
-8. Text written by the LLM may only use IDs and dollar figures that appear in its input.
+7. A new pattern may be proposed by the LLM when a source document describes a scheme the library
+   does not cover. It becomes a pattern page only after a named human approves it, and it is marked
+   "knowledge only" until a detection rule exists.
+8. The system proposes; it never states that fraud occurred. Wording is "flagged", "consistent with".
+9. Text written by the LLM may only use IDs and dollar figures that appear in its input.
 """
-SCHEMA_IN = SCHEMA + ("9. India region: a provider is a hospital, a member is a PM-JAY beneficiary and amounts are rupees.\n"
-                      "10. Never write a beneficiary's name, Aadhaar number or mobile number into a page; IDs are tokens.\n")
+SCHEMA_IN = SCHEMA + ("10. India region: a provider is a hospital, a member is a PM-JAY beneficiary and amounts are rupees.\n"
+                      "11. Never write a beneficiary's name, Aadhaar number or mobile number into a page; IDs are tokens.\n")
 
 # India (PM-JAY). Policies are synthetic, written for this prototype; the public basis names the real documents.
 PATTERNS_IN = {
@@ -214,6 +217,21 @@ def _src():
     return region.current().know / "sources"
 
 
+def _registry():
+    return region.current().know / "learned_patterns.json"
+
+
+def load_learned():
+    """Patterns a human approved from a source document, kept per region beside the built-in ones."""
+    for code in region.REGIONS:
+        with region.use(code):
+            if _registry().exists():
+                patterns().update(json.loads(_registry().read_text(encoding="utf-8")))
+
+
+load_learned()
+
+
 # ---------------------------------------------------------------- page io ---
 def pages():
     return {p.stem: p for p in _wiki().rglob("*.md")}
@@ -313,15 +331,23 @@ def pattern_page(pid, cases, sources):
                 notes.append(f"- {m.group(1)} (from [[{s['id']}]])")
     body = f"# {p['title']}\n\n## Definition\n{p['definition']}\n\n## Detection signals\n"
     body += "\n".join(f"- {s}" for s in p["signals"])
-    body += (f"\n\n## Policy basis\n- {p['policy']} {p['policy_title']} (`{policy_path(p['policy'])}`)\n"
-             f"- Public basis: {p['public_basis']}\n\n## Known innocent explanations\n")
+    if p.get("learned"):
+        body += ("\n- Status: knowledge only. No rule or model detects this pattern yet."
+                 f"\n\n## Policy basis\n- No policy mapped yet. Proposed by the LLM from [[{p['origin']}]], "
+                 f"approved by {p['approved_by']} on {p['added']}.\n\n## Known innocent explanations\n")
+    else:
+        body += (f"\n\n## Policy basis\n- {p['policy']} {p['policy_title']} (`{policy_path(p['policy'])}`)\n"
+                 f"- Public basis: {p['public_basis']}\n\n## Known innocent explanations\n")
     body += "\n".join(f"- {s}" for s in p["innocent"]) + "\n" + _auto("learned", learned)
     body += "\n## Lessons from closed cases\n" + _auto("lessons", lessons)
     body += "\n## Notes from sources\n" + _auto("notes", notes)
     body += ("\n## Precedent summary\n" + _auto("summary", [
         f"{len(mine)} closed cases: {n['confirmed']} confirmed, {n['cleared']} cleared, {n['inconclusive']} inconclusive."]))
     body += "\n## Cases\n" + _auto("cases", [_case_line(c) for c in mine])
-    return render({"type": "pattern", "id": pid, "title": p["title"], "policy": p["policy"]}, body)
+    meta = {"type": "pattern", "id": pid, "title": p["title"], "policy": p.get("policy") or "none"}
+    if p.get("learned"):
+        meta["origin"] = f"learned from {p['origin']}"
+    return render(meta, body)
 
 
 def provider_page(pid, cases, info, net):
@@ -446,6 +472,8 @@ def seed(inv, prov):
     (SRC / "documents").mkdir(parents=True, exist_ok=True)
     (region.current().know / "SCHEMA.md").write_text(SCHEMA_IN if india else SCHEMA, encoding="utf-8")
     for p in patterns().values():
+        if not p.get("policy"):
+            continue
         (SRC / "policies" / f"{p['policy']}.md").write_text(
             f"# {p['policy']} {p['policy_title']}\n\n> Synthetic policy written for this prototype. Not a real "
             f"{'scheme or insurer' if india else 'payer'} policy.\n\n"
@@ -500,6 +528,24 @@ def ingest(case, verdict, reasoning, investigator, info, pattern=None, lesson=No
 
 
 # ------------------------------------------------------ ingest: documents ---
+def clean_new_pattern(np):
+    """Validate a pattern the LLM proposed. Returns None unless it is well formed and truly new."""
+    if not isinstance(np, dict) or not isinstance(np.get("title"), str) or not isinstance(np.get("definition"), str):
+        return None
+    title, definition = " ".join(np["title"].split())[:80], " ".join(np["definition"].split())[:400]
+    pid = re.sub(r"[^a-z0-9]+", "_", str(np.get("id") or title).lower()).strip("_")[:40]
+    if len(pid) < 3 or len(definition) < 20 or pid in patterns() or pid in pages():
+        return None
+    words = set(re.findall(r"[a-z]{4,}", title.lower()))
+    for p in patterns().values():   # reject a renamed copy of a pattern we already have
+        have = set(re.findall(r"[a-z]{4,}", p["title"].lower()))
+        if words and len(words & have) / len(words) >= 0.6:
+            return None
+    lines = lambda key, n: [" ".join(str(x).split())[:200] for x in (np.get(key) or []) if str(x).strip()][:n]
+    return {"id": pid, "title": title, "definition": definition, "signals": lines("signals", 5),
+            "innocent_explanations": lines("innocent_explanations", 4)}
+
+
 def read_source(title, text):
     """Read a raw document and propose what it adds to the wiki."""
     catalog = "\n".join(f"- {pid}: {p['definition']}" for pid, p in patterns().items())
@@ -508,36 +554,61 @@ def read_source(title, text):
         '"summary" (2-3 sentences), "key_points" (3-6 short strings), "pattern_notes" (list of objects with '
         '"pattern" and "note"). Each note is one sentence saying what this document changes or adds for that '
         "pattern. Only use pattern ids from the list. Omit patterns the document does not affect. "
-        "Use only what the document says.\n\nPatterns:\n" + catalog,
+        "Use only what the document says. Also include \"new_pattern\": set it to null unless the document clearly "
+        "describes a fraud, waste or abuse scheme that NONE of the listed patterns covers. In that case set it to an "
+        'object with "id" (short lowercase name with underscores), "title", "definition" (one sentence), '
+        '"signals" (2-4 ways it could be detected in claims data) and "innocent_explanations" (1-3 legitimate reasons '
+        "the same data could appear).\n\nPatterns:\n" + catalog,
         f"Title: {title}\n\n{text[:12000]}")
     if out and isinstance(out.get("summary"), str):
         notes = [{"pattern": n["pattern"], "note": " ".join(str(n["note"]).split())}
                  for n in out.get("pattern_notes", []) if isinstance(n, dict) and n.get("pattern") in patterns() and n.get("note")]
         return {"summary": out["summary"].strip(), "key_points": [str(k) for k in out.get("key_points", [])][:6],
-                "pattern_notes": notes, "written_by": "llm"}
+                "pattern_notes": notes, "new_pattern": clean_new_pattern(out.get("new_pattern")), "written_by": "llm"}
     sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", " ".join(text.split())) if len(s.strip()) > 20]
     low = text.lower()
     notes = [{"pattern": pid, "note": "This document mentions the pattern; review it for changes to detection or policy."}
              for pid, p in patterns().items() if pid.replace("_", " ") in low or p["title"].lower() in low]
-    return {"summary": " ".join(sentences[:2]), "key_points": sentences[2:6], "pattern_notes": notes, "written_by": "template"}
+    return {"summary": " ".join(sentences[:2]), "key_points": sentences[2:6], "pattern_notes": notes,
+            "new_pattern": None, "written_by": "template"}
 
 
 def ingest_source(title, text, approved_by, info, proposal=None, dry_run=False):
     proposal = proposal or read_source(title, text)
     sid = next_id("SRC", "sources")
+    new = clean_new_pattern(proposal.get("new_pattern"))
+    proposal["new_pattern"] = new
+    notes = [f"- [[{n['pattern']}]]: {n['note']}" for n in proposal["pattern_notes"]]
+    entry = None
+    if new:
+        entry = {"title": new["title"], "definition": new["definition"], "signals": new["signals"],
+                 "innocent": new["innocent_explanations"], "policy": "", "policy_title": "", "policy_text": "",
+                 "public_basis": "", "learned": True, "origin": sid, "approved_by": approved_by or "pending",
+                 "added": str(dt.date.today())}
+        patterns()[new["id"]] = entry
+        notes.append(f"- [[{new['id']}]]: This document is where the pattern was first described.")
     body = f"# {title}\n\nRaw document: `{source_path('documents', sid)}`\n\n## Summary\n{proposal['summary']}\n"
     if proposal["key_points"]:
         body += "\n## Key points\n" + "\n".join(f"- {k}" for k in proposal["key_points"]) + "\n"
-    if proposal["pattern_notes"]:
-        body += "\n## What this changes\n" + "\n".join(f"- [[{n['pattern']}]]: {n['note']}" for n in proposal["pattern_notes"]) + "\n"
+    if notes:
+        body += "\n## What this changes\n" + "\n".join(notes) + "\n"
     meta = {"type": "source", "id": sid, "title": title, "added": str(dt.date.today()),
             "approved_by": approved_by, "written_by": proposal.get("written_by", "template")}
-    changes = _apply({_wiki() / "sources" / f"{sid}.md": render(meta, body)}, info, dry_run,
-                     ("ingest", f"{sid} {title}", f"Source document approved by {approved_by}."))
+    try:
+        changes = _apply({_wiki() / "sources" / f"{sid}.md": render(meta, body)}, info, dry_run,
+                         ("ingest", f"{sid} {title}", f"Source document approved by {approved_by}."
+                          + (f" New pattern [[{new['id']}]] created." if new else "")))
+    finally:
+        if new and dry_run:
+            patterns().pop(new["id"], None)
     if not dry_run:
         (_src() / "documents").mkdir(parents=True, exist_ok=True)
         (_src() / "documents" / f"{sid}.md").write_text(f"# {title}\n\n{text}\n", encoding="utf-8")
-    return {"source_id": sid, "proposal": proposal, "changes": changes}
+        if new:
+            learned = json.loads(_registry().read_text(encoding="utf-8")) if _registry().exists() else {}
+            learned[new["id"]] = entry
+            _registry().write_text(json.dumps(learned, indent=1), encoding="utf-8")
+    return {"source_id": sid, "proposal": proposal, "changes": changes, "new_pattern_id": new["id"] if new else None}
 
 
 # ------------------------------------------------------------------ query ---
@@ -621,6 +692,10 @@ def lint():
         if len(mine) >= 4 and cleared > 2 * max(confirmed, 1):
             issues.append({"level": "review", "page": pid,
                            "issue": f"{cleared} of {len(mine)} cases were cleared; the detection rule may be too loose"})
+    for pid, p in patterns().items():
+        if p.get("learned"):
+            issues.append({"level": "review", "page": pid,
+                           "issue": "learned pattern with no detection rule yet; cases can cite it but nothing flags it"})
     for c in cases:
         if c["pattern"] not in patterns():
             issues.append({"level": "error", "page": c["id"], "issue": f"unknown pattern {c['pattern']}"})

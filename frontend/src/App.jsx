@@ -19,6 +19,11 @@ export default function App() {
   const [horizon, setHorizon] = useState(90)
   const [investigators, setInvestigators] = useState(3)
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    document.title = (section === 'case' && arg ? `${arg} · ` : section === 'brain' ? 'Second Brain · ' : 'Queue · ') + 'ClaimShield Nexus'
+  }, [section, arg])
+
   let page
   if (section === 'case' && arg) page = <CaseDetail caseId={arg} horizon={horizon} />
   else if (section === 'brain') page = <Wiki name={arg || 'index'} />
@@ -26,21 +31,25 @@ export default function App() {
 
   return (
     <div className="shell">
+      <a className="skip" href="#main" onClick={(e) => { e.preventDefault(); document.getElementById('main').focus() }}>Skip to content</a>
       <header className="top">
         <a className="brand" href="#/">
-          <span className="mark">CN</span>
+          <svg className="mark" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M16 3 5 7v8c0 7 4.6 12 11 14 6.4-2 11-7 11-14V7L16 3Z" />
+            <path className="mark-hl" d="M10 17h12" />
+          </svg>
           <span>
             <strong>ClaimShield Nexus</strong>
-            <small>The SIU's Second Brain</small>
+            <small>The SIU's second brain</small>
           </span>
         </a>
-        <nav>
-          <a className={section !== 'brain' ? 'on' : ''} href="#/">SIU queue</a>
-          <a className={section === 'brain' ? 'on' : ''} href="#/brain/index">Second Brain</a>
+        <nav aria-label="Main">
+          <a className={section !== 'brain' ? 'on' : ''} aria-current={section !== 'brain' ? 'page' : undefined} href="#/">Queue</a>
+          <a className={section === 'brain' ? 'on' : ''} aria-current={section === 'brain' ? 'page' : undefined} href="#/brain/index">Second Brain</a>
         </nav>
         <span className="synthetic">Synthetic data only</span>
       </header>
-      <main>{page}</main>
+      <main id="main" tabIndex="-1">{page}</main>
     </div>
   )
 }

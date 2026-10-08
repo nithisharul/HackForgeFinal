@@ -16,6 +16,65 @@ PATTERN_WORDS = {
     "impossible_timing": "impossible timing between facilities", "unbundling": "unbundling of component codes",
     "collusive_ring": "a coordinated referral network", "excessive_utilization": "utilization far above peers",
 }
+
+def copilot_recommendation(case, ctx, conf):
+    pat = case.get("pattern", "")
+    tier = conf.get("tier", "medium")
+    exp = money(case.get("potential_dollars", 0))
+    members = case.get("member_impact", 0)
+    
+    playbooks = {
+        "impossible_timing": (
+            "Primary Directive: High-priority impossible travel flag across facilities. Verify physical presence vs. telehealth place of service.\n\n"
+            "Targeted Investigation Steps:\n"
+            "1. Audit Facility Access Logs: Request electronic badge swipe logs and EHR workstation login timestamps at flagged facilities to verify physical presence.\n"
+            "2. Review Place of Service (POS): Confirm whether secondary claims were misbilled under POS 11 (Office) rather than POS 02/10 (Telehealth).\n"
+            f"3. Sample Records for {members} Affected Members: Issue an Additional Documentation Request (ADR) under CMS Pub 100-08 Ch. 3 to evaluate {exp} in flagged claims.\n\n"
+            "Statutory Basis: CMS Program Integrity Manual (Pub 100-08) Ch. 3 / Texas Medicaid Travel & Telehealth Standards."
+        ),
+        "unbundling": (
+            "Primary Directive: Automated NCCI Procedure-to-Procedure (PTP) unbundling detected. Prevent improper separate payment.\n\n"
+            "Targeted Investigation Steps:\n"
+            "1. Cross-Reference PTP Edits: Validate Column 1 (80053) vs Column 2 (80048) claim lines against CMS NCCI Practitioner edit tables.\n"
+            "2. Modifier Audit: Verify whether unbundling modifiers (Modifier 59 or X{EPSU}) were appropriately appended with supporting clinical documentation.\n"
+            f"3. Recovery & Prepayment Suspension: Initiate an overpayment demand letter for {exp} and place an automated prepayment edit on component code submissions.\n\n"
+            "Statutory Basis: CMS NCCI Policy Manual Ch. 1 / Social Security Act §1862(a)(1)(A)."
+        ),
+        "upcoding": (
+            "Primary Directive: Level-5 office visit distribution exceeds specialty baseline (35%+ volume). Potential E/M grade inflation.\n\n"
+            "Targeted Investigation Steps:\n"
+            "1. Medical Necessity & MDM Review: Issue ADRs for 30 sample Level-5 encounter charts to evaluate Medical Decision Making (MDM) complexity.\n"
+            "2. Time Documentation Audit: Verify provider spent documented minimum thresholds (54+ mins for 99215) or met high-complexity MDM criteria.\n"
+            f"3. Specialty Comparison: Benchmark provider visit distribution against regional specialty peers across {members} impacted beneficiaries.\n\n"
+            "Statutory Basis: CMS Evaluation and Management (E/M) Guidelines / CMS Pub 100-08 Ch. 3 §3.2."
+        ),
+        "duplicate_billing": (
+            "Primary Directive: Identical claim submission within 72 hours. Potential duplicate reimbursement without adjustment indicator.\n\n"
+            "Targeted Investigation Steps:\n"
+            "1. Transmission Audit: Verify whether duplicate claims represent uncorrected resubmissions or separate distinct clinical encounters.\n"
+            "2. Clearinghouse Reconciliation: Review electronic remittance advice (835) and clearinghouse logs to ensure duplicate claims were not paid twice.\n"
+            f"3. Automated Recoupment: Flag {exp} for immediate clawback if provider lacks distinct clinical encounter notes.\n\n"
+            "Statutory Basis: CMS Claims Processing Manual (Pub 100-04) Ch. 1 §120 / CMS Pub 100-08 Ch. 3."
+        ),
+        "collusive_ring": (
+            "Primary Directive: Coordinated referral network under common ownership structure. Evaluate cross-referral necessity.\n\n"
+            "Targeted Investigation Steps:\n"
+            "1. Subpoena Entity Operating Agreements: Audit ownership links between provider, diagnostic labs, and therapy clinics under common holding entity.\n"
+            "2. Referral Order Verification: Review clinical orders for the shared patient pool to confirm medical necessity and independent clinical rationale.\n"
+            f"3. Stark Law / AKS Review: Assess closed referral loop patterns across {members} shared beneficiaries for anti-kickback vulnerabilities.\n\n"
+            "Statutory Basis: 42 U.S.C. §1395nn (Stark Law) / 42 U.S.C. §1320a-7b (Anti-Kickback Statute)."
+        ),
+        "excessive_utilization": (
+            "Primary Directive: Per-member utilization substantially exceeds specialty baseline. Evaluate patient panel severity.\n\n"
+            "Targeted Investigation Steps:\n"
+            "1. Panel Case-Mix Assessment: Audit whether patient panel represents a documented high-intensity chronic care cohort or regional tertiary referral center.\n"
+            "2. Plan of Care (POC) Review: Verify treatment plans and physician orders justify frequency and duration of billed services.\n"
+            f"3. Precedent Comparison: Compare against closed second-brain cases to determine whether volume represents legitimate regional specialization.\n\n"
+            "Statutory Basis: CMS Program Integrity Manual (Pub 100-08) Ch. 3 §3.6 (Overutilization Monitoring)."
+        ),
+    }
+    return playbooks.get(pat, ACTIONS.get(tier, ACTIONS["medium"]))
+
 ACTIONS = {
     "high": "Fast-track to the SIU. Open a case, request records for the flagged claims, and have an investigator confirm before any action is taken against the provider.",
     "medium": "Assign to an investigator. Review the sample claims and the precedents below, then confirm, correct or clear.",
@@ -121,7 +180,7 @@ def build(case, ctx, conf, horizon=90):
         "policy": ctx["policy"],
         "pages_read": ctx["pages_read"],
         "limitations": limitations,
-        "recommended_action": ACTIONS[conf["tier"]],
+        "recommended_action": copilot_recommendation(case, ctx, conf),
         "grounding": ground(text_for_check, case, ctx) | ({"llm_rejected": True, "llm_unverified": llm_check["unverified"]}
                                                            if llm_check and not llm_check["passed"] else {}),
     }

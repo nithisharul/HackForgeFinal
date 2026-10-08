@@ -1,11 +1,20 @@
+"""One small client for any OpenAI-compatible chat API (Groq, Gemini, OpenRouter, Ollama...).
+
+Configure with environment variables or a .env file in the project root:
+    LLM_API_KEY    the provider key (not needed for a local Ollama server)
+    LLM_BASE_URL   default https://api.groq.com/openai/v1
+    LLM_MODEL      default llama-3.3-70b-versatile
+Every function returns None on any failure, so callers can fall back to templates.
+"""
 import json
 import os
 import re
-from google import genai
-from google.genai import types
+import urllib.request
+
 from backend.pipeline.common import ROOT
 
 _loaded = False
+
 
 def _env():
     global _loaded
@@ -14,51 +23,54 @@ def _env():
     _loaded = True
     path = ROOT / ".env"
     if path.exists():
-        for line in path.read_text(encoding="utf-8").splitlines():
+        for line in path.read_text(encoding="utf-8-sig").splitlines():
             if "=" in line and not line.strip().startswith("#"):
                 k, v = line.split("=", 1)
                 os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
 
+
 def config():
     _env()
-    key = os.getenv("GEMINI_API_KEY", os.getenv("LLM_API_KEY", ""))
-    model = os.getenv("LLM_MODEL", "gemini-2.5-flash")
-    return {"key": key, "model": model}
+    key = os.getenv("LLM_API_KEY", "")
+    base = os.getenv("LLM_BASE_URL", "") or ("https://api.groq.com/openai/v1" if key else "")
+    return {"key": key, "base": base.rstrip("/"), "model": os.getenv("LLM_MODEL", "gemma3:4b")}
+
 
 def available():
-    return bool(config()["key"])
+    return bool(config()["base"])
+
 
 def status():
     c = config()
-    return {"enabled": bool(c["key"]), "model": c["model"], "provider": "google-gemini"}
+    return {"enabled": bool(c["base"]), "model": c["model"] if c["base"] else None,
+            "provider": c["base"].split("//")[-1].split("/")[0] if c["base"] else None}
 
-def chat(system, user, json_mode=False, max_tokens=4000):
+
+def chat(system, user, json_mode=False, max_tokens=800):
     c = config()
-    if not c["key"]: return None
-    try:
-        client = genai.Client(api_key=c["key"])
-        sys_instruct = system
-        if json_mode:
-            sys_instruct += "\nIMPORTANT: You must return ONLY valid JSON without Markdown formatting blocks."
-            
-        response = client.models.generate_content(
-            model=c["model"],
-            contents=user,
-            config=types.GenerateContentConfig(
-                system_instruction=sys_instruct,
-                temperature=0.1,
-                max_output_tokens=max_tokens,
-                response_mime_type="application/json" if json_mode else "text/plain"
-            )
-        )
-        return response.text.strip()
-    except Exception as e:
-        print(f"[GEMINI ERROR] {e}")
+    if not c["base"]:
         return None
+    body = {"model": c["model"], "temperature": 0.2, "max_tokens": max_tokens,
+            "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
+    attempts = [dict(body, response_format={"type": "json_object"}), body] if json_mode else [body]
+    for payload in attempts:
+        try:
+            req = urllib.request.Request(
+                c["base"] + "/chat/completions", data=json.dumps(payload).encode(),
+                headers={"Content-Type": "application/json", "Authorization": f"Bearer {c['key'] or 'none'}",
+                         "User-Agent": "claimshield-nexus/0.1"})
+            with urllib.request.urlopen(req, timeout=90) as r:
+                return json.loads(r.read())["choices"][0]["message"]["content"].strip()
+        except Exception as e:
+            print(f"[LLM ERROR] {e}")
+            continue
+    return None
 
-def chat_json(system, user, max_tokens=4000):
+
+def chat_json(system, user, max_tokens=900):
     text = chat(system, user, json_mode=True, max_tokens=max_tokens)
-    if not text: return None
+    if not text:
+        return None
     m = re.search(r"\{.*\}", text, re.S)
     try:
         return json.loads(m.group(0)) if m else None

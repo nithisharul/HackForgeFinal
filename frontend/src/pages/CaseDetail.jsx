@@ -1,3 +1,103 @@
+
+function CopilotPlaybook({ text }) {
+  if (!text) return null;
+
+  let directive = "";
+  const dirMatch = text.match(/Primary Directive:\s*([\s\S]*?)(?=Targeted Investigation Steps:|1\.|$)/i);
+  if (dirMatch) directive = dirMatch[1].trim();
+
+  const steps = [];
+  const stepRegex = /(\d+)\.\s*([^:\n]+):\s*([\s\S]*?)(?=(?:\d+\.|$|Statutory Basis:))/gi;
+  let match;
+  while ((match = stepRegex.exec(text)) !== null) {
+    steps.push({ num: match[1], title: match[2].trim(), desc: match[3].trim() });
+  }
+
+  let statutory = "";
+  const statMatch = text.match(/Statutory Basis:\s*([\s\S]*?)$/i);
+  if (statMatch) statutory = statMatch[1].trim();
+
+  if (!directive && steps.length === 0) {
+    return <p style={{ fontSize: "13px", lineHeight: "1.6", color: "#334155", margin: "6px 0 0" }}>{text}</p>;
+  }
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "10px" }}>
+      {directive && (
+        <div style={{
+          background: "#f0f7ff",
+          borderLeft: "3.5px solid #2563eb",
+          borderRadius: "4px",
+          padding: "8px 12px",
+          fontSize: "12.5px",
+          color: "#1e3a8a",
+          lineHeight: "1.45"
+        }}>
+          <div style={{ fontWeight: "700", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.04em", color: "#2563eb", marginBottom: "2px" }}>
+            Primary Directive
+          </div>
+          {directive}
+        </div>
+      )}
+
+      {steps.length > 0 && (
+        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+          <div style={{ fontSize: "10.5px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em", color: "#64748b" }}>
+            Recommended Investigation Steps
+          </div>
+          {steps.map((s, idx) => (
+            <div key={idx} style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: "10px",
+              background: "#f8fafc",
+              border: "1px solid #e2e8f0",
+              borderRadius: "6px",
+              padding: "8px 10px",
+              fontSize: "12.5px",
+              lineHeight: "1.4"
+            }}>
+              <span style={{
+                minWidth: "20px",
+                height: "20px",
+                borderRadius: "50%",
+                background: "#2563eb",
+                color: "#ffffff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "11px",
+                fontWeight: "700",
+                marginTop: "1px",
+                flexShrink: 0
+              }}>
+                {s.num}
+              </span>
+              <div>
+                <strong style={{ color: "#0f172a" }}>{s.title}:</strong>{" "}
+                <span style={{ color: "#334155" }}>{s.desc}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {statutory && (
+        <div style={{
+          fontSize: "11px",
+          color: "#64748b",
+          background: "#f1f5f9",
+          padding: "6px 10px",
+          borderRadius: "4px",
+          border: "1px solid #e2e8f0"
+        }}>
+          <strong style={{ color: "#475569" }}>Statutory Authority:</strong> {statutory}
+        </div>
+      )}
+    </div>
+  );
+}
+
 import { useEffect, useState } from 'react'
 import { api } from '../api/client.js'
 import { Loading, Status, Tier, money, pct, words } from '../components/bits.jsx'
@@ -9,7 +109,7 @@ export default function CaseDetail({ caseId, horizon }) {
   const load = () => api.getCase(caseId, horizon).then(setC).catch((e) => setError(e.message))
   useEffect(() => { setC(null); load() }, [caseId, horizon])
 
-  if (!c) return <Loading error={error} />
+  if (!c) return <Loading error={error} what={`case ${caseId}`} onRetry={() => { setError(null); load() }} />
   const b = c.brief
   const conf = b.confidence
   const maxClaims = Math.max(...b.timeline.monthly.map((m) => m.claims))
@@ -19,10 +119,19 @@ export default function CaseDetail({ caseId, horizon }) {
       <a className="back" href="#/">← Back to queue</a>
       <header className="case-head">
         <div>
-          <h1>{c.provider_id} {c.provider_name} <a className="btn" href={`http://127.0.0.1:8000/api/cases/${c.case_id}/fhir`} target="_blank" rel="noreferrer" style={{float: "right", fontSize: "14px", background: "#005a9c", color: "white"}}>Export FHIR JSON</a></h1>
-          <p>{c.specialty} · {c.city} · owner {c.owner_id} {c.owner_name} · {c.case_id}</p>
+          <h1><span className="id">{c.provider_id}</span> {c.provider_name}</h1>
+          <p>{c.specialty}, {c.city}. Owned by {c.owner_id} {c.owner_name}. Case {c.case_id}.</p>
         </div>
-        {c.status === 'open' ? <Tier tier={conf.tier} /> : <Status status={c.status} />}
+        <div className="case-actions">
+          {c.status === 'open' ? <Tier tier={conf.tier} /> : <Status status={c.status} />}
+          <a className="btn" href={`/api/cases/${c.case_id}/fhir`} target="_blank" rel="noreferrer">Export FHIR JSON</a>
+          {c.status === 'open' && (
+            <button type="button" className="btn primary"
+              onClick={() => document.getElementById('verdict')?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })}>
+              Record decision
+            </button>
+          )}
+        </div>
       </header>
 
       <section className="stats">
@@ -38,11 +147,11 @@ export default function CaseDetail({ caseId, horizon }) {
           <Card title="Investigation brief" tag={`written by ${b.generated_by}`}>
             <p className="lead">{b.summary}</p>
             <p className={`ground ${b.grounding.passed ? 'ok' : 'bad'}`}>
-              {b.grounding.passed ? '✓' : '✗'} Fact check: {b.grounding.verified} of {b.grounding.tokens_checked} IDs,
-              codes and dollar figures match the claims data.
+              <b>{b.grounding.passed ? 'Fact-checked' : 'Fact check failed'}</b>
+              {b.grounding.verified} of {b.grounding.tokens_checked} IDs, codes and dollar figures match the claims data.
             </p>
             <h4>Recommended action</h4>
-            <p>{b.recommended_action}</p>
+            <CopilotPlaybook text={b.recommended_action} />
           </Card>
 
           <Card title="Evidence">
@@ -52,7 +161,7 @@ export default function CaseDetail({ caseId, horizon }) {
                   <span className={`kind kind-${e.type}`}>{e.type === 'ml' ? 'ML' : e.type}</span>
                   <div>
                     {e.text}
-                    <small>{e.rule} · source: {e.source}{e.claim_ids.length ? ` · e.g. ${e.claim_ids.join(', ')}` : ''}</small>
+                    <small>{e.rule}. Source: {e.source}{e.claim_ids.length ? `. For example ${e.claim_ids.join(', ')}` : ''}</small>
                   </div>
                 </li>
               ))}
@@ -92,9 +201,18 @@ export default function CaseDetail({ caseId, horizon }) {
               {b.timeline.events.map((e, i) => <li key={i}><time>{e.date}</time> {e.event}</li>)}
             </ul>
           </Card>
+
+          <Card title="Limitations">
+            <ul className="plain">{b.limitations.map((l, i) => <li key={i}>{l}</li>)}</ul>
+          </Card>
         </div>
 
         <div className="col">
+          <Card title="Network context" tag="hover a provider to trace links">
+            <p>{b.network_context}</p>
+            <Network providerId={c.provider_id} />
+          </Card>
+
           <Card title="Confidence and routing">
             <p className="route"><strong>{conf.label}:</strong> {conf.route}. Owner: {conf.owner}.</p>
             <table className="kv">
@@ -113,7 +231,7 @@ export default function CaseDetail({ caseId, horizon }) {
             {b.precedents.map((p) => (
               <div key={p.case_id} className="prec">
                 <a className="wikilink" href={`#/brain/${p.case_id}`}>{p.case_id}</a>{' '}
-                <Status status={p.verdict} /> <small>{p.why.join(', ')} · closed {p.closed}</small>
+                <Status status={p.verdict} /> <small>{p.why.join(', ')}, closed {p.closed}</small>
                 <p>{p.reasoning}</p>
               </div>
             ))}
@@ -125,15 +243,6 @@ export default function CaseDetail({ caseId, horizon }) {
             <h4>Policy cited</h4>
             <p><strong>{b.policy.id} {b.policy.title}.</strong> {b.policy.text}</p>
             <small>{b.policy.note}. Public basis: {b.policy.public_basis}.</small>
-          </Card>
-
-          <Card title="Network context">
-            <p>{b.network_context}</p>
-            <Network providerId={c.provider_id} />
-          </Card>
-
-          <Card title="Limitations">
-            <ul className="plain">{b.limitations.map((l, i) => <li key={i}>{l}</li>)}</ul>
           </Card>
 
           <Verdict c={c} onDone={load} />
@@ -150,12 +259,13 @@ function Verdict({ c, onDone }) {
   const [preview, setPreview] = useState(null)
   const [error, setError] = useState(null)
   const [saved, setSaved] = useState(null)
+  const [busy, setBusy] = useState(false)
   const body = { verdict, reasoning, investigator }
   const ready = reasoning.trim().length >= 10 && investigator.trim().length >= 2
 
   if (c.status !== 'open' && !saved) {
     return (
-      <Card title="Investigator decision">
+      <Card id="verdict" title="Investigator decision">
         <p>This case is closed as <Status status={c.status} />. It is now precedent:{' '}
           <a className="wikilink" href={`#/brain/${c.case_id}`}>{c.case_id}</a>.</p>
       </Card>
@@ -163,21 +273,22 @@ function Verdict({ c, onDone }) {
   }
   if (saved) {
     return (
-      <Card title="Saved to the Second Brain">
-        <p>Pages updated: {saved.changes.map((x, i) => (
+      <Card id="verdict" title="Saved to the Second Brain" tone="saved">
+        <p>This verdict is now precedent. Pages updated: {saved.changes.map((x, i) => (
           <span key={x.page}>{i > 0 && ', '}<a className="wikilink" href={`#/brain/${x.page}`}>{x.page}</a></span>
-        ))}. Similar open cases are re-scored with this precedent.</p>
-        <a className="btn" href="#/">Back to queue</a>
+        ))}.</p>
+        <p>Similar open cases have been re-scored with it. Cases that changed route are marked in the queue.</p>
+        <a className="btn primary" href="#/">See the re-ranked queue</a>
       </Card>
     )
   }
-  const run = (fn, then) => { setError(null); fn(c.case_id, body).then(then).catch((e) => setError(e.message)) }
+  const run = (fn, then) => { setError(null); setBusy(true); fn(c.case_id, body).then(then).catch((e) => setError(e.message)).finally(() => setBusy(false)) }
 
   return (
-    <Card title="Investigator decision" tag="human in the loop">
-      <div className="seg wide">
+    <Card id="verdict" title="Investigator decision" tag="human in the loop">
+      <div className="seg wide" role="group" aria-label="Verdict">
         {['confirmed', 'cleared', 'inconclusive'].map((v) => (
-          <button key={v} className={v === verdict ? 'on' : ''} onClick={() => { setVerdict(v); setPreview(null) }}>{v}</button>
+          <button type="button" key={v} className={v === verdict ? 'on' : ''} aria-pressed={v === verdict} onClick={() => { setVerdict(v); setPreview(null) }}>{v}</button>
         ))}
       </div>
       <label className="field">Reasoning (becomes precedent)
@@ -187,8 +298,9 @@ function Verdict({ c, onDone }) {
       <label className="field">Investigator name
         <input value={investigator} onChange={(e) => setInvestigator(e.target.value)} />
       </label>
-      {error && <p className="notice error">{error}</p>}
-      {!preview && <button className="btn" disabled={!ready} onClick={() => run(api.previewVerdict, setPreview)}>Preview Second Brain changes</button>}
+      {error && <p className="notice error" role="alert">{error}</p>}
+      {!preview && <button className="btn" disabled={!ready || busy} onClick={() => run(api.previewVerdict, setPreview)}>{busy ? 'Preparing preview…' : 'Preview Second Brain changes'}</button>}
+      {!preview && !ready && <small className="hint">Write at least 10 characters of reasoning and your name to continue.</small>}
       {preview && (
         <div className="diff">
           {preview.lesson && (
@@ -204,7 +316,7 @@ function Verdict({ c, onDone }) {
               <pre>{ch.added.slice(0, 5).map((l) => '+ ' + l).join('\n')}</pre>
             </div>
           ))}
-          <button className="btn primary" onClick={() => { setError(null); api.submitVerdict(c.case_id, { ...body, lesson: preview.lesson || '' }).then(setSaved).catch((e) => setError(e.message)) }}>Approve and save</button>
+          <button className="btn primary" disabled={busy} onClick={() => run((id, b) => api.submitVerdict(id, { ...b, lesson: preview.lesson || '' }), setSaved)}>{busy ? 'Saving…' : 'Approve and save'}</button>
           <button className="btn" onClick={() => setPreview(null)}>Edit</button>
         </div>
       )}
@@ -216,9 +328,9 @@ function Stat({ label, value }) {
   return <div className="stat"><span>{label}</span><strong>{value}</strong></div>
 }
 
-function Card({ title, tag, children }) {
+function Card({ id, title, tag, tone, children }) {
   return (
-    <section className="card">
+    <section className={tone ? `card card-${tone}` : 'card'} id={id}>
       <h3>{title}{tag && <small>{tag}</small>}</h3>
       {children}
     </section>

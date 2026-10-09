@@ -61,7 +61,7 @@ export default function Network({ providerId }) {
               strokeDasharray={s.dash} markerEnd={l.type === 'referral' ? 'url(#arrow)' : undefined}
               strokeWidth={l.type === 'shared_members' ? 1 + (3 * l.weight) / maxW : 1.4}
               opacity={hover && hover !== l.source && hover !== l.target ? 0.12 : 0.8}>
-              <title>{l.source} → {l.target}: {l.label}</title>
+              <title>{l.source} to {l.target}: {l.label}</title>
             </path>
           )
         })}
@@ -77,7 +77,7 @@ export default function Network({ providerId }) {
               onClick={pin} onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), pin())}>
               {n.type === 'provider' ? <circle r={n.center ? 15 : 11} /> : <rect x="-17" y="-10" width="34" height="20" rx="4" />}
               <text textAnchor="middle" dy="4">{n.label}</text>
-              <title>{n.id} {n.name}{n.specialty ? ` · ${n.specialty}` : ''}{n.city ? ` · ${n.city}` : ''}</title>
+              <title>{n.id} {n.name}{n.specialty ? `, ${n.specialty}` : ''}{n.city ? `, ${n.city}` : ''}</title>
             </g>
           )
         })}
@@ -85,9 +85,9 @@ export default function Network({ providerId }) {
       <div className="node-panel" aria-live="polite">
         {sel ? (
           <>
-            <p><b>{sel.id}</b> {sel.name}{sel.specialty ? ` · ${sel.specialty}` : ''}{sel.city ? ` · ${sel.city}` : ''}</p>
+            <p><b>{sel.id}</b> {sel.name}{sel.specialty ? `, ${sel.specialty}` : ''}{sel.city ? `, ${sel.city}` : ''}</p>
             <p className="muted">{selLinks.length} {selLinks.length === 1 ? 'link' : 'links'}: {[...new Set(selLinks.map((l) => l.label))].slice(0, 3).join('; ')}</p>
-            {canOpen(sel) && <a className="btn" href={`#/case/CASE-${sel.id}`}>Open case {sel.id} →</a>}
+            {canOpen(sel) && <a className="btn" href={`#/case/CASE-${sel.id}`}>Open case {sel.id}</a>}
           </>
         ) : <p className="muted">Select a node to see who it is and how it connects.</p>}
       </div>
@@ -198,7 +198,7 @@ export function RingHero({ c }) {
 
   return (
     <figure className="ring">
-      <svg viewBox={`0 0 ${RW} ${RH}`} role="img" aria-label={`Network ${c.network}: ${order.length} ${terms().providers} referring patients in a ${closed ? 'closed loop' : 'chain'}`}>
+      <svg viewBox={`0 0 ${RW} ${RH}`} role="group" aria-label={`Network ${c.network}: ${order.length} ${terms().providers} referring patients in a ${closed ? 'closed loop' : 'chain'}`}>
         <defs>
           <marker id="ring-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
             <path d="M0 0 L10 5 L0 10 z" fill="var(--link-referral)" />
@@ -270,8 +270,8 @@ export function RingHero({ c }) {
           <b>{totalRefs.toLocaleString('en-US')} referrals</b> around a {closed ? 'closed loop' : 'chain'}. Select a {terms().provider} to open its case.
         </p>
         <p className="r-detail" aria-live="polite">
-          {byId[hover] ? <><b>{hover}</b> {byId[hover].name} · {byId[hover].specialty}</>
-            : owner && hover === owner.id ? <><b>{owner.label}</b> {owner.name} · owns every {terms().provider} in the ring</>
+          {byId[hover] ? <><b>{hover}</b> {byId[hover].name}, {byId[hover].specialty}</>
+            : owner && hover === owner.id ? <><b>{owner.label}</b> {owner.name}, which owns every {terms().provider} in the ring</>
               : `Hover over or focus a ${terms().provider} to see its full name and type.`}
         </p>
         <span className="r-key"><i className="sw sw-referral" /> referrals</span>

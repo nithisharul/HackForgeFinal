@@ -71,6 +71,8 @@ def queue(horizon=90, investigators=3):
             "potential_dollars": c["potential_dollars"], "member_impact": c["member_impact"],
             "severity": c["severity"], "evidence_strength": c["evidence_strength"],
             "confidence": conf["score"], "tier": conf["tier"], "route": conf["route"], **extra,
+            # Same thresholds as families_agreeing in pipeline/run_all.py
+            "methods": [k for k, th in (("rules", 0.3), ("ml", 0.25), ("graph", 0.5)) if c["signals"][k] >= th],
         })
     india = region.current().code == "in"
     # India lists actionable cases first and the weak-evidence watch list after them; the US order is unchanged

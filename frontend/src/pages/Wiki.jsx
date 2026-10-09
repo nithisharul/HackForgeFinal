@@ -23,12 +23,14 @@ export default function Wiki({ name }) {
     setPage(null)
     api.wikiPage(name).then(setPage).catch((e) => setError(e.message))
   }, [name, tick])
-  // Ctrl/Cmd+K opens Ask from anywhere in the Second Brain.
+  // The command palette asks for the Ask dialog with a 'csn-ask' event, or a flag when it navigates here first.
+  const [askPending, setAskPending] = useState(() => { try { const v = sessionStorage.getItem('csn-ask'); sessionStorage.removeItem('csn-ask'); return !!v } catch { return false } })
   useEffect(() => {
-    const on = (e) => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); ask.current?.showModal() } }
-    document.addEventListener('keydown', on)
-    return () => document.removeEventListener('keydown', on)
+    const on = () => setAskPending(true)
+    window.addEventListener('csn-ask', on)
+    return () => window.removeEventListener('csn-ask', on)
   }, [])
+  useEffect(() => { if (askPending && ask.current) { ask.current.showModal(); setAskPending(false) } })
 
   if (!pages || !page) return <Loading error={error} what="the Second Brain" onRetry={() => { setError(null); refresh() }} />
   const live = pages.cases.filter((c) => c.startsWith('CASE-'))
@@ -47,13 +49,24 @@ export default function Wiki({ name }) {
   )
 
   return (
+    <>
+    <header className="page-head">
+      <div>
+        <h1>Second Brain</h1>
+        <p>Patterns, policies and closed cases, kept as linked pages. Every decision the team records is added here.</p>
+      </div>
+      <div className="page-actions">
+        <button type="button" className="btn" onClick={() => setAdding(true)}>Add source document</button>
+        <button type="button" className="btn primary" onClick={() => ask.current?.showModal()}>Ask a question</button>
+      </div>
+    </header>
     <div className="wiki">
       <aside aria-label="Second Brain pages">
         <span className={`llm ${pages.llm.enabled ? 'on' : 'off'}`}>
           {pages.llm.enabled ? `LLM connected: ${pages.llm.model}` : 'No LLM connected: template mode'}
         </span>
-        <button type="button" className="ask-open" onClick={() => ask.current?.showModal()} aria-keyshortcuts="Control+K Meta+K">
-          Ask the Second Brain <kbd>Ctrl K</kbd>
+        <button type="button" className="ask-open" onClick={() => ask.current?.showModal()}>
+          Ask the Second Brain
         </button>
         <input type="search" className="nav-filter" value={filter} onChange={(e) => setFilter(e.target.value)} placeholder="Filter pages" aria-label="Filter pages" />
         {link('index', 'Index')}
@@ -77,7 +90,6 @@ export default function Wiki({ name }) {
             </div>
           )}
         </details>
-        <button type="button" className="btn add" onClick={() => setAdding(true)}>+ Add a source document</button>
       </aside>
       <div className="col">
         {adding && <AddSource onSaved={refresh} onClose={() => setAdding(false)} />}
@@ -105,6 +117,7 @@ export default function Wiki({ name }) {
         </div>
       </dialog>
     </div>
+    </>
   )
 }
 
@@ -139,8 +152,8 @@ function Ask({ onFiled }) {
         <div className="answer">
           <Markdown text={res.answer} />
           <p className="trail">
-            Read: {res.pages_read.map((n, i) => (
-              <span key={n}>{i > 0 && ' → '}<a className="wikilink" href={`#/brain/${n}`}>{n}</a></span>
+            Pages read: {res.pages_read.map((n, i) => (
+              <span key={n}>{i > 0 && ', '}<a className="wikilink" href={`#/brain/${n}`}>{n}</a></span>
             ))}
             {res.unknown_citations.length > 0 && `. Removed ${res.unknown_citations.length} citation(s) to pages that do not exist.`}
           </p>

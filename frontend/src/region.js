@@ -10,9 +10,9 @@ export function setRegion(r) {
 }
 
 const TERMS = {
-  us: { provider: 'provider', Provider: 'Provider', providers: 'providers', member: 'member', Member: 'Member',
+  us: { provider: 'provider', Provider: 'Provider', providers: 'providers', Providers: 'Providers', member: 'member', Member: 'Member',
         Members: 'Members', unit: "SIU", amounts: 'dollar figures', currency: '$', ask: 'What have we learned about referral rings?' },
-  in: { provider: 'hospital', Provider: 'Hospital', providers: 'hospitals', member: 'beneficiary', Member: 'Beneficiary',
+  in: { provider: 'hospital', Provider: 'Hospital', providers: 'hospitals', Providers: 'Hospitals', member: 'beneficiary', Member: 'Beneficiary',
         Members: 'Beneficiaries', unit: 'SAFU', amounts: 'rupee amounts', currency: '₹', ask: 'What have we learned about ghost beneficiaries?' },
 }
 export const terms = () => TERMS[current]

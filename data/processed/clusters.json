@@ -10,7 +10,7 @@
    "P274"
   ],
   "size": 6,
-  "method": "louvain",
+  "method": "leiden",
   "top_owner": "O061",
   "owner_share": 1.0,
   "referral_cycle": true,

@@ -60,6 +60,6 @@
  },
  "network": {
   "clusters": 1,
-  "method": "louvain"
+  "method": "leiden"
  }
 }

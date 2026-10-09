@@ -239,8 +239,16 @@ load_learned()
 
 
 # ---------------------------------------------------------------- page io ---
+_PAGES = {}
+
+
 def pages():
-    return {p.stem: p for p in _wiki().rglob("*.md")}
+    """Every page by name. The listing is cached per region and cleared by every write in this module;
+    page contents are always read from disk."""
+    key = region.current().code
+    if key not in _PAGES:
+        _PAGES[key] = {p.stem: p for p in _wiki().rglob("*.md")}
+    return _PAGES[key]
 
 
 def parse(text):
@@ -453,6 +461,7 @@ def log(kind, title, detail=""):
     path = _wiki() / "log.md"
     if not path.exists():
         path.write_text("# Change log\n\nAppend-only. Newest entries last.\n", encoding="utf-8")
+        _PAGES.clear()
     with path.open("a", encoding="utf-8") as f:
         f.write(f"\n## [{dt.date.today()}] {kind} | {title}\n{detail}\n")
 
@@ -478,6 +487,7 @@ def _apply(pending, info, dry_run, log_entry):
         for path, content in new.items():
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(content, encoding="utf-8")
+            _PAGES.clear()
         kind, title, detail = log_entry
         log(kind, title, f"{detail} Pages touched: {', '.join(c['page'] for c in changes)}.")
     return changes
@@ -492,6 +502,7 @@ def seed(inv, prov):
     (SRC / "policies").mkdir(parents=True, exist_ok=True)
     (SRC / "documents").mkdir(parents=True, exist_ok=True)
     (region.current().know / "SCHEMA.md").write_text(SCHEMA_IN if india else SCHEMA, encoding="utf-8")
+    _PAGES.clear()
     for p in patterns().values():
         if not p.get("policy"):
             continue
@@ -499,6 +510,7 @@ def seed(inv, prov):
             f"# {p['policy']} {p['policy_title']}\n\n> Synthetic policy written for this prototype. Not a real "
             f"{'scheme or insurer' if india else 'payer'} policy.\n\n"
             f"{p['policy_text']}\n\nPublic basis to verify: {p['public_basis']}\n", encoding="utf-8")
+        _PAGES.clear()
     inv.to_csv(SRC / "investigations.csv", index=False)
     fresh = not (WIKI / "index.md").exists()
     for r in inv.itertuples():
@@ -508,10 +520,12 @@ def seed(inv, prov):
                     "pattern": r.pattern, "verdict": r.verdict, "closed": r.closed_date,
                     "exposure": r.exposure_amount, "source": "seed", "investigator": "historical record"}
             path.write_text(case_page(meta, r.reasoning, [f"Source record: {source_path('investigations.csv')}, row {r.case_id}"]), encoding="utf-8")
+            _PAGES.clear()
     info = prov.set_index("provider_id").to_dict("index")
     for path, text in build_all(info).items():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
+        _PAGES.clear()
     if fresh:
         log("seed", "wiki created", f"{len(inv)} historical cases ingested from {source_path('investigations.csv')}.")
 
@@ -675,10 +689,12 @@ def ingest_source(title, text, approved_by, info, proposal=None, dry_run=False):
     if not dry_run:
         (_src() / "documents").mkdir(parents=True, exist_ok=True)
         (_src() / "documents" / f"{sid}.md").write_text(f"# {title}\n\n{text}\n", encoding="utf-8")
+        _PAGES.clear()
         if new:
             learned = json.loads(_registry().read_text(encoding="utf-8")) if _registry().exists() else {}
             learned[new["id"]] = entry
             _registry().write_text(json.dumps(learned, indent=1), encoding="utf-8")
+            _PAGES.clear()
     return {"source_id": sid, "proposal": proposal, "changes": changes, "new_pattern_id": new["id"] if new else None}
 
 

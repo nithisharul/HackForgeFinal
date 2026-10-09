@@ -5,4 +5,4 @@ __pycache__/
 .env
 venv/
 data/app.db
-data/processed/recommendations.json
+data/**/llm_text.json

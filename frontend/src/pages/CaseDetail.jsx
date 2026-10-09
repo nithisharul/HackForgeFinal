@@ -455,7 +455,7 @@ function Section({ title, note, collapsed, children }) {
 
 // The single most damning claim, as a two-sided record with the gap between the sides measured.
 // Red only when the claim is logically impossible; otherwise a neutral card with the strongest flagged claim.
-function Discrepancy({ c }) {
+export function Discrepancy({ c }) {
   const t = terms()
   const hits = c.sample_claims.map((s) => ({ s, x: impossible(s) })).filter((h) => h.x).sort((a, b) => b.x.speed - a.x.speed)
   const top = hits[0] || (c.sample_claims[0] && { s: c.sample_claims[0] })
@@ -489,7 +489,7 @@ function Discrepancy({ c }) {
 }
 
 // Probability as distance from a coin flip: the bar grows from the 50% midline, with the uncertainty in bits beside it.
-function Chance({ label, p }) {
+export function Chance({ label, p }) {
   const d = p - 0.5
   return (
     <div className="chance">

@@ -38,7 +38,7 @@ export default function App() {
   const [health, setHealth] = useState(null)
 
   // The app keeps working when a detector, the LLM or a page check is down; this says what it is working without.
-  useEffect(() => { api.health().then(setHealth).catch(() => setHealth(null)) }, [section, arg, region])
+  useEffect(() => { api.health().then(setHealth).catch(() => setHealth(null)) }, [region])
 
   useEffect(() => {
     window.scrollTo(0, 0)

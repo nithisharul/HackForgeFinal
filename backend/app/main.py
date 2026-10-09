@@ -1,4 +1,6 @@
 """ClaimShield Nexus API.   uvicorn backend.app.main:app --reload   (run from the project root)"""
+import threading
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -13,3 +15,10 @@ for r in (auth, queue, cases, brief, graph, wiki, security):
 @app.get("/")
 def root():
     return {"service": "ClaimShield Nexus", "docs": "/docs"}
+
+
+@app.on_event("startup")
+def warm_briefs():
+    """Prepare every case's LLM text in the background; the API answers immediately meanwhile."""
+    from . import store
+    threading.Thread(target=store.warm, name="warm-briefs", daemon=True).start()

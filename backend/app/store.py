@@ -38,6 +38,9 @@ def data():
     return _DATA[r.code]
 
 
+_PROBE = {}
+
+
 def health():
     """State of the active region's last pipeline run, the LLM and the knowledge integrity check. Read fresh on every call."""
     import datetime as dt
@@ -53,11 +56,14 @@ def health():
         age = round((dt.datetime.now() - dt.datetime.fromisoformat(run["ran_at"])).total_seconds() / 3600, 1)
     cfg, reachable = llm.config(), False
     if cfg["base"]:
-        try:
-            req = urllib.request.Request(cfg["base"] + "/models", headers={"Authorization": f"Bearer {cfg['key']}"} if cfg["key"] else {})
-            reachable = urllib.request.urlopen(req, timeout=1.5).status == 200
-        except Exception:  # noqa: BLE001 - unreachable for any reason means template mode
-            reachable = False
+        if dt.datetime.now().timestamp() - _PROBE.get("at", 0) > 30:  # probe the LLM at most every 30 s
+            try:
+                req = urllib.request.Request(cfg["base"] + "/models", headers={"Authorization": f"Bearer {cfg['key']}"} if cfg["key"] else {})
+                _PROBE["ok"] = urllib.request.urlopen(req, timeout=1.5).status == 200
+            except Exception:  # noqa: BLE001 - unreachable for any reason means template mode
+                _PROBE["ok"] = False
+            _PROBE["at"] = dt.datetime.now().timestamp()
+        reachable = _PROBE["ok"]
     integrity = log_integrity.verify(raise_events=False)
     serving = sorted({u for c in d.CASES.values() for u in c.get("unavailable", [])})
     notes = [f"{name} did not run in the last pipeline run; cases are scored from the remaining detectors." for name in serving]
@@ -208,3 +214,25 @@ def graph(provider_id, limit=12):
                 links.append({"source": p, "target": P[p]["facility_id"], "type": "facility", "weight": 1, "label": "bills at"})
     return {"provider_id": provider_id, "nodes": nodes, "links": links}
 
+
+def warm(horizon=90):
+    """Write every case's LLM brief and record review ahead of time, highest priority first and alternating regions,
+    so nobody waits on the LLM when they open a case. Runs in the background when the API starts; texts already
+    saved (llm_text.json) are skipped, so later starts finish in seconds."""
+    import itertools
+
+    from backend.brain import llm
+    from backend.brain.clinical_audit import audit_case_clinical_chart
+    if not llm.config()["base"]:
+        return
+    order = []
+    for code in region.REGIONS:
+        with region.use(code):
+            order.append([(code, r["case_id"]) for r in queue(horizon, 3)["cases"]])
+    for code, case_id in (x for pair in itertools.zip_longest(*order) for x in pair if x):
+        with region.use(code):
+            try:
+                detail(case_id, horizon)
+                audit_case_clinical_chart(data().CASES[case_id])
+            except Exception as e:  # noqa: BLE001 - one case failing must not stop the rest
+                print(f"[warm] {code} {case_id}: {e}")

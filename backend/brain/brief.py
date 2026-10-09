@@ -9,6 +9,7 @@ India briefs check rupee amounts and package codes instead, and add the checklis
 Unit field auditor works through (registers, photographs, scar check, bed count).
 """
 import hashlib
+import threading
 import json
 import re
 
@@ -39,37 +40,28 @@ def _directive(case, ctx, conf, facts):
     the text is discarded if it contains an ID, code or dollar figure that is not in the case."""
     confirmed = [p for p in ctx["precedents"] if p["verdict"] == "confirmed"]
     cleared = [p for p in ctx["precedents"] if p["verdict"] == "cleared"]
-    fallback = (f"{conf['route']}. Flagged for {PATTERN_WORDS[case['pattern']]}; "
+    words = PATTERN_WORDS_IN if region.current().code == "in" else PATTERN_WORDS
+    fallback = (f"{conf['route']}. Flagged for {words[case['pattern']]}; "
                 f"{case['signals']['families_agreeing']} of 3 detection methods agree"
                 + (f"; nearest precedent {confirmed[0]['case_id']} was confirmed" if confirmed else "")
                 + (f"; note that {cleared[0]['case_id']} was cleared for the same pattern" if cleared else "") + ".")
-    key = hashlib.sha1(json.dumps(facts, sort_keys=True).encode()).hexdigest()
-    rec_file = region.current().proc / "recommendations.json"  # one cache per region
-    saved = json.loads(rec_file.read_text(encoding="utf-8")) if rec_file.exists() else {}
-    if key not in saved:
-        out = llm.chat(
-            "You advise a fraud investigator on the single most useful first step for a case. Use ONLY the facts "
-            "given, which come from the team's knowledge base. Weigh the precedents: if a similar case was cleared, "
-            "say to check that reason first; if one was confirmed, say what it suggests. Two sentences, plain text, "
-            "no lists, no colons, no brackets. The only identifiers you may mention are the provider and the case IDs "
-            "listed under precedents; do not label or number the facts. Never say fraud occurred. Do not cite laws.",
-            json.dumps(facts), max_tokens=160)
-        out = re.sub(r"[\[(]?\b(ID|REF|SOURCE)\b[:,]?\s*[A-Z][A-Z_]*\d+[\])]?", "", out or "")  # invented reference tags
-        out = re.sub(r"\s+([.,;])", r"\1", " ".join(out.split()))
-        if not out or re.search(r"\b[A-Z]{3,}_\w+", out) or len(out) > 420 or not ground(out, case, ctx)["passed"]:
-            return fallback, "template"
-        saved[key] = out.strip()
-        rec_file.parent.mkdir(parents=True, exist_ok=True)
-        rec_file.write_text(json.dumps(saved, indent=1), encoding="utf-8")
-    return saved[key], "llm (verified)"
+    def clean(out):
+        out = re.sub(r"[\[(]?\b(ID|REF|SOURCE)\b[:,]?\s*[A-Z][A-Z_]*\d+[\])]?", "", out)  # invented reference tags
+        out = re.sub(r"\s+([.,;])", r"\1", " ".join(out.split())).strip()
+        return "" if re.search(r"\b[A-Z]{3,}_\w+", out) or len(out) > 420 else out
+    system = ("You advise a fraud investigator on the single most useful first step for a case. Use ONLY the facts "
+              "given, which come from the team's knowledge base. Weigh the precedents: if a similar case was cleared, "
+              "say to check that reason first; if one was confirmed, say what it suggests. If the tier is low, say what "
+              "would need to appear before a case is opened. Two sentences, plain text, no lists, no colons, no brackets. "
+              "The only identifiers you may mention are the provider and the case IDs listed under precedents; do not "
+              "label or number the facts. Never say fraud occurred. Do not cite laws.")
+    out = saved_llm("directive", facts, lambda: verified_chat(system, facts, case, ctx, 160, clean))
+    return (out, "llm (verified)") if out else (fallback, "template")
 
 
 def copilot_recommendation(case, ctx, conf):
     """Proposed next action, assembled from Second Brain pages: the runbook's evidence request, the pattern
-    page's innocent explanations, the nearest closed cases and the regulatory pages. Low-confidence cases
-    get 'not enough evidence' and no steps."""
-    if conf["tier"] == "low":
-        return ACTIONS["low"], "template", ["runbook_triage"]
+    page's innocent explanations, the nearest closed cases and the regulatory pages. The directive is written by the LLM."""
     pat, precs = case["pattern"], ctx["precedents"]
     cleared = [p for p in precs if p["verdict"] == "cleared"]
     confirmed = [p for p in precs if p["verdict"] == "confirmed"]
@@ -111,16 +103,25 @@ def copilot_recommendation(case, ctx, conf):
     return text, by, [pat, "runbook_evidence", "runbook_verdict"] + regs + [p["case_id"] for p in precs] + ([net["cluster_id"]] if net else [])
 
 
-ACTIONS = {
-    "high": "Fast-track to the SIU. Open a case, request records for the flagged claims, and have an investigator confirm before any action is taken against the provider.",
-    "medium": "Assign to an investigator. Review the sample claims and the precedents below, then confirm, correct or clear.",
-    "low": "Not enough evidence to open a case. Keep the provider on monitoring and re-score next month.",
-}
-TOKEN = re.compile(r"\bC\d{6}\b|\bP\d{3}\b|\bF\d{3}\b|\bO\d{3}\b|\bN\d{2}\b|\bINV\d{3}\b|\bCASE-P\d{3}\b|\$[\d,]+(?:\.\d+)?|\b\d{5}\b|\b[AE]\d{4}\b")
+def india_recommendation(case, ctx, conf):
+    """India: the LLM's first step for the State Anti-Fraud Unit, from the case, the pattern page and the field audit
+    checklist (which the case page shows in full)."""
+    precs = ctx["precedents"]
+    facts = {"provider": case["provider_id"], "pattern": PATTERN_WORDS_IN[case["pattern"]], "tier": conf["tier"],
+             "route": conf["route"], "methods_agreeing": case["signals"]["families_agreeing"],
+             "evidence": [e["text"] for e in case["evidence"] if e["type"] != "history"][:4],
+             "innocent_explanations": ctx["pattern"]["innocent_explanations"][:3],
+             "field_audit_first_steps": audit_checklist(case)[:3],
+             "precedents": [{"case": p["case_id"], "verdict": p["verdict"], "reason": p["reasoning"]} for p in precs]}
+    directive, by = _directive(case, ctx, conf, facts)
+    return directive, by, [case["pattern"]] + [p["case_id"] for p in precs]
+
+
+TOKEN = re.compile(r"\bC\d{6}\b|\bP\d{3}\b|\bF\d{3}\b|\bO\d{3}\b|\bN\d{2}\b|\bINV\d{3}\b|\bCASE-P\d{3}\b|\$\d(?:[\d,]*\d)?(?:\.\d+)?|\b\d{5}\b|\b[AE]\d{4}\b")
 # India: package codes, agents, villages, card operators, document hashes, mobile tokens and rupee amounts
 TOKEN_IN = re.compile(r"\bC\d{6}\b|\bP\d{3}\b|\bF\d{3}\b|\bO\d{3}\b|\bN\d{2}\b|\bINV\d{3}\b|\bCASE-P\d{3}\b|\bM\d{6}\b"
                       r"|\b[A-Z]{2}\d{3}[A-Z]?\b|\bAG-[A-Z]{3}-\d{2}\b|\bVIL-[A-Z]{3}-\d{2}\b|\bOP-[A-Z]{3}-\d{2}\b|\bDOC[0-9a-f]{10}\b"
-                      r"|\bMOB\d{6}\b|₹[\d,]+(?:\.\d+)?")
+                      r"|\bMOB\d{6}\b|₹\d(?:[\d,]*\d)?(?:\.\d+)?")
 PATTERN_WORDS_IN = {
     "collusive_ring": "a coordinated hospital network fed by shared agents or owners", "bed_overrun": "admissions beyond bed strength or empanelment",
     "opd_to_ipd": "outpatient conditions converted to short admissions", "ghost_beneficiary": "doubtful beneficiary identities",
@@ -128,11 +129,6 @@ PATTERN_WORDS_IN = {
     "package_upcoding": "higher-paying packages, wards or rates than supported", "overlapping_admission": "simultaneous admissions at two hospitals",
     "claim_after_death": "claims after a recorded death", "duplicate_package": "the same package claimed twice for one episode",
     "excessive_utilization": "utilisation far above hospitals of the same type",
-}
-ACTIONS_IN = {
-    "high": "Fast-track to the State Anti-Fraud Unit. Hold further payments on the flagged packages, run an unannounced field audit using the checklist below, and have an investigator confirm before any penalty or de-empanelment.",
-    "medium": "Assign to a SAFU investigator for a desk audit of the sample claims and the precedents below, then confirm, correct or clear.",
-    "low": "Not enough evidence to open a case. Keep the hospital on the watch list and re-score next month.",
 }
 # What a State Anti-Fraud Unit field auditor checks on site (NHA Field Investigation and Medical Audit Manual, 2020)
 AUDIT_BASE = [
@@ -174,7 +170,43 @@ RULE_AUDIT = {"IN1": "overlapping_admission", "IN3": "claim_after_death", "IN4a"
               "IN9a": "bed_overrun", "IN10": "unnecessary_procedure"}
 
 
-_CACHE = {}
+_LOCK = threading.Lock()
+
+
+def saved_llm(kind, facts, make):
+    """LLM text for one case state, written once and kept per region (data/.../processed/llm_text.json), so it
+    survives restarts and every later page load is instant. `make` returns verified text or None."""
+    path = region.current().proc / "llm_text.json"
+    key = f"{kind}:{hashlib.sha1(json.dumps(facts, sort_keys=True, default=str).encode()).hexdigest()}"
+    with _LOCK:
+        saved = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    if key in saved:
+        return saved[key]
+    text = make()
+    if text:
+        with _LOCK:
+            saved = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+            saved[key] = text
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(json.dumps(saved, indent=1, ensure_ascii=False), encoding="utf-8")
+    return text
+
+
+def verified_chat(system, facts, case, ctx, max_tokens, clean=lambda t: t, attempts=3):
+    """Ask the LLM, fact-check the answer, and on failure tell it exactly which identifiers or amounts were not in
+    the facts and ask again. Returns verified text, or None if the LLM is unreachable or never passes."""
+    feedback = ""
+    for _ in range(attempts):
+        out = llm.chat(system, json.dumps(facts, ensure_ascii=False) + feedback, max_tokens=max_tokens)
+        if not out:
+            return None
+        out = clean(out)
+        check = ground(out, case, ctx)
+        if out and check["passed"]:
+            return out
+        feedback = (f"\n\nYour previous draft mentioned {', '.join(check['unverified']) or 'text that could not be checked'}, "
+                    "which is not in the facts. Rewrite it using only identifiers and amounts that appear in the facts above.")
+    return None
 
 
 def money(x):
@@ -235,30 +267,22 @@ def llm_summary(case, ctx, conf):
              "members": case["member_impact"], "p90": f"{case['prediction']['p90']:.0%}",
              "confidence": f"{conf['score']:.0%}", "tier": conf["tier"],
              "precedents": [f"{p['case_id']} {p['verdict']}" for p in ctx["precedents"]]}
-    key = str(facts)
-    if key not in _CACHE:
-        _CACHE[key] = llm.chat(
-            "You write case summaries for fraud investigators. Use ONLY the facts given. Copy every ID, code and dollar "
-        "figure exactly. Never say fraud occurred; say 'flagged' or 'consistent with'. Four sentences. "
-        "End by saying this needs human review."
-        + (" The provider is a hospital in India's PM-JAY scheme; amounts are rupees written with the ₹ sign." if india else ""),
-        key, max_tokens=300)
-    return _CACHE[key]
+    system = ("You write case summaries for fraud investigators. Use ONLY the facts given. Copy every ID, code and "
+              "amount exactly as written in the facts. Never say fraud occurred; say 'flagged' or 'consistent with'. "
+              "Four sentences. End by saying this needs human review."
+              + (" The provider is a hospital in India's PM-JAY scheme; amounts are rupees written with the ₹ sign." if india else ""))
+    return saved_llm("summary", facts, lambda: verified_chat(system, facts, case, ctx, 300))
 
 
 def build(case, ctx, conf, horizon=90):
-    summary, by = template_summary(case, conf), "template"
-    llm = llm_summary(case, ctx, conf)
-    llm_check = None
-    if llm:
-        llm_check = ground(llm, case, ctx)
-        if llm_check["passed"]:
-            summary, by = llm, "llm (verified)"
+    # The LLM writes the summary; the template appears only when no LLM is reachable (degraded mode).
+    written = llm_summary(case, ctx, conf)
+    summary, by = (written, "llm (verified)") if written else (template_summary(case, conf), "template")
     net = case["network"]
     india = region.current().code == "in"
     # The playbook is assembled from the US reference pages (runbooks, CMS rules); India keeps its PM-JAY action
     # text, and its steps come from the field audit checklist below.
-    action, action_by, action_pages = (ACTIONS_IN[conf["tier"]], "template", []) if india else copilot_recommendation(case, ctx, conf)
+    action, action_by, action_pages = india_recommendation(case, ctx, conf) if india else copilot_recommendation(case, ctx, conf)
     limitations = [
         "All data is synthetic. Results show the method works on injected scenarios, not on real PM-JAY claims.",
         "The system flags patterns in claim, beneficiary and hospital records. It reads no documents, photographs or case "
@@ -305,8 +329,7 @@ def build(case, ctx, conf, horizon=90):
         "recommended_action": action,
         "recommended_action_by": action_by,
         "recommended_action_sources": action_pages,
-        "grounding": ground(text_for_check, case, ctx) | ({"llm_rejected": True, "llm_unverified": llm_check["unverified"]}
-                                                           if llm_check and not llm_check["passed"] else {}),
+        "grounding": ground(text_for_check, case, ctx),
     }
     if india:
         b["field_audit_checklist"] = audit_checklist(case)

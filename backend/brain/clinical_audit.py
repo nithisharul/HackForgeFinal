@@ -14,6 +14,7 @@ from pathlib import Path
 from backend import region
 
 from . import llm, refpages
+from .brief import saved_llm
 
 NOTES_DIR = Path(__file__).resolve().parent.parent / "data" / "clinical_notes"  # India's records go in clinical_notes/india/
 SAFE_ID = re.compile(r"^[A-Za-z0-9-]{3,40}$")
@@ -42,13 +43,20 @@ def audit_case_clinical_chart(case):
 
     claims = "\n".join(f"- {s['claim_id']} on {s['date']} at {s['facility_id']}, code {s['procedure_code']}: {s['detail']}"
                        for s in case["sample_claims"][:6])
-    res = llm.chat_json(
-        "You help a claims investigator read a provider record. Compare the record with the flagged claims and say "
-        "whether the record is inconsistent with what was billed. Use only what the record and claims say. "
-        'Return JSON only: {"discrepancy_found": true or false, "discrepancy_type": "a few words", '
-        '"finding": "one or two sentences quoting the times, places or codes that matter"}. '
-        "Never say fraud occurred; describe the inconsistency.",
-        f"Pattern flagged: {pattern.replace('_', ' ')}\n\nFlagged claims:\n{claims}\n\nRecord:\n{text[:6000]}", max_tokens=300)
+    def read():  # only a usable reading is saved
+        r = llm.chat_json(
+            "You help a claims investigator read a provider record. Compare the record with the flagged claims and say "
+            "whether the record is inconsistent with what was billed. Use only what the record and claims say. "
+            'Return JSON only: {"discrepancy_found": true or false, "discrepancy_type": "a few words", '
+            '"finding": "one or two sentences quoting the times, places or codes that matter"}. '
+            "Never say fraud occurred; describe the inconsistency.",
+            f"Pattern flagged: {pattern.replace('_', ' ')}\n\nFlagged claims:\n{claims}\n\nRecord:\n{text[:6000]}", max_tokens=300)
+        usable = isinstance(r, dict) and isinstance(r.get("discrepancy_found"), bool) \
+            and isinstance(r.get("finding"), str) and len(r["finding"].strip()) >= 15
+        return r if usable else None
+
+    # Saved per record and claims, like the briefs, so the record is read once rather than on every page load.
+    res = saved_llm("record", {"case": case_id, "record": text, "claims": claims}, read)
     finding = (res or {}).get("finding")
     if not isinstance(res, dict) or not isinstance(res.get("discrepancy_found"), bool) or not isinstance(finding, str) \
             or len(finding.strip()) < 15:

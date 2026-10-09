@@ -1,5 +1,7 @@
 # ClaimShield Nexus: the SIU's Second Brain
 
+NOTE : Nithi_Base is the Main branch 
+
 Finds suspicious claims and coordinated provider networks in synthetic payer data, predicts 30/60/90-day
 repeat risk, ranks cases for a Special Investigations Unit (SIU), and explains each case with evidence.
 Every investigator decision is saved to a linked knowledge base, the Second Brain, and becomes precedent

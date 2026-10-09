@@ -11,6 +11,12 @@ Pages link to each other with `[[PageName]]`; the name is the file name without 
 - `cases/<id>.md`           one per closed case: verdict, reasoning, lesson, evidence summary.
 - `sources/<SRC-###>.md`    one summary per raw document added to `knowledge/sources/documents/`.
 - `notes/<NOTE-###>.md`     an answer to a question that a human chose to keep.
+- `rules/<R#>.md`           one per business rule: what it checks, threshold, reference table, exceptions.
+- `data/data_<file>.md`     one per data file: every field, its meaning and where the data comes from.
+- `process/runbook_*.md`    how investigators work: triage by tier, verdicts, evidence requests, approvals.
+- `system/system_*.md`      technical documentation: architecture, models, scoring, known limits.
+- `regulatory/<REG-*>.md`   short background on the laws and CMS guidance the rules rest on.
+  These five groups are written by code from the pipeline, never by the LLM.
 - `index.md`                catalog of all pages, read first on every query.
 - `log.md`                  append-only record of every change, newest last.
 

@@ -23,6 +23,14 @@ Volume, visits per member or dollars far above specialty peers without a documen
 <!-- auto:learned -->
 <!-- /auto -->
 
+## Detected by
+- [[R4]] | R4 Unit limit (MUE)
+- What to request from the provider: [[runbook_evidence]]
+
+## Regulatory background
+- [[REG-PIM]] | Medicare Program Integrity Manual
+- [[REG-NCCI]] | CMS National Correct Coding Initiative (NCCI)
+
 ## Lessons from closed cases
 <!-- auto:lessons -->
 <!-- /auto -->

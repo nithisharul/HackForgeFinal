@@ -1,8 +1,12 @@
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { api } from '../api/client.js'
 import SignIn, { useSession } from '../components/SignIn.jsx'
 import { Loading, Markdown, toast } from '../components/bits.jsx'
 import { terms } from '../region.js'
+
+const REF_GROUPS = [['rules', 'Business rules'], ['data', 'Data definitions'], ['process', 'Runbooks'],
+  ['system', 'Technical docs'], ['regulatory', 'Regulatory material']]
+const refLabel = (p) => p.replace(/^(data|runbook|system)_/, '').replace(/_/g, ' ')
 
 export default function Wiki({ name }) {
   const [pages, setPages] = useState(null)
@@ -72,6 +76,7 @@ export default function Wiki({ name }) {
         {link('index', 'Index')}
         {link('log', 'Change log')}
         {group('Patterns', pages.patterns, (p) => p.replace(/_/g, ' '))}
+        {REF_GROUPS.map(([g, label]) => (pages[g]?.length ? <Fragment key={g}>{group(label, pages[g], refLabel)}</Fragment> : null))}
         {group('Networks', pages.networks)}
         {group('Sources', pages.sources, null, 'No documents added yet.')}
         {group('Kept answers', pages.notes, null, 'None yet.')}
@@ -92,7 +97,7 @@ export default function Wiki({ name }) {
         </details>
       </aside>
       <div className="col">
-        {adding && <AddSource onSaved={refresh} onClose={() => setAdding(false)} />}
+        {adding && <AddSource onSaved={refresh} onClose={() => setAdding(false)} patterns={pages.patterns} />}
         <article className="card reading">
           {page.meta && Object.keys(page.meta).length > 0 && (
             <p className="meta">
@@ -170,7 +175,7 @@ function Ask({ onFiled }) {
   )
 }
 
-function AddSource({ onSaved, onClose }) {
+function AddSource({ onSaved, onClose, patterns = [] }) {
   const [title, setTitle] = useState('')
   const [text, setText] = useState('')
   const [preview, setPreview] = useState(null)
@@ -178,8 +183,26 @@ function AddSource({ onSaved, onClose }) {
   const session = useSession()
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState(null)
+  const [choice, setChoice] = useState('new') // new | existing | none
+  const [target, setTarget] = useState('')
   const body = { title, text }
   const ready = title.trim().length >= 3 && text.trim().length >= 40
+  // A proposed new pattern can become its own page, a note on an existing pattern, or nothing.
+  const np = preview?.proposal.new_pattern
+  const notes = preview ? preview.proposal.pattern_notes.filter((n) => (n.note || '').trim()) : []
+  const existing = patterns.filter((p) => !np || p !== np.id)
+  const addTo = target || existing[0] || ''
+  const merged = np && choice === 'existing' && addTo
+    ? { pattern: addTo, note: `Related scheme, ${np.title}: ${np.definition}${np.signals.length ? ` Signals: ${np.signals.join('; ')}` : ''}` }
+    : null
+  const finalProposal = () => ({ ...preview.proposal, pattern_notes: merged ? [...notes, merged] : notes, new_pattern: np && choice === 'new' ? np : null })
+  const changeList = () => {
+    let list = preview.changes.map((c) => `${c.action} ${c.page}`)
+    if (np && choice !== 'new') list = list.filter((x) => !x.endsWith(` ${np.id}`))
+    if (merged && !list.some((x) => x.endsWith(` ${addTo}`))) list.push(`update ${addTo}`)
+    return list.join(', ')
+  }
+  const scan = preview?.security
 
   const run = (fn, payload, then) => {
     setBusy(true); setError(null)
@@ -192,7 +215,8 @@ function AddSource({ onSaved, onClose }) {
       <button type="button" className="modal-x" aria-label="Close" onClick={onClose}>×</button>
       {saved ? (
         <p>Saved as <a className="wikilink" href={`#/brain/${saved.source_id}`}>{saved.source_id}</a>. Pages updated:{' '}
-          {saved.changes.map((c) => c.page).join(', ')}.</p>
+          {saved.changes.map((c) => c.page).join(', ')}.
+          {saved.new_pattern_id && <> New pattern created: <a className="wikilink" href={`#/brain/${saved.new_pattern_id}`}>{saved.new_pattern_id}</a>.</>}</p>
       ) : (
         <>
           <label className="field">Title
@@ -208,16 +232,40 @@ function AddSource({ onSaved, onClose }) {
               <h4>Proposed by {preview.proposal.written_by === 'llm' ? 'the LLM' : 'template (no LLM connected)'}</h4>
               <p>{preview.proposal.summary}</p>
               <ul className="plain">
-                {preview.proposal.pattern_notes.map((n, i) => (
+                {notes.map((n, i) => (
                   <li key={i}><a className="wikilink" href={`#/brain/${n.pattern}`}>{n.pattern}</a>: {n.note}</li>
                 ))}
               </ul>
+              {np && (
+                <fieldset className="newpattern">
+                  <legend>New pattern proposed</legend>
+                  <p>This document describes a scheme the library does not cover.</p>
+                  <p><strong>{np.title}</strong> (<span className="id">{np.id}</span>): {np.definition}</p>
+                  {np.signals.length > 0 && <ul className="plain">{np.signals.map((x, i) => <li key={i}>Possible signal: {x}</li>)}</ul>}
+                  <label className="check"><input type="radio" name="np" checked={choice === 'new'} onChange={() => setChoice('new')} />Create it as a new pattern page</label>
+                  <label className="check"><input type="radio" name="np" checked={choice === 'existing'} onChange={() => setChoice('existing')} />Add it to an existing pattern instead
+                    <select value={addTo} aria-label="Existing pattern" onChange={(e) => { setTarget(e.target.value); setChoice('existing') }}>
+                      {existing.map((p) => <option key={p} value={p}>{p.replace(/_/g, ' ')}</option>)}
+                    </select>
+                  </label>
+                  <label className="check"><input type="radio" name="np" checked={choice === 'none'} onChange={() => setChoice('none')} />Neither: only save the document</label>
+                  {choice === 'new' && <small>It stays marked "knowledge only" until a detection rule is written for it.</small>}
+                  {choice === 'existing' && <small>No new pattern is created. The scheme is added as a note on the {addTo.replace(/_/g, ' ')} page, citing this document.</small>}
+                </fieldset>
+              )}
+              {scan && scan.findings.length > 0 && (
+                <div className="notice error" role="alert">
+                  <strong>Document scanner: review before approving.</strong>
+                  <ul className="plain">{scan.findings.map((f, i) => <li key={i}>This text {f.message}: “{f.excerpt}”</li>)}</ul>
+                </div>
+              )}
+              {scan && scan.findings.length === 0 && <p className="scan-ok">Document scanner: no instruction-like text found.</p>}
               <h4>Pages that will change</h4>
-              <p>{preview.changes.map((c) => `${c.action} ${c.page}`).join(', ')}</p>
+              <p>{changeList()}</p>
               <SignIn />
               <div className="btn-row">
                 <button className="btn primary" disabled={!session || busy}
-                  onClick={() => run(api.addSource, { ...body, proposal: preview.proposal }, (r) => { setSaved(r); onSaved(); toast(`Source saved as ${r.source_id}`) })}>Approve and save</button>
+                  onClick={() => run(api.addSource, { ...body, proposal: finalProposal() }, (r) => { setSaved(r); onSaved(); toast(`Source saved as ${r.source_id}`) })}>Approve and save</button>
                 <button className="btn" onClick={() => setPreview(null)}>Edit</button>
               </div>
             </div>

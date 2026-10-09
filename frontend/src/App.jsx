@@ -3,11 +3,12 @@ import Landing from './pages/Landing.jsx'
 import Queue from './pages/Queue.jsx'
 import CaseDetail from './pages/CaseDetail.jsx'
 import Wiki from './pages/Wiki.jsx'
+import Admin from './pages/Admin.jsx'
 import { getRegion, setRegion, terms } from './region.js'
 import { AccountChip } from './components/SignIn.jsx'
 import Palette, { MOD } from './components/Palette.jsx'
 import { Icon, Logo, RegionSwitch, Toaster } from './components/bits.jsx'
-
+import { api } from './api/client.js'
 function useHash() {
   const [hash, setHash] = useState(window.location.hash || '#/')
   useEffect(() => {
@@ -34,10 +35,14 @@ export default function App() {
     if (section === 'case' || section === 'brain') { window.location.hash = '#/queue'; setHash('#/queue') }
     window.scrollTo(0, 0)
   }
+  const [health, setHealth] = useState(null)
+
+  // The app keeps working when a detector, the LLM or a page check is down; this says what it is working without.
+  useEffect(() => { api.health().then(setHealth).catch(() => setHealth(null)) }, [section, arg, region])
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    const page = section === 'case' && arg ? arg : section === 'brain' ? 'Second Brain' : section === 'queue' ? 'Case queue' : null
+    const page = section === 'case' && arg ? arg : section === 'brain' ? 'Second Brain' : section === 'queue' ? 'Case queue' : section === 'security' ? 'Security and access' : null
     document.title = page ? `${page} – ClaimShield Nexus` : 'ClaimShield Nexus – fraud leads, ranked and explained'
   }, [section, arg])
 
@@ -46,6 +51,7 @@ export default function App() {
   let page
   if (section === 'case' && arg) page = <CaseDetail caseId={arg} horizon={horizon} />
   else if (section === 'brain') page = <Wiki name={arg || 'index'} />
+  else if (section === 'security') page = <Admin />
   else page = <Queue horizon={horizon} setHorizon={setHorizon} investigators={investigators} setInvestigators={setInvestigators} />
   const t = terms()
 
@@ -60,6 +66,7 @@ export default function App() {
         <nav aria-label="Main">
           <a className={section === 'queue' || section === 'case' ? 'on' : ''} aria-current={section === 'queue' ? 'page' : undefined} href="#/queue"><Icon name="queue" />Case queue</a>
           <a className={section === 'brain' ? 'on' : ''} aria-current={section === 'brain' ? 'page' : undefined} href="#/brain/index"><Icon name="brain" />Second Brain</a>
+          <a className={section === 'security' ? 'on' : ''} aria-current={section === 'security' ? 'page' : undefined} href="#/security"><Icon name="shield" />Security and access</a>
           <a href="#/"><Icon name="home" />About ClaimShield</a>
         </nav>
         <div className="side-foot">
@@ -69,7 +76,14 @@ export default function App() {
           <AccountChip />
         </div>
       </aside>
-      <main id="main" tabIndex="-1" key={region}><Boundary key={hash}>{page}</Boundary></main>
+      <main id="main" tabIndex="-1" key={region}>
+        {health && health.notes.length > 0 && (
+          <div className="degraded" role="status">
+            <strong>Running in degraded mode.</strong> {health.notes.join(' ')} <a href="#/security">See system health</a>
+          </div>
+        )}
+        <Boundary key={hash}>{page}</Boundary>
+      </main>
       <Toaster />
       <Palette />
     </div>

@@ -15,6 +15,14 @@ def get_queue(horizon: int = Query(90, enum=[30, 60, 90]), investigators: int = 
         return store.queue(horizon, investigators)
 
 
+@router.get("/health")
+def get_health(region: Code = "us"):
+    """Which detectors ran, how old the results are, whether the LLM is reachable and whether the knowledge is intact.
+    The app keeps working when any of them is down; this says what it is working without."""
+    with use(region):
+        return store.health()
+
+
 @router.get("/metrics")
 def get_metrics(region: Code = "us"):
     """Evaluation against the injected synthetic scenarios, plus model cross-validation scores."""

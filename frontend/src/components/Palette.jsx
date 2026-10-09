@@ -46,6 +46,7 @@ export default function Palette() {
     { key: 'queue', label: 'Case queue', icon: 'queue', run: () => go('#/queue') },
     { key: 'brain', label: 'Second Brain', icon: 'brain', run: () => go('#/brain/index') },
     { key: 'ask', label: 'Ask the Second Brain a question', icon: 'search', run: askBrain },
+    { key: 'security', label: 'Security and access', icon: 'shield', run: () => go('#/security') },
     { key: 'about', label: 'About ClaimShield', icon: 'home', run: () => go('#/') },
     { key: 'keys', label: 'Keyboard shortcuts', icon: 'command', run: () => help.current?.showModal() },
   ].filter((p) => has(p.label))

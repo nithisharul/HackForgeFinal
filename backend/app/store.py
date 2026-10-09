@@ -38,6 +38,42 @@ def data():
     return _DATA[r.code]
 
 
+def health():
+    """State of the active region's last pipeline run, the LLM and the knowledge integrity check. Read fresh on every call."""
+    import datetime as dt
+    import urllib.request
+
+    from backend.brain import llm
+    from backend.security import log_integrity
+    d = data()
+    path = region.current().proc / "health.json"
+    run = json.loads(path.read_text()) if path.exists() else {"ran_at": None, "detectors": {}, "degraded": []}
+    age = None
+    if run.get("ran_at"):
+        age = round((dt.datetime.now() - dt.datetime.fromisoformat(run["ran_at"])).total_seconds() / 3600, 1)
+    cfg, reachable = llm.config(), False
+    if cfg["base"]:
+        try:
+            req = urllib.request.Request(cfg["base"] + "/models", headers={"Authorization": f"Bearer {cfg['key']}"} if cfg["key"] else {})
+            reachable = urllib.request.urlopen(req, timeout=1.5).status == 200
+        except Exception:  # noqa: BLE001 - unreachable for any reason means template mode
+            reachable = False
+    integrity = log_integrity.verify(raise_events=False)
+    serving = sorted({u for c in d.CASES.values() for u in c.get("unavailable", [])})
+    notes = [f"{name} did not run in the last pipeline run; cases are scored from the remaining detectors." for name in serving]
+    if set(run.get("degraded", [])) != set(serving):
+        notes.append("A newer pipeline run exists. Restart the API to load it.")
+    if age is not None and age > 24 * 7:
+        notes.append(f"Detection results are {age / 24:.0f} days old.")
+    if not integrity["ok"]:
+        notes.append(f"Knowledge integrity alert: {len(integrity['problems'])} problem(s). See the Security panel.")
+    return {"status": "degraded" if notes else "ok", "notes": notes,
+            "pipeline": {"ran_at": run.get("ran_at"), "age_hours": age, "detectors": run.get("detectors", {}), "unavailable": serving},
+            "llm": {"configured": bool(cfg["base"]), "reachable": reachable, "model": cfg["model"] if cfg["base"] else None,
+                    "effect": None if reachable else "Summaries, suggestions and answers use templates and keyword lookup."},
+            "integrity_ok": integrity["ok"], "cases": len(d.CASES)}
+
+
 def status_of(case_id):
     meta, _ = wiki.read(case_id)
     return meta["verdict"] if meta else "open"
@@ -48,7 +84,12 @@ def enrich(case, horizon=90):
     ctx = retrieve.query(case)
     conf = confidence.score(case, ctx["precedents"])
     s, p = case["signals"], case["prediction"][f"p{horizon}"]
-    risk = 0.35 * s["rules"] + 0.20 * min(1, s["ml"] * 2) + 0.20 * s["graph"] + 0.05 * s["birank"] + 0.20 * p
+    # Risk weights are spread over the detectors that ran in the last pipeline run.
+    down = set(case.get("unavailable", []))
+    parts = [(0.35, s["rules"], "Claim rules"), (0.20, min(1, s["ml"] * 2), "Anomaly model"), (0.20, s["graph"], "Network analysis"),
+             (0.05, s["birank"], "Network analysis"), (0.20, p, "30/60/90-day prediction models")]
+    live = [(w, v) for w, v, name in parts if name not in down]
+    risk = sum(w * v for w, v in live) / sum(w for w, _ in live) if live else 0.0
     dollars_n = math.log1p(case["potential_dollars"]) / math.log1p(d.MAX_DOLLARS)
     members_n = math.log1p(case["member_impact"]) / math.log1p(d.MAX_MEMBERS)
     priority = 0.30 * risk + 0.20 * dollars_n + 0.10 * members_n + 0.15 * case["severity"] + 0.25 * conf["score"]

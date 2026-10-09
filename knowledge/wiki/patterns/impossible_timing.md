@@ -23,6 +23,14 @@ One rendering provider bills services at locations too far apart to reach in the
 <!-- auto:learned -->
 <!-- /auto -->
 
+## Detected by
+- [[R2]] | R2 Impossible travel
+- What to request from the provider: [[runbook_evidence]]
+
+## Regulatory background
+- [[REG-CLAIMS]] | Medicare claims processing rules (duplicates, place of service)
+- [[REG-FCA]] | False Claims Act
+
 ## Lessons from closed cases
 <!-- auto:lessons -->
 <!-- /auto -->

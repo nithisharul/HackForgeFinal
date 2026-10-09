@@ -6,6 +6,8 @@ from pydantic import BaseModel, Field
 from backend.brain import wiki
 from backend.region import Code, use
 
+from backend.security import log_integrity
+
 from .. import auth, store
 
 router = APIRouter(tags=["cases"])
@@ -54,7 +56,9 @@ def post_verdict(case_id: str, v: Verdict, region: Code = "us", who: str = Depen
     Needs a signed-in investigator, whose name is recorded whatever the body says."""
     v = v.model_copy(update={"investigator": who})
     with use(region):
-        return {"case_id": case_id, "written": True, **_write(case_id, v, dry_run=False), "status": store.status_of(case_id)}
+        result = _write(case_id, v, dry_run=False)
+        log_integrity.record_change(who, "verdict", case_id, result["changes"], detail=f"{v.verdict}: {v.reasoning.strip()}")
+        return {"case_id": case_id, "written": True, **result, "status": store.status_of(case_id)}
 
 class Revoke(BaseModel):
     reason: str = Field(min_length=10, description="Why this verdict should no longer guide other cases")
@@ -83,7 +87,26 @@ def revoke_precedent(case_id: str, r: Revoke, region: Code = "us", who: str = De
             raise HTTPException(409, f"{case_id} is already revoked")
         affected = store.influence(case_id)
         changes = wiki.revoke(case_id, r.reason, who, store.data().PROV_INFO)
+        log_integrity.record_change(who, "revoke", case_id, changes, detail=r.reason.strip())
         return {"case_id": case_id, "revoked_by": who, "changes": changes, "restored": affected}
+
+
+@router.get("/cases/{case_id}/audit-plan")
+def audit_plan(case_id: str, horizon: int = Query(90, enum=[30, 60, 90]), region: Code = "us"):
+    """AuditNext: candidate checks ranked by expected information gain per hour. Read-only."""
+    from backend.brain import auditnext
+    with use(region):
+        case = _case(case_id)
+        _, conf, _ = store.enrich(case, horizon)
+        return auditnext.plan(case, conf)
+
+
+@router.get("/cases/{case_id}/clinical-audit")
+def clinical_audit(case_id: str, region: Code = "us"):
+    """Provider record review: the LLM compares a returned record with the flagged claims. Read-only."""
+    from backend.brain.clinical_audit import audit_case_clinical_chart
+    with use(region):
+        return audit_case_clinical_chart(_case(case_id))
 
 
 @router.get("/cases/{case_id}/fhir")

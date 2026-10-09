@@ -1,11 +1,24 @@
 """Sign-in for writes to the Second Brain: verdicts, kept answers and source documents.
 
 Reads and previews stay open. Every write needs a session token from POST /api/auth/login, checked on
-this server, so a request sent straight to the tunnel URL is refused too. Investigators exist only in
-the host's .env file (git-ignored), never in the frontend bundle or the Cloudflare configuration:
+this server, so a request sent straight to the API is refused too.
 
-    AUTH_SECRET    random key that signs session tokens
-    INVESTIGATORS  "name:pbkdf2_sha256$iterations$salt$hash" entries separated by ";"
+Accounts live in a SQLite database (data/app.db, git-ignored): name, PBKDF2 passcode hash and role.
+    POST /api/auth/register   create an account. The first account becomes the admin; every later
+                              account starts as a read-only viewer until an admin gives it a role.
+    POST /api/auth/login      exchange name and passcode for a session token
+    GET  /api/auth/users      admin: list accounts        POST /api/auth/users/role   admin: change a role
+
+Roles, each including the ones before it:
+    viewer        read only
+    investigator  record verdicts, keep answers
+    lead          approve source documents and new patterns
+    admin         manage accounts
+
+The role is read from the database on every request, so a change takes effect at once.
+
+    AUTH_SECRET    random key that signs session tokens (.env; created automatically at first registration)
+    INVESTIGATORS  optional legacy accounts in .env, "name:hash" separated by ";". They are admins.
 
 Add an investigator or change a passcode (prompts for it; restart the API afterwards):
 
@@ -18,15 +31,20 @@ Rotate the signing key (signs out every current session; restart the API afterwa
 Without both variables every write is refused (fail closed).
 """
 import base64
+import contextlib
+import datetime as dt
 import functools
 import hashlib
 import hmac
 import json
 import os
 import secrets
+import sqlite3
 import sys
 import threading
 import time
+
+from pathlib import Path
 
 from fastapi import Header, HTTPException
 
@@ -36,8 +54,26 @@ from backend.pipeline.common import ROOT
 ITERATIONS = 310_000            # PBKDF2-HMAC-SHA256 work factor (OWASP recommendation)
 SESSION_SECONDS = 8 * 3600
 MAX_FAILURES, LOCKOUT_SECONDS = 5, 300
-DISABLED = "Writes are disabled: no investigators are configured on this server"
+DISABLED = "Writes are disabled: no account exists on this server yet. Register the first account to become the admin."
+ROLES = ("viewer", "investigator", "lead", "admin")
+MAX_ACCOUNTS = 200
 _failures, _lock = {}, threading.Lock()
+
+
+# ------------------------------------------------------------------- accounts ---
+def _db():
+    path = Path(os.getenv("AUTH_DB") or ROOT / "data" / "app.db")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    con = sqlite3.connect(path, timeout=5)
+    con.execute("CREATE TABLE IF NOT EXISTS users (key TEXT PRIMARY KEY, name TEXT NOT NULL, passcode_hash TEXT NOT NULL, "
+                "role TEXT NOT NULL, created TEXT NOT NULL, created_by TEXT NOT NULL)")
+    return con
+
+
+def _db_users():
+    with contextlib.closing(_db()) as con:
+        return {k: (name, stored, role if role in ROLES else "viewer")
+                for k, name, stored, role in con.execute("SELECT key, name, passcode_hash, role FROM users")}
 
 
 # ------------------------------------------------------------------ passcodes ---
@@ -67,12 +103,72 @@ def _key(name):
 
 def _config():
     llm._env()  # loads the project .env once, like the LLM settings
-    users = {}
+    users = _db_users()
     for item in os.getenv("INVESTIGATORS", "").split(";"):
         name, _, stored = item.strip().rpartition(":")
         if name.strip() and stored:
-            users[_key(name)] = (" ".join(name.split()), stored)
+            users[_key(name)] = (" ".join(name.split()), stored, "admin")  # .env accounts are admins and win on a name clash
     return os.getenv("AUTH_SECRET", ""), users
+
+
+def _env_keys():
+    return {_key(i.strip().rpartition(":")[0]) for i in os.getenv("INVESTIGATORS", "").split(";") if i.strip().rpartition(":")[0].strip()}
+
+
+def register(name, passcode, env_path=None):
+    """Create an account. The first account on the server is the admin; later ones are read-only viewers."""
+    name = " ".join(str(name).split())
+    if not 2 <= len(name) <= 80 or not all(ch.isalnum() or ch in " .'-_" for ch in name):
+        raise HTTPException(422, "Use a name of 2-80 letters, digits, spaces, dots, hyphens or apostrophes")
+    if len(passcode) < 12:
+        raise HTTPException(422, "Use a passcode of at least 12 characters")
+    secret, users = _config()
+    if _key(name) in users:
+        raise HTTPException(409, "That name is already registered")
+    if len(users) >= MAX_ACCOUNTS:
+        raise HTTPException(403, "Account limit reached; ask an admin")
+    if len(secret) < 32:  # first use on this server: create the signing key
+        os.environ["AUTH_SECRET"] = secrets.token_urlsafe(48)
+        env_path = env_path or ROOT / ".env"
+        lines = env_path.read_text(encoding="utf-8-sig").splitlines() if env_path.exists() else []
+        _write_env(env_path, lines, {"AUTH_SECRET": os.environ["AUTH_SECRET"]})
+    role = "viewer" if users else "admin"
+    try:
+        with contextlib.closing(_db()) as con, con:
+            if role == "admin" and con.execute("SELECT COUNT(*) FROM users").fetchone()[0]:
+                role = "viewer"  # someone else registered first
+            con.execute("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?)",
+                        (_key(name), name, hash_passcode(passcode), role, dt.datetime.now().isoformat(timespec="seconds"), "self"))
+    except sqlite3.IntegrityError:
+        raise HTTPException(409, "That name is already registered")
+    return {"investigator": name, "role": role,
+            "message": "You are the first account, so you are the admin." if role == "admin"
+            else "Account created as a read-only viewer. An admin must give you a role before you can approve changes."}
+
+
+def list_users():
+    env = _env_keys()
+    with contextlib.closing(_db()) as con:
+        rows = [{"investigator": n, "role": r, "created": c, "source": "database"}
+                for k, n, r, c in con.execute("SELECT key, name, role, created FROM users ORDER BY created") if k not in env]
+    _, users = _config()
+    return [{"investigator": users[k][0], "role": "admin", "created": "", "source": ".env"} for k in sorted(env)] + rows
+
+
+def set_role(actor, name, role):
+    if role not in ROLES:
+        raise HTTPException(422, f"Role must be one of {', '.join(ROLES)}")
+    key, (_, users) = _key(name), _config()
+    if key in _env_keys():
+        raise HTTPException(403, "This account is defined in .env and cannot be changed here")
+    if key not in users:
+        raise HTTPException(404, "No such account")
+    admins = [k for k, u in users.items() if u[2] == "admin"]
+    if users[key][2] == "admin" and role != "admin" and admins == [key]:
+        raise HTTPException(409, "This is the only admin; make someone else an admin first")
+    with contextlib.closing(_db()) as con, con:
+        con.execute("UPDATE users SET role = ?, created_by = ? WHERE key = ?", (role, actor, key))
+    return {"investigator": users[key][0], "role": role, "changed_by": actor}
 
 
 def enabled():
@@ -111,7 +207,7 @@ def login(name, passcode):
         _failures.pop(key, None)
     payload = {"sub": user[0], "exp": int(now) + SESSION_SECONDS, "nonce": secrets.token_hex(8)}
     body = _b64(json.dumps(payload, separators=(",", ":")).encode())
-    return {"token": f"{body}.{_mac(body, secret)}", "investigator": user[0], "expires": payload["exp"]}
+    return {"token": f"{body}.{_mac(body, secret)}", "investigator": user[0], "role": user[2], "expires": payload["exp"]}
 
 
 def verify(token):
@@ -131,15 +227,34 @@ def verify(token):
     return users[_key(payload["sub"])][0]
 
 
-def require_investigator(authorization: str = Header("")):
-    """FastAPI dependency for every write: the signed-in investigator's name, or 401."""
-    if not enabled():
-        raise HTTPException(503, DISABLED)
-    scheme, _, token = authorization.partition(" ")
-    name = verify(token.strip()) if scheme.lower() == "bearer" else None
-    if not name:
-        raise HTTPException(401, "Sign in as an investigator to approve changes", headers={"WWW-Authenticate": "Bearer"})
-    return name
+def role_of(name):
+    user = _config()[1].get(_key(name))
+    return user[2] if user else None
+
+
+def require_role(minimum):
+    """FastAPI dependency: the signed-in person's name if their current role is at least `minimum`; else 401 or 403."""
+    def check(authorization: str = Header("")):
+        if not enabled():
+            raise HTTPException(503, DISABLED)
+        scheme, _, token = authorization.partition(" ")
+        name = verify(token.strip()) if scheme.lower() == "bearer" else None
+        if not name:
+            raise HTTPException(401, "Sign in to approve changes", headers={"WWW-Authenticate": "Bearer"})
+        role = role_of(name) or "viewer"
+        if ROLES.index(role) < ROLES.index(minimum):
+            from backend.security import security_events
+            security_events.record("ROLE_DENIED", "MEDIUM", "Access control", f"{name} ({role}) attempted an action that needs {minimum}",
+                                   "REFUSED", actor=name)
+            raise HTTPException(403, f"Your role is {role}. This action needs the {minimum} role; ask an admin.")
+        return name
+    return check
+
+
+require_investigator = require_role("investigator")   # verdicts, kept answers
+require_lead = require_role("lead")                   # source documents, new patterns
+require_admin = require_role("admin")                 # accounts
+require_signed_in = require_role("viewer")
 
 
 # ------------------------------------------------------------------------ CLI ---

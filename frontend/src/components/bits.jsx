@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { getRegion } from '../region.js'
-import { bits } from '../plan.js'
 
 const INR = new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 })
 // Dollars as before; rupees in lakh and crore (1 lakh = 1,00,000; 1 crore = 100 lakh).
@@ -14,7 +13,8 @@ export const money = (x) => {
 export const pct = (x) => Math.round(x * 100) + '%'
 export const words = (s) => (s || '').replace(/_/g, ' ')
 
-export { bits }
+// Shannon entropy of a yes/no probability: 0 bits is certain, 1 bit is a coin flip.
+export const bits = (p) => (p <= 0 || p >= 1 ? 0 : -(p * Math.log2(p) + (1 - p) * Math.log2(1 - p)))
 export function Doubt({ p, short }) {
   const b = bits(p)
   return (

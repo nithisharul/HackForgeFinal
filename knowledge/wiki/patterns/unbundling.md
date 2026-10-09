@@ -22,6 +22,14 @@ A component service is billed separately alongside the comprehensive service tha
 <!-- auto:learned -->
 <!-- /auto -->
 
+## Detected by
+- [[R3]] | R3 Bundling edit pair (PTP)
+- What to request from the provider: [[runbook_evidence]]
+
+## Regulatory background
+- [[REG-NCCI]] | CMS National Correct Coding Initiative (NCCI)
+- [[REG-FCA]] | False Claims Act
+
 ## Lessons from closed cases
 <!-- auto:lessons -->
 <!-- /auto -->

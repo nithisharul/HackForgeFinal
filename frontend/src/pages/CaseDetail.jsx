@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { api } from '../api/client.js'
 import SignIn, { useSession } from '../components/SignIn.jsx'
 import { Doubt, Icon, Loading, Meter, Status, Tier, bits, money, pct, toast, words } from '../components/bits.jsx'
-import { plan } from '../plan.js'
+import AuditNext, { Playbook } from '../components/AuditNext.jsx'
+import ClinicalAuditCard from '../components/ClinicalAuditCard.jsx'
 import Network from './Network.jsx'
 import { getRegion, terms } from '../region.js'
 
@@ -116,6 +117,7 @@ export default function CaseDetail({ caseId, horizon }) {
 
           <p className="pod-label" id="pod-forensic">Forensic discrepancy</p>
           <Discrepancy c={c} />
+          <ClinicalAuditCard caseId={c.case_id} />
           <Section title="Brief">
             <p className="lead">{b.summary}</p>
             <p className={`ground ${b.grounding.passed ? 'ok' : 'bad'}`}>
@@ -247,9 +249,9 @@ export default function CaseDetail({ caseId, horizon }) {
           <div className="route-box">
             <p className="route-stamp">{c.status === 'open' ? <Tier tier={conf.tier} /> : <Status status={c.status} />}</p>
             <p><strong>{conf.label}.</strong> {conf.route}. Owner: {conf.owner}.</p>
-            <p className="route-rec">{b.recommended_action}</p>
+            <Playbook text={b.recommended_action} />
           </div>
-          {c.status === 'open' && !saved && <ActionPlan p={conf.score} pattern={c.pattern} region={region} />}
+          {c.status === 'open' && !saved && <AuditNext caseId={c.case_id} horizon={horizon} />}
           {b.field_audit_checklist && (
             <details className="checklist-box">
               <summary>Field audit checklist ({b.field_audit_checklist.length} steps)</summary>
@@ -512,32 +514,5 @@ function LogRuler({ value, region }) {
       <span className="ruler-track"><b style={{ left: `${x * 100}%` }} /></span>
       <span className="ruler-ticks">{ticks.map((e) => <span key={e}>{label(e)}</span>)}</span>
     </span>
-  )
-}
-
-// Ranked verification steps (see plan.js): doubt removed, its cost, and the utility of doing it next, side by side.
-function ActionPlan({ p, pattern, region }) {
-  const steps = plan(p, pattern, region)
-  if (!steps.length) return null
-  return (
-    <section className="plan" aria-labelledby="plan-h">
-      <h2 id="plan-h">Next verification steps</h2>
-      <p className="sec-note">Ranked by doubt removed per cost. Doubt now: {bits(p).toFixed(2)} bits.</p>
-      <ol className="plan-list">
-        {steps.map((a, i) => (
-          <li key={a.id} className={i === 0 ? 'best' : undefined}>
-            <p className="plan-title">{a.title}</p>
-            <p className="plan-why">{a.why}</p>
-            <div className="plan-figs">
-              <span className="gain" title="Expected uncertainty removed (ΔH)">−{a.gain.toFixed(2)} bits</span>
-              <span className="cost" title="Investigator time and its cost, C(a)">{a.minutes} min, {money(a.cost)}</span>
-              <span className="u" title="Utility U(a) = ΔH ÷ C(a), relative to the best step">U {a.u.toFixed(2)}</span>
-            </div>
-            <span className="u-bar" aria-hidden="true"><i style={{ width: `${Math.max(2, a.u * 100)}%` }} /></span>
-          </li>
-        ))}
-      </ol>
-      <p className="formula">U(a) = ΔH ÷ C(a), relative to the best step. Test accuracy and time per step are planning assumptions, not measurements.</p>
-    </section>
   )
 }

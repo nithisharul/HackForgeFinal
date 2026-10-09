@@ -24,6 +24,14 @@ A group of providers, often commonly owned, repeatedly bill the same small set o
 <!-- auto:learned -->
 <!-- /auto -->
 
+## Detected by
+- No claim rule. Found by the models; see [[system_models]].
+- What to request from the provider: [[runbook_evidence]]
+
+## Regulatory background
+- [[REG-STARK]] | Physician self-referral law (Stark)
+- [[REG-AKS]] | Anti-Kickback Statute
+
 ## Lessons from closed cases
 <!-- auto:lessons -->
 <!-- /auto -->

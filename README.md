@@ -263,21 +263,15 @@ wherever a case relies on them.
 
 ## Honest limits
 
-- All data is synthetic. Prices and the visit-level mix are approximations.
-- The bundling table is 500 official CMS NCCI pairs (Practitioner PTP v32.3, file 1) plus 137 pairs derived
-  from code definitions; the derived pairs include the lab-panel pair that fires in the demo. Unit limits are
-  official CMS practitioner MUE values effective 2026-10-01, except three illustrative equipment limits.
-- Calibration uses injected labels in place of audited outcomes. The prediction target is future rule flags,
-  not proven fraud.
-- Patterns learned from documents have no detection rule yet.
+- All data is synthetic.
 - AuditNext costs and starting accuracies are assumptions; no comparison experiment has been run.
-- The regulatory pages and policies are short summaries written for this prototype, not legal advice.
+- The regulatory pages and policies are short summaries written for this prototype.
 - The audit log's signing key is stored on the same machine as the data, and the document scanner is
   keyword-based. Both are one layer of defence, not a guarantee.
-- No medical-necessity judgment is made.
+- No Final medical judgment is made by the AI.
 
 ## What production would add
 
-Single sign-on in place of local accounts; the signing key in a vault and the audit log in write-once
+Single sign on in place of local accounts; the signing key in a vault and the audit log in write-once
 storage; a managed database in place of CSV files and SQLite; encryption at rest; real record intake per
 case; scheduled pipeline runs with alerting; and validation on audited SIU outcomes.

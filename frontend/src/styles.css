@@ -1160,7 +1160,7 @@ html.touring { scrollbar-color: color-mix(in srgb, var(--text) 80%, var(--surfac
 .region-hint { margin-top: 4px; font-size: 13px; font-weight: 600; color: var(--brand-text); opacity: 0; transform: translateY(6px); transition: opacity 0.25s var(--ease), transform 0.25s var(--ease); }
 .region-card:hover .region-hint, .region-card:focus-visible .region-hint, .region-card.here .region-hint { opacity: 1; transform: none; }
 .region-card.here .region-hint::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: var(--brand); vertical-align: 1px; }
-.flag { width: 72px; height: 44px; flex-shrink: 0; overflow: visible; }
+svg.flag { width: 72px; height: 44px; flex-shrink: 0; overflow: visible; }
 .fl-frame { fill: var(--surface); stroke: var(--border-strong); stroke-width: 1.5; }
 .fl-stripe { fill: var(--border); }
 .fl-canton { fill: var(--text-2); }

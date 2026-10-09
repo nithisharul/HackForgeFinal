@@ -1,31 +1,31 @@
 {
- "ran_at": "2026-10-09T09:15:57",
+ "ran_at": "2026-10-09T09:16:30",
  "detectors": {
   "rules": {
    "label": "Claim rules",
    "ok": true,
-   "seconds": 0.6,
+   "seconds": 6.0,
    "error": null
   },
   "ml": {
    "label": "Anomaly model",
    "ok": true,
-   "seconds": 0.2,
+   "seconds": 1.3,
    "error": null
   },
   "graph": {
    "label": "Network analysis",
    "ok": true,
-   "seconds": 2.7,
+   "seconds": 2.8,
    "error": null
   },
   "prediction": {
    "label": "30/60/90-day prediction models",
    "ok": true,
-   "seconds": 0.1,
+   "seconds": 0.2,
    "error": null
   }
  },
  "degraded": [],
- "cases": 34
+ "cases": 62
 }

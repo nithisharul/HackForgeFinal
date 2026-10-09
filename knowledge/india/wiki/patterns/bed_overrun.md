@@ -24,6 +24,10 @@ A hospital admits more patients than its sanctioned beds can hold, or bills pack
 <!-- auto:learned -->
 <!-- /auto -->
 
+## Detected by
+- No claim rule. Found by the models; see [[system_models]].
+- What to request from the provider: [[runbook_evidence]]
+
 ## Lessons from closed cases
 <!-- auto:lessons -->
 <!-- /auto -->

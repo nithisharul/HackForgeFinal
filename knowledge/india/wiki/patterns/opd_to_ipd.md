@@ -24,6 +24,10 @@ Conditions usually treated as outpatients (fever, gastroenteritis, urinary infec
 <!-- auto:learned -->
 <!-- /auto -->
 
+## Detected by
+- No claim rule. Found by the models; see [[system_models]].
+- What to request from the provider: [[runbook_evidence]]
+
 ## Lessons from closed cases
 <!-- auto:lessons -->
 <!-- /auto -->

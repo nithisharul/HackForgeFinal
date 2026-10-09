@@ -18,6 +18,7 @@
   },
   "evidence_strength": 0.516,
   "severity": 0.85,
+  "unavailable": [],
   "prediction": {
    "p30": 0.5633,
    "p60": 0.7882,
@@ -286,6 +287,7 @@
   },
   "evidence_strength": 0.16,
   "severity": 0.7,
+  "unavailable": [],
   "prediction": {
    "p30": 0.006,
    "p60": 0.0072,
@@ -434,6 +436,7 @@
   },
   "evidence_strength": 0.066,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0066,
    "p60": 0.0098,
@@ -656,6 +659,7 @@
   },
   "evidence_strength": 0.207,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0084,
    "p60": 0.01,
@@ -888,6 +892,7 @@
   },
   "evidence_strength": 0.456,
   "severity": 1.0,
+  "unavailable": [],
   "prediction": {
    "p30": 0.4135,
    "p60": 0.8277,
@@ -1164,6 +1169,7 @@
   },
   "evidence_strength": 1.0,
   "severity": 1.0,
+  "unavailable": [],
   "prediction": {
    "p30": 0.7386,
    "p60": 0.8227,
@@ -1529,6 +1535,7 @@
   },
   "evidence_strength": 0.85,
   "severity": 0.6,
+  "unavailable": [],
   "prediction": {
    "p30": 0.9615,
    "p60": 0.9839,
@@ -1824,6 +1831,7 @@
   },
   "evidence_strength": 0.81,
   "severity": 0.8,
+  "unavailable": [],
   "prediction": {
    "p30": 0.1428,
    "p60": 0.9624,
@@ -2077,6 +2085,7 @@
   },
   "evidence_strength": 0.85,
   "severity": 0.95,
+  "unavailable": [],
   "prediction": {
    "p30": 0.9794,
    "p60": 0.9794,
@@ -2352,6 +2361,7 @@
   },
   "evidence_strength": 0.101,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0066,
    "p60": 0.0091,
@@ -2629,6 +2639,7 @@
   },
   "evidence_strength": 0.516,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.9384,
    "p60": 0.9384,
@@ -2890,6 +2901,7 @@
   },
   "evidence_strength": 0.492,
   "severity": 1.0,
+  "unavailable": [],
   "prediction": {
    "p30": 0.6908,
    "p60": 0.9272,
@@ -3198,6 +3210,7 @@
   },
   "evidence_strength": 1.0,
   "severity": 1.0,
+  "unavailable": [],
   "prediction": {
    "p30": 0.2528,
    "p60": 0.334,
@@ -3552,6 +3565,7 @@
   },
   "evidence_strength": 0.071,
   "severity": 0.7,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0066,
    "p60": 0.0096,
@@ -3814,6 +3828,7 @@
   },
   "evidence_strength": 0.092,
   "severity": 0.6,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0078,
    "p60": 0.0157,
@@ -4059,6 +4074,7 @@
   },
   "evidence_strength": 0.16,
   "severity": 0.95,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0093,
    "p60": 0.0105,
@@ -4210,6 +4226,7 @@
   },
   "evidence_strength": 0.1,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.7069,
    "p60": 0.7069,
@@ -4452,6 +4469,7 @@
   },
   "evidence_strength": 0.2,
   "severity": 0.7,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0052,
    "p60": 0.0074,
@@ -4588,6 +4606,7 @@
   },
   "evidence_strength": 0.196,
   "severity": 0.5,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0072,
    "p60": 0.0082,
@@ -4781,6 +4800,7 @@
   },
   "evidence_strength": 0.06,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0066,
    "p60": 0.0078,
@@ -5023,6 +5043,7 @@
   },
   "evidence_strength": 0.23,
   "severity": 0.95,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0075,
    "p60": 0.0136,
@@ -5229,6 +5250,7 @@
   },
   "evidence_strength": 0.85,
   "severity": 0.6,
+  "unavailable": [],
   "prediction": {
    "p30": 0.8181,
    "p60": 0.8181,
@@ -5524,6 +5546,7 @@
   },
   "evidence_strength": 0.095,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0079,
    "p60": 0.0119,
@@ -5789,6 +5812,7 @@
   },
   "evidence_strength": 0.059,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0066,
    "p60": 0.0096,
@@ -6021,6 +6045,7 @@
   },
   "evidence_strength": 0.85,
   "severity": 0.95,
+  "unavailable": [],
   "prediction": {
    "p30": 0.9772,
    "p60": 0.9822,
@@ -6296,6 +6321,7 @@
   },
   "evidence_strength": 0.456,
   "severity": 0.7,
+  "unavailable": [],
   "prediction": {
    "p30": 0.7719,
    "p60": 0.9823,
@@ -6592,6 +6618,7 @@
   },
   "evidence_strength": 0.07,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0078,
    "p60": 0.0134,
@@ -6815,6 +6842,7 @@
   },
   "evidence_strength": 1.0,
   "severity": 1.0,
+  "unavailable": [],
   "prediction": {
    "p30": 0.9917,
    "p60": 0.9917,
@@ -7174,6 +7202,7 @@
   },
   "evidence_strength": 1.0,
   "severity": 1.0,
+  "unavailable": [],
   "prediction": {
    "p30": 0.8104,
    "p60": 0.8968,
@@ -7528,6 +7557,7 @@
   },
   "evidence_strength": 0.85,
   "severity": 0.6,
+  "unavailable": [],
   "prediction": {
    "p30": 0.9993,
    "p60": 0.9993,
@@ -7823,6 +7853,7 @@
   },
   "evidence_strength": 0.81,
   "severity": 0.7,
+  "unavailable": [],
   "prediction": {
    "p30": 0.5652,
    "p60": 0.9686,
@@ -8111,6 +8142,7 @@
   },
   "evidence_strength": 0.81,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.3291,
    "p60": 0.8904,
@@ -8419,6 +8451,7 @@
   },
   "evidence_strength": 0.241,
   "severity": 0.7,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0105,
    "p60": 0.0116,
@@ -8577,6 +8610,7 @@
   },
   "evidence_strength": 0.331,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.6483,
    "p60": 0.9743,
@@ -8926,6 +8960,7 @@
   },
   "evidence_strength": 0.81,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.9335,
    "p60": 0.987,
@@ -9227,6 +9262,7 @@
   },
   "evidence_strength": 0.85,
   "severity": 0.8,
+  "unavailable": [],
   "prediction": {
    "p30": 0.8585,
    "p60": 0.8585,
@@ -9531,6 +9567,7 @@
   },
   "evidence_strength": 0.134,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.025,
    "p60": 0.025,
@@ -9768,6 +9805,7 @@
   },
   "evidence_strength": 1.0,
   "severity": 1.0,
+  "unavailable": [],
   "prediction": {
    "p30": 0.3099,
    "p60": 0.3507,
@@ -10109,6 +10147,7 @@
   },
   "evidence_strength": 0.091,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.1655,
    "p60": 0.8517,
@@ -10373,6 +10412,7 @@
   },
   "evidence_strength": 0.516,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.6689,
    "p60": 0.9603,
@@ -10663,6 +10703,7 @@
   },
   "evidence_strength": 0.16,
   "severity": 0.5,
+  "unavailable": [],
   "prediction": {
    "p30": 0.007,
    "p60": 0.0112,
@@ -10800,6 +10841,7 @@
   },
   "evidence_strength": 0.507,
   "severity": 0.85,
+  "unavailable": [],
   "prediction": {
    "p30": 0.2783,
    "p60": 0.8362,
@@ -11067,6 +11109,7 @@
   },
   "evidence_strength": 0.096,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0079,
    "p60": 0.0097,
@@ -11364,6 +11407,7 @@
   },
   "evidence_strength": 0.064,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0093,
    "p60": 0.0107,
@@ -11594,6 +11638,7 @@
   },
   "evidence_strength": 0.108,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0109,
    "p60": 0.0188,
@@ -11795,6 +11840,7 @@
   },
   "evidence_strength": 0.16,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0072,
    "p60": 0.0082,
@@ -11935,6 +11981,7 @@
   },
   "evidence_strength": 0.81,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.9156,
    "p60": 0.9799,
@@ -12275,6 +12322,7 @@
   },
   "evidence_strength": 0.16,
   "severity": 0.5,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0096,
    "p60": 0.0429,
@@ -12438,6 +12486,7 @@
   },
   "evidence_strength": 0.056,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0067,
    "p60": 0.0096,
@@ -12681,6 +12730,7 @@
   },
   "evidence_strength": 0.135,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0167,
    "p60": 0.0167,
@@ -12897,6 +12947,7 @@
   },
   "evidence_strength": 0.111,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0066,
    "p60": 0.0096,
@@ -13183,6 +13234,7 @@
   },
   "evidence_strength": 0.281,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0066,
    "p60": 0.0098,
@@ -13458,6 +13510,7 @@
   },
   "evidence_strength": 0.168,
   "severity": 0.7,
+  "unavailable": [],
   "prediction": {
    "p30": 0.2378,
    "p60": 0.7343,
@@ -13792,6 +13845,7 @@
   },
   "evidence_strength": 0.133,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0066,
    "p60": 0.0091,
@@ -14103,6 +14157,7 @@
   },
   "evidence_strength": 0.516,
   "severity": 0.85,
+  "unavailable": [],
   "prediction": {
    "p30": 0.9003,
    "p60": 0.9874,
@@ -14375,6 +14430,7 @@
   },
   "evidence_strength": 0.16,
   "severity": 0.5,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0052,
    "p60": 0.0092,
@@ -14507,6 +14563,7 @@
   },
   "evidence_strength": 0.072,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0067,
    "p60": 0.0119,
@@ -14751,6 +14808,7 @@
   },
   "evidence_strength": 0.516,
   "severity": 0.9,
+  "unavailable": [],
   "prediction": {
    "p30": 0.9176,
    "p60": 0.9657,
@@ -15024,6 +15082,7 @@
   },
   "evidence_strength": 0.188,
   "severity": 0.7,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0084,
    "p60": 0.01,
@@ -15253,6 +15312,7 @@
   },
   "evidence_strength": 0.516,
   "severity": 0.7,
+  "unavailable": [],
   "prediction": {
    "p30": 0.3631,
    "p60": 0.9671,
@@ -15552,6 +15612,7 @@
   },
   "evidence_strength": 0.85,
   "severity": 0.95,
+  "unavailable": [],
   "prediction": {
    "p30": 0.9729,
    "p60": 0.9729,
@@ -15843,6 +15904,7 @@
   },
   "evidence_strength": 0.2,
   "severity": 0.6,
+  "unavailable": [],
   "prediction": {
    "p30": 0.0127,
    "p60": 0.0165,

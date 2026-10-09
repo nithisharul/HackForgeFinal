@@ -1,4 +1,5 @@
 """ClaimShield Nexus API.   uvicorn backend.app.main:app --reload   (run from the project root)"""
+import os
 import threading
 
 from fastapi import FastAPI
@@ -19,8 +20,8 @@ for r in (auth, queue, cases, brief, graph, wiki, security, integrations):
     app.include_router(r.router, prefix="/api")
 
 
-@app.get("/")
-def root():
+@app.get("/api", tags=["operations"])
+def about():
     return {"service": "ClaimShield Nexus", "version": VERSION, "docs": "/docs"}
 
 
@@ -58,6 +59,18 @@ def ready():
         checks["database"] = False
     ok = all(checks.values())
     return JSONResponse({"status": "ready" if ok else "not ready", "checks": checks}, status_code=200 if ok else 503)
+
+
+# In a container the built React app is served from the same origin as the API (STATIC_DIR, set by the Dockerfile).
+# Routes above take precedence; every other path gets the app, which routes on the hash.
+_static = os.getenv("STATIC_DIR", "")
+if _static and os.path.isdir(_static):
+    from fastapi.staticfiles import StaticFiles
+    app.mount("/", StaticFiles(directory=_static, html=True), name="web")
+else:
+    @app.get("/")
+    def root():
+        return {"service": "ClaimShield Nexus", "version": VERSION, "docs": "/docs"}
 
 
 @app.on_event("startup")

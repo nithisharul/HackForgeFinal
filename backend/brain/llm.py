@@ -2,8 +2,11 @@
 
 Configure with environment variables or a .env file in the project root:
     LLM_API_KEY    the provider key (not needed for a local Ollama server)
-    LLM_BASE_URL   default https://api.groq.com/openai/v1
-    LLM_MODEL      default llama-3.3-70b-versatile
+    LLM_BASE_URL   e.g. http://localhost:11434/v1 for Ollama; https://api.groq.com/openai/v1 when only a key is set
+    LLM_MODEL      default gemma4:e4b-it-qat
+    LLM_REASONING_EFFORT  "none" (default for a local Ollama server) turns a thinking model's hidden reasoning off.
+                   The text written here is short and factual: thinking only adds delay, and on a tight token
+                   budget it can use every token before any answer is written. Set e.g. "low" to allow some.
 Every function returns None on any failure, so callers can fall back to templates.
 """
 import json
@@ -21,19 +24,28 @@ def _env():
     if _loaded:
         return
     _loaded = True
-    path = ROOT / ".env"
-    if path.exists():
-        for line in path.read_text(encoding="utf-8-sig").splitlines():
-            if "=" in line and not line.strip().startswith("#"):
-                k, v = line.split("=", 1)
-                os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+    for path in dict.fromkeys([ROOT / ".env", env_file()]):
+        if path.exists():
+            for line in path.read_text(encoding="utf-8-sig").splitlines():
+                if "=" in line and not line.strip().startswith("#"):
+                    k, v = line.split("=", 1)
+                    os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+
+def env_file():
+    """Where generated settings (the signing key) are written: ENV_FILE if set, else the project .env.
+    A read-only container points ENV_FILE into its data volume, so the key survives restarts."""
+    from pathlib import Path
+    return Path(os.getenv("ENV_FILE") or ROOT / ".env")
 
 
 def config():
     _env()
     key = os.getenv("LLM_API_KEY", "")
     base = os.getenv("LLM_BASE_URL", "") or ("https://api.groq.com/openai/v1" if key else "")
-    return {"key": key, "base": base.rstrip("/"), "model": os.getenv("LLM_MODEL", "gemma3:4b")}
+    base = base.rstrip("/")
+    effort = os.getenv("LLM_REASONING_EFFORT", "none" if ":11434" in base else "")
+    return {"key": key, "base": base, "model": os.getenv("LLM_MODEL", "gemma4:e4b-it-qat"), "effort": effort}
 
 
 def available():
@@ -52,7 +64,10 @@ def chat(system, user, json_mode=False, max_tokens=800):
         return None
     body = {"model": c["model"], "temperature": 0.2, "max_tokens": max_tokens,
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
-    attempts = [dict(body, response_format={"type": "json_object"}), body] if json_mode else [body]
+    if c["effort"]:
+        body["reasoning_effort"] = c["effort"]
+    plain = {k: v for k, v in body.items() if k != "reasoning_effort"}  # for a provider that rejects the parameter
+    attempts = ([dict(body, response_format={"type": "json_object"})] if json_mode else []) + [body] + ([plain] if c["effort"] else [])
     for payload in attempts:
         try:
             req = urllib.request.Request(

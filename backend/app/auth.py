@@ -129,7 +129,7 @@ def register(name, passcode, env_path=None):
         raise HTTPException(403, "Account limit reached; ask an admin")
     if len(secret) < 32:  # first use on this server: create the signing key
         os.environ["AUTH_SECRET"] = secrets.token_urlsafe(48)
-        env_path = env_path or ROOT / ".env"
+        env_path = env_path or llm.env_file()
         lines = env_path.read_text(encoding="utf-8-sig").splitlines() if env_path.exists() else []
         _write_env(env_path, lines, {"AUTH_SECRET": os.environ["AUTH_SECRET"]})
     role = "viewer" if users else "admin"

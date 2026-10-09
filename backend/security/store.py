@@ -39,7 +39,7 @@ def secret():
     key = os.getenv("AUTH_SECRET", "")
     if len(key) < 32:
         key = os.environ["AUTH_SECRET"] = secrets.token_urlsafe(48)
-        env = ROOT / ".env"
+        env = llm.env_file()
         lines = env.read_text(encoding="utf-8-sig").splitlines() if env.exists() else []
         env.write_text("\n".join([l for l in lines if not l.startswith("AUTH_SECRET=")] + [f"AUTH_SECRET={key}"]) + "\n", encoding="utf-8")
     return key

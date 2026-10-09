@@ -1141,9 +1141,10 @@ html.touring { scrollbar-color: color-mix(in srgb, var(--text) 80%, var(--surfac
 .ruler-track b { top: -5px; width: 3px; height: 16px; margin-left: -1.5px; }
 .ruler-ticks { margin-top: 9px; color: var(--text-2); }
 /* Months: three letters; the year sits under each January */
-.bar span { bottom: -22px; font-size: 11px; color: var(--text-2); text-align: center; line-height: 1.1; }
-.bar span em { display: block; font-style: normal; font-size: 10px; color: var(--text-3); }
-.bars { padding-bottom: 30px; }
+.bar span { bottom: -20px; font-size: 11px; color: var(--text-2); text-align: center; line-height: 1.1; }
+/* The year hangs under January's label without moving it, so every month sits on one line */
+.bar span em { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); font-style: normal; font-size: 10px; color: var(--text-3); }
+.bars { padding-bottom: 34px; }
 /* The action-plan pod has two named parts: route and playbook, then the next verification steps */
 .route-box h2 { margin-bottom: 10px; }
 
@@ -1160,20 +1161,26 @@ html.touring { scrollbar-color: color-mix(in srgb, var(--text) 80%, var(--surfac
 .region-hint { margin-top: 4px; font-size: 13px; font-weight: 600; color: var(--brand-text); opacity: 0; transform: translateY(6px); transition: opacity 0.25s var(--ease), transform 0.25s var(--ease); }
 .region-card:hover .region-hint, .region-card:focus-visible .region-hint, .region-card.here .region-hint { opacity: 1; transform: none; }
 .region-card.here .region-hint::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: var(--brand); vertical-align: 1px; }
-.flag { width: 72px; height: 44px; flex-shrink: 0; overflow: visible; }
+.region-flag { width: 72px; height: 44px; flex-shrink: 0; overflow: visible; }
 .fl-frame { fill: var(--surface); stroke: var(--border-strong); stroke-width: 1.5; }
 .fl-stripe { fill: var(--border); }
 .fl-canton { fill: var(--text-2); }
-.fl-star { fill: var(--surface); transform-box: fill-box; transform-origin: center; opacity: 0.35; transition: opacity 0.2s var(--ease) calc(var(--i) * 25ms), transform 0.25s var(--ease) calc(var(--i) * 25ms); }
-.region-card:hover .fl-star, .region-card:focus-visible .fl-star, .region-card.here .fl-star { opacity: 1; transform: scale(1.25); }
-.fl-band { fill: var(--surface-3); }
-.fl-chakra { transform-box: fill-box; transform-origin: center; transform: rotate(-90deg) scale(0.85); transition: transform 0.7s var(--ease); }
+.fl-star { fill: var(--surface); transform-box: fill-box; transform-origin: center; }
+.fl-band { fill: var(--border); }
+.fl-chakra { transform-box: fill-box; transform-origin: center; }
 .fl-chakra circle { fill: none; stroke: var(--brand-text); stroke-width: 1.4; }
 .fl-chakra line { stroke: var(--brand-text); stroke-width: 0.6; }
-.region-card:hover .fl-chakra, .region-card:focus-visible .fl-chakra, .region-card.here .fl-chakra { transform: rotate(0deg) scale(1); }
+/* Flags always show complete. Hover or focus replays the moment they come on: the stars light one by one, the chakra turns in.
+   Presenting, it plays once as the slide arrives. Transform and opacity only. */
+@keyframes star-on { 0% { opacity: 0.2; transform: scale(0.4); } 60% { opacity: 1; transform: scale(1.5); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes chakra-in { from { transform: rotate(-180deg) scale(0.6); opacity: 0.4; } to { transform: none; opacity: 1; } }
+:is(.region-card:hover, .region-card:focus-visible, html.presenting .slide.on .region-card) .fl-star { animation: star-on 0.45s var(--ease) calc(var(--i) * 30ms) both; }
+:is(.region-card:hover, .region-card:focus-visible, html.presenting .slide.on .region-card) .fl-chakra { animation: chakra-in 0.8s var(--ease) both; }
 
 /* Present mode: a hard cut between slides, with a short entrance on the new one */
 html.presenting .slide > * { transition: opacity 0.3s var(--ease), transform 0.34s var(--ease); }
+
+.why-note { margin: 4px 0 2px; font-size: 12px; line-height: 1.45; color: var(--text-2); }
 
 /* Responsive */
 @media (max-width: 1280px) {

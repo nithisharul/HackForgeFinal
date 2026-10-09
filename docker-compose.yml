@@ -1,0 +1,47 @@
+# ClaimShield Nexus, one command:
+#   docker compose up -d --build                  the app on http://localhost:8000 (API and investigator app)
+#   docker compose --profile llm up -d --build    plus a local LLM on the NVIDIA GPU (nothing leaves the machine)
+#   docker compose --profile llm exec ollama ollama pull gemma4:e4b-it-qat     once, to fetch the model
+#   docker compose run --rm app python -m backend.pipeline.run_all              re-score after a new claims extract
+# Settings come from .env (see .env.example). Keep AUTH_SECRET there: it signs sessions and the audit log, so it must
+# not change between restarts. Accounts, the audit log, saved LLM text and the Second Brain live in named volumes.
+services:
+  app:
+    build: .
+    image: claimshield-nexus:latest
+    ports: ["8000:8000"]
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # Inside compose the LLM is the ollama service (--profile llm). To use an Ollama already running on the host
+      # instead, set DOCKER_LLM_BASE_URL=http://host.docker.internal:11434/v1 in .env. With neither, briefs use templates.
+      # (.env's own LLM_BASE_URL says localhost, which inside a container is the container itself, so it is not used here.)
+      LLM_BASE_URL: ${DOCKER_LLM_BASE_URL:-http://ollama:11434/v1}
+      LLM_MODEL: ${LLM_MODEL:-gemma4:e4b-it-qat}
+      LLM_REASONING_EFFORT: ${LLM_REASONING_EFFORT:-none}
+      # Generated settings (the signing key, if .env has none) are kept in the data volume, not in the read-only image.
+      ENV_FILE: /app/data/.env
+    volumes:
+      - csn-data:/app/data
+      - csn-knowledge:/app/knowledge
+    restart: unless-stopped
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+
+  ollama:
+    image: ollama/ollama:latest
+    profiles: [llm]
+    volumes: [ollama-models:/root/.ollama]
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices: [{ driver: nvidia, count: all, capabilities: [gpu] }]
+
+volumes:
+  csn-data:
+  csn-knowledge:
+  ollama-models:

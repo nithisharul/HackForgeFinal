@@ -62,6 +62,22 @@ The first account created in the app becomes the admin. Accounts can also be def
 python -m backend.app.auth add "Investigator Name"   # prompts for a passcode (12+ characters); restart the API
 ```
 
+## Run with Docker
+
+One image holds the API and the investigator app (the React build is served from the same origin as the API):
+
+```
+docker compose up -d --build                     # http://localhost:8000
+docker compose --profile llm up -d --build       # plus a local LLM on the NVIDIA GPU
+docker compose --profile llm exec ollama ollama pull gemma4:e4b-it-qat
+docker compose run --rm app python -m backend.pipeline.run_all   # re-score after a new claims extract
+```
+
+The container runs as an unprivileged user on a read-only filesystem with all capabilities dropped. Accounts, the
+signed audit log, saved LLM text and the Second Brain live in named volumes. Put `AUTH_SECRET` in `.env` (it signs
+sessions and the audit log, so it must stay the same across restarts); to use an Ollama already running on the host
+set `DOCKER_LLM_BASE_URL=http://host.docker.internal:11434/v1`. The health check calls `/api/health/ready`.
+
 ## Deploy (Cloudflare, free plan)
 
 `cloudflare/` holds a Worker that serves the React build and forwards `/api/*` to the API on the host
@@ -76,10 +92,11 @@ Create `.env` in this folder. The default setup is a local model through Ollama,
 
 ```
 LLM_BASE_URL=http://localhost:11434/v1
-LLM_MODEL=gemma3:4b
+LLM_MODEL=gemma4:e4b-it-qat
 ```
 
-Any OpenAI-compatible endpoint works. Without an LLM everything still runs, from templates and keyword lookup.
+Then `ollama pull gemma4:e4b-it-qat` (6.1 GB; it fits on a 12 GB GPU and writes a brief in a few seconds) and restart
+the API. Any OpenAI-compatible endpoint works. Without an LLM everything still runs, from templates and keyword lookup.
 
 ## Present it
 
@@ -87,11 +104,13 @@ The front page is also the presentation. Select Present (or press P): every sect
 Arrow keys, Page Up/Down and Space move; F toggles full screen; Esc leaves. A rail on the right lists the slides,
 with a counter and the elapsed time. The "Now the real app" slide starts a guided walkthrough of the live queue
 and case, dimming everything but the part being explained; it returns to the slides when it ends. The app is
-fully usable throughout. Some slides build: the arrow first steps through them (the funnel stage by stage, the
-pipeline, and the architecture map's 8 scenes, where any part can be selected for what it does, what happens if
-it fails and what protects it). N shows presenter notes and a pace clock for a 6-minute slot. Export saves the
-slides as a PDF (one 16:9 page per slide, through the browser's Save as PDF) or as one HTML file that opens offline,
-a backup for the day. Let the LLM warm-up finish before rehearsing (see Connect a free LLM).
+fully usable throughout. Most slides have steps: the arrow first walks through them (the funnel, one real case through the pipeline, the
+scoring, the architecture map's 8 scenes, safeguards and security), then moves on. On the page, the steps advance by
+themselves while a figure is on screen and idle. N shows presenter notes and a pace clock for a 6-minute slot.
+
+To save a 10-slide PowerPoint: with the app running, `cd frontend` and
+`npm run export-deck -- --url http://localhost:5173` (writes `../ClaimShield-presentation/ClaimShield-Nexus-US.pptx`).
+Let the LLM warm-up finish before rehearsing (see Connect a free LLM).
 
 ## Integrations and operations
 

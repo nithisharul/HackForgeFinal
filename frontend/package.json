@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "export-deck": "node scripts/export-deck.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -14,6 +15,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
+    "playwright-core": "^1.64.0",
+    "pptxgenjs": "^3.12.0",
     "vite": "^6.0.0"
   }
 }

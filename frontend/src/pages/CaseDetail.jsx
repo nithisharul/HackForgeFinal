@@ -232,6 +232,7 @@ export default function CaseDetail({ caseId, horizon }) {
             <Bar label="Rules" value={c.signals.rules} th={AGREE.rules} />
             <Bar label="Anomaly model" value={c.signals.ml} th={AGREE.ml} />
             <Bar label="Network analysis" value={c.signals.graph} th={AGREE.graph} />
+            <p className="why-note">Each bar is that method's score. The mark is where it starts to count as agreeing; filled blue means it does.</p>
             <Bar label="Evidence strength" value={conf.evidence_strength} strong />
             <details className="how">
               <summary>How the score is built</summary>

@@ -355,8 +355,10 @@ function Operations() {
   return (
     <Doc id="operations" title="Deployment and operations">
       <p>
-        <code>cloudflare/Dockerfile</code> builds the API image for any Docker host. The React build is static and is served next to the API or
-        by the included Cloudflare Worker, which forwards <code>/api/*</code> to the API.
+        <code>docker compose up -d --build</code> runs the whole product from one image: the API serves the React build from the same origin,
+        as an unprivileged user on a read-only filesystem, with accounts, the audit log and the Second Brain in named volumes and a health check
+        on <code>/api/health/ready</code>. Add <code>--profile llm</code> for a local LLM on the GPU. The Cloudflare Worker remains an option for
+        a static front end that forwards <code>/api/*</code> to the API.
       </p>
       <Table head={['Endpoint', 'For']} rows={[
         [<code>GET /api/health/live</code>, 'Liveness probe: the process answers'],
@@ -369,6 +371,7 @@ function Operations() {
         [<code>CORS_ORIGINS</code>, 'Browser origins allowed to call the API from another site; default the local dev servers'],
         [<code>LOG_FORMAT</code>, 'json (default): one JSON line per request with its request ID; off: uvicorn\'s own log'],
         [<code>LLM_BASE_URL</code>, 'Any OpenAI-compatible endpoint, with LLM_MODEL and, for hosted ones, LLM_API_KEY'],
+        [<code>LLM_REASONING_EFFORT</code>, 'none by default for local Ollama: thinking models answer at once. The text written is short and fact-checked'],
         [<code>SLACK_WEBHOOK_URL</code>, 'And the other integration settings above'],
       ]} />
       <p>Every response carries <code>X-Request-ID</code>; send your own to trace one request across systems.</p>

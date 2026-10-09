@@ -296,7 +296,7 @@ function Flag({ code }) {
     const stars = []
     for (let r = 0; r < 4; r++) for (let c = 0; c < 5; c++) stars.push([7 + c * 6 + (r % 2) * 3, 6 + r * 5])
     return (
-      <svg className="flag flag-us" viewBox="0 0 72 44" aria-hidden="true">
+      <svg className="region-flag" viewBox="0 0 72 44" aria-hidden="true">
         <rect className="fl-frame" x="0.75" y="0.75" width="70.5" height="42.5" rx="3" />
         {[0, 1, 2, 3, 4, 5, 6].map((i) => <rect key={i} className="fl-stripe" x="1" y={1 + i * 6.1} width="70" height="3.05" />)}
         <rect className="fl-canton" x="1" y="1" width="36" height="24" />
@@ -305,7 +305,7 @@ function Flag({ code }) {
     )
   }
   return (
-    <svg className="flag flag-in" viewBox="0 0 72 44" aria-hidden="true">
+    <svg className="region-flag" viewBox="0 0 72 44" aria-hidden="true">
       <rect className="fl-frame" x="0.75" y="0.75" width="70.5" height="42.5" rx="3" />
       <rect className="fl-band top" x="1" y="1" width="70" height="14" />
       <rect className="fl-band bottom" x="1" y="29" width="70" height="14" />

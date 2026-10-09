@@ -40,6 +40,7 @@ export const api = {
   users: () => request('/auth/users', { auth: true }),
   securityStatus: () => request('/security/status'),
   health: () => request('/health'),
+  openapi: () => request('/openapi.json'),
   auditTrail: () => request('/security/audit', { auth: true }),
   securityEvents: () => request('/security/events', { auth: true }),
   reseal: (reason) => post('/security/reseal', { reason }),

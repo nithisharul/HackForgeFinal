@@ -5,7 +5,8 @@ import { money } from './bits.jsx'
 // AuditNext: the next checks for this case, ranked by U(a) = expected uncertainty removed (ΔH) / cost.
 // Numbers come from /api/cases/{id}/audit-plan; accuracy is learned from closed cases in the Second Brain.
 // The doubt removed, the cost and the utility sit side by side so the ranking can be checked at a glance.
-export default function AuditNext({ caseId, horizon }) {
+// plain: for an audience. Leads with doubt cleared, time and money; bits and U(a) sit one layer down.
+export default function AuditNext({ caseId, horizon, plain }) {
   const [plan, setPlan] = useState(undefined)
   useEffect(() => {
     let live = true
@@ -20,26 +21,41 @@ export default function AuditNext({ caseId, horizon }) {
   return (
     <section className="plan" aria-labelledby="plan-h">
       <h2 id="plan-h">Next verification steps</h2>
-      <p className="sec-note">
-        Ranked by doubt removed per hour. Doubt now: {plan.prior_entropy_bits.toFixed(2)} bits
-        {plan.closed_cases_used > 0 && `, learned from ${plan.closed_cases_used} closed ${plan.closed_cases_used === 1 ? 'case' : 'cases'}`}.
-      </p>
+      {plain ? (
+        <p className="sec-note">Ranked by how much doubt each check clears for an hour of work{plan.closed_cases_used > 0 && `, learned from ${plan.closed_cases_used} closed cases`}.</p>
+      ) : (
+        <p className="sec-note">
+          Ranked by doubt removed per hour. Doubt now: {plan.prior_entropy_bits.toFixed(2)} bits
+          {plan.closed_cases_used > 0 && `, learned from ${plan.closed_cases_used} closed ${plan.closed_cases_used === 1 ? 'case' : 'cases'}`}.
+        </p>
+      )}
       <ol className="plan-list">
         {plan.actions.map((a) => (
           <li key={a.id} className={a.is_optimal ? 'best' : undefined}>
             <p className="plan-title">{a.name}</p>
             <p className="plan-why">{a.description}</p>
-            <div className="plan-figs">
-              <span className="gain" title="Expected uncertainty removed (ΔH)">−{a.info_gain_bits.toFixed(2)} bits</span>
-              <span className="cost" title="Investigator time and its cost, C(a)">{a.cost_mins} min, {money(a.cost)}</span>
-              <span className="u" title="Utility U(a) = ΔH per hour">U {a.utility_score.toFixed(2)}</span>
-            </div>
+            {plain ? (
+              <div className="plan-figs" title={`−${a.info_gain_bits.toFixed(2)} bits, U ${a.utility_score.toFixed(2)}`}>
+                <span className="gain">Clears {Math.round((a.info_gain_bits / (plan.prior_entropy_bits || 1)) * 100)}% of the doubt</span>
+                <span className="cost">{a.cost_mins >= 120 ? `${Math.round(a.cost_mins / 60)} hours` : `${a.cost_mins} min`}, {money(a.cost)}</span>
+              </div>
+            ) : (
+              <div className="plan-figs">
+                <span className="gain" title="Expected uncertainty removed (ΔH)">−{a.info_gain_bits.toFixed(2)} bits</span>
+                <span className="cost" title="Investigator time and its cost, C(a)">{a.cost_mins} min, {money(a.cost)}</span>
+                <span className="u" title="Utility U(a) = ΔH per hour">U {a.utility_score.toFixed(2)}</span>
+              </div>
+            )}
             <span className="u-bar" aria-hidden="true"><i style={{ width: `${Math.max(2, (a.utility_score / best) * 100)}%` }} /></span>
-            <p className="plan-basis">{a.basis} Accuracy: {a.accuracy_pct}%.</p>
+            {!plain && <p className="plan-basis">{a.basis} Accuracy: {a.accuracy_pct}%.</p>}
           </li>
         ))}
       </ol>
-      <p className="formula">U(a) = ΔH ÷ hours. Prior is this case's confidence ({Math.round(plan.prior_probability * 100)}%). {plan.assumptions}</p>
+      {plain ? (
+        <details className="how"><summary>How the ranking works</summary>
+          <p className="formula">Doubt is measured in bits (0 is certain, 1 is a coin flip); each check is ranked by bits removed per hour, U(a) = ΔH ÷ hours. {plan.assumptions}</p>
+        </details>
+      ) : <p className="formula">U(a) = ΔH ÷ hours. Prior is this case's confidence ({Math.round(plan.prior_probability * 100)}%). {plan.assumptions}</p>}
     </section>
   )
 }

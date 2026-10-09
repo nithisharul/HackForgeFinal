@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 from backend.brain import wiki
 from backend.region import Code, use
 
+from backend.integrations import notify
 from backend.security import log_integrity
 
 from .. import auth, store
@@ -58,6 +59,8 @@ def post_verdict(case_id: str, v: Verdict, region: Code = "us", who: str = Depen
     with use(region):
         result = _write(case_id, v, dry_run=False)
         log_integrity.record_change(who, "verdict", case_id, result["changes"], detail=f"{v.verdict}: {v.reasoning.strip()}")
+        notify.emit("verdict.recorded", {"case_id": case_id, "provider_id": _case(case_id)["provider_id"], "verdict": v.verdict,
+                                         "actor": who, "pages_changed": len(result["changes"])}, region)
         return {"case_id": case_id, "written": True, **result, "status": store.status_of(case_id)}
 
 class Revoke(BaseModel):
@@ -88,6 +91,7 @@ def revoke_precedent(case_id: str, r: Revoke, region: Code = "us", who: str = De
         affected = store.influence(case_id)
         changes = wiki.revoke(case_id, r.reason, who, store.data().PROV_INFO)
         log_integrity.record_change(who, "revoke", case_id, changes, detail=r.reason.strip())
+        notify.emit("precedent.revoked", {"case_id": case_id, "actor": who, "cases_restored": len(affected)}, region)
         return {"case_id": case_id, "revoked_by": who, "changes": changes, "restored": affected}
 
 

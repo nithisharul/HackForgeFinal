@@ -46,6 +46,8 @@ const impossible = (s) => {
   }
   return null
 }
+// Whether any sample claim on a case is logically impossible (the landing page picks its example with this).
+export const hasConflict = (c) => c.sample_claims.some((s) => impossible(s))
 const claimCount = (e) => Number(((e.text.match(/^([\d,]+) claims/) || [])[1] || '').replace(/,/g, ''))
 // How much one finding weighs: rules by their share of flagged claims, the model and network by their own scores.
 const weight = (e, c) => {
@@ -171,7 +173,7 @@ export default function CaseDetail({ caseId, horizon }) {
 
           {c.sample_claims.length > 0 && (
             <Section title={`Claims and ${h ? 'packages' : 'codes'}`} note={`${c.sample_claims.length} sample claims. Rows in red are logically impossible.`}>
-              <div className="table-wrap">
+              <div className="table-wrap" tabIndex="0" role="region" aria-label="Sample claims">
                 <table className="claims">
                   <thead><tr><th>Claim</th><th>Date</th><th>{t.Member}</th><th>{h ? 'Package' : 'Code'}</th><th className="num">Paid</th><th>Why flagged</th></tr></thead>
                   <tbody>
@@ -247,6 +249,7 @@ export default function CaseDetail({ caseId, horizon }) {
           </section>
           <p className="pod-label" id="pod-action">Adaptive action plan</p>
           <div className="route-box">
+            <h2>Route and playbook</h2>
             <p className="route-stamp">{c.status === 'open' ? <Tier tier={conf.tier} /> : <Status status={c.status} />}</p>
             <p><strong>{conf.label}.</strong> {conf.route}. Owner: {conf.owner}.</p>
             <Playbook text={b.recommended_action} />
@@ -321,7 +324,7 @@ function Timeline({ monthly }) {
               <div className="bar-stack" style={{ height: `${(m.claims / max) * 100}%` }}>
                 <div className="bar-flag" style={{ height: `${m.claims ? (m.flagged / m.claims) * 100 : 0}%` }} />
               </div>
-              <span>{MONTHS[+m.month.slice(5) - 1].slice(0, 1)}</span>
+              <span>{MONTHS[+m.month.slice(5) - 1]}{m.month.slice(5) === '01' && <em>{m.month.slice(0, 4)}</em>}</span>
             </div>
           ))}
         </div>
@@ -489,16 +492,18 @@ export function Discrepancy({ c }) {
 }
 
 // Probability as distance from a coin flip: the bar grows from the 50% midline, with the uncertainty in bits beside it.
-export function Chance({ label, p }) {
+// plain: for an audience, not an investigator. The bits move one layer down, into the tooltip.
+export function Chance({ label, p, plain }) {
   const d = p - 0.5
   return (
-    <div className="chance">
+    <div className="chance" title={plain ? `${bits(p).toFixed(2)} bits of uncertainty (0 is certain, 1 is a coin flip)` : undefined}>
       <span className="chance-label">{label}</span>
       <span className="chance-track" role="img" aria-label={`${pct(p)}, ${Math.abs(Math.round(d * 100))} points ${d >= 0 ? 'above' : 'below'} chance, ${bits(p).toFixed(2)} bits of uncertainty`}>
         <i style={{ left: `${Math.min(50, p * 100)}%`, width: `${Math.abs(d) * 100}%` }} />
       </span>
+      <span className="chance-scale" aria-hidden="true"><span>0%</span><span>coin flip</span><span>100%</span></span>
       <b>{pct(p)}</b>
-      <Doubt p={p} />
+      {!plain && <Doubt p={p} />}
     </div>
   )
 }

@@ -11,7 +11,13 @@ def record(type_, severity, source, detail, action, actor="", once=False):
             return None
         cur = con.execute("INSERT INTO security_events (ts, type, severity, source, actor, detail, action) VALUES (?,?,?,?,?,?,?)",
                           (now(), type_, severity, source, actor or "", detail[:500], action))
-        return f"SEC-{cur.lastrowid:03d}"
+        event_id = f"SEC-{cur.lastrowid:03d}"
+    if severity in ("HIGH", "CRITICAL"):  # leads hear about it where they already work; the detail stays on the server
+        from backend import region
+        from backend.integrations import notify
+        notify.emit("security.alert", {"event_id": event_id, "type": type_, "severity": severity, "source": source,
+                                       "action": action, "actor": actor or ""}, region.current().code)
+    return event_id
 
 
 def recent(limit=50):

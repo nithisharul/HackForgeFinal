@@ -86,7 +86,7 @@ export default function Network({ providerId }) {
         {sel ? (
           <>
             <p><b>{sel.id}</b> {sel.name}{sel.specialty ? `, ${sel.specialty}` : ''}{sel.city ? `, ${sel.city}` : ''}</p>
-            <p className="muted">{selLinks.length} {selLinks.length === 1 ? 'link' : 'links'}: {[...new Set(selLinks.map((l) => l.label))].slice(0, 3).join('; ')}</p>
+            {describe(sel, selLinks).map((line) => <p key={line} className="muted">{line}</p>)}
             {canOpen(sel) && <a className="btn" href={`#/case/CASE-${sel.id}`}>Open case {sel.id}</a>}
           </>
         ) : <p className="muted">Select a node to see who it is and how it connects.</p>}
@@ -101,6 +101,24 @@ export default function Network({ providerId }) {
       </figcaption>
     </figure>
   )
+}
+
+// Each link in a sentence that names both ends, grouped by relation: "Owns P209, P248 and P271".
+function describe(sel, links) {
+  const t = terms()
+  const groups = new Map()
+  const add = (k, v) => groups.set(k, [...(groups.get(k) || []), v])
+  for (const l of links) {
+    const out = l.source === sel.id
+    const other = out ? l.target : l.source
+    if (l.type === 'ownership') add(out ? 'Owned by' : 'Owns', other)
+    else if (l.type === 'facility') add(out ? 'Bills at' : 'Billed here by', other)
+    else if (l.type === 'referral') add(out ? 'Refers to' : 'Receives referrals from', `${other} (${l.weight})`)
+    else if (l.type === 'shared_members') add(`Shares ${t.member === 'member' ? 'members' : 'beneficiaries'} with`, `${other} (${l.weight})`)
+    else if (l.type === 'agent') add('Same agents as', `${other} (${l.weight} admissions)`)
+  }
+  const list = (xs) => (xs.length < 2 ? xs[0] : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`)
+  return [...groups].map(([k, v]) => `${k} ${list(v)}.`)
 }
 
 // Hero version: only the ring itself. Members sit on a circle in referral order, so the

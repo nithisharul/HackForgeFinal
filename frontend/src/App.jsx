@@ -1,4 +1,4 @@
-import { Component, useEffect, useState } from 'react'
+import { Component, Suspense, lazy, useEffect, useState } from 'react'
 import Landing from './pages/Landing.jsx'
 import Queue from './pages/Queue.jsx'
 import CaseDetail from './pages/CaseDetail.jsx'
@@ -7,8 +7,12 @@ import Admin from './pages/Admin.jsx'
 import { getRegion, setRegion, terms } from './region.js'
 import { AccountChip } from './components/SignIn.jsx'
 import Palette, { MOD } from './components/Palette.jsx'
-import { Icon, Logo, RegionSwitch, Toaster } from './components/bits.jsx'
+import Tour from './components/Tour.jsx'
+import { Icon, Loading, Logo, RegionSwitch, Toaster } from './components/bits.jsx'
 import { api } from './api/client.js'
+
+// Reference reading, loaded on first visit so it is not part of the app's first download.
+const Docs = lazy(() => import('./pages/Docs.jsx'))
 function useHash() {
   const [hash, setHash] = useState(window.location.hash || '#/')
   useEffect(() => {
@@ -42,16 +46,17 @@ export default function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    const page = section === 'case' && arg ? arg : section === 'brain' ? 'Second Brain' : section === 'queue' ? 'Case queue' : section === 'security' ? 'Security and access' : null
+    const page = section === 'case' && arg ? arg : section === 'brain' ? 'Second Brain' : section === 'queue' ? 'Case queue' : section === 'security' ? 'Security and access' : section === 'docs' ? 'Documentation' : null
     document.title = page ? `${page} – ClaimShield Nexus` : 'ClaimShield Nexus – fraud leads, ranked and explained'
   }, [section, arg])
 
-  if (!section) return <><Landing key={region} region={region} onSwitch={switchRegion} /><Toaster /><Palette /></>
+  if (!section) return <><Landing key={region} region={region} onSwitch={switchRegion} /><Toaster /><Palette /><Tour /></>
 
   let page
   if (section === 'case' && arg) page = <CaseDetail caseId={arg} horizon={horizon} />
   else if (section === 'brain') page = <Wiki name={arg || 'index'} />
   else if (section === 'security') page = <Admin />
+  else if (section === 'docs') page = <Suspense fallback={<Loading what="the documentation" />}><Docs anchor={hash.split('?')[1]} /></Suspense>
   else page = <Queue horizon={horizon} setHorizon={setHorizon} investigators={investigators} setInvestigators={setInvestigators} />
   const t = terms()
 
@@ -59,7 +64,7 @@ export default function App() {
     <div className="app">
       <a className="skip" href="#main" onClick={(e) => { e.preventDefault(); document.getElementById('main').focus() }}>Skip to content</a>
       <aside className="sidebar">
-        <a className="brand" href="#/"><Logo /><span><strong>ClaimShield</strong><small>{region === 'in' ? 'PM-JAY anti-fraud' : 'SIU workspace'}</small></span></a>
+        <a className="brand" href="#/" aria-label="ClaimShield Nexus home"><Logo /><span><strong>ClaimShield</strong><small>{region === 'in' ? 'PM-JAY anti-fraud' : 'SIU workspace'}</small></span></a>
         <button type="button" className="goto" onClick={() => window.dispatchEvent(new Event('csn-palette'))} aria-keyshortcuts="Control+K Meta+K">
           <Icon name="search" /><span>Search</span><kbd>{MOD} K</kbd>
         </button>
@@ -67,6 +72,7 @@ export default function App() {
           <a className={section === 'queue' || section === 'case' ? 'on' : ''} aria-current={section === 'queue' ? 'page' : undefined} href="#/queue"><Icon name="queue" />Case queue</a>
           <a className={section === 'brain' ? 'on' : ''} aria-current={section === 'brain' ? 'page' : undefined} href="#/brain/index"><Icon name="brain" />Second Brain</a>
           <a className={section === 'security' ? 'on' : ''} aria-current={section === 'security' ? 'page' : undefined} href="#/security"><Icon name="shield" />Security and access</a>
+          <a className={section === 'docs' ? 'on' : ''} aria-current={section === 'docs' ? 'page' : undefined} href="#/docs"><Icon name="docs" />Documentation</a>
           <a href="#/"><Icon name="home" />About ClaimShield</a>
         </nav>
         <div className="side-foot">
@@ -86,6 +92,7 @@ export default function App() {
       </main>
       <Toaster />
       <Palette />
+      <Tour />
     </div>
   )
 }

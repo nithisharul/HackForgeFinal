@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 from backend.brain import llm, wiki
 from backend.region import Code, use
 
+from backend.integrations import notify
 from backend.security import log_integrity, prompt_scanner, security_events
 
 from .. import auth, store
@@ -122,4 +123,7 @@ def add_source(s: Source, region: Code = "us", who: str = Depends(auth.require_l
                                    "ALLOWED BY APPROVER", actor=who)
         log_integrity.record_change(who, "new_pattern" if result.get("new_pattern_id") else "source_document", result["source_id"],
                                     result["changes"], extra=[f"sources/documents/{result['source_id']}.md"], detail=s.title.strip())
+        new = result.get("new_pattern_id")
+        notify.emit("pattern.approved" if new else "source.approved",
+                    {"id": new or result["source_id"], "title": s.title.strip()[:120], "actor": who}, region)
         return result | {"security": report}

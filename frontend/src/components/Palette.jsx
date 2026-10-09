@@ -47,6 +47,7 @@ export default function Palette() {
     { key: 'brain', label: 'Second Brain', icon: 'brain', run: () => go('#/brain/index') },
     { key: 'ask', label: 'Ask the Second Brain a question', icon: 'search', run: askBrain },
     { key: 'security', label: 'Security and access', icon: 'shield', run: () => go('#/security') },
+    { key: 'docs', label: 'Documentation', icon: 'docs', run: () => go('#/docs') },
     { key: 'about', label: 'About ClaimShield', icon: 'home', run: () => go('#/') },
     { key: 'keys', label: 'Keyboard shortcuts', icon: 'command', run: () => help.current?.showModal() },
   ].filter((p) => has(p.label))
@@ -101,7 +102,8 @@ export default function Palette() {
           <button type="button" className="modal-x" aria-label="Close" onClick={() => help.current.close()}>×</button>
           <dl className="keys">
             {[[`${MOD} K`, 'Go to a case or page'], ['/', 'Search the case queue'], ['J  K', 'Next and previous case in the queue'],
-              ['Enter', 'Open the selected case'], ['?', 'Show this list'], ['Esc', 'Close a dialog']].map(([k, v]) => (
+              ['Enter', 'Open the selected case'], ['P', 'Present the front page'], ['F', 'Full screen while presenting'],
+              ['?', 'Show this list'], ['Esc', 'Close a dialog or leave the presentation']].map(([k, v]) => (
               <div key={k}><dt>{k.split('  ').map((x) => <kbd key={x}>{x}</kbd>)}</dt><dd>{v}</dd></div>
             ))}
           </dl>

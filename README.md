@@ -81,6 +81,29 @@ LLM_MODEL=gemma3:4b
 
 Any OpenAI-compatible endpoint works. Without an LLM everything still runs, from templates and keyword lookup.
 
+## Present it
+
+The front page is also the presentation. Select Present (or press P): every section becomes a full-screen slide.
+Arrow keys, Page Up/Down and Space move; F toggles full screen; Esc leaves. A rail on the right lists the slides,
+with a counter and the elapsed time. The "Now the real app" slide starts a guided walkthrough of the live queue
+and case, dimming everything but the part being explained; it returns to the slides when it ends. The app is
+fully usable throughout. Some slides build: the arrow first steps through them (the funnel stage by stage, the
+pipeline, and the architecture map's 8 scenes, where any part can be selected for what it does, what happens if
+it fails and what protects it). N shows presenter notes and a pace clock for a 6-minute slot. Export saves the
+slides as a PDF (one 16:9 page per slide, through the browser's Save as PDF) or as one HTML file that opens offline,
+a backup for the day. Let the LLM warm-up finish before rehearsing (see Connect a free LLM).
+
+## Integrations and operations
+
+| | |
+|---|---|
+| Slack, Microsoft Teams, signed webhooks | Verdicts, withdrawn precedents, approved sources and patterns, and HIGH or CRITICAL security events, sent as they happen. IDs and links only. Settings in `.env.example` |
+| Exports | `GET /api/cases/{id}/fhir` (FHIR ExplanationOfBenefit) and `GET /api/queue/export` (the ranked queue as CSV) |
+| Probes | `GET /api/health/live`, `GET /api/health/ready` (both regions load and the database opens) |
+| Logs and headers | One JSON line per request with an `X-Request-ID`; security headers; `no-store` on API responses; `CORS_ORIGINS` allowlist |
+
+The Documentation page in the app (`#/docs`) covers all of this, with an API reference read live from the server.
+
 ## Detection
 
 | Method | Looks at | Catches |
